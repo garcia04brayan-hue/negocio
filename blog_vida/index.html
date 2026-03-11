@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vida Sana – Farmacia Yair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --verde: #1a6b4a; --verde-claro: #2d9b6e; --verde-menta: #d4f0e3;
+      --crema: #faf7f2; --blanco: #ffffff; --gris-suave: #f4f4f0;
+      --texto: #1c1c1c; --texto-suave: #5a5a5a;
+      --acento: #e8a040; --acento-claro: #fdf0da;
+      --lima: #6abf4b; --lima-claro: #edfae5;
+      --naranja: #e86a2a; --naranja-claro: #fef0e8;
+      --sombra: 0 8px 32px rgba(26,107,74,0.10);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--crema); color:var(--texto); overflow-x:hidden; }
+
+    /* NAV */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      background:rgba(255,255,255,0.93); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(26,107,74,0.08);
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 5%; height:68px;
+    }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--verde); display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .nav-logo span { color:var(--acento); }
+    .nav-logo .cruz { width:30px; height:30px; background:var(--verde); border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:1rem; color:white; }
+    .nav-links { display:flex; gap:28px; list-style:none; }
+    .nav-links a { text-decoration:none; color:var(--texto-suave); font-size:0.88rem; font-weight:500; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--verde); }
+    .nav-cta { background:var(--lima); color:white; border:none; border-radius:24px; padding:9px 22px; font-size:0.85rem; font-weight:600; cursor:pointer; transition:background 0.2s; }
+    .nav-cta:hover { background:#52a038; }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding:88px 5% 0; }
+    .breadcrumb-inner { display:flex; align-items:center; gap:8px; font-size:0.8rem; color:var(--texto-suave); }
+    .breadcrumb-inner a { color:var(--verde); text-decoration:none; }
+
+    /* HERO */
+    .vs-hero {
+      padding:36px 5% 56px;
+      display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
+    }
+    .section-label { font-size:0.75rem; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--lima); margin-bottom:10px; }
+    .vs-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,3.5vw,2.8rem); font-weight:700; line-height:1.2; margin-bottom:16px; }
+    .vs-hero h1 em { color:var(--lima); font-style:normal; }
+    .vs-hero > div > p { font-size:1rem; color:var(--texto-suave); line-height:1.7; margin-bottom:28px; }
+
+    /* STAT CHIPS */
+    .stat-chips { display:flex; flex-wrap:wrap; gap:12px; }
+    .stat-chip { background:white; border-radius:16px; padding:12px 18px; box-shadow:0 2px 10px rgba(0,0,0,0.06); text-align:center; }
+    .stat-chip strong { display:block; font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--lima); }
+    .stat-chip span { font-size:0.75rem; color:var(--texto-suave); }
+
+    .vs-hero-visual {
+      display:grid; grid-template-columns:1fr 1fr; gap:12px;
+    }
+    .vis-card { border-radius:20px; padding:28px 20px; text-align:center; }
+    .vis-card .ic { font-size:2.4rem; margin-bottom:10px; }
+    .vis-card h4 { font-size:0.9rem; font-weight:700; margin-bottom:4px; }
+    .vis-card p { font-size:0.76rem; color:var(--texto-suave); line-height:1.4; }
+    .vc1{background:linear-gradient(135deg,var(--lima-claro),#d8f5cc);}
+    .vc2{background:linear-gradient(135deg,var(--acento-claro),#fce8c0);}
+    .vc3{background:linear-gradient(135deg,var(--naranja-claro),#fddcc8);}
+    .vc4{background:linear-gradient(135deg,#e8f0fe,#d8e8fd);}
+
+    /* PILARES */
+    .pilares { padding:0 5% 56px; background:var(--blanco); }
+    .pilares-inner { padding:48px 0 0; }
+    .pilares h2 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; margin-bottom:28px; }
+    .pilar-tabs { display:flex; gap:8px; margin-bottom:36px; flex-wrap:wrap; }
+    .pilar-tab {
+      padding:9px 20px; border-radius:22px; border:1.5px solid rgba(106,191,75,0.2);
+      background:white; font-size:0.82rem; font-weight:600; cursor:pointer;
+      transition:all 0.2s; color:var(--texto-suave);
+    }
+    .pilar-tab.active, .pilar-tab:hover { background:var(--lima); color:white; border-color:var(--lima); }
+
+    /* ARTÍCULO DESTACADO */
+    .art-dest {
+      background:linear-gradient(120deg, var(--verde) 0%, #1a5c3a 100%);
+      border-radius:28px; padding:44px 40px;
+      display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center;
+      margin-bottom:40px; position:relative; overflow:hidden;
+    }
+    .art-dest::before { content:''; position:absolute; top:-60px; right:80px; width:280px; height:280px; background:rgba(255,255,255,0.05); border-radius:50%; }
+    .art-dest-emoji { font-size:6rem; position:relative; z-index:1; }
+    .art-dest-text { position:relative; z-index:1; }
+    .art-tag-lima { display:inline-block; background:rgba(106,191,75,0.25); color:#b8f0a0; border-radius:12px; padding:4px 12px; font-size:0.72rem; font-weight:600; margin-bottom:12px; }
+    .art-dest h2 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:white; margin-bottom:12px; line-height:1.3; }
+    .art-dest p { font-size:0.9rem; color:rgba(255,255,255,0.78); line-height:1.6; margin-bottom:20px; }
+    .art-dest-meta { display:flex; gap:16px; font-size:0.78rem; color:rgba(255,255,255,0.6); margin-bottom:20px; }
+    .leer-mas-lima { display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:white; border:none; border-radius:22px; padding:11px 24px; font-size:0.88rem; font-weight:600; cursor:pointer; text-decoration:none; transition:all 0.2s; }
+    .leer-mas-lima:hover { background:#52a038; }
+
+    /* GRID */
+    .art-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+    .art-card { background:white; border-radius:20px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.06); transition:transform 0.25s,box-shadow 0.25s; cursor:pointer; }
+    .art-card:hover { transform:translateY(-5px); box-shadow:var(--sombra); }
+    .art-card-img { height:150px; display:flex; align-items:center; justify-content:center; font-size:3.2rem; }
+    .g1{background:linear-gradient(135deg,var(--lima-claro),#d8f5cc);}
+    .g2{background:linear-gradient(135deg,var(--acento-claro),#fce8c0);}
+    .g3{background:linear-gradient(135deg,var(--naranja-claro),#fddcc8);}
+    .g4{background:linear-gradient(135deg,#e8f0fe,#d8e8fd);}
+    .g5{background:linear-gradient(135deg,#fde8ee,#fcd5e0);}
+    .g6{background:linear-gradient(135deg,#e8f5f0,#d4ede3);}
+    .art-body { padding:18px; }
+    .art-tag-lima2 { display:inline-block; background:var(--lima-claro); color:var(--lima); border-radius:12px; padding:3px 11px; font-size:0.7rem; font-weight:600; margin-bottom:8px; }
+    .art-tag-naranja { display:inline-block; background:var(--naranja-claro); color:var(--naranja); border-radius:12px; padding:3px 11px; font-size:0.7rem; font-weight:600; margin-bottom:8px; }
+    .art-tag-acento { display:inline-block; background:var(--acento-claro); color:#a06020; border-radius:12px; padding:3px 11px; font-size:0.7rem; font-weight:600; margin-bottom:8px; }
+    .art-body h3 { font-family:'Playfair Display',serif; font-size:0.98rem; font-weight:700; line-height:1.35; margin-bottom:6px; }
+    .art-body p { font-size:0.8rem; color:var(--texto-suave); line-height:1.5; margin-bottom:12px; }
+    .art-footer { display:flex; justify-content:space-between; align-items:center; }
+    .art-footer .fecha { font-size:0.73rem; color:var(--texto-suave); }
+    .art-footer a { font-size:0.78rem; color:var(--lima); font-weight:600; text-decoration:none; }
+
+    /* RUTINA */
+    .rutina-section { background:var(--gris-suave); padding:56px 5%; }
+    .rutina-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; margin-bottom:8px; }
+    .rutina-section > p { color:var(--texto-suave); margin-bottom:36px; }
+    .rutina-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; }
+    .rutina-card { background:white; border-radius:18px; padding:24px 18px; position:relative; }
+    .rutina-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:rgba(106,191,75,0.2); margin-bottom:8px; }
+    .rutina-card h4 { font-size:0.9rem; font-weight:700; margin-bottom:6px; }
+    .rutina-card p { font-size:0.78rem; color:var(--texto-suave); line-height:1.5; }
+    .rutina-icon { font-size:1.6rem; margin-bottom:8px; }
+
+    /* CALCULADORA IMC */
+    .imc-section { background:var(--blanco); padding:56px 5%; }
+    .imc-inner { max-width:500px; }
+    .imc-section h2 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; margin-bottom:8px; }
+    .imc-section > .imc-inner > p { color:var(--texto-suave); margin-bottom:28px; }
+    .imc-form { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+    .imc-field label { display:block; font-size:0.8rem; font-weight:600; margin-bottom:6px; color:var(--texto-suave); }
+    .imc-field input {
+      width:100%; border:1.5px solid rgba(0,0,0,0.1); border-radius:12px;
+      padding:10px 14px; font-size:0.9rem; font-family:'DM Sans',sans-serif;
+      outline:none; transition:border-color 0.2s;
+    }
+    .imc-field input:focus { border-color:var(--lima); }
+    .imc-btn { background:var(--lima); color:white; border:none; border-radius:22px; padding:12px 28px; font-size:0.9rem; font-weight:700; cursor:pointer; transition:background 0.2s; }
+    .imc-btn:hover { background:#52a038; }
+    .imc-result { margin-top:20px; background:var(--lima-claro); border-radius:16px; padding:20px 24px; display:none; }
+    .imc-result h3 { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:4px; }
+    .imc-result p { font-size:0.85rem; color:var(--texto-suave); }
+
+    /* OTROS BLOGS */
+    .otros-blogs { background:var(--crema); padding:56px 5%; }
+    .otros-blogs h2 { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; margin-bottom:24px; }
+    .blogs-row { display:flex; gap:20px; flex-wrap:wrap; }
+    .blog-link-card { flex:1; min-width:240px; border-radius:20px; padding:28px 24px; text-decoration:none; color:var(--texto); transition:transform 0.25s,box-shadow 0.25s; display:flex; align-items:center; gap:16px; }
+    .blog-link-card:hover { transform:translateY(-4px); box-shadow:var(--sombra); }
+    .bl-salud { background:linear-gradient(135deg,#e8f5f0,#d4ede3); }
+    .bl-mama { background:linear-gradient(135deg,#fde8ee,#fcd5e0); }
+    .bl-icon { font-size:2.4rem; }
+    .bl-text h4 { font-size:0.95rem; font-weight:700; margin-bottom:4px; }
+    .bl-text p { font-size:0.78rem; color:var(--texto-suave); }
+
+    /* FOOTER */
+    footer { background:var(--texto); color:rgba(255,255,255,0.6); padding:36px 5% 24px; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1.1rem; color:white; }
+    .footer-links { display:flex; gap:24px; list-style:none; }
+    .footer-links a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:0.82rem; transition:color 0.2s; }
+    .footer-links a:hover { color:var(--verde-menta); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,0.08); margin-top:24px; padding-top:16px; font-size:0.78rem; text-align:center; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    .vs-hero > div:first-child { animation:fadeUp 0.7s ease both; }
+
+    @media(max-width:860px){
+      .vs-hero { grid-template-columns:1fr; }
+      .art-dest { grid-template-columns:1fr; }
+      .art-dest-emoji { display:none; }
+      .imc-form { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../../farmacia.html">
+    <div class="cruz">✚</div>Farmacia <span>&nbsp;Vida Plena</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../../farmacia.html#categorias">Productos</a></li>
+    <li><a href="../../farmacia.html#servicios">Servicios</a></li>
+    <li><a href="../index.html">Blog Salud</a></li>
+    <li><a href="../consejos-mama/index.html">Consejos Mamá</a></li>
+    <li><a href="#" class="active">Vida Sana</a></li>
+  </ul>
+  <button class="nav-cta">🥗 Ver suplementos</button>
+</nav>
+
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../../farmacia.html">Inicio</a> ›
+    <a href="../index.html">Blog</a> ›
+    <span>Vida Sana</span>
+  </div>
+</div>
+
+<div class="vs-hero">
+  <div>
+    <div class="section-label">Blog · Hábitos saludables</div>
+    <h1>Vive mejor cada día con <em>hábitos que sí funcionan</em></h1>
+    <p>Nutrición, ejercicio, descanso y bienestar mental. Contenido práctico y basado en evidencia para ayudarte a construir una vida más saludable, paso a paso.</p>
+    <div class="stat-chips">
+      <div class="stat-chip"><strong>+80</strong><span>Artículos</span></div>
+      <div class="stat-chip"><strong>4</strong><span>Pilares</span></div>
+      <div class="stat-chip"><strong>🔬</strong><span>Basado en evidencia</span></div>
+    </div>
+  </div>
+  <div class="vs-hero-visual">
+    <div class="vis-card vc1"><div class="ic">🥗</div><h4>Nutrición</h4><p>Guías de alimentación balanceada y planes detox.</p></div>
+    <div class="vis-card vc2"><div class="ic">🏃</div><h4>Ejercicio</h4><p>Rutinas para todos los niveles y objetivos.</p></div>
+    <div class="vis-card vc3"><div class="ic">😴</div><h4>Descanso</h4><p>Sueño reparador y manejo del estrés.</p></div>
+    <div class="vis-card vc4"><div class="ic">🧘</div><h4>Bienestar</h4><p>Salud mental, mindfulness y equilibrio.</p></div>
+  </div>
+</div>
+
+<div class="pilares">
+  <div class="pilares-inner">
+    <h2>Artículos por pilar de salud</h2>
+    <div class="pilar-tabs">
+      <button class="pilar-tab active">🌿 Todos</button>
+      <button class="pilar-tab">🥗 Nutrición</button>
+      <button class="pilar-tab">🏃 Ejercicio</button>
+      <button class="pilar-tab">😴 Descanso</button>
+      <button class="pilar-tab">🧘 Bienestar mental</button>
+      <button class="pilar-tab">💊 Suplementos</button>
+    </div>
+
+    <div class="art-dest">
+      <div class="art-dest-text">
+        <span class="art-tag-lima">Nutrición · Destacado</span>
+        <h2>La guía definitiva de alimentación antiinflamatoria</h2>
+        <p>La inflamación crónica está detrás de enfermedades cardiovasculares, diabetes y problemas articulares. Descubre qué alimentos reducen la inflamación, cuáles la disparan y cómo armar un plan de 7 días fácil de seguir.</p>
+        <div class="art-dest-meta">
+          <span>✍️ <strong>Lic. Andrea Castro</strong>, Nutrióloga</span>
+          <span>📅 2 jun 2025</span>
+          <span>⏱️ 10 min de lectura</span>
+        </div>
+        <a class="leer-mas-lima" href="#">Leer artículo completo →</a>
+      </div>
+      <div class="art-dest-emoji">🥑</div>
+    </div>
+
+    <div class="art-grid">
+      <div class="art-card">
+        <div class="art-card-img g1">🏃</div>
+        <div class="art-body">
+          <span class="art-tag-lima2">Ejercicio</span>
+          <h3>30 minutos al día: la rutina mínima efectiva para principiantes</h3>
+          <p>Sin equipamiento, sin excusas. Esta rutina de media hora activa tu metabolismo y es sostenible a largo plazo.</p>
+          <div class="art-footer"><span class="fecha">📅 28 may 2025</span><a href="#">Leer →</a></div>
+        </div>
+      </div>
+      <div class="art-card">
+        <div class="art-card-img g2">😴</div>
+        <div class="art-body">
+          <span class="art-tag-acento">Descanso</span>
+          <h3>Por qué dormir 7 horas cambia absolutamente todo</h3>
+          <p>El sueño regula el cortisol, la insulina y el apetito. Aprende por qué es el hábito más subestimado de la salud.</p>
+          <div class="art-footer"><span class="fecha">📅 22 may 2025</span><a href="#">Leer →</a></div>
+        </div>
+      </div>
+      <div class="art-card">
+        <div class="art-card-img g3">💊</div>
+        <div class="art-body">
+          <span class="art-tag-naranja">Suplementos</span>
+          <h3>¿Realmente necesitas vitaminas? Lo que dice la ciencia</h3>
+          <p>Vitamina D, magnesio, omega-3 y B12. Cuándo suplementar tiene sentido y cuándo es solo marketing.</p>
+          <div class="art-footer"><span class="fecha">📅 18 may 2025</span><a href="#">Leer →</a></div>
+        </div>
+      </div>
+      <div class="art-card">
+        <div class="art-card-img g4">🧘</div>
+        <div class="art-body">
+          <span class="art-tag-lima2">Bienestar mental</span>
+          <h3>Cómo el estrés crónico afecta tu cuerpo (y qué hacer)</h3>
+          <p>Desde gastritis hasta caída del cabello: los efectos físicos del estrés son reales. Técnicas probadas para gestionarlo.</p>
+          <div class="art-footer"><span class="fecha">📅 14 may 2025</span><a href="#">Leer →</a></div>
+        </div>
+      </div>
+      <div class="art-card">
+        <div class="art-card-img g5">🥤</div>
+        <div class="art-body">
+          <span class="art-tag-acento">Nutrición</span>
+          <h3>Hidratación: cuánta agua necesitas realmente según tu peso y actividad</h3>
+          <p>La regla de los 8 vasos ya quedó obsoleta. Te explicamos el cálculo correcto y señales de deshidratación.</p>
+          <div class="art-footer"><span class="fecha">📅 9 may 2025</span><a href="#">Leer →</a></div>
+        </div>
+      </div>
+      <div class="art-card">
+        <div class="art-card-img g6">❤️</div>
+        <div class="art-body">
+          <span class="art-tag-lima2">Ejercicio</span>
+          <h3>Cardio vs. fuerza: qué es mejor para perder grasa y ganar salud</h3>
+          <p>El debate definitivo resuelto. La respuesta te va a sorprender, y depende más de tu objetivo que de cualquier regla fija.</p>
+          <div class="art-footer"><span class="fecha">📅 3 may 2025</span><a href="#">Leer →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="rutina-section">
+  <h2>🌅 Tu rutina de bienestar diaria</h2>
+  <p>5 hábitos pequeños con impacto enorme en tu salud</p>
+  <div class="rutina-grid">
+    <div class="rutina-card">
+      <div class="rutina-icon">💧</div>
+      <div class="rutina-num">01</div>
+      <h4>Hidratación al despertar</h4>
+      <p>Toma un vaso de agua antes de cualquier cosa. Reactiva tu metabolismo y mejora la concentración.</p>
+    </div>
+    <div class="rutina-card">
+      <div class="rutina-icon">🚶</div>
+      <div class="rutina-num">02</div>
+      <h4>10 minutos de movimiento</h4>
+      <p>Caminata, estiramientos o yoga suave. El movimiento matutino reduce el cortisol y activa tu energía.</p>
+    </div>
+    <div class="rutina-card">
+      <div class="rutina-icon">🥦</div>
+      <div class="rutina-num">03</div>
+      <h4>Plato con verdura</h4>
+      <p>Incluye al menos una porción de verdura en cada comida. Simple, poderoso y sostenible.</p>
+    </div>
+    <div class="rutina-card">
+      <div class="rutina-icon">📵</div>
+      <div class="rutina-num">04</div>
+      <h4>Sin pantallas 1h antes de dormir</h4>
+      <p>La luz azul inhibe la melatonina. Sustitúyela por lectura o música relajante.</p>
+    </div>
+    <div class="rutina-card">
+      <div class="rutina-icon">🙏</div>
+      <div class="rutina-num">05</div>
+      <h4>3 cosas de gratitud</h4>
+      <p>Escribir 3 cosas positivas al final del día mejora el sueño y reduce la ansiedad según múltiples estudios.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULADORA IMC -->
+<div class="imc-section">
+  <div class="imc-inner">
+    <h2>🧮 Calculadora de IMC</h2>
+    <p>Conoce tu Índice de Masa Corporal y recibe una orientación básica sobre tu peso ideal.</p>
+    <div class="imc-form">
+      <div class="imc-field">
+        <label>Peso (kg)</label>
+        <input type="number" id="peso" placeholder="ej. 70" min="20" max="300"/>
+      </div>
+      <div class="imc-field">
+        <label>Estatura (cm)</label>
+        <input type="number" id="estatura" placeholder="ej. 170" min="100" max="250"/>
+      </div>
+    </div>
+    <button class="imc-btn" onclick="calcularIMC()">Calcular mi IMC</button>
+    <div class="imc-result" id="imc-result">
+      <h3 id="imc-valor"></h3>
+      <p id="imc-categoria"></p>
+    </div>
+    <p style="font-size:0.75rem;color:var(--texto-suave);margin-top:14px;">⚠️ El IMC es un indicador general. Consulta a un médico o nutriólogo para una evaluación personalizada.</p>
+  </div>
+</div>
+
+<div class="otros-blogs">
+  <h2>Descubre nuestros otros blogs</h2>
+  <div class="blogs-row">
+    <a href="../index.html" class="blog-link-card bl-salud">
+      <div class="bl-icon">🩺</div>
+      <div class="bl-text"><h4>Blog de Salud</h4><p>Medicamentos, enfermedades crónicas, prevención y más.</p></div>
+    </a>
+    <a href="../consejos-mama/index.html" class="blog-link-card bl-mama">
+      <div class="bl-icon">👩‍👧</div>
+      <div class="bl-text"><h4>Consejos para Mamá</h4><p>Lactancia, desarrollo del bebé, vacunas y primeros auxilios.</p></div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">✚ Farmacia Yair</div>
+    <ul class="footer-links">
+      <li><a href="../../farmacia.html">Inicio</a></li>
+      <li><a href="../index.html">Blog Salud</a></li>
+      <li><a href="../consejos-mama/index.html">Consejos Mamá</a></li>
+      <li><a href="#">Vida Sana</a></li>
+      <li><a href="../../farmacia.html#info">Contacto</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">© 2025 Farmacia Yair · Establecimiento regulado por COFEPRIS</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.pilar-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pilar-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  function calcularIMC() {
+    const peso = parseFloat(document.getElementById('peso').value);
+    const estatura = parseFloat(document.getElementById('estatura').value) / 100;
+    if (!peso || !estatura || estatura <= 0) return;
+    const imc = (peso / (estatura * estatura)).toFixed(1);
+    let cat = '', color = '';
+    if (imc < 18.5) { cat = '⚠️ Bajo peso — considera hablar con un nutriólogo.'; color='#3060c0'; }
+    else if (imc < 25) { cat = '✅ Peso normal — ¡sigue así con tus hábitos saludables!'; color='var(--lima)'; }
+    else if (imc < 30) { cat = '🟡 Sobrepeso — pequeños cambios en nutrición y ejercicio pueden ayudar mucho.'; color='var(--acento)'; }
+    else { cat = '🔴 Obesidad — te recomendamos consultar a un médico o nutriólogo.'; color='var(--naranja)'; }
+    const res = document.getElementById('imc-result');
+    document.getElementById('imc-valor').textContent = 'Tu IMC: ' + imc;
+    document.getElementById('imc-valor').style.color = color;
+    document.getElementById('imc-categoria').textContent = cat;
+    res.style.display = 'block';
+  }
+</script>
+</body>
+</html>
