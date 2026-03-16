@@ -3,711 +3,942 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Farmacia Yair</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <title>Farmacias Yair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;
+  900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet"/>
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --verde: #1a6b4a;
-      --verde-claro: #2d9b6e;
-      --verde-menta: #d4f0e3;
-      --crema: #faf7f2;
-      --blanco: #ffffff;
-      --gris-suave: #f4f4f0;
-      --texto: #1c1c1c;
-      --texto-suave: #5a5a5a;
-      --acento: #e8a040;
-      --acento-claro: #fdf0da;
-      --rosa-bebe: #fde8ee;
-      --azul-higiene: #e8f0fe;
-      --sombra: 0 8px 32px rgba(26,107,74,0.10);
-      --sombra-lg: 0 16px 48px rgba(26,107,74,0.15);
+      --blue-dark: #003087;
+      --blue-mid: #0057b8;
+      --blue-light: #1a73e8;
+      --green: #4caf50;
+      --green-dark: #388e3c;
+      --yellow: #ffd600;
+      --orange: #ff6f00;
+      --red: #e53935;
+      --white: #ffffff;
+      --gray-light: #f4f6fb;
+      --gray: #e0e4ef;
+      --text-dark: #1a2340;
+      --text-mid: #3a4a6b;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--crema);
-      color: var(--texto);
-      overflow-x: hidden;
-    }
-
-    /* ─── NAVBAR ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(26,107,74,0.08);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%; height: 68px;
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; font-weight: 700;
-      color: var(--verde);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .nav-logo span { color: var(--acento); }
-    .nav-logo .cruz {
-      width: 32px; height: 32px;
-      background: var(--verde);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; color: white;
-    }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--texto-suave);
-      font-size: 0.9rem; font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--verde); }
-    .nav-cta {
-      background: var(--verde);
-      color: white;
-      border: none; border-radius: 24px;
-      padding: 10px 24px;
-      font-size: 0.88rem; font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .nav-cta:hover { background: var(--verde-claro); transform: translateY(-1px); }
-
-    /* ─── HERO ─── */
-    .hero {
+      font-family: 'Nunito', sans-serif;
+      background: var(--gray-light);
+      color: var(--text-dark);
       min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 100px 5% 60px;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #f0faf4 0%, var(--crema) 60%);
     }
-    .hero::before {
-      content: '';
-      position: absolute; top: -100px; right: -100px;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(45,155,110,0.12) 0%, transparent 70%);
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--blue-dark);
+      color: var(--white);
+      font-size: 0.78rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 24px;
+      padding: 6px 32px;
+      letter-spacing: 0.03em;
+    }
+    .top-bar a { color: #a8c8ff; text-decoration: none; }
+    .top-bar a:hover { color: var(--white); }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--blue-dark);
+      padding: 14px 32px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.22);
+    }
+
+    .header-main {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 14px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-icon {
+      width: 54px;
+      height: 54px;
+      background: linear-gradient(135deg, #4caf50 40%, #00bcd4 100%);
       border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 16px rgba(76,175,80,0.4);
+      animation: pulse-logo 3s ease-in-out infinite;
     }
-    .hero::after {
-      content: '';
-      position: absolute; bottom: -80px; left: -80px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(232,160,64,0.10) 0%, transparent 70%);
-      border-radius: 50%;
+    @keyframes pulse-logo {
+      0%,100% { box-shadow: 0 4px 16px rgba(76,175,80,0.4); }
+      50% { box-shadow: 0 6px 28px rgba(76,175,80,0.7); }
     }
-    .hero-content { max-width: 560px; position: relative; z-index: 1; animation: fadeUp 0.8s ease both; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--verde-menta);
-      color: var(--verde);
-      border-radius: 20px; padding: 6px 16px;
-      font-size: 0.8rem; font-weight: 600;
-      margin-bottom: 24px;
-      letter-spacing: 0.5px;
+    .logo-text {
+      display: flex;
+      flex-direction: column;
     }
-    .hero-badge::before { content: '●'; font-size: 0.5rem; animation: blink 1.4s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    .logo-text .brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.85rem;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .logo-text .brand span { color: var(--green); }
+    .logo-text .tagline {
+      font-size: 0.68rem;
+      color: #a8c8ff;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       font-weight: 700;
-      line-height: 1.15;
-      color: var(--texto);
-      margin-bottom: 20px;
     }
-    h1 em { color: var(--verde); font-style: normal; }
-    .hero p {
-      font-size: 1.05rem; color: var(--texto-suave);
-      line-height: 1.7; margin-bottom: 36px; font-weight: 300;
-    }
-    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-prim {
-      background: var(--verde);
-      color: white; border: none; border-radius: 28px;
-      padding: 14px 32px; font-size: 0.95rem; font-weight: 600;
-      cursor: pointer; transition: all 0.25s;
-      box-shadow: 0 4px 16px rgba(26,107,74,0.3);
-    }
-    .btn-prim:hover { background: var(--verde-claro); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,107,74,0.35); }
-    .btn-sec {
-      background: transparent;
-      color: var(--verde); border: 2px solid var(--verde);
-      border-radius: 28px; padding: 12px 28px;
-      font-size: 0.95rem; font-weight: 600;
-      cursor: pointer; transition: all 0.25s;
-    }
-    .btn-sec:hover { background: var(--verde-menta); }
 
-    .hero-visual {
-      flex: 1; display: flex; justify-content: center; align-items: center;
-      padding-left: 60px; position: relative; z-index: 1;
-      animation: fadeUp 0.8s 0.2s ease both;
+    /* Partner pills */
+    .partners {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex: 1;
+      justify-content: center;
     }
-    .hero-card-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-      max-width: 460px;
-    }
-    .hero-card {
-      background: white;
+    .partner-pill {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--white);
       border-radius: 20px;
-      padding: 24px 20px;
-      box-shadow: var(--sombra);
-      transition: transform 0.3s;
-      cursor: default;
-    }
-    .hero-card:hover { transform: translateY(-4px); }
-    .hero-card .icon {
-      font-size: 2rem; margin-bottom: 10px;
-    }
-    .hero-card h3 {
-      font-size: 0.92rem; font-weight: 600; margin-bottom: 4px;
-      color: var(--texto);
-    }
-    .hero-card p { font-size: 0.78rem; color: var(--texto-suave); line-height: 1.4; }
-    .hero-card.grande {
-      grid-column: span 2;
-      display: flex; align-items: center; gap: 20px;
-      background: linear-gradient(120deg, var(--verde) 0%, var(--verde-claro) 100%);
-      color: white;
-    }
-    .hero-card.grande p, .hero-card.grande h3 { color: rgba(255,255,255,0.9); }
-    .hero-card.grande h3 { font-size: 1rem; color: white; }
-
-    /* ─── STATS ─── */
-    .stats {
-      background: var(--verde);
-      padding: 48px 5%;
-      display: flex; justify-content: space-around; flex-wrap: wrap; gap: 24px;
-    }
-    .stat { text-align: center; color: white; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.6rem; font-weight: 700;
-      color: var(--acento);
-    }
-    .stat p { font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-top: 4px; }
-
-    /* ─── SECCIONES GENERALES ─── */
-    section { padding: 80px 5%; }
-    .section-label {
-      font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--verde-claro); margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 700; line-height: 1.2;
-      color: var(--texto); margin-bottom: 16px;
-    }
-    .section-sub {
-      font-size: 1rem; color: var(--texto-suave);
-      max-width: 520px; line-height: 1.7;
-    }
-    .section-header { margin-bottom: 48px; }
-
-    /* ─── CATEGORÍAS ─── */
-    .categorias { background: var(--blanco); }
-    .cat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-    .cat-card {
-      border-radius: 24px;
-      padding: 36px 28px;
-      position: relative; overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 5px 14px;
+      font-size: 0.73rem;
+      font-weight: 700;
       cursor: pointer;
-    }
-    .cat-card:hover { transform: translateY(-6px); box-shadow: var(--sombra-lg); }
-    .cat-card.genericos { background: linear-gradient(135deg, #e8f5f0 0%, #d4ede3 100%); }
-    .cat-card.patente { background: linear-gradient(135deg, var(--acento-claro) 0%, #fce8c0 100%); }
-    .cat-card.higiene { background: linear-gradient(135deg, var(--azul-higiene) 0%, #d8e8fd 100%); }
-    .cat-card.bebes { background: linear-gradient(135deg, var(--rosa-bebe) 0%, #fcd5e0 100%); }
-    .cat-icon { font-size: 3rem; margin-bottom: 16px; }
-    .cat-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; font-weight: 700; margin-bottom: 10px;
-    }
-    .cat-card p { font-size: 0.88rem; color: var(--texto-suave); line-height: 1.6; }
-    .cat-tag {
-      display: inline-block; margin-top: 16px;
-      background: white; border-radius: 12px;
-      padding: 4px 12px; font-size: 0.75rem; font-weight: 600;
-      color: var(--texto);
-    }
-    .cat-card.genericos .cat-tag { color: var(--verde); }
-    .cat-card.patente .cat-tag { color: #b87020; }
-    .cat-card.higiene .cat-tag { color: #3060c0; }
-    .cat-card.bebes .cat-tag { color: #c0305a; }
-
-    /* ─── PRODUCTOS DESTACADOS ─── */
-    .productos { background: var(--gris-suave); }
-    .prod-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .prod-card {
-      background: white; border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: transform 0.25s, box-shadow 0.25s;
-      cursor: pointer;
-    }
-    .prod-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
-    .prod-img {
-      height: 140px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3.2rem;
-    }
-    .prod-img.g { background: linear-gradient(135deg, #e8f5f0, #d4ede3); }
-    .prod-img.p { background: linear-gradient(135deg, var(--acento-claro), #fce8c0); }
-    .prod-img.h { background: linear-gradient(135deg, var(--azul-higiene), #d8e8fd); }
-    .prod-img.b { background: linear-gradient(135deg, var(--rosa-bebe), #fcd5e0); }
-    .prod-info { padding: 16px; }
-    .prod-cat {
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 1px;
-      text-transform: uppercase; margin-bottom: 6px;
-    }
-    .prod-cat.g { color: var(--verde); }
-    .prod-cat.p { color: #b87020; }
-    .prod-cat.h { color: #3060c0; }
-    .prod-cat.b { color: #c0305a; }
-    .prod-info h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 4px; }
-    .prod-info p { font-size: 0.78rem; color: var(--texto-suave); line-height: 1.4; margin-bottom: 12px; }
-    .prod-footer {
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .precio { font-weight: 700; font-size: 1rem; color: var(--verde); }
-    .add-btn {
-      width: 30px; height: 30px; border-radius: 50%;
-      background: var(--verde); color: white;
-      border: none; cursor: pointer;
-      font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .add-btn:hover { background: var(--verde-claro); transform: scale(1.1); }
-
-    /* ─── SERVICIOS ─── */
-    .servicios { background: var(--blanco); }
-    .serv-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-    }
-    .serv-card {
-      text-align: center; padding: 36px 20px;
-      border-radius: 20px; border: 1.5px solid rgba(26,107,74,0.10);
-      transition: all 0.3s;
-    }
-    .serv-card:hover { border-color: var(--verde-claro); background: var(--verde-menta); }
-    .serv-icon { font-size: 2.4rem; margin-bottom: 16px; }
-    .serv-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
-    .serv-card p { font-size: 0.82rem; color: var(--texto-suave); line-height: 1.5; }
-
-    /* ─── PROMO BANNER ─── */
-    .promo {
-      background: linear-gradient(120deg, var(--verde) 0%, #0d4a32 100%);
-      padding: 64px 5%;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 32px;
-    }
-    .promo-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      color: white; font-weight: 700; margin-bottom: 12px;
-    }
-    .promo-text p { color: rgba(255,255,255,0.75); font-size: 1rem; }
-    .promo-text span { color: var(--acento); font-weight: 700; }
-    .promo-btn {
-      background: var(--acento); color: white;
-      border: none; border-radius: 28px;
-      padding: 16px 36px; font-size: 1rem; font-weight: 700;
-      cursor: pointer; transition: all 0.25s;
+      transition: background 0.2s, border-color 0.2s;
       white-space: nowrap;
     }
-    .promo-btn:hover { background: #d09030; transform: translateY(-2px); }
+    .partner-pill:hover {
+      background: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.45);
+    }
 
-    /* ─── CONTACT / INFO ─── */
-    .info { background: var(--gris-suave); }
-    .info-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-      align-items: start;
+    /* Search */
+    .search-wrap {
+      flex: 1;
+      max-width: 100%;
+      position: relative;
     }
-    .info-block h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; margin-bottom: 20px; color: var(--texto);
+    .search-wrap input {
+      width: 100%;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 50px 12px 22px;
+      font-size: 0.97rem;
+      font-family: 'Nunito', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      outline: none;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      transition: box-shadow 0.2s;
     }
-    .horario-item {
-      display: flex; justify-content: space-between;
-      padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+    .search-wrap input:focus { box-shadow: 0 2px 24px rgba(26,115,232,0.35); }
+    .search-wrap input::placeholder { color: #9baac8; }
+    .search-btn {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--blue-light);
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .search-btn:hover { background: var(--green); transform: translateY(-50%) scale(1.08); }
+    .search-btn svg { width: 18px; height: 18px; fill: var(--white); }
+
+    /* Header icons */
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+    .icon-btn {
+      background: none;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.68rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      transition: color 0.2s, transform 0.15s;
+      position: relative;
+    }
+    .icon-btn:hover { color: var(--green); transform: translateY(-2px); }
+    .icon-btn svg { width: 28px; height: 28px; }
+    .cart-badge {
+      position: absolute;
+      top: -4px;
+      right: -6px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    /* ── NAV BAR ── */
+    nav.main-nav {
+      background: linear-gradient(90deg, var(--green-dark) 0%, var(--green) 100%);
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      justify-content: space-between;
+    }
+    nav.main-nav::-webkit-scrollbar { display: none; }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 10px;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.88rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.18s;
+      text-decoration: none;
+      border-right: 1px solid rgba(255,255,255,0.15);
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-item:hover { background: rgba(0,0,0,0.15); }
+    .nav-item.categories {
+      background: rgba(0,0,0,0.18);
+      border-radius: 0;
+      padding-left: 26px;
+    }
+    .nav-item .nav-icon { font-size: 1.3rem; }
+
+    /* ── PROMO STRIP ── */
+    .promo-strip {
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 14px 32px;
+      border-bottom: 2px solid var(--gray);
+    }
+    .promo-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 28px;
+      border-right: 1px solid var(--gray);
+      flex: 1;
+    }
+    .promo-card:last-child { border-right: none; }
+    .promo-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .promo-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+    .promo-text span {
+      font-size: 0.8rem;
+      color: #6a7fa8;
+    }
+
+    /* Loyalty */
+    .loyalty-banner {
+      background: linear-gradient(90deg, #b8860b 0%, #ffd600 50%, #b8860b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 32px;
+      animation: shimmer 3s linear infinite;
+      background-size: 200% 100%;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+    .loyalty-banner .loy-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .loy-badge {
+      background: #7c5200;
+      color: var(--yellow);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .loy-text {
+      color: #3d2800;
+      font-weight: 800;
+      font-size: 0.97rem;
+    }
+    .loy-text span { font-weight: 400; font-size: 0.85rem; }
+    .btn-activate {
+      background: #3d2800;
+      color: var(--yellow);
+      border: 2px solid #3d2800;
+      border-radius: 30px;
+      padding: 9px 28px;
+      font-weight: 800;
       font-size: 0.9rem;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
     }
-    .horario-item span:last-child { font-weight: 600; color: var(--verde); }
-    .contact-item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px; border-radius: 14px;
-      background: white; margin-bottom: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .contact-icon {
-      width: 42px; height: 42px; border-radius: 12px;
-      background: var(--verde-menta);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
-    }
-    .contact-item p { font-size: 0.78rem; color: var(--texto-suave); }
-    .contact-item strong { font-size: 0.9rem; display: block; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--texto);
-      color: rgba(255,255,255,0.7);
-      padding: 48px 5% 28px;
+    /* ── MAIN CONTENT ── */
+    .main-content {
+      padding: 28px 32px;
+      display: grid;
+      gap: 28px;
     }
-    .footer-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px; margin-bottom: 40px;
+
+    /* Hero banners */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
-    .footer-brand h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; color: white; margin-bottom: 12px;
+    .hero-banner {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      min-height: 240px;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
     }
-    .footer-brand p { font-size: 0.85rem; line-height: 1.6; max-width: 300px; }
-    .footer-col h4 {
-      color: white; font-size: 0.9rem; font-weight: 600;
+    .hero-banner:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,0.18); }
+    .hero-banner.skin {
+      background: linear-gradient(135deg, #7b4fa2 0%, #e91e63 60%, #ff8c00 100%);
+    }
+    .hero-banner.promo {
+      background: linear-gradient(135deg, #00695c 0%, #00bcd4 60%, #1a237e 100%);
+    }
+
+    .hero-deco {
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+    .hero-content .hero-tag {
+      background: rgba(255,255,255,0.22);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 3px 14px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: 8px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-content h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .hero-content p { color: rgba(255,255,255,0.88); font-size: 0.9rem; margin-bottom: 16px; }
+    .btn-hero {
+      background: var(--white);
+      color: var(--blue-dark);
+      border: none;
+      border-radius: 30px;
+      padding: 10px 26px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .btn-hero:hover { transform: scale(1.06); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
+    .discount-badge {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 50%;
+      width: 74px;
+      height: 74px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      line-height: 1;
+      box-shadow: 0 4px 16px rgba(229,57,53,0.5);
+      animation: bounce-badge 2.5s ease-in-out infinite;
+    }
+    @keyframes bounce-badge {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.08) rotate(-4deg); }
+    }
+    .discount-badge .pct { font-size: 1.55rem; }
+    .discount-badge .desc { font-size: 0.6rem; letter-spacing: 0.05em; }
+
+    /* ── SECTION TITLE ── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 16px;
     }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; }
+    .section-header h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-header h3::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 24px;
+      background: linear-gradient(180deg, var(--green), var(--blue-mid));
+      border-radius: 3px;
+    }
+    .see-all {
+      color: var(--blue-light);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .see-all:hover { color: var(--green-dark); }
+
+    /* ── PRODUCT CARDS ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.13);
+    }
+    .product-img {
+      background: var(--gray-light);
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+    }
+    .product-discount {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+    .product-info {
+      padding: 12px 14px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-info .product-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .product-info .brand-label {
+      font-size: 0.72rem;
+      color: #9baac8;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .price-now {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--green-dark);
+    }
+    .price-old {
+      font-size: 0.78rem;
+      color: #9baac8;
+      text-decoration: line-through;
+    }
+    .btn-add {
+      background: linear-gradient(135deg, var(--green) 0%, var(--blue-mid) 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 8px 0;
+      font-weight: 800;
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      margin-top: 10px;
+      transition: opacity 0.2s, transform 0.15s;
+      width: 100%;
+    }
+    .btn-add:hover { opacity: 0.88; transform: scale(1.03); }
+
+    /* ── CATEGORIES ── */
+    .cats-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+    .cat-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+    .cat-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .cat-icon {
+      font-size: 2.2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cat-card .cat-name {
+      font-weight: 800;
+      font-size: 0.82rem;
+      color: var(--text-dark);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--blue-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 32px 32px 16px;
+      margin-top: 12px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+    .footer-logo .brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--white);
+    }
+    .footer-logo .brand span { color: var(--green); }
+    .footer-logo p {
+      margin-top: 10px;
+      font-size: 0.83rem;
+      line-height: 1.6;
+    }
+    .footer-col h4 {
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
     .footer-col a {
-      text-decoration: none; color: rgba(255,255,255,0.6);
-      font-size: 0.85rem; transition: color 0.2s;
+      display: block;
+      color: rgba(255,255,255,0.62);
+      text-decoration: none;
+      font-size: 0.83rem;
+      margin-bottom: 8px;
+      transition: color 0.18s;
     }
-    .footer-col a:hover { color: var(--verde-menta); }
+    .footer-col a:hover { color: var(--green); }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 20px;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 12px;
-    }
-    .footer-bottom p { font-size: 0.8rem; }
-    .cofepris {
-      background: rgba(255,255,255,0.08);
-      border-radius: 8px; padding: 6px 14px;
-      font-size: 0.75rem; color: rgba(255,255,255,0.5);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
     }
 
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Floating WhatsApp */
+    .float-wa {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #25d366;
+      color: var(--white);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.55);
+      cursor: pointer;
+      z-index: 999;
+      animation: float-wa 2.5s ease-in-out infinite;
+      text-decoration: none;
+    }
+    @keyframes float-wa {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
-    /* ─── RESPONSIVE ─── */
+    /* responsive */
     @media (max-width: 900px) {
-      .hero { flex-direction: column; text-align: center; padding-top: 110px; }
-      .hero-visual { padding-left: 0; padding-top: 40px; width: 100%; }
-      .hero-btns { justify-content: center; }
-      .info-grid, .footer-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-    }
-    @media (max-width: 600px) {
-      .stats { flex-direction: column; text-align: center; }
-      .promo { text-align: center; justify-content: center; }
+      .products-grid { grid-template-columns: repeat(3,1fr); }
+      .cats-grid { grid-template-columns: repeat(3,1fr); }
+      .hero-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .partners { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── NAVBAR ─── -->
-<nav>
-  <div class="nav-logo">
-    <div class="cruz">✚</div>
-    Farmacia <span>&nbsp;Yair</span>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#categorias">Productos</a></li>
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#info">Horarios</a></li>
-    <li><a href="#info">Contacto</a></li>
-  </ul>
-</nav>
+<!-- HEADER -->
+<header>
+  <div class="header-main">
+    <!-- Logo -->
+    <a class="logo" href="#">
+      <div class="logo-icon">💊</div>
+      <div class="logo-text">
+        <span class="brand">Farmacias<span> Yair</span></span>
+        <span class="tagline">Tu salud, nuestra prioridad</span>
+      </div>
+    </a>
 
-<!-- ─── HERO ─── -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">Abierto las 24 horas · 7 días a la semana</div>
-    <h1>Tu salud y bienestar, <em>siempre a tu alcance</em></h1>
-    <p>Medicamentos genéricos y de patente, productos de higiene personal y todo lo que tu bebé necesita. Atención farmacéutica profesional y personalizada.</p>
-    <div class="hero-btns">
-      <button class="btn-prim">Ver catálogo completo</button>
-      <button class="btn-sec">Consultar precio</button>
+    <!-- Partners -->
+    <!-- Search -->
+    <div class="search-wrap">
+      <input type="text" placeholder="¿Qué estás buscando?"/>
+      <button class="search-btn" aria-label="Buscar">
+        <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-card-grid">
-      <div class="hero-card">
-        <div class="icon">💊</div>
-        <h3>Genéricos</h3>
-        <p>Misma eficacia, mejor precio garantizado</p>
+
+  <nav class="main-nav">
+    <a class="nav-item categories" href="#"><span class="nav-icon">☰</span> Categorías</a>
+    <a class="nav-item" href="#"><span class="nav-icon">👶</span> Bebés</a>
+    <a class="nav-item" href="#"><span class="nav-icon">💆</span> Dermo</a>
+    <a class="nav-item" href="#"><span class="nav-icon">💊</span> Genéricos</a>
+    <a class="nav-item" href="#"><span class="nav-icon">🌿</span> Natural</a>
+    <a class="nav-item" href="#"><span class="nav-icon">🏋️</span> Nutrición</a>
+    <a class="nav-item" href="#"><span class="nav-icon">🦷</span> Cuidado Oral</a>
+  </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+  <!-- Hero banners -->
+  <div class="hero-grid">
+    <div class="hero-banner skin">
+      <div class="hero-deco">🧴</div>
+      <div class="hero-content">
+        <span class="hero-tag">✨ Dermocosméticos</span>
+        <h2>Dale a tu piel el cuidado que merece</h2>
+        <p>L'Oréal, Retinol, Vitamina C y más marcas premium</p>
+        <button class="btn-hero">Ver ofertas →</button>
       </div>
-      <div class="hero-card">
-        <div class="icon">🏥</div>
-        <h3>Patente</h3>
-        <p>Marcas líderes y medicamentos especializados</p>
+    </div>
+    <div class="hero-banner promo">
+      <div class="hero-deco">📱</div>
+      <div class="hero-content">
+        <span class="hero-tag">🛍️ Tus favoritas</span>
+        <h2>Tus promociones favoritas ahora en línea</h2>
+        <p>Compra desde tu celular y recibe en casa</p>
+        <button class="btn-hero">Comprar ahora →</button>
       </div>
-      <div class="hero-card">
-        <div class="icon">🧴</div>
-        <h3>Higiene</h3>
-        <p>Cuidado personal de marcas reconocidas</p>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div>
+    <div class="section-header">
+      <h3>Explorar categorías</h3>
+      <a class="see-all" href="#">Ver todas →</a>
+    </div>
+    <div class="cats-grid">
+      <div class="cat-card">
+        <div class="cat-icon" style="background:#e3f2fd;">💊</div>
+        <span class="cat-name">Medicamentos</span>
       </div>
-      <div class="hero-card grande">
-        <div style="font-size:2.6rem">👶</div>
-        <div>
-          <h3>Zona Bebé</h3>
-          <p>Pañales, fórmulas, cremas y accesorios para los más pequeños</p>
+      <div class="cat-card">
+        <div class="cat-icon" style="background:#f3e5f5;">🧴</div>
+        <span class="cat-name">Dermocosmética</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon" style="background:#e8f5e9;">👶</div>
+        <span class="cat-name">Bebés</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon" style="background:#fff8e1;">🌿</div>
+        <span class="cat-name">Natural</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon" style="background:#fce4ec;">🏋️</div>
+        <span class="cat-name">Nutrición</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon" style="background:#e0f7fa;">🦷</div>
+        <span class="cat-name">Cuidado Oral</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div>
+    <div class="section-header">
+      <h3>Productos del día</h3>
+      <a class="see-all" href="#">Ver todos →</a>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img">🩺</div>
+        <div class="product-info">
+          <span class="brand-label">Bayer</span>
+          <span class="product-name">Aspirina 500mg c/20 tabs</span>
+          <div class="price-row">
+            <span class="price-now">$42.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🧴</div>
+        <div class="product-info">
+          <span class="brand-label">Neutrogena</span>
+          <span class="product-name">Crema Hidratante SPF 50+</span>
+          <div class="price-row">
+            <span class="price-now">$189.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🍼</div>
+        <div class="product-info">
+          <span class="brand-label">Enfamil</span>
+          <span class="product-name">Fórmula Infantil Premium 400g</span>
+          <div class="price-row">
+            <span class="price-now">$310.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">💊</div>
+        <div class="product-info">
+          <span class="brand-label">Genérico Yair</span>
+          <span class="product-name">Omeprazol 20mg c/30 caps</span>
+          <div class="price-row">
+            <span class="price-now">$58.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🌿</div>
+        <div class="product-info">
+          <span class="brand-label">Benavides</span>
+          <span class="product-name">Vitamina C 1000mg efervescente</span>
+          <div class="price-row">
+            <span class="price-now">$75.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
         </div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ─── STATS ─── -->
-<div class="stats">
-  <div class="stat"><div class="stat-num">+2,500</div><p>Productos disponibles</p></div>
-  <div class="stat"><div class="stat-num">15+</div><p>Años de experiencia</p></div>
-  <div class="stat"><div class="stat-num">100%</div><p>Calidad garantizada</p></div>
-  <div class="stat"><div class="stat-num">24/7</div><p>Servicio continuo</p></div>
-</div>
+  <!-- Second product row -->
+  <div>
+    <div class="section-header">
+      <h3>💆 Dermocosméticos destacados</h3>
+      <a class="see-all" href="#">Ver todos →</a>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img">🧖</div>
+        <div class="product-info">
+          <span class="brand-label">L'Oréal Paris</span>
+          <span class="product-name">Sérum Retinol Pure 30ml</span>
+          <div class="price-row">
+            <span class="price-now">$299.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">☀️</div>
+        <div class="product-info">
+          <span class="brand-label">La Roche-Posay</span>
+          <span class="product-name">Anthelios Fps 60 50ml</span>
+          <div class="price-row">
+            <span class="price-now">$349.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">💧</div>
+        <div class="product-info">
+          <span class="brand-label">Cetaphil</span>
+          <span class="product-name">Loción Hidratante 250ml</span>
+          <div class="price-row">
+            <span class="price-now">$179.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🌸</div>
+        <div class="product-info">
+          <span class="brand-label">Bioderma</span>
+          <span class="product-name">Agua Micelar Sensibio 500ml</span>
+          <div class="price-row">
+            <span class="price-now">$259.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🫧</div>
+        <div class="product-info">
+          <span class="brand-label">Vichy</span>
+          <span class="product-name">Mineral 89 Booster Hidratante</span>
+          <div class="price-row">
+            <span class="price-now">$389.00</span>
+          </div>
+          <button class="btn-add">+ Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<!-- ─── CATEGORÍAS ─── -->
-<section class="categorias" id="categorias">
-  <div class="section-header">
-    <div class="section-label">Nuestros Departamentos</div>
-    <h2 class="section-title">Todo lo que necesitas en un solo lugar</h2>
-    <p class="section-sub">Desde medicamentos esenciales hasta productos de cuidado para toda la familia, te ofrecemos variedad y calidad con asesoría profesional.</p>
-  </div>
-  <div class="cat-grid">
-    <div class="cat-card genericos">
-      <div class="cat-icon">💊</div>
-      <h3>Medicamentos Genéricos</h3>
-      <p>Amplio surtido de medicamentos genéricos bioequivalentes certificados por COFEPRIS. Igual eficacia terapéutica a un precio más accesible para ti y tu familia.</p>
-      <span class="cat-tag">✓ Certificados COFEPRIS</span>
-    </div>
-    <div class="cat-card patente">
-      <div class="cat-icon">🏷️</div>
-      <h3>Medicamentos de Patente</h3>
-      <p>Las principales marcas farmacéuticas del mercado: Pfizer, Bayer, Sanofi y más. Medicamentos especializados, de control y de línea completa para todos los tratamientos.</p>
-      <span class="cat-tag">✓ Marcas originales</span>
-    </div>
-    <div class="cat-card higiene">
-      <div class="cat-icon">🧼</div>
-      <h3>Higiene Personal</h3>
-      <p>Shampoos, jabones, desodorantes, cremas corporales, cuidado dental y todo lo que necesitas para mantener una rutina de higiene completa y saludable.</p>
-      <span class="cat-tag">✓ Más de 500 productos</span>
-    </div>
-    <div class="cat-card bebes">
-      <div class="cat-icon">🍼</div>
-      <h3>Productos para Bebé</h3>
-      <p>Pañales, fórmulas lácteas, alimentos de inicio, cremas para bebé, aceites corporales, artículos de baño y accesorios para el cuidado integral de tu bebé.</p>
-      <span class="cat-tag">✓ Productos hipoalergénicos</span>
-    </div>
-  </div>
-</section>
+</div><!-- /main-content -->
 
-<!-- ─── PRODUCTOS DESTACADOS ─── -->
-<section class="productos">
-  <div class="section-header">
-    <div class="section-label">Productos Destacados</div>
-    <h2 class="section-title">Los más solicitados esta semana</h2>
-  </div>
-  <div class="prod-grid">
-    <div class="prod-card">
-      <div class="prod-img g">💊</div>
-      <div class="prod-info">
-        <div class="prod-cat g">Genérico</div>
-        <h4>Paracetamol 500mg</h4>
-        <p>Analgésico y antipirético. Caja con 20 tabletas.</p>
-        <div class="prod-footer"><span class="precio">$28.00</span><button class="add-btn">+</button></div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-img g">🫀</div>
-      <div class="prod-info">
-        <div class="prod-cat g">Genérico</div>
-        <h4>Metformina 850mg</h4>
-        <p>Antidiabético oral. Caja con 30 tabletas.</p>
-        <div class="prod-footer"><span class="precio">$45.00</span><button class="add-btn">+</button></div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-img p">🩺</div>
-      <div class="prod-info">
-        <div class="prod-cat p">Patente</div>
-        <h4>Omeprazol Pfizer 20mg</h4>
-        <p>Protector gástrico. Caja con 14 cápsulas.</p>
-        <div class="prod-footer"><span class="precio">$180.00</span><button class="add-btn">+</button></div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-img p">💉</div>
-      <div class="prod-info">
-        <div class="prod-cat p">Patente</div>
-        <h4>Voltaren Emulgel 50g</h4>
-        <p>Antiinflamatorio tópico para dolor muscular.</p>
-        <div class="prod-footer"><span class="precio">$220.00</span><button class="add-btn">+</button></div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-img h">🧴</div>
-      <div class="prod-info">
-        <div class="prod-cat h">Higiene</div>
-        <h4>Shampoo Head & Shoulders</h4>
-        <p>Control de caspa. Presentación 375ml.</p>
-        <div class="prod-footer"><span class="precio">$95.00</span><button class="add-btn">+</button></div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-img h">🪥</div>
-      <div class="prod-info">
-        <div class="prod-cat h">Higiene</div>
-        <h4>Colgate Total 12 75ml</h4>
-        <p>Pasta dental con protección completa.</p>
-        <div class="prod-footer"><span class="precio">$68.00</span><button class="add-btn">+</button></div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-img b">🍼</div>
-      <div class="prod-info">
-        <div class="prod-cat b">Bebé</div>
-        <h4>Pañales Pampers T3 x24</h4>
-        <p>Paquete económico. Talla 3 (6-10 kg).</p>
-        <div class="prod-footer"><span class="precio">$185.00</span><button class="add-btn">+</button></div>
-      </div>
-    </div>
-    <div class="prod-card">
-      <div class="prod-img b">🧸</div>
-      <div class="prod-info">
-        <div class="prod-cat b">Bebé</div>
-        <h4>Johnson's Baby Crema 200g</h4>
-        <p>Crema hidratante para piel sensible del bebé.</p>
-        <div class="prod-footer"><span class="precio">$75.00</span><button class="add-btn">+</button></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── SERVICIOS ─── -->
-<section class="servicios" id="servicios">
-  <div class="section-header">
-    <div class="section-label">Nuestros Servicios</div>
-    <h2 class="section-title">Más que una farmacia</h2>
-    <p class="section-sub">Contamos con servicios adicionales para cuidar tu salud de manera integral y conveniente.</p>
-  </div>
-  <div class="serv-grid">
-    <div class="serv-card">
-      <div class="serv-icon">🚚</div>
-      <h3>Entrega a Domicilio</h3>
-      <p>Pedidos a domicilio en la zona local. Solicita tu envío por WhatsApp.</p>
-    </div>
-    <div class="serv-card">
-      <div class="serv-icon">💬</div>
-      <h3>Asesoría Farmacéutica</h3>
-      <p>Nuestros farmacéuticos certificados te orientan sobre tu medicamento.</p>
-    </div>
-    <div class="serv-card">
-      <div class="serv-icon">💳</div>
-      <h3>Múltiples Pagos</h3>
-      <p>Aceptamos efectivo, tarjeta de débito/crédito y transferencias.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ─── PROMO BANNER ─── -->
-<div class="promo">
-  <div class="promo-text">
-    <h2>💊 Genéricos con hasta <span>60% de descuento</span></h2>
-    <p>Consulta la equivalencia de tu medicamento de patente y ahorra en tu próxima compra. Misma fórmula, misma efectividad.</p>
-  </div>
-  <button class="promo-btn">Consultar equivalencia →</button>
-</div>
-
-<!-- ─── INFO / CONTACT ─── -->
-<section class="info" id="info">
-  <div class="section-header">
-    <div class="section-label">Encuéntranos</div>
-    <h2 class="section-title">Horarios y Contacto</h2>
-  </div>
-  <div class="info-grid">
-    <div class="info-block">
-      <h3>Horarios de Atención</h3>
-      <div class="horario-item"><span>Lunes – Viernes</span><span>8:00 am – 7:00 pm</span></div>
-      <div class="horario-item"><span>Sábado</span><span>8:00 am – 5:00 pm</span></div>
-      <div class="horario-item"><span>Domingo</span><span>8:00 am – 2:00 pm</span></div>
-      <div class="horario-item"><span>Urgencias Nocturnas</span><span>24 horas 🟢</span></div>
-      <div style="margin-top:20px; padding:16px; background: var(--verde-menta); border-radius:14px; font-size:0.88rem; color:var(--verde);">
-        <strong>✅ Turno de guardia disponible siempre.</strong> Para urgencias fuera de horario, toca el timbre o llama a nuestra línea directa.
-      </div>
-    </div>
-    <div class="info-block">
-      <h3>Información de Contacto</h3>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div><strong>Dirección</strong><p>Las conchas San Miguel chimalapa oaxaca </p></div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div><strong>(55) **** **</strong><p>Llamadas y mensajes de texto</p></div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">💬</div>
-        <div><strong>WhatsApp: 55 **** **</strong><p>Pedidos y consultas rápidas</p></div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📧</div>
-        <div><strong>contacto@farmaciavida.mx</strong><p>Correo electrónico</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FOOTER ─── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
-      <h2>✚ Farmacia Yair</h2>
-      <p>Comprometidos con tu salud y bienestar desde 2009. Medicamentos de calidad, atención profesional y los mejores precios para ti y tu familia.</p>
+    <div class="footer-logo">
+      <div class="brand">Farmacias<span> Yair</span></div>
+      <p>Salud, bienestar y los mejores precios garantizados.</p>
     </div>
     <div class="footer-col">
-      <h4>Departamentos</h4>
-      <ul>
-        <li><a href="#">Medicamentos Genéricos</a></li>
-        <li><a href="#">Medicamentos de Patente</a></li>
-        <li><a href="#">Higiene Personal</a></li>
-        <li><a href="#">Productos para Bebé</a></li>
-        <li><a href="#">Vitaminas y Suplementos</a></li>
-      </ul>
-    </div>
+      <h4>Ayuda</h4>
+      <a href="#">Centro de ayuda</a>
+      <a href="#">Devoluciones</a>
+      <a href="#">Política de privacidad</a>
+        </div>
     <div class="footer-col">
-      <h4>Servicios</h4>
-      <ul>
-        <li><a href="#">Entrega a domicilio</a></li>
-        <li><a href="#">Asesoría farmacéutica</a></li>
-        <li><a href="#">Programa de lealtad</a></li>
-      </ul>
+      <h4>Contacto</h4>
+      <a >📞 800-YAIR-800</a>
+      <a>✉️ [email&#160;protected]</span></a>
+      <a>📍 Encontrar sucursal</a>
+      <a>💬 Chat en línea</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Farmacia Yair. Todos los derechos reservados.</p>
-    <div class="cofepris">Establecimiento farmacéutico regulado por COFEPRIS</div>
+    <span>© 2026 Farmacias Yair · Todos los derechos reservados</span>
   </div>
 </footer>
-</body>
-</html>
-
