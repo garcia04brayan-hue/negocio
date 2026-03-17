@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog de Medicamentos – Farmacias Yair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:     #0a1628;
+      --navy-mid: #112240;
+      --blue:     #0057b8;
+      --blue-lt:  #1a8cff;
+      --teal:     #00b4cc;
+      --green:    #3ec97a;
+      --white:    #ffffff;
+      --off:      #f2f5fb;
+      --gray:     #dde3f0;
+      --text:     #1a2340;
+      --muted:    #5a6a8a;
+      --pill-bg:  #e8f0fe;
+      --pill-txt: #1a5eb8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--off);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo-link { text-decoration: none; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .logo-link img { height: 52px; width: auto; filter: brightness(0) invert(1); }
+    .header-title {
+      color: rgba(255,255,255,0.45);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-left: 2px solid rgba(255,255,255,0.2);
+      padding-left: 16px;
+    }
+    .header-nav { display: flex; gap: 6px; }
+    .header-nav a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 20px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .header-nav a:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+    .header-nav a.back {
+      background: var(--blue);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .header-nav a.back:hover { background: var(--blue-lt); }
+
+    /* ── HERO ── */
+    .blog-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2d5e 50%, #0a3d6e 100%);
+      padding: 72px 32px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(0,180,204,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(62,201,122,0.1) 0%, transparent 45%),
+        radial-gradient(circle at 60% 90%, rgba(0,87,184,0.2) 0%, transparent 40%);
+    }
+    .cross-deco {
+      position: absolute;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14rem;
+      opacity: 0.04;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,180,204,0.15);
+      border: 1px solid rgba(0,180,204,0.35);
+      color: var(--teal);
+      border-radius: 30px;
+      padding: 6px 18px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-inner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      max-width: 650px;
+      margin-bottom: 16px;
+    }
+    .hero-inner h1 em {
+      font-style: normal;
+      color: var(--teal);
+    }
+    .hero-inner p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stat strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--teal);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .stat span {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── SEARCH / FILTER BAR ── */
+    .filter-bar {
+      background: var(--white);
+      border-bottom: 2px solid var(--gray);
+      position: sticky;
+      top: 80px;
+      z-index: 100;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+    .filter-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--off);
+      border: 2px solid var(--gray);
+      border-radius: 30px;
+      padding: 8px 18px;
+      flex: 1;
+      min-width: 200px;
+      transition: border-color 0.2s;
+    }
+    .search-box:focus-within { border-color: var(--blue); }
+    .search-box input {
+      background: none;
+      border: none;
+      outline: none;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text);
+      width: 100%;
+    }
+    .search-box input::placeholder { color: var(--muted); }
+    .filter-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .ftag {
+      background: var(--pill-bg);
+      color: var(--pill-txt);
+      border: 2px solid transparent;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .ftag:hover { background: #d0e2ff; }
+    .ftag.on { background: var(--blue); color: var(--white); border-color: var(--blue); }
+
+    /* ── MAIN LAYOUT ── */
+    .page-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 32px 64px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── ARTICLE GRID ── */
+    .articles-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .articles-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .articles-count {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* Featured article */
+    .article-featured {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      margin-bottom: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      min-height: 300px;
+      cursor: pointer;
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .article-featured:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,0.13); }
+    .af-visual {
+      background: linear-gradient(135deg, #0a1628 0%, #0d3060 60%, #0057b8 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      overflow: hidden;
+    }
+    .af-visual::before {
+      content: '💊';
+      position: absolute;
+      font-size: 10rem;
+      opacity: 0.08;
+      transform: rotate(-15deg);
+    }
+    .af-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: var(--teal);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .af-icon { font-size: 5rem; position: relative; z-index: 1; filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3)); }
+    .af-body { padding: 36px 32px; display: flex; flex-direction: column; gap: 12px; }
+    .af-body .meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .af-body .meta .dot { color: var(--gray); }
+    .af-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .af-body p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+      padding: 11px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      width: fit-content;
+      transition: background 0.18s, transform 0.15s;
+    }
+    .read-btn:hover { background: var(--blue-lt); transform: translateX(3px); }
+
+    /* Article grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .article-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(0,0,0,0.12); }
+    .ac-visual {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .ac-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      background: rgba(10,22,40,0.6);
+      color: var(--white);
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .ac-body {
+      padding: 18px 20px 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ac-meta {
+      font-size: 0.73rem;
+      color: var(--muted);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ac-body h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .ac-body p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .ac-read {
+      color: var(--blue);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      width: fit-content;
+      transition: gap 0.15s, color 0.15s;
+    }
+    .ac-read:hover { color: var(--teal); gap: 9px; }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 28px; }
+
+    .sidebar-widget {
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+    }
+    .widget-header {
+      padding: 18px 22px 14px;
+      border-bottom: 2px solid var(--off);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .widget-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .widget-icon { font-size: 1.3rem; }
+
+    /* Newsletter widget */
+    .newsletter-widget {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d3060 100%);
+      border-radius: 18px;
+      padding: 28px 22px;
+      color: var(--white);
+    }
+    .newsletter-widget h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .newsletter-widget p { font-size: 0.84rem; color: rgba(255,255,255,0.65); margin-bottom: 18px; line-height: 1.5; }
+    .nl-input {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      margin-bottom: 10px;
+    }
+    .nl-btn {
+      width: 100%;
+      background: var(--teal);
+      color: var(--navy);
+      border: none;
+      border-radius: 10px;
+      padding: 11px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: 'Source Sans 3', sans-serif;
+      transition: background 0.18s, transform 0.15s;
+    }
+    .nl-btn:hover { background: var(--green); transform: scale(1.02); }
+
+    /* Popular posts */
+    .pop-list { padding: 10px 0 6px; }
+    .pop-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 22px;
+      cursor: pointer;
+      transition: background 0.15s;
+      border-bottom: 1px solid var(--off);
+    }
+    .pop-item:last-child { border-bottom: none; }
+    .pop-item:hover { background: var(--off); }
+    .pop-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gray);
+      min-width: 28px;
+      line-height: 1;
+    }
+    .pop-info h5 {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+    .pop-info span { font-size: 0.73rem; color: var(--muted); }
+
+    /* Tags cloud */
+    .tags-cloud { padding: 16px 22px 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-pill {
+      background: var(--pill-bg);
+      color: var(--pill-txt);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .tag-pill:hover { background: var(--blue); color: var(--white); }
+
+    /* ── ARTICLE MODAL (full article view) ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,22,40,0.75);
+      backdrop-filter: blur(4px);
+      z-index: 500;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px 16px;
+      overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: 24px;
+      max-width: 760px;
+      width: 100%;
+      overflow: hidden;
+      animation: slideUp 0.3s ease;
+      position: relative;
+      margin: auto;
+    }
+    @keyframes slideUp {
+      from { opacity:0; transform: translateY(30px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    .modal-hero {
+      padding: 48px 48px 36px;
+      background: linear-gradient(135deg, var(--navy), #0d3060);
+      position: relative;
+      overflow: hidden;
+    }
+    .modal-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 50%, rgba(0,180,204,0.15), transparent 60%); }
+    .modal-close {
+      position: absolute;
+      top: 18px; right: 18px;
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: var(--white);
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.18s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.25); }
+    .modal-tag {
+      display: inline-block;
+      background: rgba(0,180,204,0.2);
+      color: var(--teal);
+      border: 1px solid rgba(0,180,204,0.35);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .modal-hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.25;
+      position: relative;
+      margin-bottom: 14px;
+    }
+    .modal-meta {
+      display: flex;
+      gap: 16px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 600;
+      position: relative;
+    }
+    .modal-content {
+      padding: 36px 48px 48px;
+    }
+    .modal-content p {
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: #3a4a6b;
+      margin-bottom: 18px;
+    }
+    .modal-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 12px;
+    }
+    .modal-content ul {
+      padding-left: 20px;
+      margin-bottom: 18px;
+    }
+    .modal-content ul li {
+      font-size: 0.95rem;
+      color: #3a4a6b;
+      line-height: 1.65;
+      margin-bottom: 7px;
+    }
+    .callout {
+      background: linear-gradient(135deg, #e3f0ff, #d0e8ff);
+      border-left: 4px solid var(--blue);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+      font-size: 0.92rem;
+      color: var(--navy-mid);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px 32px;
+      font-size: 0.83rem;
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      .article-featured { grid-template-columns: 1fr; }
+      .af-visual { min-height: 200px; }
+    }
+    @media (max-width: 640px) {
+      .articles-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; }
+      .modal-hero { padding: 32px 24px 28px; }
+      .modal-content { padding: 24px; }
+      .modal-box { border-radius: 16px; }
+    }
+
+    /* ── LOAD ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in:nth-child(1) { animation-delay: 0.05s; }
+    .fade-in:nth-child(2) { animation-delay: 0.12s; }
+    .fade-in:nth-child(3) { animation-delay: 0.19s; }
+    .fade-in:nth-child(4) { animation-delay: 0.26s; }
+    .fade-in:nth-child(5) { animation-delay: 0.33s; }
+  </style>
+</head>
+<body>
+
+<html lang="es">
+<header>
+  <div class="header-inner">
+     <body style="margin: 0; padding: 0;">
+    <header style="margin: 0; padding: 0; background-color: transparent; border: none;">
+        <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+            style="height: 60px;" alt="Logo">
+       <span class="header-title" style="position: relative; top: -16px;">  Blog · Medicamentos</span>
+  </header>
+    <nav class="header-nav">
+      <a href="#">Inicio Blog</a>
+      <a href="#">Bebés</a>
+      <a href="#">Dermocosméticos</a>
+      <a href="https://farmaciasyair.com" class="back">← Volver a la tienda</a>
+    </nav>
+  </div>
+</header>
+</html>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="cross-deco">✚</div>
+  <div class="hero-inner">
+    <div class="hero-label">💊 Blog de Medicamentos</div>
+    <h1>Tu guía de salud y <em>medicación responsable</em></h1>
+    <p>Artículos redactados por farmacéuticos y profesionales de la salud para ayudarte a entender los medicamentos, usarlos correctamente y cuidar tu bienestar.</p>
+    <div class="hero-stats">
+      <div class="stat"><strong>24</strong><span>Artículos</span></div>
+      <div class="stat"><strong>8</strong><span>Categorías</span></div>
+      <div class="stat"><strong>4</strong><span>Expertos</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <div class="search-box">
+      <svg width="16" height="16" fill="none" stroke="#9baac8" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" placeholder="Buscar artículos…" oninput="filterArticles(this.value)"/>
+    </div>
+    <div class="filter-tags">
+      <button class="ftag on" onclick="filterTag(this,'todos')">Todos</button>
+      <button class="ftag" onclick="filterTag(this,'genericos')">Genéricos</button>
+      <button class="ftag" onclick="filterTag(this,'uso-correcto')">Uso correcto</button>
+      <button class="ftag" onclick="filterTag(this,'primeros-auxilios')">Primeros auxilios</button>
+      <button class="ftag" onclick="filterTag(this,'seguridad')">Seguridad</button>
+      <button class="ftag" onclick="filterTag(this,'crónicos')">Enfermedades crónicas</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+  <main>
+    <div class="articles-header">
+      <h2>Artículos recientes</h2>
+      <span class="articles-count" id="art-count">Mostrando 7 artículos</span>
+    </div>
+
+    <!-- FEATURED -->
+    <article class="article-featured fade-in" onclick="openModal('a1')">
+      <div class="af-visual">
+        <span class="af-badge">⭐ Destacado</span>
+        <span class="af-icon">💊</span>
+      </div>
+      <div class="af-body">
+        <div class="meta">
+          <span>14 Mar 2026</span>
+          <span class="dot">·</span>
+          <span>Farmacéutico Jefe · Dr. R. Martínez</span>
+          <span class="dot">·</span>
+          <span>7 min lectura</span>
+        </div>
+        <h3>Medicamentos genéricos vs. de marca: ¿son realmente iguales?</h3>
+        <p>Explicamos qué son los genéricos, por qué contienen el mismo principio activo que los de marca, cómo pasan los mismos controles de calidad y cómo pueden ahorrarte hasta un 80% sin sacrificar eficacia ni seguridad.</p>
+        <a href="#" class="read-btn" onclick="event.stopPropagation(); openModal('a1')">Leer artículo completo →</a>
+      </div>
+    </article>
+
+    <!-- GRID -->
+    <div class="articles-grid" id="articles-grid">
+
+      <article class="article-card fade-in" data-tags="uso-correcto" onclick="openModal('a2')">
+        <div class="ac-visual" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">
+          🦠
+          <span class="ac-tag">Uso correcto</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-meta">9 Mar 2026 · 5 min</div>
+          <h4>Antibióticos: cuándo tomarlos y cuándo no</h4>
+          <p>El uso excesivo genera resistencia bacteriana. Conoce cuándo son necesarios y cómo completar el tratamiento.</p>
+          <a class="ac-read" href="#" onclick="event.stopPropagation(); openModal('a2')">Leer más →</a>
+        </div>
+      </article>
+
+      <article class="article-card fade-in" data-tags="primeros-auxilios" onclick="openModal('a3')">
+        <div class="ac-visual" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);">
+          🧰
+          <span class="ac-tag">Primeros auxilios</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-meta">4 Mar 2026 · 4 min</div>
+          <h4>Botiquín básico en casa: lo que no puede faltarte</h4>
+          <p>Lista completa de medicamentos y materiales esenciales para urgencias menores en el hogar.</p>
+          <a class="ac-read" href="#" onclick="event.stopPropagation(); openModal('a3')">Leer más →</a>
+        </div>
+      </article>
+
+      <article class="article-card fade-in" data-tags="seguridad" onclick="openModal('a4')">
+        <div class="ac-visual" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);">
+          ⚠️
+          <span class="ac-tag">Seguridad</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-meta">27 Feb 2026 · 6 min</div>
+          <h4>Interacciones medicamentosas más comunes que debes conocer</h4>
+          <p>Algunos fármacos no deben combinarse. Te mostramos las interacciones más frecuentes y cómo evitarlas.</p>
+          <a class="ac-read" href="#" onclick="event.stopPropagation(); openModal('a4')">Leer más →</a>
+        </div>
+      </article>
+
+      <article class="article-card fade-in" data-tags="crónicos" onclick="openModal('a5')">
+        <div class="ac-visual" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);">
+          🫀
+          <span class="ac-tag">Enf. crónicas</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-meta">20 Feb 2026 · 8 min</div>
+          <h4>Hipertensión: medicamentos, adherencia y estilo de vida</h4>
+          <p>Guía completa para pacientes hipertensos: tipos de antihipertensivos, importancia de no abandonar el tratamiento y hábitos complementarios.</p>
+          <a class="ac-read" href="#" onclick="event.stopPropagation(); openModal('a5')">Leer más →</a>
+        </div>
+      </article>
+
+      <article class="article-card fade-in" data-tags="uso-correcto seguridad" onclick="openModal('a6')">
+        <div class="ac-visual" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);">
+          💉
+          <span class="ac-tag">Uso correcto</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-meta">15 Feb 2026 · 5 min</div>
+          <h4>¿Cómo almacenar correctamente tus medicamentos?</h4>
+          <p>Temperatura, humedad y luz afectan la eficacia de los fármacos. Aprende dónde y cómo guardarlos en casa.</p>
+          <a class="ac-read" href="#" onclick="event.stopPropagation(); openModal('a6')">Leer más →</a>
+        </div>
+      </article>
+
+      <article class="article-card fade-in" data-tags="genericos" onclick="openModal('a7')">
+        <div class="ac-visual" style="background:linear-gradient(135deg,#e0f7fa,#b2ebf2);">
+          💲
+          <span class="ac-tag">Genéricos</span>
+        </div>
+        <div class="ac-body">
+          <div class="ac-meta">8 Feb 2026 · 4 min</div>
+          <h4>Los 10 genéricos más recetados en México y sus equivalentes</h4>
+          <p>Tabla comparativa de los medicamentos genéricos más comunes y sus equivalentes de marca para que puedas elegir con confianza.</p>
+          <a class="ac-read" href="#" onclick="event.stopPropagation(); openModal('a7')">Leer más →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Newsletter -->
+    <div class="newsletter-widget">
+      <h3>📬 Recibe consejos de salud</h3>
+      <p>Artículos semanales de nuestros farmacéuticos directo a tu correo. Sin spam.</p>
+      <input class="nl-input" type="email" placeholder="tu@correo.com"/>
+      <button class="nl-btn" onclick="alert('¡Suscrito correctamente! 🎉')">Suscribirme gratis</button>
+    </div>
+
+    <!-- Popular -->
+    <div class="sidebar-widget">
+      <div class="widget-header">
+        <span class="widget-icon">🔥</span>
+        <h3>Lo más leído</h3>
+      </div>
+      <div class="pop-list">
+        <div class="pop-item" onclick="openModal('a1')">
+          <span class="pop-num">01</span>
+          <div class="pop-info"><h5>Genéricos vs. de marca</h5><span>14 Mar 2026 · 7 min</span></div>
+        </div>
+        <div class="pop-item" onclick="openModal('a4')">
+          <span class="pop-num">02</span>
+          <div class="pop-info"><h5>Interacciones medicamentosas</h5><span>27 Feb 2026 · 6 min</span></div>
+        </div>
+        <div class="pop-item" onclick="openModal('a5')">
+          <span class="pop-num">03</span>
+          <div class="pop-info"><h5>Hipertensión y medicamentos</h5><span>20 Feb 2026 · 8 min</span></div>
+        </div>
+        <div class="pop-item" onclick="openModal('a2')">
+          <span class="pop-num">04</span>
+          <div class="pop-info"><h5>Antibióticos: cuándo usarlos</h5><span>9 Mar 2026 · 5 min</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="sidebar-widget">
+      <div class="widget-header">
+        <span class="widget-icon">🏷️</span>
+        <h3>Temas</h3>
+      </div>
+      <div class="tags-cloud">
+        <span class="tag-pill">Genéricos</span>
+        <span class="tag-pill">Antibióticos</span>
+        <span class="tag-pill">Interacciones</span>
+        <span class="tag-pill">Hipertensión</span>
+        <span class="tag-pill">Diabetes</span>
+        <span class="tag-pill">Botiquín</span>
+        <span class="tag-pill">Almacenamiento</span>
+        <span class="tag-pill">Dolor</span>
+        <span class="tag-pill">Inflamación</span>
+        <span class="tag-pill">Vacunas</span>
+        <span class="tag-pill">Vitaminas</span>
+        <span class="tag-pill">Pediatría</span>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- ── ARTICLE MODALS ── -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="modal-hero">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-tag" id="m-tag"></div>
+      <h2 id="m-title"></h2>
+      <div class="modal-meta" id="m-meta"></div>
+    </div>
+    <div class="modal-content" id="m-body"></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Blog de Medicamentos · Contenido de carácter informativo. Consulta siempre a tu médico o farmacéutico.</p>
+</footer>
+
+<script>
+const articles = {
+  a1: {
+    tag: '⭐ Destacado · Genéricos',
+    title: 'Medicamentos genéricos vs. de marca: ¿son realmente iguales?',
+    meta: '14 Mar 2026 · Dr. R. Martínez · 7 min lectura',
+    body: `
+      <p>Cuando vas a la farmacia y el médico te receta un medicamento, a menudo te preguntas: ¿debo comprar el de marca o el genérico? La respuesta corta es <strong>sí, son equivalentes</strong>. Pero entendamos el porqué.</p>
+      <h3>¿Qué es un medicamento genérico?</h3>
+      <p>Un genérico es un fármaco que contiene el mismo principio activo, en la misma dosis y forma farmacéutica que el medicamento de referencia (la "marca original"). Para que sea autorizado, debe demostrar <strong>bioequivalencia</strong>: que se absorbe en el organismo de manera similar al original.</p>
+      <div class="callout">📌 Los genéricos deben superar los mismos controles de calidad, seguridad y eficacia que los medicamentos de marca antes de salir al mercado.</div>
+      <h3>¿Por qué son más baratos?</h3>
+      <p>El fabricante del genérico no incurre en los costos de investigación y desarrollo del principio activo (ese proceso puede costar miles de millones de pesos y tardar más de una década). Sólo replica la molécula ya aprobada. Eso se traduce en ahorros de hasta el <strong>80%</strong> para el paciente.</p>
+      <h3>¿Cuándo conviene elegir el de marca?</h3>
+      <ul>
+        <li>Cuando el médico lo indica expresamente por razones clínicas específicas.</li>
+        <li>Para fármacos con margen terapéutico estrecho (anticoagulantes, antiepilépticos), donde pequeñas variaciones importan.</li>
+        <li>Si ya llevas tiempo con un tratamiento estable y el cambio podría requerir reajuste de dosis.</li>
+      </ul>
+      <p>En todos los demás casos, el genérico es una excelente opción. Pregunta a tu farmacéutico de confianza en Farmacias Yair.</p>
+    `
+  },
+  a2: {
+    tag: 'Uso correcto',
+    title: 'Antibióticos: cuándo tomarlos y cuándo no',
+    meta: '9 Mar 2026 · Farmacéutica L. Hernández · 5 min lectura',
+    body: `
+      <p>Los antibióticos son uno de los avances más importantes de la medicina moderna, pero su mal uso se ha convertido en un problema global: la <strong>resistencia bacteriana</strong>.</p>
+      <h3>¿Para qué sirven los antibióticos?</h3>
+      <p>Exclusivamente para infecciones causadas por <strong>bacterias</strong>. No funcionan contra virus, por lo que tomarlos para un resfriado o gripe es inútil y dañino.</p>
+      <div class="callout">⚠️ El catarro, la gripe y la mayoría de las infecciones respiratorias son virales. Los antibióticos NO te ayudarán a sanar más rápido.</div>
+      <h3>Reglas de oro al tomar antibióticos</h3>
+      <ul>
+        <li><strong>Completa el tratamiento.</strong> Aunque te sientas mejor al 3er día, sigue hasta el final para eliminar todas las bacterias.</li>
+        <li><strong>No te automediques.</strong> Requieren prescripción médica.</li>
+        <li><strong>No los compartas.</strong> El antibiótico correcto depende del tipo de bacteria y del paciente.</li>
+        <li><strong>No guardes sobrantes</strong> para "la próxima vez".</li>
+      </ul>
+      <p>Si tu médico te receta un antibiótico, en Farmacias Yair podemos orientarte sobre cómo tomarlo correctamente, con o sin alimentos, y qué efectos secundarios vigilar.</p>
+    `
+  },
+  a3: {
+    tag: 'Primeros auxilios',
+    title: 'Botiquín básico en casa: lo que no puede faltarte',
+    meta: '4 Mar 2026 · Dr. A. Torres · 4 min lectura',
+    body: `
+      <p>Un botiquín bien equipado puede marcar la diferencia ante una emergencia menor en casa. Aquí te presentamos lo esencial.</p>
+      <h3>Medicamentos básicos</h3>
+      <ul>
+        <li><strong>Paracetamol o ibuprofeno:</strong> para fiebre y dolor leve-moderado.</li>
+        <li><strong>Antihistamínico oral:</strong> para reacciones alérgicas leves.</li>
+        <li><strong>Suero oral:</strong> para rehidratación ante diarrea o vómito.</li>
+        <li><strong>Antiácido:</strong> para malestar estomacal.</li>
+        <li><strong>Crema antibacteriana tópica</strong> (bacitracina o mupirocina).</li>
+      </ul>
+      <h3>Material de curación</h3>
+      <ul>
+        <li>Gasas estériles y vendas de diferentes tamaños.</li>
+        <li>Apósitos adhesivos (curitas) de varios tamaños.</li>
+        <li>Cinta adhesiva médica.</li>
+        <li>Tijeras de punta roma y pinzas.</li>
+        <li>Termómetro digital.</li>
+        <li>Guantes desechables de látex o nitrilo.</li>
+        <li>Alcohol al 70% y agua oxigenada.</li>
+      </ul>
+      <div class="callout">🔄 Revisa tu botiquín cada 6 meses: descarta medicamentos vencidos y repón lo que se haya agotado.</div>
+    `
+  },
+  a4: {
+    tag: 'Seguridad',
+    title: 'Interacciones medicamentosas más comunes que debes conocer',
+    meta: '27 Feb 2026 · Dra. M. Ríos · 6 min lectura',
+    body: `
+      <p>Cuando tomas varios medicamentos al mismo tiempo, existe la posibilidad de que interactúen entre sí, potenciando o reduciendo sus efectos, o generando toxicidad.</p>
+      <h3>Interacciones frecuentes</h3>
+      <ul>
+        <li><strong>Anticoagulantes + AINEs (ibuprofeno, aspirina):</strong> aumentan el riesgo de sangrado.</li>
+        <li><strong>Antidepresivos ISRS + tramadol:</strong> riesgo de síndrome serotoninérgico.</li>
+        <li><strong>Estatinas + algunos antibióticos (claritromicina):</strong> pueden elevar el nivel de estatinas y causar daño muscular.</li>
+        <li><strong>Anticonceptivos + rifampicina:</strong> reduce la eficacia del anticonceptivo.</li>
+        <li><strong>Metformina + medios de contraste yodados:</strong> riesgo de daño renal.</li>
+      </ul>
+      <h3>Interacciones con alimentos</h3>
+      <ul>
+        <li><strong>Warfarina + vitamina K</strong> (verduras verdes): afecta la coagulación.</li>
+        <li><strong>Estatinas + jugo de toronja:</strong> aumenta la concentración del fármaco.</li>
+        <li><strong>IMAO + alimentos ricos en tiramina</strong> (quesos curados, embutidos): crisis hipertensiva.</li>
+      </ul>
+      <div class="callout">💡 Siempre informa a tu médico y farmacéutico todos los medicamentos, suplementos y remedios naturales que estés tomando, aunque sean "de venta libre".</div>
+    `
+  },
+  a5: {
+    tag: 'Enfermedades crónicas',
+    title: 'Hipertensión: medicamentos, adherencia y estilo de vida',
+    meta: '20 Feb 2026 · Dr. C. Vega · 8 min lectura',
+    body: `
+      <p>La hipertensión arterial afecta a uno de cada tres adultos en México y es el principal factor de riesgo de infarto y enfermedad cerebrovascular. El tratamiento farmacológico es fundamental, pero no actúa solo.</p>
+      <h3>Principales grupos de antihipertensivos</h3>
+      <ul>
+        <li><strong>IECA / ARA-II</strong> (enalapril, losartán): protegen el corazón y el riñón.</li>
+        <li><strong>Bloqueadores de canales de calcio</strong> (amlodipino): relajan los vasos sanguíneos.</li>
+        <li><strong>Diuréticos tiazídicos</strong> (hidroclorotiazida): reducen el volumen de líquido.</li>
+        <li><strong>Betabloqueadores</strong> (metoprolol): disminuyen la frecuencia cardíaca.</li>
+      </ul>
+      <h3>La importancia de la adherencia</h3>
+      <p>Más del <strong>50% de los pacientes</strong> hipertensos abandona el tratamiento en el primer año. Esto es peligroso porque la presión arterial puede volver a elevarse sin síntomas evidentes. Algunos consejos:</p>
+      <ul>
+        <li>Toma el medicamento siempre a la misma hora.</li>
+        <li>Usa un pastillero semanal o alarmas en el teléfono.</li>
+        <li>No suspendas el tratamiento aunque "te sientas bien".</li>
+      </ul>
+      <div class="callout">🥗 El tratamiento farmacológico funciona mejor combinado con dieta baja en sodio, ejercicio regular, control de peso y reducción del estrés.</div>
+    `
+  },
+  a6: {
+    tag: 'Uso correcto · Seguridad',
+    title: '¿Cómo almacenar correctamente tus medicamentos?',
+    meta: '15 Feb 2026 · Farmacéutica L. Hernández · 5 min lectura',
+    body: `
+      <p>La eficacia de un medicamento depende no sólo de cómo lo tomas, sino también de cómo lo guardas. Las condiciones inadecuadas pueden degradar el principio activo.</p>
+      <h3>Factores que afectan la estabilidad</h3>
+      <ul>
+        <li><strong>Temperatura:</strong> La mayoría se conservan entre 15 y 25 °C. El calor excesivo acelera la degradación química.</li>
+        <li><strong>Humedad:</strong> Los baños son los peores lugares para guardar medicamentos. La humedad disuelve recubrimientos y comprimidos.</li>
+        <li><strong>Luz:</strong> Algunos fármacos (como nitroglicerina o ciertos antibióticos) se degradan con la luz directa.</li>
+      </ul>
+      <h3>Reglas prácticas</h3>
+      <ul>
+        <li>Guarda los medicamentos en un lugar fresco, seco y oscuro (un cajón de la recámara es ideal).</li>
+        <li>No retires los medicamentos de su empaque original.</li>
+        <li>Los medicamentos con indicación "refrigerar" van en el refrigerador, no en el congelador.</li>
+        <li>Mantén los medicamentos fuera del alcance de niños.</li>
+      </ul>
+      <div class="callout">🚮 ¿Cómo desechar medicamentos vencidos? Devuélvelos a tu farmacia Yair más cercana. Nunca los tires al drenaje ni a la basura común.</div>
+    `
+  },
+  a7: {
+    tag: 'Genéricos',
+    title: 'Los 10 genéricos más recetados en México y sus equivalentes',
+    meta: '8 Feb 2026 · Dr. R. Martínez · 4 min lectura',
+    body: `
+      <p>México cuenta con una amplia disponibilidad de medicamentos genéricos de alta calidad. Aquí te presentamos los más recetados y sus equivalentes de marca más conocidos.</p>
+      <h3>Tabla de equivalencias</h3>
+      <ul>
+        <li><strong>Omeprazol</strong> (genérico) = Losec, Prilosec (marca)</li>
+        <li><strong>Metformina</strong> = Glucophage</li>
+        <li><strong>Atorvastatina</strong> = Lipitor</li>
+        <li><strong>Losartán</strong> = Cozaar</li>
+        <li><strong>Amlodipino</strong> = Norvasc</li>
+        <li><strong>Metoprolol</strong> = Lopressor, Toprol</li>
+        <li><strong>Levotiroxina</strong> = Synthroid, Eutirox</li>
+        <li><strong>Clonazepam</strong> = Rivotril</li>
+        <li><strong>Amoxicilina</strong> = Amoxil</li>
+        <li><strong>Ibuprofeno</strong> = Advil, Motrin</li>
+      </ul>
+      <div class="callout">💡 Todos los genéricos de esta lista tienen estudios de bioequivalencia aprobados por COFEPRIS. Pregunta en cualquier sucursal Farmacias Yair por disponibilidad y precio.</div>
+      <p>Recuerda: el ahorro al elegir genérico puede reinvertirse en otros aspectos de tu salud, como una mejor alimentación o estudios preventivos.</p>
+    `
+  }
+};
+
+function openModal(id) {
+  const a = articles[id];
+  if (!a) return;
+  document.getElementById('m-tag').textContent = a.tag;
+  document.getElementById('m-title').textContent = a.title;
+  document.getElementById('m-meta').textContent = a.meta;
+  document.getElementById('m-body').innerHTML = a.body;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function filterTag(btn, tag) {
+  document.querySelectorAll('.ftag').forEach(t => t.classList.remove('on'));
+  btn.classList.add('on');
+  const cards = document.querySelectorAll('#articles-grid .article-card');
+  let count = 1; // featured always shown
+  cards.forEach(card => {
+    if (tag === 'todos' || (card.dataset.tags || '').includes(tag)) {
+      card.style.display = '';
+      count++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.getElementById('art-count').textContent = `Mostrando ${count} artículo${count !== 1 ? 's' : ''}`;
+}
+
+function filterArticles(q) {
+  q = q.toLowerCase().trim();
+  const cards = document.querySelectorAll('#articles-grid .article-card');
+  let count = 1;
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    if (!q || text.includes(q)) { card.style.display = ''; count++; }
+    else { card.style.display = 'none'; }
+  });
+  document.getElementById('art-count').textContent = `Mostrando ${count} artículo${count !== 1 ? 's' : ''}`;
+}
+</script>
+</body>
+</html>
