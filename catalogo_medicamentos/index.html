@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medicamentos – Farmacias Yair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:      #0b1f3a;
+      --navy-mid:  #122848;
+      --blue:      #0057b8;
+      --blue-lt:   #1a8cff;
+      --teal:      #00b4cc;
+      --green:     #2eaa6b;
+      --green-lt:  #d2f5e6;
+      --green-dk:  #1d7a4a;
+      --amber:     #e07b00;
+      --amber-lt:  #fff1d6;
+      --amber-dk:  #b35f00;
+      --white:     #ffffff;
+      --off:       #f4f7fc;
+      --gray:      #dde3f0;
+      --text:      #0f1f35;
+      --muted:     #5a6a8a;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Sora', sans-serif; background: var(--off); color: var(--text); }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      position: sticky; top: 0; z-index: 300;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.35);
+    }
+    .hdr {
+      max-width: 1200px; margin: 0 auto;
+      padding: 12px 36px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .logo-wrap { display:flex; align-items:center; gap:14px; text-decoration:none; }
+    .logo-wrap img { height: 46px; width: auto; filter: brightness(0) invert(1); }
+    .hdr-sep { width:1px; height:28px; background:rgba(255,255,255,0.2); }
+    .hdr-title {
+      font-size: 0.73rem; font-weight:700;
+      letter-spacing: 0.14em; text-transform:uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+    .hdr-nav { display:flex; align-items:center; gap:8px; }
+    .hdr-nav a {
+      color: rgba(255,255,255,0.6); text-decoration:none;
+      font-size:0.84rem; font-weight:600;
+      padding: 7px 14px; border-radius:20px;
+      transition: background .18s, color .18s;
+    }
+    .hdr-nav a:hover { background:rgba(255,255,255,0.1); color:var(--white); }
+    .hdr-nav .btn-back {
+      background: var(--blue); color: var(--white); font-weight:700;
+    }
+    .hdr-nav .btn-back:hover { background: var(--blue-lt); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #0a3060 100%);
+      padding: 60px 36px 70px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 15% 60%, rgba(0,180,204,0.12), transparent 45%),
+        radial-gradient(circle at 85% 30%, rgba(46,170,107,0.1), transparent 40%);
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 48px;
+      position: relative; z-index: 1;
+    }
+    .hero-pill {
+      display: inline-flex; align-items:center; gap:8px;
+      background: rgba(0,180,204,0.15);
+      border: 1px solid rgba(0,180,204,0.3);
+      color: var(--teal); border-radius:30px;
+      padding: 6px 18px; font-size:0.75rem;
+      font-weight:700; letter-spacing:0.1em;
+      text-transform:uppercase; margin-bottom:18px;
+    }
+    .hero-inner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight:700; color:var(--white); line-height:1.15;
+      margin-bottom:14px;
+    }
+    .hero-inner h1 em { font-style:italic; color:var(--teal); }
+    .hero-inner p {
+      font-size:0.97rem; color:rgba(255,255,255,0.62);
+      line-height:1.7; max-width:500px;
+    }
+    .hero-stats {
+      display:flex; gap:0; flex-shrink:0;
+    }
+    .h-stat {
+      padding: 18px 28px; text-align:center;
+      border-left: 1px solid rgba(255,255,255,0.12);
+    }
+    .h-stat:first-child { border-left:none; }
+    .h-stat strong {
+      display:block; font-family:'Playfair Display',serif;
+      font-size:1.8rem; color:var(--teal); font-weight:700; line-height:1;
+    }
+    .h-stat span {
+      font-size:0.72rem; color:rgba(255,255,255,0.45);
+      font-weight:600; letter-spacing:0.07em;
+      text-transform:uppercase; margin-top:4px; display:block;
+    }
+
+    /* ── TAB BAR ── */
+    .tab-bar {
+      background: var(--white);
+      border-bottom: 2px solid var(--gray);
+      position: sticky; top: 70px; z-index: 200;
+      box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+    }
+    .tab-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 36px;
+      display: flex; align-items: center; gap: 0;
+    }
+    .tab-btn {
+      display: flex; align-items:center; gap:10px;
+      padding: 18px 32px; background:none; border:none;
+      font-family:'Sora',sans-serif; font-size:0.92rem;
+      font-weight:700; color:var(--muted); cursor:pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px; transition: color .18s;
+      white-space:nowrap;
+    }
+    .tab-btn:hover { color:var(--text); }
+    .tab-btn.active-gen  { color:var(--green); border-bottom-color:var(--green); }
+    .tab-btn.active-pat  { color:var(--amber); border-bottom-color:var(--amber); }
+    .tab-icon { font-size:1.15rem; }
+    .tab-count {
+      font-size:0.7rem; font-weight:800;
+      padding:2px 8px; border-radius:20px;
+    }
+    .tab-btn.active-gen .tab-count { background:var(--green-lt); color:var(--green-dk); }
+    .tab-btn.active-pat .tab-count { background:var(--amber-lt); color:var(--amber-dk); }
+    .tab-btn:not(.active-gen):not(.active-pat) .tab-count { background:var(--off); color:var(--muted); }
+    .tab-search {
+      margin-left: auto;
+      display:flex; align-items:center; gap:9px;
+      background: var(--off); border: 2px solid var(--gray);
+      border-radius:30px; padding:7px 16px;
+      transition: border-color .2s;
+    }
+    .tab-search:focus-within { border-color: var(--blue); }
+    .tab-search input {
+      background:none; border:none; outline:none;
+      font-family:'Sora',sans-serif; font-size:0.87rem;
+      color:var(--text); width:180px;
+    }
+    .tab-search input::placeholder { color:var(--muted); }
+
+    /* ── SECTIONS ── */
+    .section-wrap {
+      max-width: 1200px; margin: 0 auto; padding: 48px 36px 72px;
+    }
+
+    /* Section header */
+    .sec-hdr {
+      display:flex; align-items:center; gap:16px; margin-bottom:10px;
+    }
+    .sec-accent {
+      width:6px; height:36px; border-radius:3px; flex-shrink:0;
+    }
+    .sec-accent.gen { background: linear-gradient(180deg, var(--green), var(--teal)); }
+    .sec-accent.pat { background: linear-gradient(180deg, var(--amber), #f5a623); }
+    .sec-hdr h2 {
+      font-family:'Playfair Display',serif;
+      font-size:1.55rem; font-weight:700; color:var(--text);
+    }
+    .sec-desc {
+      font-size:0.88rem; color:var(--muted);
+      line-height:1.6; margin-bottom:32px; max-width:680px;
+      padding-left:22px;
+      border-left:2px solid var(--gray);
+    }
+
+    /* Banner strip per section */
+    .sec-banner {
+      border-radius:16px; padding:18px 24px;
+      display:flex; align-items:center; gap:16px;
+      margin-bottom:32px; font-size:0.88rem; font-weight:600;
+      line-height:1.5;
+    }
+    .sec-banner.gen {
+      background: linear-gradient(90deg, var(--green-lt), #c0f0db);
+      color: var(--green-dk);
+    }
+    .sec-banner.pat {
+      background: linear-gradient(90deg, var(--amber-lt), #fce8c0);
+      color: var(--amber-dk);
+    }
+    .sec-banner .ban-icon { font-size:1.8rem; flex-shrink:0; }
+
+    /* ── PRODUCT GRID ── */
+    .prod-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom:56px;
+    }
+
+    .prod-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      display: flex; flex-direction:column;
+      transition: transform .22s, box-shadow .22s;
+      cursor: default;
+    }
+    .prod-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    /* image placeholder */
+    .prod-img {
+      height: 190px;
+      display: flex; align-items:center; justify-content:center;
+      position: relative; overflow:hidden;
+    }
+    .prod-img.gen-bg {
+      background: linear-gradient(145deg, #edf9f3, #d2f5e6);
+    }
+    .prod-img.pat-bg {
+      background: linear-gradient(145deg, #fef8ed, #fde9c0);
+    }
+    .img-placeholder {
+      width: 110px; height: 148px;
+      border-radius: 14px;
+      background: var(--white);
+      border: 2.5px dashed;
+      display: flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      gap: 8px; text-align:center; padding:12px;
+    }
+    .img-placeholder.gen-ph {
+      border-color: rgba(46,170,107,0.35);
+      color: rgba(46,170,107,0.5);
+    }
+    .img-placeholder.pat-ph {
+      border-color: rgba(224,123,0,0.35);
+      color: rgba(224,123,0,0.5);
+    }
+    .img-placeholder .ph-icon { font-size:2rem; opacity:0.5; }
+    .img-placeholder .ph-label {
+      font-size:0.62rem; font-weight:700; line-height:1.4;
+    }
+    /* type badge */
+    .type-badge {
+      position:absolute; top:12px; left:12px;
+      font-size:0.67rem; font-weight:800;
+      padding:3px 10px; border-radius:20px;
+      text-transform:uppercase; letter-spacing:0.06em;
+    }
+    .type-badge.gen { background:var(--green-lt); color:var(--green-dk); }
+    .type-badge.pat { background:var(--amber-lt); color:var(--amber-dk); }
+    /* rx badge */
+    .rx-badge {
+      position:absolute; top:12px; right:12px;
+      font-size:0.65rem; font-weight:800;
+      padding:3px 9px; border-radius:20px;
+      background:rgba(11,31,58,0.12); color:var(--navy);
+    }
+
+    /* card body */
+    .prod-body {
+      padding: 16px 18px 20px;
+      display:flex; flex-direction:column; gap:7px; flex:1;
+    }
+    .prod-brand {
+      font-size:0.7rem; font-weight:700;
+      letter-spacing:0.09em; text-transform:uppercase;
+      color:var(--muted);
+    }
+    .prod-name {
+      font-size:0.96rem; font-weight:700;
+      color:var(--text); line-height:1.35;
+    }
+    .prod-desc {
+      font-size:0.8rem; color:var(--muted);
+      line-height:1.55; flex:1;
+    }
+    .prod-tags {
+      display:flex; gap:6px; flex-wrap:wrap; margin-top:4px;
+    }
+    .prod-tag {
+      font-size:0.68rem; font-weight:700;
+      padding:3px 10px; border-radius:20px;
+    }
+    .prod-tag.gen { background:var(--green-lt); color:var(--green-dk); }
+    .prod-tag.pat { background:var(--amber-lt); color:var(--amber-dk); }
+    /* divider */
+    .prod-div { height:1px; background:var(--off); margin:4px 0; }
+    .prod-avail {
+      font-size:0.74rem; color:var(--muted);
+      display:flex; align-items:center; gap:5px; font-weight:600;
+    }
+    .prod-avail::before {
+      content:''; width:7px; height:7px;
+      border-radius:50%; background:var(--green); display:inline-block;
+    }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-wrap {
+      background: var(--white);
+      border-radius: 20px;
+      overflow:hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      margin-bottom: 48px;
+    }
+    .compare-hdr {
+      background: var(--navy);
+      padding: 20px 28px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .compare-hdr h3 {
+      font-family:'Playfair Display',serif;
+      font-size:1.15rem; font-weight:700; color:var(--white);
+    }
+    table {
+      width:100%; border-collapse:collapse;
+      font-size:0.88rem;
+    }
+    thead th {
+      padding:14px 20px; text-align:left;
+      font-size:0.75rem; font-weight:700;
+      letter-spacing:0.08em; text-transform:uppercase;
+      color:var(--muted); border-bottom:2px solid var(--off);
+      background:var(--white);
+    }
+    thead th:nth-child(2) { color:var(--green-dk); }
+    thead th:nth-child(3) { color:var(--amber-dk); }
+    tbody tr { transition:background .15s; }
+    tbody tr:hover { background:var(--off); }
+    tbody td {
+      padding:13px 20px; border-bottom:1px solid var(--off);
+      color:var(--text); line-height:1.45;
+    }
+    tbody td:first-child { color:var(--muted); font-weight:600; font-size:0.82rem; }
+    tbody td .check { font-size:1rem; }
+    tbody tr:last-child td { border-bottom:none; }
+
+    /* ── SECTION DIVIDER ── */
+    .sec-divider {
+      border:none;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gray), transparent);
+      margin: 0 0 56px;
+    }
+
+    /* ── HIDDEN CLASS ── */
+    .tab-section { display:block; }
+    .tab-section.hidden { display:none; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color:rgba(255,255,255,0.45);
+      text-align:center; padding:24px 36px;
+      font-size:0.81rem;
+    }
+    footer a { color:var(--teal); text-decoration:none; }
+    footer a:hover { color:var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:1024px) { .prod-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (max-width:760px)  {
+      .prod-grid { grid-template-columns: repeat(2,1fr); }
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-stats { flex-wrap:wrap; }
+      .h-stat { border-left:none; border-top:1px solid rgba(255,255,255,0.12); padding:14px 20px; }
+    }
+    @media (max-width:500px)  { .prod-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a class="logo-link" href="farmacias_yair.html">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a>
+      <div class="hdr-sep"></div>
+      <span class="hdr-title">💊 Medicamentos</span>
+    </div>
+    <nav class="hdr-nav">
+      <a href="https://www.farmaciasyair.com/blog_medicamento">Blog</a>
+      <a href="https://www.farmaciasyair.com/blog_temporal">Temporada</a>
+      <a href="https://www.farmaciasyair.com/" class="btn-back">← Volver a la tienda</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-pill">💊 Catálogo de Medicamentos</div>
+      <h1>Genéricos y de <em>patente</em><br/>al alcance de todos</h1>
+      <p>Encuentra los medicamentos que necesitas: desde genéricos de alta calidad con el mismo principio activo, hasta marcas de patente de los principales laboratorios del mundo.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><strong>200+</strong><span>Genéricos</span></div>
+      <div class="h-stat"><strong>300+</strong><span>De patente</span></div>
+      <div class="h-stat"><strong>24/7</strong><span>Disponibles</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <div class="tab-inner">
+    <button class="tab-btn active-gen" id="tab-gen" onclick="switchTab('gen')">
+      <span class="tab-icon">🟢</span> Genéricos
+      <span class="tab-count">12</span>
+    </button>
+    <button class="tab-btn" id="tab-pat" onclick="switchTab('pat')">
+      <span class="tab-icon">🟡</span> De Patente
+      <span class="tab-count">12</span>
+    </button>
+    <div class="tab-search">
+      <svg width="15" height="15" fill="none" stroke="#9baac8" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" placeholder="Buscar medicamento…" oninput="filterCards(this.value)"/>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     GENÉRICOS
+══════════════════════════════════════ -->
+<div class="section-wrap" id="sec-gen">
+
+  <div class="sec-hdr">
+    <div class="sec-accent gen"></div>
+    <h2>Medicamentos Genéricos</h2>
+  </div>
+  <p class="sec-desc">Mismo principio activo, misma dosis, misma forma farmacéutica que el medicamento de referencia. Aprobados por COFEPRIS con estudios de bioequivalencia. Ahorra hasta un 80% sin sacrificar eficacia.</p>
+
+  <div class="sec-banner gen">
+    <span class="ban-icon">✅</span>
+    <span>Todos nuestros genéricos cuentan con <strong>Registro Sanitario COFEPRIS</strong> y estudios de bioequivalencia que garantizan la misma eficacia terapéutica que el medicamento de marca.</span>
+  </div>
+
+  <!-- CATEGORÍA: Cardiovascular -->
+  <div class="sec-hdr" style="margin-bottom:16px;">
+    <div class="sec-accent gen" style="height:24px;"></div>
+    <h2 style="font-size:1.1rem;color:var(--muted);">Cardiovascular</h2>
+  </div>
+  <div class="prod-grid" style="margin-bottom:36px;">
+
+    <div class="prod-card" data-name="atorvastatina colesterol genérico cardiovascular">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Atorvastatina 20 mg</div>
+        <div class="prod-desc">Control del colesterol LDL. Tableta recubierta. Frasco c/30 tabletas.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Colesterol</span><span class="prod-tag gen">Oral</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="losartán hipertensión genérico cardiovascular">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Losartán 50 mg</div>
+        <div class="prod-desc">Antihipertensivo ARA-II. Protección renal y cardíaca. Frasco c/30 tabletas.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Hipertensión</span><span class="prod-tag gen">Oral</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="amlodipino presión genérico cardiovascular">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Amlodipino 5 mg</div>
+        <div class="prod-desc">Bloqueador de canales de calcio. Antihipertensivo y antianginoso. c/30 tab.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Hipertensión</span><span class="prod-tag gen">Angina</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="metoprolol corazón genérico cardiovascular">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Metoprolol 50 mg</div>
+        <div class="prod-desc">Betabloqueador cardioselectivo. Control de la frecuencia cardíaca. c/20 tab.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Cardíaco</span><span class="prod-tag gen">Oral</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CATEGORÍA: Metabólicos -->
+  <div class="sec-hdr" style="margin-bottom:16px;">
+    <div class="sec-accent gen" style="height:24px;"></div>
+    <h2 style="font-size:1.1rem;color:var(--muted);">Metabólicos y Diabetes</h2>
+  </div>
+  <div class="prod-grid" style="margin-bottom:36px;">
+
+    <div class="prod-card" data-name="metformina diabetes glucosa genérico">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Metformina 850 mg</div>
+        <div class="prod-desc">Antidiabético oral de primera línea. Control de glucosa en sangre. c/30 tab.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Diabetes</span><span class="prod-tag gen">Oral</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="levotiroxina tiroides hormona genérico">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Levotiroxina 100 mcg</div>
+        <div class="prod-desc">Hormona tiroidea sintética. Hipotiroidismo. Tableta. Frasco c/50 tabletas.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Tiroides</span><span class="prod-tag gen">Hormonal</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="omeprazol gastritis estómago genérico">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">OTC</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Omeprazol 20 mg</div>
+        <div class="prod-desc">Inhibidor de la bomba de protones. Gastritis y reflujo. Cápsulas c/14.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Gastritis</span><span class="prod-tag gen">Reflujo</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="clonazepam ansiedad nervios genérico">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">Rx Esp</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Clonazepam 2 mg</div>
+        <div class="prod-desc">Ansiolítico y anticonvulsivante. Requiere receta médica especial. c/30 tab.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Ansiedad</span><span class="prod-tag gen">Neurológico</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CATEGORÍA: Analgésicos -->
+  <div class="sec-hdr" style="margin-bottom:16px;">
+    <div class="sec-accent gen" style="height:24px;"></div>
+    <h2 style="font-size:1.1rem;color:var(--muted);">Analgésicos y Antibióticos</h2>
+  </div>
+  <div class="prod-grid" style="margin-bottom:0;">
+
+    <div class="prod-card" data-name="ibuprofeno dolor inflamación genérico">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">OTC</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Ibuprofeno 400 mg</div>
+        <div class="prod-desc">Antiinflamatorio no esteroideo (AINE). Dolor, fiebre e inflamación. c/20 tab.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Dolor</span><span class="prod-tag gen">Fiebre</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="amoxicilina antibiótico infección genérico">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Amoxicilina 500 mg</div>
+        <div class="prod-desc">Antibiótico betalactámico de amplio espectro. Infecciones bacterianas. c/12 cáps.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Antibiótico</span><span class="prod-tag gen">Oral</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="paracetamol dolor fiebre genérico">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">OTC</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Paracetamol 500 mg</div>
+        <div class="prod-desc">Analgésico y antipirético de venta libre. Alta seguridad. Tableta. c/20 tab.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Dolor</span><span class="prod-tag gen">Fiebre</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="loratadina alergia antihistamínico genérico">
+      <div class="prod-img gen-bg">
+        <span class="type-badge gen">Genérico</span>
+        <span class="rx-badge">OTC</span>
+        <div class="img-placeholder gen-ph">
+          <span class="ph-icon">💊</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Genérico Intercambiable</div>
+        <div class="prod-name">Loratadina 10 mg</div>
+        <div class="prod-desc">Antihistamínico de segunda generación. No produce somnolencia. c/10 tabletas.</div>
+        <div class="prod-tags"><span class="prod-tag gen">Alergia</span><span class="prod-tag gen">Sin sueño</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Tabla comparativa -->
+  <div style="margin-top:48px;">
+    <div class="compare-wrap">
+      <div class="compare-hdr">
+        <span style="font-size:1.4rem">⚖️</span>
+        <h3>Genérico vs. Patente: ¿cuál es la diferencia?</h3>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:32%">Característica</th>
+            <th>🟢 Genérico</th>
+            <th>🟡 De Patente</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Principio activo</td><td><span class="check">✅</span> Idéntico</td><td><span class="check">✅</span> Original</td></tr>
+          <tr><td>Eficacia terapéutica</td><td><span class="check">✅</span> Bioequivalente</td><td><span class="check">✅</span> Referencia</td></tr>
+          <tr><td>Control de calidad</td><td><span class="check">✅</span> COFEPRIS</td><td><span class="check">✅</span> COFEPRIS</td></tr>
+          <tr><td>Costo promedio</td><td>💚 Hasta 80% menos</td><td>💛 Precio de referencia</td></tr>
+          <tr><td>Excipientes / fórmula</td><td>Pueden variar</td><td>Fórmula original</td></tr>
+          <tr><td>Presentaciones</td><td>Estándar</td><td>Mayor variedad</td></tr>
+          <tr><td>Disponibilidad</td><td><span class="check">✅</span> Alta</td><td><span class="check">✅</span> Alta</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /sec-gen -->
+
+
+<!-- ══════════════════════════════════════
+     DE PATENTE
+══════════════════════════════════════ -->
+<div class="section-wrap hidden" id="sec-pat">
+
+  <div class="sec-hdr">
+    <div class="sec-accent pat"></div>
+    <h2>Medicamentos de Patente</h2>
+  </div>
+  <p class="sec-desc">Fármacos originales de laboratorio, con fórmulas propietarias protegidas. Disponibles en todas nuestras sucursales. Incluyen presentaciones innovadoras, fórmulas de liberación prolongada y combinaciones exclusivas.</p>
+
+  <div class="sec-banner pat">
+    <span class="ban-icon">🏥</span>
+    <span>Los medicamentos de patente son los productos originales de cada laboratorio farmacéutico. Algunos requieren <strong>receta médica</strong>. Consulta disponibilidad en tu sucursal Farmacias Yair más cercana.</span>
+  </div>
+
+  <!-- CATEGORÍA: Cardiovascular -->
+  <div class="sec-hdr" style="margin-bottom:16px;">
+    <div class="sec-accent pat" style="height:24px;"></div>
+    <h2 style="font-size:1.1rem;color:var(--muted);">Cardiovascular</h2>
+  </div>
+  <div class="prod-grid" style="margin-bottom:36px;">
+
+    <div class="prod-card" data-name="lipitor atorvastatina colesterol patente cardiovascular">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Pfizer</div>
+        <div class="prod-name">Lipitor® 20 mg</div>
+        <div class="prod-desc">Atorvastatina de referencia. Control del colesterol y triglicéridos. c/30 tab.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Colesterol</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="cozaar losartán hipertensión patente cardiovascular">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">MSD</div>
+        <div class="prod-name">Cozaar® 50 mg</div>
+        <div class="prod-desc">Losartán de referencia. Antihipertensivo con protección renal demostrada. c/30 tab.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Hipertensión</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="norvasc amlodipino presión patente cardiovascular">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Pfizer</div>
+        <div class="prod-name">Norvasc® 5 mg</div>
+        <div class="prod-desc">Amlodipino de referencia. Antihipertensivo bloqueador de canales de calcio. c/30 tab.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Hipertensión</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="toprol metoprolol corazón patente cardiovascular">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">AstraZeneca</div>
+        <div class="prod-name">Seloken® 50 mg</div>
+        <div class="prod-desc">Metoprolol de referencia. Betabloqueador cardioselectivo de liberación estándar. c/20 tab.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Cardíaco</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CATEGORÍA: Metabólicos -->
+  <div class="sec-hdr" style="margin-bottom:16px;">
+    <div class="sec-accent pat" style="height:24px;"></div>
+    <h2 style="font-size:1.1rem;color:var(--muted);">Metabólicos y Diabetes</h2>
+  </div>
+  <div class="prod-grid" style="margin-bottom:36px;">
+
+    <div class="prod-card" data-name="glucophage metformina diabetes patente">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Merck</div>
+        <div class="prod-name">Glucophage® 850 mg</div>
+        <div class="prod-desc">Metformina de referencia. Antidiabético oral de primera línea. Frasco c/30 tab.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Diabetes</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="synthroid eutirox tiroides patente">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Merck</div>
+        <div class="prod-name">Eutirox® 100 mcg</div>
+        <div class="prod-desc">Levotiroxina de referencia. Hipotiroidismo. Alta precisión de dosificación. c/50 tab.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Tiroides</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="prilosec omeprazol gastritis patente">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">OTC</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">AstraZeneca</div>
+        <div class="prod-name">Losec® 20 mg</div>
+        <div class="prod-desc">Omeprazol de referencia. IBP. Gastritis, reflujo y úlcera péptica. c/14 cáps.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Gastritis</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="rivotril clonazepam ansiedad patente">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">Rx Esp</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Roche</div>
+        <div class="prod-name">Rivotril® 2 mg</div>
+        <div class="prod-desc">Clonazepam de referencia. Ansiolítico y anticonvulsivante. Receta especial. c/30 tab.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Ansiedad</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CATEGORÍA: Analgésicos -->
+  <div class="sec-hdr" style="margin-bottom:16px;">
+    <div class="sec-accent pat" style="height:24px;"></div>
+    <h2 style="font-size:1.1rem;color:var(--muted);">Analgésicos y Antibióticos</h2>
+  </div>
+  <div class="prod-grid" style="margin-bottom:0;">
+
+    <div class="prod-card" data-name="advil ibuprofeno dolor inflamación patente">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">OTC</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Haleon</div>
+        <div class="prod-name">Advil® 400 mg</div>
+        <div class="prod-desc">Ibuprofeno de referencia. Dolor muscular, dental, cefalea e inflamación. c/24 tab.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Dolor</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="amoxil amoxicilina antibiótico infección patente">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">Rx</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">GSK</div>
+        <div class="prod-name">Amoxil® 500 mg</div>
+        <div class="prod-desc">Amoxicilina de referencia. Antibiótico amplio espectro. Cápsulas. c/12 cápsulas.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Antibiótico</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="tempra paracetamol dolor fiebre patente">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">OTC</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">J&J</div>
+        <div class="prod-name">Tylenol® 500 mg</div>
+        <div class="prod-desc">Paracetamol de referencia. Analgésico y antipirético líder mundial. c/24 tabletas.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Dolor</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-name="clarityne loratadina alergia antihistamínico patente">
+      <div class="prod-img pat-bg">
+        <span class="type-badge pat">Patente</span>
+        <span class="rx-badge">OTC</span>
+        <div class="img-placeholder pat-ph">
+          <span class="ph-icon">💛</span>
+          <span class="ph-label">Imagen del<br/>producto aquí</span>
+        </div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-brand">Bayer</div>
+        <div class="prod-name">Clarityne® 10 mg</div>
+        <div class="prod-desc">Loratadina de referencia. Alergia sin somnolencia. Rápida acción. c/10 tabletas.</div>
+        <div class="prod-tags"><span class="prod-tag pat">Alergia</span><span class="prod-tag pat">Original</span></div>
+        <div class="prod-div"></div>
+        <div class="prod-avail">Disponible en sucursal</div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /sec-pat -->
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Catálogo de Medicamentos · Los precios y disponibilidad pueden variar por sucursal · Consulta siempre a tu médico o farmacéutico</p>
+</footer>
+
+<script>
+let currentTab = 'gen';
+
+function switchTab(tab) {
+  currentTab = tab;
+  // sections
+  document.getElementById('sec-gen').classList.toggle('hidden', tab !== 'gen');
+  document.getElementById('sec-pat').classList.toggle('hidden', tab !== 'pat');
+  // tab buttons
+  const btnGen = document.getElementById('tab-gen');
+  const btnPat = document.getElementById('tab-pat');
+  btnGen.className = 'tab-btn' + (tab === 'gen' ? ' active-gen' : '');
+  btnPat.className = 'tab-btn' + (tab === 'pat' ? ' active-pat' : '');
+  // clear search
+  document.querySelector('.tab-search input').value = '';
+}
+
+function filterCards(q) {
+  q = q.toLowerCase().trim();
+  const section = document.getElementById('sec-' + currentTab);
+  section.querySelectorAll('.prod-card').forEach(card => {
+    const haystack = (card.dataset.name || '') + card.innerText.toLowerCase();
+    card.style.display = (!q || haystack.includes(q)) ? '' : 'none';
+  });    }
+</script>
+</body>
+</html>
