@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dermocosméticos – Farmacias Yair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --rose:      #c9636a;
+      --rose-lt:   #fbeef0;
+      --rose-dk:   #9e3d43;
+      --blush:     #f2c4ce;
+      --gold:      #b8924a;
+      --gold-lt:   #fdf4e7;
+      --gold-dk:   #8a6530;
+      --sage:      #7aab8a;
+      --sage-lt:   #eaf4ee;
+      --sage-dk:   #4a7a5a;
+      --lilac:     #9b82c3;
+      --lilac-lt:  #f0ecf8;
+      --sky:       #5fa8d3;
+      --sky-lt:    #e8f4fb;
+      --cream:     #fdfaf6;
+      --warm:      #f7f1ea;
+      --white:     #ffffff;
+      --gray:      #e8e0d8;
+      --text:      #2c1f1a;
+      --muted:     #8a7a70;
+      --navy:      #1a1025;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--text); }
+
+    /* ── HEADER ── */
+    header {
+      background:var(--white);
+      border-bottom:1px solid var(--gray);
+      position:sticky; top:0; z-index:300;
+      box-shadow:0 2px 18px rgba(44,31,26,0.08);
+    }
+    .hdr {
+      max-width:1200px; margin:0 auto; padding:12px 36px;
+      display:flex; align-items:center; justify-content:space-between; gap:20px;
+    }
+    .logo-wrap { display:flex; align-items:center; gap:14px; text-decoration:none; }
+    .logo-wrap img { height:46px; width:auto; }
+    .hdr-sep { width:1px; height:28px; background:var(--gray); }
+    .hdr-title { font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--rose); }
+    .hdr-nav { display:flex; align-items:center; gap:8px; }
+    .hdr-nav a {
+      color:var(--muted); text-decoration:none; font-size:0.84rem;
+      font-weight:600; padding:7px 14px; border-radius:20px; transition:background .18s,color .18s;
+    }
+    .hdr-nav a:hover { background:var(--warm); color:var(--text); }
+    .btn-back { background:var(--rose)!important; color:var(--white)!important; font-weight:700!important; }
+    .btn-back:hover { background:var(--rose-dk)!important; }
+
+    /* ── HERO ── */
+    .hero {
+      background:linear-gradient(145deg,#fdf6f0 0%,#f9edf0 40%,#f0eaf8 100%);
+      padding:72px 36px 80px; position:relative; overflow:hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 80% 20%,rgba(201,99,106,0.10),transparent 45%),
+        radial-gradient(circle at 10% 80%,rgba(155,130,195,0.08),transparent 40%),
+        radial-gradient(circle at 50% 50%,rgba(184,146,74,0.06),transparent 55%);
+    }
+    .hero-inner {
+      max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr;
+      align-items:center; gap:64px; position:relative; z-index:1;
+    }
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--rose-lt); border:1px solid var(--blush);
+      color:var(--rose-dk); border-radius:30px; padding:6px 18px;
+      font-size:0.74rem; font-weight:700; letter-spacing:0.1em;
+      text-transform:uppercase; margin-bottom:20px;
+    }
+    .hero-text h1 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.6rem,4.5vw,3.8rem);
+      font-weight:700; line-height:1.1; color:var(--text); margin-bottom:18px;
+    }
+    .hero-text h1 em { font-style:italic; color:var(--rose); }
+    .hero-text p {
+      font-size:1rem; color:var(--muted); line-height:1.72;
+      max-width:440px; margin-bottom:32px;
+    }
+    .hero-cta {
+      display:inline-flex; align-items:center; gap:9px;
+      background:var(--rose); color:var(--white);
+      text-decoration:none; padding:13px 30px; border-radius:40px;
+      font-weight:700; font-size:0.93rem;
+      box-shadow:0 8px 24px rgba(201,99,106,0.3);
+      transition:transform .18s,box-shadow .18s;
+    }
+    .hero-cta:hover { transform:translateY(-3px); box-shadow:0 14px 36px rgba(201,99,106,0.4); }
+
+    /* hero product mosaic */
+    .hero-mosaic {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      grid-template-rows:auto auto;
+      gap:14px;
+    }
+    .mosaic-card {
+      background:var(--white); border-radius:20px;
+      padding:20px 14px 16px;
+      display:flex; flex-direction:column; align-items:center; gap:10px;
+      box-shadow:0 6px 28px rgba(44,31,26,0.09);
+      transition:transform .22s;
+    }
+    .mosaic-card:hover { transform:translateY(-5px); }
+    .mosaic-card:first-child {
+      grid-column:1/-1;
+      flex-direction:row; gap:20px; padding:20px 24px;
+    }
+    .mosaic-ph {
+      border-radius:12px;
+      background:linear-gradient(145deg,#f5f0ee,#ede5e0);
+      border:2px dashed rgba(201,99,106,0.25);
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:7px; text-align:center; padding:10px;
+      color:rgba(201,99,106,0.45); font-size:0.62rem; font-weight:700; line-height:1.4;
+    }
+    .mosaic-ph .phi { font-size:1.8rem; opacity:0.5; }
+    .mosaic-card:first-child .mosaic-ph { width:90px; height:110px; flex-shrink:0; }
+    .mosaic-card:not(:first-child) .mosaic-ph { width:80px; height:104px; }
+    .m-feat-info h4 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.1rem; font-weight:700; color:var(--text); margin-bottom:4px;
+    }
+    .m-feat-info span { font-size:0.78rem; color:var(--muted); line-height:1.5; display:block; }
+    .m-feat-info .m-brand { font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--rose); margin-bottom:4px; }
+    .mosaic-card:not(:first-child) .m-name {
+      font-size:0.8rem; font-weight:700; color:var(--text); text-align:center; line-height:1.3;
+    }
+    .mosaic-card:not(:first-child) .m-brand-sm {
+      font-size:0.67rem; color:var(--muted); text-align:center;
+    }
+
+    /* ── INTRO STRIP ── */
+    .strip {
+      background:linear-gradient(90deg,var(--rose) 0%,#d4758a 50%,var(--lilac) 100%);
+      padding:18px 36px;
+    }
+    .strip-inner {
+      max-width:1200px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-around; gap:20px; flex-wrap:wrap;
+    }
+    .si { display:flex; align-items:center; gap:12px; color:var(--white); }
+    .si .ico { font-size:1.5rem; }
+    .si strong { display:block; font-size:0.87rem; font-weight:700; }
+    .si span { font-size:0.75rem; opacity:0.82; }
+
+    /* ── NAV TABS ── */
+    .cat-nav {
+      background:var(--white); border-bottom:2px solid var(--gray);
+      position:sticky; top:70px; z-index:200;
+      box-shadow:0 3px 14px rgba(44,31,26,0.06);
+    }
+    .cat-nav-inner {
+      max-width:1200px; margin:0 auto; padding:0 36px;
+      display:flex; align-items:center; gap:0; overflow-x:auto;
+      scrollbar-width:none;
+    }
+    .cat-nav-inner::-webkit-scrollbar { display:none; }
+    .cat-btn {
+      display:flex; align-items:center; gap:8px;
+      padding:16px 24px; background:none; border:none;
+      font-family:'DM Sans',sans-serif; font-size:0.88rem;
+      font-weight:700; color:var(--muted); cursor:pointer;
+      border-bottom:3px solid transparent; margin-bottom:-2px;
+      white-space:nowrap; transition:color .18s;
+    }
+    .cat-btn:hover { color:var(--text); }
+    .cat-btn.active { color:var(--rose); border-bottom-color:var(--rose); }
+    .cat-icon { font-size:1.1rem; }
+    .cat-search {
+      margin-left:auto; display:flex; align-items:center; gap:9px;
+      background:var(--warm); border:2px solid var(--gray);
+      border-radius:30px; padding:7px 16px; flex-shrink:0;
+      transition:border-color .2s;
+    }
+    .cat-search:focus-within { border-color:var(--rose); }
+    .cat-search input {
+      background:none; border:none; outline:none;
+      font-family:'DM Sans',sans-serif; font-size:0.86rem;
+      color:var(--text); width:170px;
+    }
+    .cat-search input::placeholder { color:var(--muted); }
+
+    /* ── MAIN WRAP ── */
+    .main-wrap {
+      max-width:1200px; margin:0 auto; padding:56px 36px 80px;
+    }
+
+    /* section label */
+    .sec-lbl {
+      display:flex; align-items:center; gap:14px; margin-bottom:12px;
+    }
+    .sec-lbl h2 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.7rem; font-weight:700; color:var(--text);
+    }
+    .sec-lbl-line {
+      flex:1; height:1px; background:linear-gradient(90deg,var(--gray),transparent);
+    }
+    .sec-desc {
+      font-size:0.88rem; color:var(--muted); line-height:1.65;
+      margin-bottom:32px; max-width:640px;
+    }
+
+    /* ── PRODUCT GRID ── */
+    .prod-grid {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:64px;
+    }
+
+    /* product card */
+    .prod-card {
+      background:var(--white); border-radius:22px; overflow:hidden;
+      box-shadow:0 3px 18px rgba(44,31,26,0.08);
+      display:flex; flex-direction:column;
+      transition:transform .22s,box-shadow .22s;
+    }
+    .prod-card:hover {
+      transform:translateY(-7px);
+      box-shadow:0 16px 44px rgba(44,31,26,0.14);
+    }
+
+    /* image area */
+    .prod-img {
+      height:200px; position:relative; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+    }
+    /* per-section bg tints */
+    .bg-rostro  { background:linear-gradient(145deg,#fbeef0,#f5d8dd); }
+    .bg-cabello { background:linear-gradient(145deg,#fdf4e7,#f5e4c8); }
+    .bg-cuerpo  { background:linear-gradient(145deg,#eaf4ee,#d0eada); }
+    .bg-solar   { background:linear-gradient(145deg,#e8f4fb,#cce6f5); }
+    .bg-ojos    { background:linear-gradient(145deg,#f0ecf8,#ddd4f0); }
+
+    .img-ph {
+      width:120px; height:160px; border-radius:14px;
+      background:rgba(255,255,255,0.7); border:2.5px dashed rgba(0,0,0,0.15);
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:9px; text-align:center;
+      padding:12px; backdrop-filter:blur(4px);
+    }
+    .img-ph .phi { font-size:2.2rem; opacity:0.38; }
+    .img-ph .phl {
+      font-size:0.63rem; font-weight:700; color:rgba(0,0,0,0.32); line-height:1.4;
+    }
+
+    /* cat badge */
+    .cat-badge {
+      position:absolute; top:12px; left:12px;
+      font-size:0.67rem; font-weight:800;
+      padding:3px 10px; border-radius:20px;
+      text-transform:uppercase; letter-spacing:0.06em;
+    }
+    .cb-rostro  { background:var(--rose-lt); color:var(--rose-dk); }
+    .cb-cabello { background:var(--gold-lt); color:var(--gold-dk); }
+    .cb-cuerpo  { background:var(--sage-lt); color:var(--sage-dk); }
+    .cb-solar   { background:var(--sky-lt); color:var(--sky); }
+    .cb-ojos    { background:var(--lilac-lt); color:var(--lilac); }
+
+    /* best badge */
+    .best-badge {
+      position:absolute; top:12px; right:12px;
+      background:var(--gold); color:var(--white);
+      font-size:0.62rem; font-weight:800; padding:3px 10px;
+      border-radius:20px; letter-spacing:0.06em; text-transform:uppercase;
+    }
+
+    /* card body */
+    .prod-body { padding:18px 18px 22px; flex:1; display:flex; flex-direction:column; gap:7px; }
+    .prod-brand { font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+    .prod-name { font-size:0.97rem; font-weight:700; color:var(--text); line-height:1.35; }
+    .prod-desc { font-size:0.8rem; color:var(--muted); line-height:1.55; flex:1; }
+    .prod-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:2px; }
+    .prod-tag {
+      font-size:0.67rem; font-weight:700; padding:3px 10px; border-radius:20px;
+    }
+    .tag-rostro  { background:var(--rose-lt); color:var(--rose-dk); }
+    .tag-cabello { background:var(--gold-lt); color:var(--gold-dk); }
+    .tag-cuerpo  { background:var(--sage-lt); color:var(--sage-dk); }
+    .tag-solar   { background:var(--sky-lt); color:var(--sky); }
+    .tag-ojos    { background:var(--lilac-lt); color:var(--lilac); }
+    .prod-div { height:1px; background:var(--warm); margin:4px 0; }
+    .prod-avail {
+      font-size:0.73rem; color:var(--muted); font-weight:600;
+      display:flex; align-items:center; gap:6px;
+    }
+    .prod-avail::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:var(--sage); display:inline-block;
+    }
+
+    /* ── HIDDEN ── */
+    .tab-section { display:block; }
+    .tab-section.hidden { display:none; }
+
+    /* ── TIPS BAND ── */
+    .tips-band {
+      background:linear-gradient(135deg,var(--navy) 0%,#2d1a35 100%);
+      padding:48px 36px;
+    }
+    .tips-band-inner {
+      max-width:1200px; margin:0 auto;
+    }
+    .tips-band h2 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.7rem; font-weight:700; color:var(--white); margin-bottom:28px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .tips-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .tip-card {
+      background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);
+      border-radius:18px; padding:22px 18px; backdrop-filter:blur(4px);
+    }
+    .tip-emoji { font-size:1.8rem; margin-bottom:12px; display:block; }
+    .tip-card h4 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.05rem; font-weight:700; color:var(--white); margin-bottom:8px;
+    }
+    .tip-card p { font-size:0.82rem; color:rgba(255,255,255,0.65); line-height:1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      background:var(--navy); color:rgba(255,255,255,0.45);
+      text-align:center; padding:24px 36px; font-size:0.81rem;
+    }
+    footer a { color:var(--blush); text-decoration:none; }
+    footer a:hover { color:var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:1024px) { .prod-grid { grid-template-columns:repeat(3,1fr); } .tips-grid { grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:768px)  {
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-mosaic { display:none; }
+      .prod-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:500px)  { .prod-grid { grid-template-columns:1fr; } .tips-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a class="logo-link" href="farmacias_yair.html">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a>
+      <div class="hdr-sep"></div>
+      <span class="hdr-title">✨ Dermocosméticos</span>
+    </div>
+    <nav class="hdr-nav">
+      <a href=https://www.farmaciasyair.com/catalogo_medicamentos>Medicamentos</a>
+      <a href="https://www.farmaciasyair.com/blog_temporal">Temporada</a>
+      <a href="https://www.farmaciasyair.com/" class="btn-back">← Volver a la tienda</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">✨ Dermocosméticos · Farmacias Yair</div>
+      <h1>Tu ritual de<br/><em>belleza</em><br/>comienza aquí</h1>
+      <p>Descubre nuestra selección de productos dermocosméticos para el cuidado del rostro, cabello y cuerpo. Marcas de confianza, fórmulas con respaldo científico.</p>
+      <a href="#productos" class="hero-cta">Explorar productos →</a>
+    </div>
+    <div class="hero-mosaic">
+      <!-- featured card spanning full width -->
+      <div class="mosaic-card">
+        <div class="mosaic-ph">
+          <span class="phi">✨</span>
+          <span>Imagen<br/>producto<br/>destacado</span>
+        </div>
+        <div class="m-feat-info">
+          <div class="m-brand">Neutrogena</div>
+          <h4>Crema Hidratante Facial FPS 35</h4>
+          <span>Hidratación intensa 24h con protección solar. Apta para todo tipo de piel.</span>
+        </div>
+      </div>
+      <!-- small cards -->
+      <div class="mosaic-card">
+        <div class="mosaic-ph"><span class="phi">💆</span><span>Imagen<br/>producto</span></div>
+        <div class="m-name">Sérum Vitamina C</div>
+        <div class="m-brand-sm">L'Oréal Paris</div>
+      </div>
+      <div class="mosaic-card">
+        <div class="mosaic-ph"><span class="phi">💇</span><span>Imagen<br/>producto</span></div>
+        <div class="m-name">Shampoo Reparador</div>
+        <div class="m-brand-sm">Pantene Pro-V</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="si"><span class="ico">🌿</span><div><strong>Fórmulas dermatológicas</strong><span>Testadas en piel sensible</span></div></div>
+    <div class="si"><span class="ico">🔬</span><div><strong>Respaldo científico</strong><span>Activos probados clínicamente</span></div></div>
+    <div class="si"><span class="ico">✅</span><div><strong>Sin parabenos</strong><span>Líneas hipoalergénicas disponibles</span></div></div>
+    <div class="si"><span class="ico">💆</span><div><strong>Para todo tipo de piel</strong><span>Seca, grasa, mixta y sensible</span></div></div>
+  </div>
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="cat-nav" id="productos">
+  <div class="cat-nav-inner">
+    <button class="cat-btn active" onclick="showCat('rostro',this)"><span class="cat-icon">💆</span> Rostro</button>
+    <button class="cat-btn" onclick="showCat('cabello',this)"><span class="cat-icon">💇</span> Cabello</button>
+    <button class="cat-btn" onclick="showCat('cuerpo',this)"><span class="cat-icon">🧴</span> Cuerpo</button>
+    <button class="cat-btn" onclick="showCat('solar',this)"><span class="cat-icon">☀️</span> Protección Solar</button>
+    <button class="cat-btn" onclick="showCat('ojos',this)"><span class="cat-icon">👁️</span> Contorno de Ojos</button>
+    <div class="cat-search">
+      <svg width="14" height="14" fill="none" stroke="#8a7a70" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" placeholder="Buscar producto…" oninput="filterProds(this.value)"/>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- ══ ROSTRO ══ -->
+  <div class="tab-section" id="cat-rostro">
+    <div class="sec-lbl"><h2>💆 Cuidado del Rostro</h2><div class="sec-lbl-line"></div></div>
+    <p class="sec-desc">Limpieza, hidratación, tratamiento y protección. Encuentra el producto exacto para tu tipo de piel con las marcas más recomendadas por dermatólogos.</p>
+    <div class="prod-grid">
+
+      <div class="prod-card" data-name="crema hidratante facial neutrogena rostro piel seca">
+        <div class="prod-img bg-rostro">
+          <span class="cat-badge cb-rostro">Rostro</span>
+          <span class="best-badge">⭐ Favorito</span>
+          <div class="img-ph"><span class="phi">🧴</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Neutrogena</div>
+          <div class="prod-name">Crema Hidratante Facial FPS 35</div>
+          <div class="prod-desc">Hidratación intensa de 24 horas con protección solar integrada. Textura ligera, no comedogénica.</div>
+          <div class="prod-tags"><span class="prod-tag tag-rostro">Hidratante</span><span class="prod-tag tag-rostro">FPS 35</span><span class="prod-tag tag-rostro">Todo tipo de piel</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="sérum vitamina c loreal rostro luminosidad antioxidante">
+        <div class="prod-img bg-rostro">
+          <span class="cat-badge cb-rostro">Rostro</span>
+          <div class="img-ph"><span class="phi">✨</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">L'Oréal Paris</div>
+          <div class="prod-name">Sérum Vitamina C 10% Revitalift</div>
+          <div class="prod-desc">Concentrado de vitamina C pura. Unifica el tono, ilumina y reduce manchas de forma progresiva.</div>
+          <div class="prod-tags"><span class="prod-tag tag-rostro">Antioxidante</span><span class="prod-tag tag-rostro">Iluminador</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="retinol crema antiedad cetaphil rostro arrugas">
+        <div class="prod-img bg-rostro">
+          <span class="cat-badge cb-rostro">Rostro</span>
+          <div class="img-ph"><span class="phi">🌙</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Cetaphil</div>
+          <div class="prod-name">Crema Noche Retinol 0.1%</div>
+          <div class="prod-desc">Fórmula nocturna con retinol de liberación gradual. Reduce líneas de expresión y mejora la textura.</div>
+          <div class="prod-tags"><span class="prod-tag tag-rostro">Antiedad</span><span class="prod-tag tag-rostro">Noche</span><span class="prod-tag tag-rostro">Retinol</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="limpiador facial garnier agua micelar desmaquillante rostro">
+        <div class="prod-img bg-rostro">
+          <span class="cat-badge cb-rostro">Rostro</span>
+          <div class="img-ph"><span class="phi">💧</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Garnier</div>
+          <div class="prod-name">Agua Micelar Sensitive 400 ml</div>
+          <div class="prod-desc">Limpia, desmaquilla y calma en un solo paso sin necesidad de aclarar. Apta para piel sensible.</div>
+          <div class="prod-tags"><span class="prod-tag tag-rostro">Limpiador</span><span class="prod-tag tag-rostro">Sensible</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="hidratante acido hialuronico vichy rostro serum">
+        <div class="prod-img bg-rostro">
+          <span class="cat-badge cb-rostro">Rostro</span>
+          <div class="img-ph"><span class="phi">💦</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Vichy</div>
+          <div class="prod-name">Mineral 89 Ácido Hialurónico 50 ml</div>
+          <div class="prod-desc">Booster hidratante diario con ácido hialurónico y agua volcánica. Piel rellena y luminosa.</div>
+          <div class="prod-tags"><span class="prod-tag tag-rostro">Hialurónico</span><span class="prod-tag tag-rostro">Booster</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="limpiador espuma piel grasa la roche posay rostro acne">
+        <div class="prod-img bg-rostro">
+          <span class="cat-badge cb-rostro">Rostro</span>
+          <div class="img-ph"><span class="phi">🫧</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">La Roche-Posay</div>
+          <div class="prod-name">Effaclar Gel Limpiador Purificante</div>
+          <div class="prod-desc">Limpiador en gel para piel grasa y mixta. Elimina el exceso de sebo sin resecar.</div>
+          <div class="prod-tags"><span class="prod-tag tag-rostro">Piel grasa</span><span class="prod-tag tag-rostro">Purificante</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="crema facial piel seca bioderma sensibio hidratante rostro">
+        <div class="prod-img bg-rostro">
+          <span class="cat-badge cb-rostro">Rostro</span>
+          <div class="img-ph"><span class="phi">🌸</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Bioderma</div>
+          <div class="prod-name">Sensibio Rich Crema Confort</div>
+          <div class="prod-desc">Crema nutritiva para piel seca y sensible. Restaura la barrera cutánea y calma las rojeces.</div>
+          <div class="prod-tags"><span class="prod-tag tag-rostro">Piel seca</span><span class="prod-tag tag-rostro">Calmante</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="tónico niacinamida olay rostro poros manchas">
+        <div class="prod-img bg-rostro">
+          <span class="cat-badge cb-rostro">Rostro</span>
+          <div class="img-ph"><span class="phi">🔬</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Olay</div>
+          <div class="prod-name">Sérum Niacinamida 10% + Zinc</div>
+          <div class="prod-desc">Minimiza poros y controla el sebo. Mejora la textura y unifica el tono de la piel.</div>
+          <div class="prod-tags"><span class="prod-tag tag-rostro">Niacinamida</span><span class="prod-tag tag-rostro">Poros</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ CABELLO ══ -->
+  <div class="tab-section hidden" id="cat-cabello">
+    <div class="sec-lbl"><h2>💇 Cuidado del Cabello</h2><div class="sec-lbl-line"></div></div>
+    <p class="sec-desc">Shampoos, acondicionadores, mascarillas y tratamientos para cada tipo de cabello. Nutrición, reparación y brillo desde la raíz hasta las puntas.</p>
+    <div class="prod-grid">
+
+      <div class="prod-card" data-name="shampoo reparador pantene cabello dañado proteína">
+        <div class="prod-img bg-cabello">
+          <span class="cat-badge cb-cabello">Cabello</span>
+          <span class="best-badge">⭐ Favorito</span>
+          <div class="img-ph"><span class="phi">💇</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Pantene Pro-V</div>
+          <div class="prod-name">Shampoo Reparación Intensiva 400 ml</div>
+          <div class="prod-desc">Fórmula con Pro-V Complex. Repara el daño desde adentro y protege contra el quiebre.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cabello">Reparador</span><span class="prod-tag tag-cabello">Cabello dañado</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="mascarilla cabello loreal elseve reparación nutrición profunda">
+        <div class="prod-img bg-cabello">
+          <span class="cat-badge cb-cabello">Cabello</span>
+          <div class="img-ph"><span class="phi">✨</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">L'Oréal Paris</div>
+          <div class="prod-name">Mascarilla Elsève Extraordinary Oil</div>
+          <div class="prod-desc">Mascarilla con aceites preciosos. Nutrición profunda, suavidad y brillo extraordinario para cabello seco.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cabello">Nutrición</span><span class="prod-tag tag-cabello">Aceites</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="acondicionador kerastase cabello fino volumen tratamiento">
+        <div class="prod-img bg-cabello">
+          <span class="cat-badge cb-cabello">Cabello</span>
+          <div class="img-ph"><span class="phi">🌿</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Head & Shoulders</div>
+          <div class="prod-name">Acondicionador Scalp Relief Calmante</div>
+          <div class="prod-desc">Alivia la picazón y la caspa mientras hidrata el cabello. Con extracto de aloe vera.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cabello">Anticaspa</span><span class="prod-tag tag-cabello">Calmante</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="aceite cabello tio nacho argan morocanoil brillo suavidad">
+        <div class="prod-img bg-cabello">
+          <span class="cat-badge cb-cabello">Cabello</span>
+          <div class="img-ph"><span class="phi">💛</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Tío Nacho</div>
+          <div class="prod-name">Aceite Fortalecedor Jengibre & Aloe</div>
+          <div class="prod-desc">Tratamiento capilar con jengibre y aloe vera. Fortalece el cabello desde la raíz y reduce la caída.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cabello">Anticaída</span><span class="prod-tag tag-cabello">Fortalecedor</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="shampoo biotina cabello débil crecimiento tío nacho">
+        <div class="prod-img bg-cabello">
+          <span class="cat-badge cb-cabello">Cabello</span>
+          <div class="img-ph"><span class="phi">🌱</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Tío Nacho</div>
+          <div class="prod-name">Shampoo Engrosador Biotina 415 ml</div>
+          <div class="prod-desc">Con biotina y ginseng para fortalecer el cabello fino y estimular el crecimiento.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cabello">Biotina</span><span class="prod-tag tag-cabello">Crecimiento</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="crema para peinar sin enjuague sedal pantene cabello rizo">
+        <div class="prod-img bg-cabello">
+          <span class="cat-badge cb-cabello">Cabello</span>
+          <div class="img-ph"><span class="phi">🌀</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Sedal</div>
+          <div class="prod-name">Crema para Peinar Rizos Definidos</div>
+          <div class="prod-desc">Definición y control del frizz sin ressecar. Para cabello rizado y ondulado. Sin enjuague.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cabello">Rizos</span><span class="prod-tag tag-cabello">Sin enjuague</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="ampollas tratamiento cabello loreal revitalift reparación intensa">
+        <div class="prod-img bg-cabello">
+          <span class="cat-badge cb-cabello">Cabello</span>
+          <div class="img-ph"><span class="phi">💊</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">L'Oréal Paris</div>
+          <div class="prod-name">Ampollas Elvive Total Repair x6</div>
+          <div class="prod-desc">Tratamiento intensivo en ampolla con ceramidas. Reparación visible desde la primera aplicación.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cabello">Ceramidas</span><span class="prod-tag tag-cabello">Tratamiento</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="shampoo cabello liso keratina dove suavidad seda">
+        <div class="prod-img bg-cabello">
+          <span class="cat-badge cb-cabello">Cabello</span>
+          <div class="img-ph"><span class="phi">🕊️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Dove</div>
+          <div class="prod-name">Shampoo Keratina Sérum Liso 400 ml</div>
+          <div class="prod-desc">Tecnología Keratin Repair Serum. Alisa, suaviza y controla el frizz por hasta 72 horas.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cabello">Keratina</span><span class="prod-tag tag-cabello">Alisador</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ CUERPO ══ -->
+  <div class="tab-section hidden" id="cat-cuerpo">
+    <div class="sec-lbl"><h2>🧴 Cuidado del Cuerpo</h2><div class="sec-lbl-line"></div></div>
+    <p class="sec-desc">Hidratantes corporales, jabones dermatológicos y tratamientos para la piel del cuerpo. Formulados para nutrir, proteger y mantener tu piel saludable.</p>
+    <div class="prod-grid">
+
+      <div class="prod-card" data-name="crema corporal cetaphil hidratante cuerpo piel seca nutrición">
+        <div class="prod-img bg-cuerpo">
+          <span class="cat-badge cb-cuerpo">Cuerpo</span>
+          <span class="best-badge">⭐ Favorito</span>
+          <div class="img-ph"><span class="phi">🧴</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Cetaphil</div>
+          <div class="prod-name">Loción Hidratante Corporal 250 ml</div>
+          <div class="prod-desc">Hidratación de larga duración para piel seca y sensible. Sin fragancia. Dermatológicamente probada.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cuerpo">Piel seca</span><span class="prod-tag tag-cuerpo">Sin fragancia</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="jabón neutrogena cuerpo limpieza piel sensible dermatológico">
+        <div class="prod-img bg-cuerpo">
+          <span class="cat-badge cb-cuerpo">Cuerpo</span>
+          <div class="img-ph"><span class="phi">🫧</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Neutrogena</div>
+          <div class="prod-name">Jabón Dermatológico Original 100 g</div>
+          <div class="prod-desc">Jabón suave sin jabón real. Limpia sin irritar. Recomendado por dermatólogos para uso diario.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cuerpo">Dermatológico</span><span class="prod-tag tag-cuerpo">Sensible</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="aceite seco palmers cuerpo nutrición vitamina e embarazo estrias">
+        <div class="prod-img bg-cuerpo">
+          <span class="cat-badge cb-cuerpo">Cuerpo</span>
+          <div class="img-ph"><span class="phi">🌾</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Palmer's</div>
+          <div class="prod-name">Aceite de Vitamina E Corporal 150 ml</div>
+          <div class="prod-desc">Aceite seco de vitamina E. Mejora elasticidad, previene estrías y suaviza la piel áspera.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cuerpo">Vitamina E</span><span class="prod-tag tag-cuerpo">Elasticidad</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="exfoliante corporal azúcar neutrogena piel suave renovación">
+        <div class="prod-img bg-cuerpo">
+          <span class="cat-badge cb-cuerpo">Cuerpo</span>
+          <div class="img-ph"><span class="phi">✨</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">St. Ives</div>
+          <div class="prod-name">Exfoliante Corporal Avena y Manteca 170 g</div>
+          <div class="prod-desc">Exfoliante con micropartículas de avena. Elimina células muertas y deja la piel suave e hidratada.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cuerpo">Exfoliante</span><span class="prod-tag tag-cuerpo">Avena</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="crema manos dove cuerpo hidratante nutrición reparadora">
+        <div class="prod-img bg-cuerpo">
+          <span class="cat-badge cb-cuerpo">Cuerpo</span>
+          <div class="img-ph"><span class="phi">🤲</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Dove</div>
+          <div class="prod-name">Crema de Manos Nutritiva 75 ml</div>
+          <div class="prod-desc">Hidratación intensa para manos secas. Con glicerina y manteca de karité. Absorción rápida.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cuerpo">Manos</span><span class="prod-tag tag-cuerpo">Karité</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="gel baño nivea cuerpo limpieza suave pH neutro">
+        <div class="prod-img bg-cuerpo">
+          <span class="cat-badge cb-cuerpo">Cuerpo</span>
+          <div class="img-ph"><span class="phi">🚿</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Nivea</div>
+          <div class="prod-name">Gel de Baño Creme Sensitive 500 ml</div>
+          <div class="prod-desc">Fórmula pH neutro con crema NIVEA. Limpia suavemente sin alterar la barrera de la piel.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cuerpo">pH neutro</span><span class="prod-tag tag-cuerpo">Sensible</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="loción corporal aveeno avena cuerpo suavizante piel seca">
+        <div class="prod-img bg-cuerpo">
+          <span class="cat-badge cb-cuerpo">Cuerpo</span>
+          <div class="img-ph"><span class="phi">🌾</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Aveeno</div>
+          <div class="prod-name">Loción Daily Moisturizing Avena 354 ml</div>
+          <div class="prod-desc">Avena coloidal activa. Hidratación duradera que alivia la piel seca e irritada. Sin parabenos.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cuerpo">Avena</span><span class="prod-tag tag-cuerpo">Sin parabenos</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="desodorante nivea roll-on cuerpo 48h alumbre antimanchas">
+        <div class="prod-img bg-cuerpo">
+          <span class="cat-badge cb-cuerpo">Cuerpo</span>
+          <div class="img-ph"><span class="phi">🌬️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Nivea</div>
+          <div class="prod-name">Desodorante Invisible Black & White 150 ml</div>
+          <div class="prod-desc">Protección de 48 horas. No deja manchas blancas ni amarillas en la ropa. Para hombre y mujer.</div>
+          <div class="prod-tags"><span class="prod-tag tag-cuerpo">48 horas</span><span class="prod-tag tag-cuerpo">Sin manchas</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ SOLAR ══ -->
+  <div class="tab-section hidden" id="cat-solar">
+    <div class="sec-lbl"><h2>☀️ Protección Solar</h2><div class="sec-lbl-line"></div></div>
+    <p class="sec-desc">Protectores solares faciales y corporales con filtros UVA/UVB. Texturas para cada necesidad: fluidas, en crema, en spray y con color.</p>
+    <div class="prod-grid">
+
+      <div class="prod-card" data-name="protector solar facial la roche posay anthelios fps50 rostro">
+        <div class="prod-img bg-solar">
+          <span class="cat-badge cb-solar">Solar</span>
+          <span class="best-badge">⭐ Favorito</span>
+          <div class="img-ph"><span class="phi">☀️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">La Roche-Posay</div>
+          <div class="prod-name">Anthelios Fluido Invisible FPS 50+</div>
+          <div class="prod-desc">Protección ultra-ligera de amplio espectro. Textura fluida, no grasosa. Apta bajo maquillaje.</div>
+          <div class="prod-tags"><span class="prod-tag tag-solar">FPS 50+</span><span class="prod-tag tag-solar">UVA/UVB</span><span class="prod-tag tag-solar">Facial</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="protector solar corporal caribe beach fps50 resistente agua">
+        <div class="prod-img bg-solar">
+          <span class="cat-badge cb-solar">Solar</span>
+          <div class="img-ph"><span class="phi">🏖️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Caribe Beach</div>
+          <div class="prod-name">Protector Solar Corporal FPS 50+ 200 ml</div>
+          <div class="prod-desc">Protección de amplio espectro. Resistente al agua. Ideal para playa, piscina y actividades al aire libre.</div>
+          <div class="prod-tags"><span class="prod-tag tag-solar">FPS 50+</span><span class="prod-tag tag-solar">Resistente agua</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="protector solar niños neutrogena fps70 infantil piel delicada">
+        <div class="prod-img bg-solar">
+          <span class="cat-badge cb-solar">Solar</span>
+          <div class="img-ph"><span class="phi">👶</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Neutrogena</div>
+          <div class="prod-name">Pure & Free Baby Mineral FPS 50</div>
+          <div class="prod-desc">Filtro mineral de óxido de zinc. Suave para la piel del bebé. Sin fragancias ni parabenos.</div>
+          <div class="prod-tags"><span class="prod-tag tag-solar">Bebés</span><span class="prod-tag tag-solar">Mineral</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="protector solar con color tinte bb cream fps vichy solar facial">
+        <div class="prod-img bg-solar">
+          <span class="cat-badge cb-solar">Solar</span>
+          <div class="img-ph"><span class="phi">🎨</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Vichy</div>
+          <div class="prod-name">Capital Soleil BB Fluido FPS 50+ 40 ml</div>
+          <div class="prod-desc">Protector solar con cobertura ligera. Unifica el tono, hidrata y protege en un solo producto.</div>
+          <div class="prod-tags"><span class="prod-tag tag-solar">Con color</span><span class="prod-tag tag-solar">FPS 50+</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ OJOS ══ -->
+  <div class="tab-section hidden" id="cat-ojos">
+    <div class="sec-lbl"><h2>👁️ Contorno de Ojos</h2><div class="sec-lbl-line"></div></div>
+    <p class="sec-desc">Tratamientos especializados para la delicada zona del contorno de ojos. Reducen ojeras, bolsas y líneas de expresión con activos de alta eficacia.</p>
+    <div class="prod-grid">
+
+      <div class="prod-card" data-name="contorno ojos peptidos loreal revitalift ojeras bolsas antiedad">
+        <div class="prod-img bg-ojos">
+          <span class="cat-badge cb-ojos">Ojos</span>
+          <span class="best-badge">⭐ Favorito</span>
+          <div class="img-ph"><span class="phi">👁️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">L'Oréal Paris</div>
+          <div class="prod-name">Revitalift Láser Contorno de Ojos</div>
+          <div class="prod-desc">Con ácido hialurónico y Pro-Retinol. Reduce ojeras, bolsas y líneas de expresión. Efecto relleno.</div>
+          <div class="prod-tags"><span class="prod-tag tag-ojos">Antiedad</span><span class="prod-tag tag-ojos">Ojeras</span><span class="prod-tag tag-ojos">Bolsas</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="contorno ojos vichy mineral 89 hialurónico ojos puffiness">
+        <div class="prod-img bg-ojos">
+          <span class="cat-badge cb-ojos">Ojos</span>
+          <div class="img-ph"><span class="phi">💜</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Vichy</div>
+          <div class="prod-name">Mineral 89 Eyes Contorno 15 ml</div>
+          <div class="prod-desc">Booster de ácido hialurónico para el contorno. Rellena, hidrata y mejora la luminosidad instantánea.</div>
+          <div class="prod-tags"><span class="prod-tag tag-ojos">Hialurónico</span><span class="prod-tag tag-ojos">Luminosidad</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="contorno ojos clinique vitamina c ojeras dark circles">
+        <div class="prod-img bg-ojos">
+          <span class="cat-badge cb-ojos">Ojos</span>
+          <div class="img-ph"><span class="phi">✨</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Neutrogena</div>
+          <div class="prod-name">Rapid Tone Repair Eye Cream</div>
+          <div class="prod-desc">Crema para contorno con retinol SA y vitamina C. Ilumina ojeras y reafirma la piel del párpado.</div>
+          <div class="prod-tags"><span class="prod-tag tag-ojos">Vitamina C</span><span class="prod-tag tag-ojos">Retinol</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="patches parches ojeras hidrogel bioderma ojos reducir inflamacion">
+        <div class="prod-img bg-ojos">
+          <span class="cat-badge cb-ojos">Ojos</span>
+          <div class="img-ph"><span class="phi">🩹</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Garnier</div>
+          <div class="prod-name">Parches Hidrogel Ojos Vitamina C x5</div>
+          <div class="prod-desc">Parches de hidrogel enriquecidos con vitamina C. Reducen ojeras e iluminan el contorno en 15 minutos.</div>
+          <div class="prod-tags"><span class="prod-tag tag-ojos">Parches</span><span class="prod-tag tag-ojos">Vitamina C</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- TIPS BAND -->
+<div class="tips-band">
+  <div class="tips-band-inner">
+    <h2>✨ Tips de experto</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <span class="tip-emoji">🌙</span>
+        <h4>Rutina nocturna</h4>
+        <p>La noche es el mejor momento para usar activos potentes como retinol o ácidos. La piel se regenera mientras duermes y aprovecha mejor los tratamientos.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-emoji">☀️</span>
+        <h4>Protector solar: siempre</h4>
+        <p>El protector solar es el anti-edad más efectivo que existe. Úsalo cada mañana, incluso en días nublados o si trabajas en interiores cerca de ventanas.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-emoji">💧</span>
+        <h4>Hidratación en capas</h4>
+        <p>Aplica primero los productos más ligeros (sérum, esencia) y termina con los más densos (crema, aceite). Así cada producto penetra mejor en la piel.</p>
+      </div>
+      <div class="tip-card">
+        <span class="tip-emoji">💇</span>
+        <h4>Cabello: menos es más</h4>
+        <p>Evita lavar el cabello todos los días. El exceso de lavado elimina los aceites naturales del cuero cabelludo. 2-3 veces por semana es lo ideal para la mayoría.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Dermocosméticos · Disponibilidad sujeta a existencias en cada sucursal · Consulta a nuestros especialistas en tienda</p>
+</footer>
+
+<script>
+let activeCat = 'rostro';
+
+function showCat(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.add('hidden'));
+  document.getElementById('cat-' + cat).classList.remove('hidden');
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelector('.cat-search input').value = '';
+}
+
+function filterProds(q) {
+  q = q.toLowerCase().trim();
+  const section = document.getElementById('cat-' + activeCat);
+  section.querySelectorAll('.prod-card').forEach(card => {
+    const haystack = (card.dataset.name || '') + card.innerText.toLowerCase();
+    card.style.display = (!q || haystack.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
