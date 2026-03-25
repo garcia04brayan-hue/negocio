@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bebés – Farmacias Yair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --sky:      #5bc8f5;
+      --sky-lt:   #e8f8fe;
+      --sky-dk:   #2a9fd6;
+      --mint:     #6dd9b0;
+      --mint-lt:  #e4f9f2;
+      --mint-dk:  #2e9972;
+      --peach:    #ffb085;
+      --peach-lt: #fff2ea;
+      --peach-dk: #c96e2e;
+      --lemon:    #f9e04b;
+      --lemon-lt: #fffce8;
+      --lemon-dk: #b89a00;
+      --lilac:    #c4a8e8;
+      --lilac-lt: #f4effc;
+      --lilac-dk: #7a52b8;
+      --pink:     #f2a7c3;
+      --pink-lt:  #fef0f6;
+      --pink-dk:  #c0527a;
+      --white:    #ffffff;
+      --cream:    #fdfbf8;
+      --warm:     #faf5ef;
+      --gray:     #e8e0d8;
+      --text:     #2c2118;
+      --muted:    #8a7a70;
+      --navy:     #1a2535;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+    /* ── HEADER ── */
+    header {
+      background:var(--white);
+      border-bottom:3px solid var(--sky-lt);
+      position:sticky; top:0; z-index:300;
+      box-shadow:0 3px 20px rgba(91,200,245,0.12);
+    }
+    .hdr {
+      max-width:1200px; margin:0 auto; padding:10px 36px;
+      display:flex; align-items:center; justify-content:space-between; gap:20px;
+    }
+    .logo-wrap { display:flex; align-items:center; gap:14px; text-decoration:none; }
+    .logo-wrap img { height:46px; width:auto; }
+    .hdr-sep { width:1px; height:28px; background:var(--gray); }
+    .hdr-title {
+      font-family:'Baloo 2',cursive; font-size:1rem; font-weight:700;
+      color:var(--sky-dk); display:flex; align-items:center; gap:6px;
+    }
+    .hdr-nav { display:flex; align-items:center; gap:8px; }
+    .hdr-nav a {
+      color:var(--muted); text-decoration:none; font-size:0.84rem; font-weight:700;
+      padding:7px 14px; border-radius:20px; transition:background .18s,color .18s;
+    }
+    .hdr-nav a:hover { background:var(--sky-lt); color:var(--sky-dk); }
+    .btn-back {
+      background:var(--sky)!important; color:var(--white)!important;
+      box-shadow:0 4px 12px rgba(91,200,245,0.35)!important;
+    }
+    .btn-back:hover { background:var(--sky-dk)!important; }
+
+    /* ── HERO ── */
+    .hero {
+      background:linear-gradient(160deg,#e8f8fe 0%,#e4f9f2 45%,#fff2ea 100%);
+      padding:64px 36px 72px; position:relative; overflow:hidden;
+    }
+    /* Floating shapes deco */
+    .shape {
+      position:absolute; border-radius:50%;
+      opacity:0.18; pointer-events:none; animation:floatShape ease-in-out infinite;
+    }
+    @keyframes floatShape {
+      0%,100% { transform:translateY(0) rotate(0deg); }
+      50% { transform:translateY(-18px) rotate(10deg); }
+    }
+    .hero-inner {
+      max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr;
+      align-items:center; gap:56px; position:relative; z-index:1;
+    }
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--sky-lt); border:2px solid rgba(91,200,245,0.3);
+      color:var(--sky-dk); border-radius:30px;
+      padding:6px 18px; font-size:0.76rem; font-weight:800;
+      letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;
+    }
+    .hero-text h1 {
+      font-family:'Baloo 2',cursive;
+      font-size:clamp(2.4rem,4.5vw,3.6rem);
+      font-weight:800; line-height:1.12; color:var(--text); margin-bottom:16px;
+    }
+    .hero-text h1 em { font-style:italic; color:var(--sky-dk); }
+    .hero-text p {
+      font-size:1rem; color:var(--muted); line-height:1.72;
+      max-width:440px; margin-bottom:28px; font-weight:600;
+    }
+    .hero-cta {
+      display:inline-flex; align-items:center; gap:9px;
+      background:var(--sky); color:var(--white);
+      text-decoration:none; padding:13px 28px; border-radius:40px;
+      font-weight:800; font-size:0.93rem;
+      box-shadow:0 8px 24px rgba(91,200,245,0.38);
+      transition:transform .18s,box-shadow .18s;
+    }
+    .hero-cta:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(91,200,245,0.45); }
+
+    /* hero mosaic */
+    .hero-mosaic {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+    }
+    .mosaic-card {
+      background:var(--white); border-radius:22px;
+      padding:18px 14px 16px;
+      display:flex; flex-direction:column; align-items:center; gap:10px;
+      box-shadow:0 6px 24px rgba(91,200,245,0.14);
+      transition:transform .22s; position:relative;
+    }
+    .mosaic-card:hover { transform:translateY(-5px); }
+    .mosaic-card:first-child { grid-column:1/-1; flex-direction:row; padding:18px 22px; gap:18px; }
+    .m-ph {
+      border-radius:14px;
+      background:linear-gradient(145deg,#f0fbff,#e4f5fd);
+      border:2.5px dashed rgba(91,200,245,0.35);
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:7px; text-align:center; padding:10px;
+      color:rgba(91,200,245,0.6); font-size:0.62rem; font-weight:800; line-height:1.4;
+    }
+    .m-ph .phi { font-size:1.8rem; opacity:0.55; }
+    .mosaic-card:first-child .m-ph { width:88px; height:108px; flex-shrink:0; }
+    .mosaic-card:not(:first-child) .m-ph { width:76px; height:96px; }
+    .m-feat h4 {
+      font-family:'Baloo 2',cursive; font-size:1.05rem; font-weight:700;
+      color:var(--text); margin-bottom:3px;
+    }
+    .m-feat span { font-size:0.78rem; color:var(--muted); line-height:1.5; display:block; }
+    .m-feat .m-brand { font-size:0.67rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--sky-dk); margin-bottom:3px; }
+    .m-name { font-size:0.78rem; font-weight:800; color:var(--text); text-align:center; line-height:1.3; }
+    .m-brand-sm { font-size:0.66rem; color:var(--muted); text-align:center; }
+
+    /* ── STRIP ── */
+    .strip {
+      background:linear-gradient(90deg,var(--sky-dk) 0%,var(--mint-dk) 50%,#3ab8d0 100%);
+      padding:16px 36px;
+    }
+    .strip-inner {
+      max-width:1200px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-around; gap:18px; flex-wrap:wrap;
+    }
+    .si { display:flex; align-items:center; gap:11px; color:var(--white); }
+    .si .ico { font-size:1.5rem; }
+    .si strong { display:block; font-size:0.87rem; font-weight:800; }
+    .si span { font-size:0.74rem; opacity:0.82; }
+
+    /* ── TAB NAV ── */
+    .cat-nav {
+      background:var(--white);
+      border-bottom:3px solid var(--gray);
+      position:sticky; top:68px; z-index:200;
+      box-shadow:0 4px 16px rgba(0,0,0,0.06);
+    }
+    .cat-nav-inner {
+      max-width:1200px; margin:0 auto; padding:0 36px;
+      display:flex; align-items:center; gap:0;
+      overflow-x:auto; scrollbar-width:none;
+    }
+    .cat-nav-inner::-webkit-scrollbar { display:none; }
+    .cat-btn {
+      display:flex; align-items:center; gap:8px;
+      padding:15px 22px; background:none; border:none;
+      font-family:'Nunito',sans-serif; font-size:0.88rem; font-weight:800;
+      color:var(--muted); cursor:pointer; white-space:nowrap;
+      border-bottom:3px solid transparent; margin-bottom:-3px;
+      transition:color .18s;
+    }
+    .cat-btn:hover { color:var(--text); }
+    .cat-btn.active { color:var(--sky-dk); border-bottom-color:var(--sky-dk); }
+    .cat-btn.active.mint-tab { color:var(--mint-dk); border-bottom-color:var(--mint-dk); }
+    .cat-btn.active.peach-tab { color:var(--peach-dk); border-bottom-color:var(--peach-dk); }
+    .cat-btn.active.lemon-tab { color:var(--lemon-dk); border-bottom-color:var(--lemon-dk); }
+    .cat-btn.active.lilac-tab { color:var(--lilac-dk); border-bottom-color:var(--lilac-dk); }
+    .cat-icon { font-size:1.1rem; }
+    .cat-search {
+      margin-left:auto; display:flex; align-items:center; gap:9px;
+      background:var(--warm); border:2px solid var(--gray);
+      border-radius:30px; padding:7px 16px; flex-shrink:0;
+      transition:border-color .2s;
+    }
+    .cat-search:focus-within { border-color:var(--sky); }
+    .cat-search input {
+      background:none; border:none; outline:none;
+      font-family:'Nunito',sans-serif; font-size:0.86rem; font-weight:600;
+      color:var(--text); width:160px;
+    }
+    .cat-search input::placeholder { color:var(--muted); }
+
+    /* ── MAIN ── */
+    .main-wrap {
+      max-width:1200px; margin:0 auto; padding:52px 36px 80px;
+    }
+
+    /* section label */
+    .sec-lbl {
+      display:flex; align-items:center; gap:14px; margin-bottom:10px;
+    }
+    .sec-lbl h2 {
+      font-family:'Baloo 2',cursive;
+      font-size:1.6rem; font-weight:800; color:var(--text);
+    }
+    .sec-line { flex:1; height:2px; border-radius:2px; }
+    .sec-line.sky    { background:linear-gradient(90deg,var(--sky),transparent); }
+    .sec-line.mint   { background:linear-gradient(90deg,var(--mint),transparent); }
+    .sec-line.peach  { background:linear-gradient(90deg,var(--peach),transparent); }
+    .sec-line.lemon  { background:linear-gradient(90deg,var(--lemon),transparent); }
+    .sec-line.lilac  { background:linear-gradient(90deg,var(--lilac),transparent); }
+    .sec-desc {
+      font-size:0.88rem; color:var(--muted); line-height:1.65;
+      margin-bottom:28px; max-width:640px; font-weight:600;
+    }
+
+    /* age banner */
+    .age-banner {
+      border-radius:18px; padding:16px 22px;
+      display:flex; align-items:center; gap:14px;
+      margin-bottom:28px; font-size:0.87rem; font-weight:700; line-height:1.5;
+    }
+    .age-banner .ban-icon { font-size:1.9rem; flex-shrink:0; }
+    .ab-sky   { background:var(--sky-lt); color:var(--sky-dk); }
+    .ab-mint  { background:var(--mint-lt); color:var(--mint-dk); }
+    .ab-peach { background:var(--peach-lt); color:var(--peach-dk); }
+    .ab-lemon { background:var(--lemon-lt); color:var(--lemon-dk); }
+    .ab-lilac { background:var(--lilac-lt); color:var(--lilac-dk); }
+
+    /* subsection label */
+    .sub-lbl {
+      display:flex; align-items:center; gap:10px; margin-bottom:14px;
+    }
+    .sub-dot {
+      width:10px; height:10px; border-radius:50%; flex-shrink:0;
+    }
+    .sub-lbl h3 {
+      font-family:'Baloo 2',cursive; font-size:1.05rem;
+      font-weight:700; color:var(--muted);
+    }
+
+    /* ── PRODUCT GRID ── */
+    .prod-grid {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:18px; margin-bottom:48px;
+    }
+
+    .prod-card {
+      background:var(--white); border-radius:24px; overflow:hidden;
+      box-shadow:0 3px 18px rgba(0,0,0,0.07);
+      display:flex; flex-direction:column;
+      transition:transform .22s,box-shadow .22s;
+      border:2px solid transparent;
+    }
+    .prod-card:hover {
+      transform:translateY(-7px);
+      box-shadow:0 16px 44px rgba(0,0,0,0.12);
+    }
+    /* border accent on hover per color */
+    .prod-card.sky-card:hover   { border-color:var(--sky); }
+    .prod-card.mint-card:hover  { border-color:var(--mint); }
+    .prod-card.peach-card:hover { border-color:var(--peach); }
+    .prod-card.lemon-card:hover { border-color:var(--lemon); }
+    .prod-card.lilac-card:hover { border-color:var(--lilac); }
+
+    /* image area */
+    .prod-img {
+      height:196px; position:relative; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .bg-sky   { background:linear-gradient(145deg,#e8f8fe,#c8eefb); }
+    .bg-mint  { background:linear-gradient(145deg,#e4f9f2,#c2f0e0); }
+    .bg-peach { background:linear-gradient(145deg,#fff2ea,#ffdcc8); }
+    .bg-lemon { background:linear-gradient(145deg,#fffce8,#fdf3c0); }
+    .bg-lilac { background:linear-gradient(145deg,#f4effc,#e3d8f8); }
+
+    .img-ph {
+      width:116px; height:155px; border-radius:16px;
+      background:rgba(255,255,255,0.75);
+      border:2.5px dashed rgba(0,0,0,0.13);
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:8px; text-align:center;
+      padding:12px; backdrop-filter:blur(4px);
+    }
+    .img-ph .phi { font-size:2.2rem; opacity:0.35; }
+    .img-ph .phl {
+      font-size:0.62rem; font-weight:800; color:rgba(0,0,0,0.3); line-height:1.4;
+    }
+
+    /* cat badge */
+    .cat-badge {
+      position:absolute; top:11px; left:11px;
+      font-size:0.66rem; font-weight:800;
+      padding:3px 10px; border-radius:20px;
+      text-transform:uppercase; letter-spacing:0.06em;
+    }
+    .cb-sky   { background:var(--sky-lt); color:var(--sky-dk); }
+    .cb-mint  { background:var(--mint-lt); color:var(--mint-dk); }
+    .cb-peach { background:var(--peach-lt); color:var(--peach-dk); }
+    .cb-lemon { background:var(--lemon-lt); color:var(--lemon-dk); }
+    .cb-lilac { background:var(--lilac-lt); color:var(--lilac-dk); }
+
+    /* age chip */
+    .age-chip {
+      position:absolute; top:11px; right:11px;
+      background:rgba(255,255,255,0.85);
+      font-size:0.64rem; font-weight:800;
+      padding:3px 9px; border-radius:20px;
+      color:var(--text); backdrop-filter:blur(4px);
+    }
+    /* fav */
+    .fav-star {
+      position:absolute; bottom:10px; right:10px;
+      background:var(--lemon); color:var(--lemon-dk);
+      font-size:0.62rem; font-weight:800; padding:3px 8px;
+      border-radius:20px; border:none;
+    }
+
+    /* card body */
+    .prod-body {
+      padding:16px 18px 20px; flex:1;
+      display:flex; flex-direction:column; gap:6px;
+    }
+    .prod-brand { font-size:0.68rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+    .prod-name { font-size:0.95rem; font-weight:800; color:var(--text); line-height:1.35; }
+    .prod-desc { font-size:0.79rem; color:var(--muted); line-height:1.55; flex:1; font-weight:600; }
+    .prod-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:2px; }
+    .prod-tag {
+      font-size:0.66rem; font-weight:800; padding:3px 10px; border-radius:20px;
+    }
+    .tag-sky   { background:var(--sky-lt); color:var(--sky-dk); }
+    .tag-mint  { background:var(--mint-lt); color:var(--mint-dk); }
+    .tag-peach { background:var(--peach-lt); color:var(--peach-dk); }
+    .tag-lemon { background:var(--lemon-lt); color:var(--lemon-dk); }
+    .tag-lilac { background:var(--lilac-lt); color:var(--lilac-dk); }
+    .prod-div { height:1px; background:var(--warm); margin:4px 0; }
+    .prod-avail {
+      font-size:0.72rem; color:var(--muted); font-weight:700;
+      display:flex; align-items:center; gap:6px;
+    }
+    .prod-avail::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:var(--mint); display:inline-block;
+    }
+
+    /* ── HIDDEN ── */
+    .tab-section { display:block; }
+    .tab-section.hidden { display:none; }
+
+    /* ── SAFETY STRIP ── */
+    .safety-strip {
+      background:linear-gradient(135deg,var(--navy) 0%,#1e3050 100%);
+      padding:48px 36px;
+    }
+    .safety-inner {
+      max-width:1200px; margin:0 auto;
+    }
+    .safety-inner h2 {
+      font-family:'Baloo 2',cursive;
+      font-size:1.7rem; font-weight:800; color:var(--white);
+      margin-bottom:28px; display:flex; align-items:center; gap:12px;
+    }
+    .safety-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .safety-card {
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:20px; padding:22px 18px; backdrop-filter:blur(4px);
+    }
+    .s-emoji { font-size:2rem; margin-bottom:12px; display:block; }
+    .safety-card h4 {
+      font-family:'Baloo 2',cursive; font-size:1rem; font-weight:700;
+      color:var(--white); margin-bottom:8px;
+    }
+    .safety-card p { font-size:0.81rem; color:rgba(255,255,255,0.65); line-height:1.6; font-weight:600; }
+
+    /* ── FOOTER ── */
+    footer {
+      background:var(--navy); color:rgba(255,255,255,0.45);
+      text-align:center; padding:24px 36px; font-size:0.81rem;
+    }
+    footer a { color:var(--sky); text-decoration:none; }
+    footer a:hover { color:var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px) { .prod-grid { grid-template-columns:repeat(3,1fr); } .safety-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:768px)  {
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-mosaic { display:none; }
+      .prod-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:500px)  { .prod-grid { grid-template-columns:1fr; } .safety-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- Decorative floating shapes -->
+<div class="shape" style="width:220px;height:220px;background:var(--sky);top:80px;right:-60px;animation-duration:7s;"></div>
+<div class="shape" style="width:140px;height:140px;background:var(--mint);top:300px;left:-40px;animation-duration:9s;animation-delay:-3s;"></div>
+<div class="shape" style="width:90px;height:90px;background:var(--peach);top:180px;right:30%;animation-duration:11s;animation-delay:-5s;"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a class="logo-link" href="farmacias_yair.html">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a>
+      <div class="hdr-sep"></div>
+      <span class="hdr-title">👶 Sección Bebés</span>
+    </div>
+    <nav class="hdr-nav">
+      <a href="https://www.farmaciasyair.com/catalogo_medicamentos">Medicamentos</a>
+      <a href="dermocosmeticos.html">Dermocosméticos</a>
+      <a href="https://www.farmaciasyair.com/" class="btn-back">← Volver a la tienda</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">👶 Catálogo · Bebés y Maternidad</div>
+      <h1>Todo para el<br/><em>bienestar</em><br/>de tu bebé</h1>
+      <p>Productos seleccionados por expertos para el cuidado, nutrición e higiene de tu bebé. Marcas de confianza, formuladas especialmente para la piel y salud del recién nacido.</p>
+    
+    </div>
+    <div class="hero-mosaic">
+      <div class="mosaic-card">
+        <div class="m-ph"><span class="phi">🍼</span><span>Imagen<br/>producto</span></div>
+        <div class="m-feat">
+          <div class="m-brand">Enfamil</div>
+          <h4>Fórmula Infantil Premium</h4>
+          <span>Nutrición completa para recién nacidos desde el primer día.</span>
+        </div>
+      </div>
+      <div class="mosaic-card">
+        <div class="m-ph"><span class="phi">🛁</span><span>Imagen<br/>producto</span></div>
+        <div class="m-name">Shampoo Johnson's</div>
+        <div class="m-brand-sm">Johnson's Baby</div>
+      </div>
+      <div class="mosaic-card">
+        <div class="m-ph"><span class="phi">🧴</span><span>Imagen<br/>producto</span></div>
+        <div class="m-name">Crema Protectora</div>
+        <div class="m-brand-sm">Mustela</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="si"><span class="ico">🌿</span><div><strong>Sin parabenos</strong><span>Fórmulas hipoalergénicas</span></div></div>
+    <div class="si"><span class="ico">👨‍⚕️</span><div><strong>Recomendado por pediatras</strong><span>Marcas avaladas clínicamente</span></div></div>
+    <div class="si"><span class="ico">🧪</span><div><strong>Dermatológicamente testado</strong><span>Seguro para piel sensible</span></div></div>
+    <div class="si"><span class="ico">🍼</span><div><strong>Desde recién nacido</strong><span>Productos para cada etapa</span></div></div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="cat-nav" id="productos">
+  <div class="cat-nav-inner">
+    <button class="cat-btn active" id="btn-alimentacion" onclick="showCat('alimentacion',this,'sky-tab')">
+      <span class="cat-icon">🍼</span> Alimentación
+    </button>
+    <button class="cat-btn" id="btn-higiene" onclick="showCat('higiene',this,'mint-tab')">
+      <span class="cat-icon">🛁</span> Higiene y Baño
+    </button>
+    <button class="cat-btn" id="btn-cuidado" onclick="showCat('cuidado',this,'peach-tab')">
+      <span class="cat-icon">🧴</span> Cuidado de Piel
+    </button>
+    <button class="cat-btn" id="btn-salud" onclick="showCat('salud',this,'lemon-tab')">
+      <span class="cat-icon">🌡️</span> Salud y Primeros Auxilios
+    </button>
+    <button class="cat-btn" id="btn-maternidad" onclick="showCat('maternidad',this,'lilac-tab')">
+      <span class="cat-icon">🤱</span> Maternidad
+    </button>
+    <div class="cat-search">
+      <svg width="14" height="14" fill="none" stroke="#8a7a70" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" placeholder="Buscar producto…" oninput="filterProds(this.value)"/>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- ══ ALIMENTACIÓN ══ -->
+  <div class="tab-section" id="cat-alimentacion">
+    <div class="sec-lbl"><h2>🍼 Alimentación</h2><div class="sec-line sky"></div></div>
+    <p class="sec-desc">Fórmulas lácteas, cereales, papillas y todo lo necesario para la nutrición de tu bebé en cada etapa de su crecimiento.</p>
+    <div class="age-banner ab-sky">
+      <span class="ban-icon">📋</span>
+      <span>Consulta siempre al <strong>pediatra</strong> antes de elegir una fórmula o introducir alimentos. Cada bebé es único y tiene necesidades nutricionales específicas.</span>
+    </div>
+
+    <div class="sub-lbl"><div class="sub-dot" style="background:var(--sky);"></div><h3>Fórmulas Lácteas</h3></div>
+    <div class="prod-grid" style="margin-bottom:32px;">
+
+      <div class="prod-card sky-card" data-name="enfamil fórmula premium recién nacido alimentación leche">
+        <div class="prod-img bg-sky">
+          <span class="cat-badge cb-sky">0–6 meses</span>
+          <span class="age-chip">🍼 Recién nacido</span>
+          <span class="fav-star">⭐ Favorito</span>
+          <div class="img-ph"><span class="phi">🍼</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Enfamil</div>
+          <div class="prod-name">Enfamil Premium Etapa 1 400 g</div>
+          <div class="prod-desc">Fórmula de inicio con DHA y ARA para el desarrollo cerebral. Desde el nacimiento hasta los 6 meses.</div>
+          <div class="prod-tags"><span class="prod-tag tag-sky">DHA & ARA</span><span class="prod-tag tag-sky">0–6 meses</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card sky-card" data-name="similac fórmula continuación 6 meses alimentación leche">
+        <div class="prod-img bg-sky">
+          <span class="cat-badge cb-sky">6–12 meses</span>
+          <span class="age-chip">🌱 Continuación</span>
+          <div class="img-ph"><span class="phi">🍼</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Similac</div>
+          <div class="prod-name">Similac Advance Etapa 2 850 g</div>
+          <div class="prod-desc">Fórmula de continuación con hierro y vitaminas. Para bebés de 6 a 12 meses en crecimiento activo.</div>
+          <div class="prod-tags"><span class="prod-tag tag-sky">Hierro</span><span class="prod-tag tag-sky">6–12 meses</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card sky-card" data-name="nutrilón nanlac fórmula infantil 1 año leche crecimiento">
+        <div class="prod-img bg-sky">
+          <span class="cat-badge cb-sky">+12 meses</span>
+          <span class="age-chip">🧒 Crecimiento</span>
+          <div class="img-ph"><span class="phi">🥛</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">NAN</div>
+          <div class="prod-name">NAN Optipro 3 Junior 800 g</div>
+          <div class="prod-desc">Fórmula de crecimiento para mayores de 12 meses. Con probióticos y nutrientes esenciales.</div>
+          <div class="prod-tags"><span class="prod-tag tag-sky">Probióticos</span><span class="prod-tag tag-sky">+12 meses</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card sky-card" data-name="leche fórmula especial cólicos gas similac sensitive alimentación">
+        <div class="prod-img bg-sky">
+          <span class="cat-badge cb-sky">Especial</span>
+          <span class="age-chip">💙 Anti-cólico</span>
+          <div class="img-ph"><span class="phi">😊</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Similac</div>
+          <div class="prod-name">Similac Sensitive Anti-Cólico 400 g</div>
+          <div class="prod-desc">Fórmula especial para bebés con cólicos y sensibilidad digestiva. Reduce el llanto por gases.</div>
+          <div class="prod-tags"><span class="prod-tag tag-sky">Anti-cólico</span><span class="prod-tag tag-sky">Digestivo</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sub-lbl"><div class="sub-dot" style="background:var(--sky);"></div><h3>Cereales y Papillas</h3></div>
+    <div class="prod-grid" style="margin-bottom:0;">
+
+      <div class="prod-card sky-card" data-name="cereal gerber arroz papilla bebé primera comida sólida">
+        <div class="prod-img bg-sky">
+          <span class="cat-badge cb-sky">4–6 meses</span>
+          <div class="img-ph"><span class="phi">🌾</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Gerber</div>
+          <div class="prod-name">Cereal de Arroz Gerber Etapa 1</div>
+          <div class="prod-desc">Primer cereal para bebés. Sin gluten. Fácil digestión. Enriquecido con hierro y vitaminas.</div>
+          <div class="prod-tags"><span class="prod-tag tag-sky">Sin gluten</span><span class="prod-tag tag-sky">Hierro</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card sky-card" data-name="papilla frutas gerber papilla sabores mixtos bebé 6 meses">
+        <div class="prod-img bg-sky">
+          <span class="cat-badge cb-sky">6+ meses</span>
+          <div class="img-ph"><span class="phi">🍎</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Gerber</div>
+          <div class="prod-name">Papilla Mixta Frutas Etapa 2 113 g</div>
+          <div class="prod-desc">Combinación de manzana, durazno y pera. Sin azúcar ni sal añadida. 100% fruta natural.</div>
+          <div class="prod-tags"><span class="prod-tag tag-sky">Sin azúcar</span><span class="prod-tag tag-sky">Frutas</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card sky-card" data-name="papilla verduras pollo gerber etapa 3 bebé alimentación complementaria">
+        <div class="prod-img bg-sky">
+          <span class="cat-badge cb-sky">8+ meses</span>
+          <div class="img-ph"><span class="phi">🥕</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Gerber</div>
+          <div class="prod-name">Papilla Pollo y Verduras Etapa 3</div>
+          <div class="prod-desc">Mezcla de pollo, zanahoria y chícharos. Textura gruesa para el desarrollo de la masticación.</div>
+          <div class="prod-tags"><span class="prod-tag tag-sky">Proteína</span><span class="prod-tag tag-sky">8+ meses</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card sky-card" data-name="agua bebé gerber purificada hidratación infantil natural">
+        <div class="prod-img bg-sky">
+          <span class="cat-badge cb-sky">Bebé</span>
+          <div class="img-ph"><span class="phi">💧</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Gerber</div>
+          <div class="prod-name">Agua Purificada Gerber 1 L</div>
+          <div class="prod-desc">Agua purificada especial para preparar fórmulas. Fluoruro controlado. Libre de bacterias.</div>
+          <div class="prod-tags"><span class="prod-tag tag-sky">Purificada</span><span class="prod-tag tag-sky">Fórmulas</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /alimentacion -->
+
+  <!-- ══ HIGIENE ══ -->
+  <div class="tab-section hidden" id="cat-higiene">
+    <div class="sec-lbl"><h2>🛁 Higiene y Baño</h2><div class="sec-line mint"></div></div>
+    <p class="sec-desc">Shampoos, jabones y productos de limpieza formulados para la piel delicada del bebé. Sin lágrimas, sin parabenos, con pH neutro.</p>
+    <div class="age-banner ab-mint">
+      <span class="ban-icon">🌿</span>
+      <span>Todos los productos de esta sección están <strong>dermatológicamente testados</strong> y formulados con ingredientes suaves aptos para recién nacidos.</span>
+    </div>
+
+    <div class="prod-grid">
+
+      <div class="prod-card mint-card" data-name="shampoo johnsons baby sin lágrimas cabello bebé suave">
+        <div class="prod-img bg-mint">
+          <span class="cat-badge cb-mint">Higiene</span>
+          <span class="fav-star">⭐ Favorito</span>
+          <div class="img-ph"><span class="phi">🛁</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Johnson's Baby</div>
+          <div class="prod-name">Shampoo Baby Cabeza a Pies 400 ml</div>
+          <div class="prod-desc">Fórmula 2 en 1 sin lágrimas. Limpia cabello y cuerpo con suavidad. Aroma suave a lavanda.</div>
+          <div class="prod-tags"><span class="prod-tag tag-mint">Sin lágrimas</span><span class="prod-tag tag-mint">2 en 1</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card mint-card" data-name="jabón mustela limpieza bebé piel sensible baño suave">
+        <div class="prod-img bg-mint">
+          <span class="cat-badge cb-mint">Higiene</span>
+          <div class="img-ph"><span class="phi">🫧</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Mustela</div>
+          <div class="prod-name">Gel Limpiador Cuerpo y Cabello 500 ml</div>
+          <div class="prod-desc">Avocado perseose y aloe vera. Limpia sin alterar el equilibrio de la piel del recién nacido.</div>
+          <div class="prod-tags"><span class="prod-tag tag-mint">Aguacate</span><span class="prod-tag tag-mint">pH neutro</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card mint-card" data-name="toallitas humedas pampers bebé limpiar pañal sensible">
+        <div class="prod-img bg-mint">
+          <span class="cat-badge cb-mint">Higiene</span>
+          <div class="img-ph"><span class="phi">🧻</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Pampers</div>
+          <div class="prod-name">Toallitas Húmedas Sensitive x72</div>
+          <div class="prod-desc">Contienen aloe vera y vitamina E. pH equilibrado para piel sensible. Suaves y resistentes.</div>
+          <div class="prod-tags"><span class="prod-tag tag-mint">Aloe vera</span><span class="prod-tag tag-mint">Sensible</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card mint-card" data-name="algodón hisopos bebé oídos limpieza suave q-tips">
+        <div class="prod-img bg-mint">
+          <span class="cat-badge cb-mint">Higiene</span>
+          <div class="img-ph"><span class="phi">🌸</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Johnson's Baby</div>
+          <div class="prod-name">Hisopos de Algodón Baby x80</div>
+          <div class="prod-desc">Con limitador de seguridad para bebés. Algodón 100% natural. Para limpieza delicada de oídos y nariz.</div>
+          <div class="prod-tags"><span class="prod-tag tag-mint">Seguridad</span><span class="prod-tag tag-mint">Algodón</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card mint-card" data-name="bañera termómetro agua baño bebé temperatura segura">
+        <div class="prod-img bg-mint">
+          <span class="cat-badge cb-mint">Higiene</span>
+          <div class="img-ph"><span class="phi">🌡️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Safety 1st</div>
+          <div class="prod-name">Termómetro de Baño Digital</div>
+          <div class="prod-desc">Mide la temperatura del agua del baño en segundos. Alerta si el agua está demasiado caliente.</div>
+          <div class="prod-tags"><span class="prod-tag tag-mint">Seguridad</span><span class="prod-tag tag-mint">Digital</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card mint-card" data-name="pañales huggies natural care recién nacido newborn talla">
+        <div class="prod-img bg-mint">
+          <span class="cat-badge cb-mint">Higiene</span>
+          <div class="img-ph"><span class="phi">🍃</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Huggies</div>
+          <div class="prod-name">Pañales Natural Care RN x30</div>
+          <div class="prod-desc">Con extracto de aloe vera. Suaves como la seda. Indicador de humedad para saber cuándo cambiar.</div>
+          <div class="prod-tags"><span class="prod-tag tag-mint">Aloe vera</span><span class="prod-tag tag-mint">Recién nacido</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card mint-card" data-name="jabón barra bebé dove sensible piel seca neutro">
+        <div class="prod-img bg-mint">
+          <span class="cat-badge cb-mint">Higiene</span>
+          <div class="img-ph"><span class="phi">🕊️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Dove Baby</div>
+          <div class="prod-name">Jabón Hidratante Baby Rich Moisture</div>
+          <div class="prod-desc">Con ¼ de crema hidratante. Limpia y nutre la piel del bebé. Sin colorantes ni parabenos.</div>
+          <div class="prod-tags"><span class="prod-tag tag-mint">Hidratante</span><span class="prod-tag tag-mint">Sin parabenos</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card mint-card" data-name="cepillo peine cabello bebé suave natural recién nacido">
+        <div class="prod-img bg-mint">
+          <span class="cat-badge cb-mint">Higiene</span>
+          <div class="img-ph"><span class="phi">🪮</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Chicco</div>
+          <div class="prod-name">Set Cepillo y Peine Baby Soft</div>
+          <div class="prod-desc">Cerdas naturales ultra-suaves. Masajea el cuero cabelludo del bebé. Apto desde el nacimiento.</div>
+          <div class="prod-tags"><span class="prod-tag tag-mint">Natural</span><span class="prod-tag tag-mint">Recién nacido</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /higiene -->
+
+  <!-- ══ CUIDADO PIEL ══ -->
+  <div class="tab-section hidden" id="cat-cuidado">
+    <div class="sec-lbl"><h2>🧴 Cuidado de Piel</h2><div class="sec-line peach"></div></div>
+    <p class="sec-desc">Cremas, lociones y pomadas para proteger y nutrir la piel delicada del bebé. Prevención y tratamiento de rozaduras, piel seca y dermatitis del pañal.</p>
+    <div class="age-banner ab-peach">
+      <span class="ban-icon">🌸</span>
+      <span>La piel del bebé es <strong>5 veces más fina</strong> que la del adulto. Elige siempre productos especialmente formulados, libres de alcohol y fragancias agresivas.</span>
+    </div>
+
+    <div class="prod-grid">
+
+      <div class="prod-card peach-card" data-name="crema pañal mustela rozadura dermatitis prevención bebé">
+        <div class="prod-img bg-peach">
+          <span class="cat-badge cb-peach">Piel</span>
+          <span class="fav-star">⭐ Favorito</span>
+          <div class="img-ph"><span class="phi">🧴</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Mustela</div>
+          <div class="prod-name">Crema Protectora Área del Pañal 50 ml</div>
+          <div class="prod-desc">Protege al 98% contra las rozaduras. Con zinc y vitamina B5. Actúa como barrera protectora.</div>
+          <div class="prod-tags"><span class="prod-tag tag-peach">Rozaduras</span><span class="prod-tag tag-peach">Zinc</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card peach-card" data-name="loción corporal bebé johnsons piel seca nutrición suave">
+        <div class="prod-img bg-peach">
+          <span class="cat-badge cb-peach">Piel</span>
+          <div class="img-ph"><span class="phi">🌸</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Johnson's Baby</div>
+          <div class="prod-name">Loción Corporal Hidratante 400 ml</div>
+          <div class="prod-desc">Hidratación por 24 horas. Absorción instantánea. Con vitamina E y aceite de coco.</div>
+          <div class="prod-tags"><span class="prod-tag tag-peach">24h hidratación</span><span class="prod-tag tag-peach">Coco</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card peach-card" data-name="aceite bebé johnsons masaje corporal suave nutrición relajante">
+        <div class="prod-img bg-peach">
+          <span class="cat-badge cb-peach">Piel</span>
+          <div class="img-ph"><span class="phi">✨</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Johnson's Baby</div>
+          <div class="prod-name">Aceite de Bebé Lavanda 300 ml</div>
+          <div class="prod-desc">Para masajes relajantes. Con extracto de lavanda que favorece el sueño. Piel sedosa y suave.</div>
+          <div class="prod-tags"><span class="prod-tag tag-peach">Masaje</span><span class="prod-tag tag-peach">Lavanda</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card peach-card" data-name="talco polvo bebé seco pieles irritadas pañal protección">
+        <div class="prod-img bg-peach">
+          <span class="cat-badge cb-peach">Piel</span>
+          <div class="img-ph"><span class="phi">☁️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Chicco</div>
+          <div class="prod-name">Polvo Protector Anti-Rozaduras 150 g</div>
+          <div class="prod-desc">Fórmula en polvo con óxido de zinc. Mantiene la piel seca y previene las irritaciones del pañal.</div>
+          <div class="prod-tags"><span class="prod-tag tag-peach">Zinc</span><span class="prod-tag tag-peach">Anti-irritación</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card peach-card" data-name="crema hidratante eucerin bebé piel atópica eczema seca">
+        <div class="prod-img bg-peach">
+          <span class="cat-badge cb-peach">Piel</span>
+          <div class="img-ph"><span class="phi">💛</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Eucerin</div>
+          <div class="prod-name">Baby Eczema Relief Crema 141 g</div>
+          <div class="prod-desc">Formulada para piel atópica y con tendencia al eczema. Sin perfume. Calma picor e hidrata.</div>
+          <div class="prod-tags"><span class="prod-tag tag-peach">Eczema</span><span class="prod-tag tag-peach">Sin perfume</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card peach-card" data-name="bálsamo labios nariz bebé seco cicatricure resfrío invierno">
+        <div class="prod-img bg-peach">
+          <span class="cat-badge cb-peach">Piel</span>
+          <div class="img-ph"><span class="phi">🌿</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Mustela</div>
+          <div class="prod-name">Bálsamo Nutritivo Baby 40 ml</div>
+          <div class="prod-desc">Protección intensa para mejillas, nariz y labios en climas fríos. Con manteca de karité.</div>
+          <div class="prod-tags"><span class="prod-tag tag-peach">Karité</span><span class="prod-tag tag-peach">Frío y viento</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card peach-card" data-name="protector solar bebé mineral fps50 piel delicada sin químicos">
+        <div class="prod-img bg-peach">
+          <span class="cat-badge cb-peach">Piel</span>
+          <div class="img-ph"><span class="phi">☀️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Neutrogena</div>
+          <div class="prod-name">Pure & Free Baby Mineral FPS 50</div>
+          <div class="prod-desc">Filtro mineral 100% con óxido de zinc. Sin fragancia, sin parabenos. Resistente al agua.</div>
+          <div class="prod-tags"><span class="prod-tag tag-peach">FPS 50</span><span class="prod-tag tag-peach">Mineral</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card peach-card" data-name="gel costalito vitaminas bebé costra seborrea cuero cabelludo">
+        <div class="prod-img bg-peach">
+          <span class="cat-badge cb-peach">Piel</span>
+          <div class="img-ph"><span class="phi">🌼</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Mustela</div>
+          <div class="prod-name">Gel Cradle Cap Costra Láctea 40 ml</div>
+          <div class="prod-desc">Elimina suavemente la costra láctea del cuero cabelludo. Formulado con aceite de avellana.</div>
+          <div class="prod-tags"><span class="prod-tag tag-peach">Costra láctea</span><span class="prod-tag tag-peach">Suave</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /cuidado -->
+
+  <!-- ══ SALUD ══ -->
+  <div class="tab-section hidden" id="cat-salud">
+    <div class="sec-lbl"><h2>🌡️ Salud y Primeros Auxilios</h2><div class="sec-line lemon"></div></div>
+    <p class="sec-desc">Termómetros, soluciones nasales, suero oral y accesorios para atender la salud de tu bebé en casa. Siempre bajo supervisión pediátrica.</p>
+    <div class="age-banner ab-lemon">
+      <span class="ban-icon">⚕️</span>
+      <span>Ante cualquier síntoma en un bebé menor de 3 meses, <strong>consulta al pediatra de inmediato</strong>. No administres medicamentos sin prescripción médica.</span>
+    </div>
+
+    <div class="prod-grid">
+
+      <div class="prod-card lemon-card" data-name="termómetro digital rectal axilar bebé fiebre temperatura seguro">
+        <div class="prod-img bg-lemon">
+          <span class="cat-badge cb-lemon">Salud</span>
+          <span class="fav-star">⭐ Esencial</span>
+          <div class="img-ph"><span class="phi">🌡️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Vicks</div>
+          <div class="prod-name">Termómetro Digital Flexible Bebé</div>
+          <div class="prod-desc">Punta flexible para mayor seguridad. Lectura en 10 segundos. Apto para uso rectal, oral y axilar.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lemon">10 seg</span><span class="prod-tag tag-lemon">3 en 1</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lemon-card" data-name="solución nasal bebé congestión nariz spray suero gotero">
+        <div class="prod-img bg-lemon">
+          <span class="cat-badge cb-lemon">Salud</span>
+          <div class="img-ph"><span class="phi">💧</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Fisiomer</div>
+          <div class="prod-name">Spray Nasal Baby Isotónico 100 ml</div>
+          <div class="prod-desc">Solución salina isotónica para limpiar y descongestionar la nariz del bebé. Sin conservadores.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lemon">Isotónico</span><span class="prod-tag tag-lemon">Sin conservadores</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lemon-card" data-name="suero rehidratación oral bebé diarrea vómito pedialyte">
+        <div class="prod-img bg-lemon">
+          <span class="cat-badge cb-lemon">Salud</span>
+          <div class="img-ph"><span class="phi">🥤</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Pedialyte</div>
+          <div class="prod-name">Suero Oral Pedialyte Fresa 500 ml</div>
+          <div class="prod-desc">Repone electrolitos perdidos por diarrea o vómito. Fórmula avanzada para rehidratación rápida.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lemon">Electrolitos</span><span class="prod-tag tag-lemon">Rehidratante</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lemon-card" data-name="aspirador nasal bulbo moco aspirar bebé congestión">
+        <div class="prod-img bg-lemon">
+          <span class="cat-badge cb-lemon">Salud</span>
+          <div class="img-ph"><span class="phi">🌬️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Safety 1st</div>
+          <div class="prod-name">Aspirador Nasal para Bebé</div>
+          <div class="prod-desc">Aspirador nasal suave y seguro. Elimina la mucosidad con facilidad. Fácil de limpiar y esterilizar.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lemon">Aspirador</span><span class="prod-tag tag-lemon">Seguro</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lemon-card" data-name="cortaúñas tijeras lima bebé seguro manicura pedicura infantil">
+        <div class="prod-img bg-lemon">
+          <span class="cat-badge cb-lemon">Salud</span>
+          <div class="img-ph"><span class="phi">✂️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Chicco</div>
+          <div class="prod-name">Set Manicura Baby 3 piezas</div>
+          <div class="prod-desc">Incluye lima, cortaúñas y tijeras de seguridad. Punta redondeada. Diseñado para recién nacidos.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lemon">Seguridad</span><span class="prod-tag tag-lemon">3 piezas</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lemon-card" data-name="vitamina d gotas bebé suplemento solar lactancia deficiencia">
+        <div class="prod-img bg-lemon">
+          <span class="cat-badge cb-lemon">Salud</span>
+          <div class="img-ph"><span class="phi">🌞</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Zymad</div>
+          <div class="prod-name">Vitamina D3 Gotas Bebé 400 UI</div>
+          <div class="prod-desc">Suplemento de vitamina D3 en gotas. Esencial para el desarrollo óseo y el sistema inmune del bebé.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lemon">Vitamina D3</span><span class="prod-tag tag-lemon">Gotas</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lemon-card" data-name="probióticos bebé cólicos flora intestinal lactobacillus gotas">
+        <div class="prod-img bg-lemon">
+          <span class="cat-badge cb-lemon">Salud</span>
+          <div class="img-ph"><span class="phi">🦠</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">BioGaia</div>
+          <div class="prod-name">Protectis Gotas Probiótico Bebé 5 ml</div>
+          <div class="prod-desc">Lactobacillus reuteri en gotas. Reduce el llanto por cólicos. Mejora la flora intestinal del bebé.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lemon">Probiótico</span><span class="prod-tag tag-lemon">Anti-cólico</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lemon-card" data-name="alcohol isopropílico algodón curaciones bebé botiquín primeros auxilios">
+        <div class="prod-img bg-lemon">
+          <span class="cat-badge cb-lemon">Salud</span>
+          <div class="img-ph"><span class="phi">🧰</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Farmacias Yair</div>
+          <div class="prod-name">Kit Primeros Auxilios Baby</div>
+          <div class="prod-desc">Incluye gasas, alcohol, curitas y termómetro básico. Esencial para el botiquín del hogar con bebé.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lemon">Botiquín</span><span class="prod-tag tag-lemon">Completo</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /salud -->
+
+  <!-- ══ MATERNIDAD ══ -->
+  <div class="tab-section hidden" id="cat-maternidad">
+    <div class="sec-lbl"><h2>🤱 Maternidad</h2><div class="sec-line lilac"></div></div>
+    <p class="sec-desc">Productos para el cuidado y bienestar de la mamá antes y después del parto. Lactancia, recuperación y bienestar postparto.</p>
+    <div class="age-banner ab-lilac">
+      <span class="ban-icon">💜</span>
+      <span>El bienestar de mamá es tan importante como el del bebé. Cuídate con los mejores productos para el <strong>embarazo, parto y puerperio</strong>.</span>
+    </div>
+
+    <div class="prod-grid">
+
+      <div class="prod-card lilac-card" data-name="crema estrías embarazo palmer's barriga preventivo maternidad">
+        <div class="prod-img bg-lilac">
+          <span class="cat-badge cb-lilac">Maternidad</span>
+          <span class="fav-star">⭐ Favorito</span>
+          <div class="img-ph"><span class="phi">🤱</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Palmer's</div>
+          <div class="prod-name">Crema Barriga Embarazo 125 g</div>
+          <div class="prod-desc">Con vitamina E y manteca de cacao. Previene y reduce estrías durante el embarazo. Hidratación profunda.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lilac">Estrías</span><span class="prod-tag tag-lilac">Vitamina E</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lilac-card" data-name="almohadillas lactancia desechables toallas pecho mamá">
+        <div class="prod-img bg-lilac">
+          <span class="cat-badge cb-lilac">Maternidad</span>
+          <div class="img-ph"><span class="phi">💜</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Lansinoh</div>
+          <div class="prod-name">Almohadillas de Lactancia Desechables x36</div>
+          <div class="prod-desc">Ultra-absorbentes. Diseño anatómico. Adhesivo para mayor seguridad. Previenen la humedad.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lilac">Lactancia</span><span class="prod-tag tag-lilac">Absorbente</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lilac-card" data-name="lanolina crema pezones pecho lactancia fisura dolor maternidad">
+        <div class="prod-img bg-lilac">
+          <span class="cat-badge cb-lilac">Maternidad</span>
+          <div class="img-ph"><span class="phi">🌸</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Lansinoh</div>
+          <div class="prod-name">Crema de Lanolina HPA 40 ml</div>
+          <div class="prod-desc">100% lanolina pura. Alivia y protege los pezones agrietados durante la lactancia. No requiere retirar antes de amamantar.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lilac">Lanolina</span><span class="prod-tag tag-lilac">Pezones</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lilac-card" data-name="ácido fólico vitaminas embarazo prenatal suplemento maternidad">
+        <div class="prod-img bg-lilac">
+          <span class="cat-badge cb-lilac">Maternidad</span>
+          <div class="img-ph"><span class="phi">💊</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Elevit</div>
+          <div class="prod-name">Vitaminas Prenatales Elevit x30</div>
+          <div class="prod-desc">Multivitamínico completo para antes, durante y después del embarazo. Con ácido fólico, hierro y DHA.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lilac">Ácido fólico</span><span class="prod-tag tag-lilac">Prenatal</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lilac-card" data-name="cinturón faja postparto recuperación abdomen maternidad ropa">
+        <div class="prod-img bg-lilac">
+          <span class="cat-badge cb-lilac">Maternidad</span>
+          <div class="img-ph"><span class="phi">🤰</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Chicco</div>
+          <div class="prod-name">Faja Postparto Recuperación</div>
+          <div class="prod-desc">Compresión suave para recuperación abdominal postparto. Ajustable. Favorece la cicatrización.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lilac">Postparto</span><span class="prod-tag tag-lilac">Recuperación</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lilac-card" data-name="chupón soother philips avent bebé calmante recién nacido">
+        <div class="prod-img bg-lilac">
+          <span class="cat-badge cb-lilac">Maternidad</span>
+          <div class="img-ph"><span class="phi">😌</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Philips Avent</div>
+          <div class="prod-name">Chupón Soothie Silicona 0–3 meses</div>
+          <div class="prod-desc">100% silicona médica. Una sola pieza sin costuras. El preferido en nurseries de hospitales.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lilac">Silicona médica</span><span class="prod-tag tag-lilac">0–3 meses</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lilac-card" data-name="biberón antigoteo anticólico medela avent bebé mamila">
+        <div class="prod-img bg-lilac">
+          <span class="cat-badge cb-lilac">Maternidad</span>
+          <div class="img-ph"><span class="phi">🍼</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Philips Avent</div>
+          <div class="prod-name">Biberón Natural 3.0 Anti-Cólico 260 ml</div>
+          <div class="prod-desc">Sistema anti-cólico clínicamente probado. Tetina flexible que simula el pecho materno.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lilac">Anti-cólico</span><span class="prod-tag tag-lilac">Natural</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card lilac-card" data-name="monitor sonidos lluvia bebé dormir dormir blanco maternidad">
+        <div class="prod-img bg-lilac">
+          <span class="cat-badge cb-lilac">Maternidad</span>
+          <div class="img-ph"><span class="phi">🎵</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Safety 1st</div>
+          <div class="prod-name">Monitor Digital Audio Bebé</div>
+          <div class="prod-desc">Transmisión de audio clara hasta 300m. Indicador de nivel de sonido. Batería recargable portátil.</div>
+          <div class="prod-tags"><span class="prod-tag tag-lilac">Monitor</span><span class="prod-tag tag-lilac">Audio</span></div>
+          <div class="prod-div"></div>
+          <div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /maternidad -->
+
+</div><!-- /main-wrap -->
+
+<!-- SAFETY STRIP -->
+<div class="safety-strip">
+  <div class="safety-inner">
+    <h2>🛡️ Consejos de seguridad</h2>
+    <div class="safety-grid">
+      <div class="safety-card">
+        <span class="s-emoji">👨‍⚕️</span>
+        <h4>Consulta al pediatra</h4>
+        <p>Antes de elegir cualquier fórmula, suplemento o medicamento para tu bebé, siempre consulta con tu médico pediatra de confianza.</p>
+      </div>
+      <div class="safety-card">
+        <span class="s-emoji">🏷️</span>
+        <h4>Lee las etiquetas</h4>
+        <p>Verifica siempre la edad recomendada, ingredientes y modo de uso de cada producto antes de aplicarlo o administrarlo a tu bebé.</p>
+      </div>
+      <div class="safety-card">
+        <span class="s-emoji">🌡️</span>
+        <h4>Fiebre en menores de 3 meses</h4>
+        <p>Si tu bebé menor de 3 meses presenta fiebre de 38°C o más, acude a urgencias de inmediato. Es siempre una emergencia médica.</p>
+      </div>
+      <div class="safety-card">
+        <span class="s-emoji">📦</span>
+        <h4>Almacenamiento correcto</h4>
+        <p>Guarda todos los productos fuera del alcance de niños mayores. Respeta las fechas de caducidad, especialmente en fórmulas y sueros.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Sección Bebés y Maternidad · Productos sujetos a disponibilidad en sucursal · Consulta siempre a tu pediatra 👶</p>
+</footer>
+
+<script>
+let activeCat = 'alimentacion';
+const colorMap = {
+  alimentacion:'sky-tab', higiene:'mint-tab',
+  cuidado:'peach-tab', salud:'lemon-tab', maternidad:'lilac-tab'
+};
+
+function showCat(cat, btn, colorClass) {
+  activeCat = cat;
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.add('hidden'));
+  document.getElementById('cat-' + cat).classList.remove('hidden');
+  document.querySelectorAll('.cat-btn').forEach(b => {
+    b.classList.remove('active','sky-tab','mint-tab','peach-tab','lemon-tab','lilac-tab');
+  });
+  btn.classList.add('active', colorClass || 'sky-tab');
+  document.querySelector('.cat-search input').value = '';
+  // reset display
+  document.querySelectorAll('#cat-'+cat+' .prod-card').forEach(c => c.style.display='');
+}
+
+function filterProds(q) {
+  q = q.toLowerCase().trim();
+  const section = document.getElementById('cat-' + activeCat);
+  section.querySelectorAll('.prod-card').forEach(card => {
+    const haystack = (card.dataset.name||'') + card.innerText.toLowerCase();
+    card.style.display = (!q || haystack.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
