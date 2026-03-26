@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo Productos Naturales – Farmacias Yair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --forest:    #2d6a4f;
+      --forest-lt: #e8f5ee;
+      --forest-dk: #1b4332;
+      --moss:      #52b788;
+      --moss-lt:   #d8f3dc;
+      --herb:      #74c69d;
+      --amber:     #d4883a;
+      --amber-lt:  #fef3e2;
+      --amber-dk:  #996022;
+      --honey:     #f5a623;
+      --terra:     #bc6c25;
+      --terra-lt:  #fde8d0;
+      --terra-dk:  #7f3f0a;
+      --lavender:  #9b72cf;
+      --lavender-lt:#f0e9fb;
+      --lavender-dk:#5e3a9e;
+      --sky:       #48b0d5;
+      --sky-lt:    #e4f4fb;
+      --sky-dk:    #1e7fa8;
+      --rose:      #c07b8a;
+      --rose-lt:   #faeef1;
+      --rose-dk:   #8a3d52;
+      --cream:     #fdfaf4;
+      --warm:      #faf6ed;
+      --sand:      #f3ead8;
+      --gray:      #e2d9c8;
+      --text:      #1e2a1a;
+      --muted:     #7a7060;
+      --bark:      #1a1208;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Nunito',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
+
+    /* ── HEADER ── */
+    header {
+      background:var(--forest-dk);
+      position:sticky; top:0; z-index:300;
+      box-shadow:0 2px 20px rgba(27,67,50,0.4);
+    }
+    .hdr {
+      max-width:1200px; margin:0 auto; padding:11px 36px;
+      display:flex; align-items:center; justify-content:space-between; gap:20px;
+    }
+    .logo-wrap { display:flex; align-items:center; gap:14px; text-decoration:none; }
+    .logo-wrap img { height:46px; width:auto; filter:brightness(0) invert(1); }
+    .hdr-sep { width:1px; height:28px; background:rgba(255,255,255,0.2); }
+    .hdr-title { font-size:0.72rem; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:var(--moss); display:flex; align-items:center; gap:7px; }
+    .hdr-nav { display:flex; align-items:center; gap:8px; }
+    .hdr-nav a {
+      color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.83rem; font-weight:700;
+      padding:7px 14px; border-radius:20px; transition:background .18s,color .18s;
+    }
+    .hdr-nav a:hover { background:rgba(255,255,255,0.1); color:#fff; }
+    .btn-back { background:var(--moss)!important; color:var(--forest-dk)!important; font-weight:800!important; }
+    .btn-back:hover { background:var(--herb)!important; }
+
+    /* ── HERO ── */
+    .hero {
+      background:linear-gradient(150deg,var(--forest-dk) 0%,#2d5a3d 45%,#1e4a30 100%);
+      padding:72px 36px 80px; position:relative; overflow:hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 75% 25%,rgba(82,183,136,0.18),transparent 48%),
+        radial-gradient(circle at 15% 70%,rgba(212,136,58,0.10),transparent 42%),
+        radial-gradient(circle at 50% 95%,rgba(155,114,207,0.07),transparent 38%);
+    }
+    /* Organic leaf deco */
+    .leaf-deco {
+      position:absolute; font-size:5rem; opacity:0.06;
+      pointer-events:none; animation:sway ease-in-out infinite;
+    }
+    @keyframes sway {
+      0%,100% { transform:rotate(-6deg) scale(1); }
+      50%      { transform:rotate(6deg) scale(1.05); }
+    }
+    .hero-inner {
+      max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:1fr 1fr;
+      align-items:center; gap:64px; position:relative; z-index:1;
+    }
+    .hero-pill {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(82,183,136,0.2); border:1.5px solid rgba(82,183,136,0.4);
+      color:var(--moss); border-radius:30px; padding:6px 18px;
+      font-size:0.74rem; font-weight:800; letter-spacing:0.1em;
+      text-transform:uppercase; margin-bottom:18px;
+    }
+    .hero-text h1 {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2.4rem,4.2vw,3.6rem);
+      font-weight:800; line-height:1.12; color:#fff; margin-bottom:16px;
+    }
+    .hero-text h1 em { font-style:italic; color:var(--moss); }
+    .hero-text p {
+      font-size:1rem; color:rgba(255,255,255,0.62);
+      line-height:1.72; max-width:430px; margin-bottom:30px;
+    }
+    .hero-stats { display:flex; gap:0; }
+    .h-stat {
+      padding:14px 26px; text-align:center;
+      border-left:1px solid rgba(255,255,255,0.1);
+    }
+    .h-stat:first-child { border-left:none; padding-left:0; }
+    .h-stat strong {
+      display:block; font-family:'Playfair Display',serif;
+      font-size:1.9rem; color:var(--moss); font-weight:700; line-height:1;
+    }
+    .h-stat span {
+      font-size:0.71rem; color:rgba(255,255,255,0.45);
+      font-weight:700; letter-spacing:0.07em; text-transform:uppercase;
+      margin-top:4px; display:block;
+    }
+
+    /* hero product mosaic */
+    .hero-mosaic {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      grid-template-rows:auto auto; gap:14px;
+    }
+    .mosaic-card {
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:20px; padding:18px 14px 15px;
+      display:flex; flex-direction:column; align-items:center; gap:10px;
+      backdrop-filter:blur(8px);
+      transition:background .22s, transform .22s;
+    }
+    .mosaic-card:hover { background:rgba(255,255,255,0.13); transform:translateY(-4px); }
+    .mosaic-card.wide { grid-column:1/-1; flex-direction:row; gap:18px; padding:18px 22px; }
+    .m-ph {
+      border-radius:13px;
+      background:rgba(255,255,255,0.08);
+      border:2px dashed rgba(82,183,136,0.4);
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:6px; text-align:center; padding:9px;
+      color:rgba(82,183,136,0.7); font-size:0.61rem; font-weight:800; line-height:1.4;
+    }
+    .m-ph .phi { font-size:1.8rem; opacity:0.6; }
+    .mosaic-card.wide .m-ph { width:88px; height:108px; flex-shrink:0; }
+    .mosaic-card:not(.wide) .m-ph { width:74px; height:94px; }
+    .m-info h4 {
+      font-family:'Playfair Display',serif; font-size:1rem; font-weight:700;
+      color:#fff; margin-bottom:3px; line-height:1.25;
+    }
+    .m-info .m-brand { font-size:0.66rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--moss); margin-bottom:3px; }
+    .m-info span { font-size:0.75rem; color:rgba(255,255,255,0.55); line-height:1.45; display:block; }
+    .m-name-sm { font-size:0.75rem; font-weight:800; color:rgba(255,255,255,0.85); text-align:center; line-height:1.3; }
+    .m-brand-sm { font-size:0.64rem; color:rgba(255,255,255,0.45); text-align:center; }
+
+    /* ── STRIP ── */
+    .strip {
+      background:linear-gradient(90deg,var(--forest) 0%,var(--moss) 55%,var(--amber) 100%);
+      padding:17px 36px;
+    }
+    .strip-inner {
+      max-width:1200px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-around; gap:18px; flex-wrap:wrap;
+    }
+    .si { display:flex; align-items:center; gap:11px; color:#fff; }
+    .si .ico { font-size:1.45rem; }
+    .si strong { display:block; font-size:0.86rem; font-weight:800; }
+    .si span { font-size:0.73rem; opacity:0.82; }
+
+    /* ── TAB NAV ── */
+    .cat-nav {
+      background:var(--warm);
+      border-bottom:2px solid var(--gray);
+      position:sticky; top:68px; z-index:200;
+      box-shadow:0 3px 14px rgba(27,67,50,0.08);
+    }
+    .cat-nav-inner {
+      max-width:1200px; margin:0 auto; padding:0 36px;
+      display:flex; align-items:center; gap:0;
+      overflow-x:auto; scrollbar-width:none;
+    }
+    .cat-nav-inner::-webkit-scrollbar { display:none; }
+    .cat-btn {
+      display:flex; align-items:center; gap:7px;
+      padding:15px 20px; background:none; border:none;
+      font-family:'Nunito',sans-serif; font-size:0.87rem; font-weight:800;
+      color:var(--muted); cursor:pointer; white-space:nowrap;
+      border-bottom:3px solid transparent; margin-bottom:-2px;
+      transition:color .18s;
+    }
+    .cat-btn:hover { color:var(--text); }
+    .cat-btn.af { color:var(--forest);   border-bottom-color:var(--forest); }
+    .cat-btn.aa { color:var(--amber);    border-bottom-color:var(--amber); }
+    .cat-btn.at { color:var(--terra);    border-bottom-color:var(--terra); }
+    .cat-btn.al { color:var(--lavender); border-bottom-color:var(--lavender); }
+    .cat-btn.as { color:var(--sky);      border-bottom-color:var(--sky); }
+    .cat-btn.ar { color:var(--rose);     border-bottom-color:var(--rose); }
+    .cat-icon { font-size:1.1rem; }
+    .cat-search {
+      margin-left:auto; display:flex; align-items:center; gap:9px;
+      background:var(--sand); border:2px solid var(--gray);
+      border-radius:30px; padding:7px 16px; flex-shrink:0;
+      transition:border-color .2s;
+    }
+    .cat-search:focus-within { border-color:var(--forest); }
+    .cat-search input {
+      background:none; border:none; outline:none;
+      font-family:'Nunito',sans-serif; font-size:0.85rem; font-weight:700;
+      color:var(--text); width:160px;
+    }
+    .cat-search input::placeholder { color:var(--muted); }
+
+    /* ── MAIN ── */
+    .main-wrap {
+      max-width:1200px; margin:0 auto; padding:52px 36px 80px;
+    }
+
+    .sec-lbl { display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+    .sec-lbl h2 {
+      font-family:'Playfair Display',serif;
+      font-size:1.6rem; font-weight:700; color:var(--text);
+    }
+    .sec-line { flex:1; height:1.5px; border-radius:2px; }
+    .sl-f { background:linear-gradient(90deg,var(--forest),transparent); }
+    .sl-a { background:linear-gradient(90deg,var(--amber),transparent); }
+    .sl-t { background:linear-gradient(90deg,var(--terra),transparent); }
+    .sl-l { background:linear-gradient(90deg,var(--lavender),transparent); }
+    .sl-s { background:linear-gradient(90deg,var(--sky),transparent); }
+    .sl-r { background:linear-gradient(90deg,var(--rose),transparent); }
+    .sec-desc { font-size:0.87rem; color:var(--muted); line-height:1.65; margin-bottom:26px; max-width:640px; font-weight:600; }
+
+    /* info banner */
+    .info-banner {
+      border-radius:16px; padding:15px 20px;
+      display:flex; align-items:center; gap:13px;
+      margin-bottom:26px; font-size:0.86rem; font-weight:700; line-height:1.5;
+    }
+    .info-banner .bi { font-size:1.7rem; flex-shrink:0; }
+    .ib-f { background:var(--forest-lt); color:var(--forest-dk); }
+    .ib-a { background:var(--amber-lt);  color:var(--amber-dk); }
+    .ib-t { background:var(--terra-lt);  color:var(--terra-dk); }
+    .ib-l { background:var(--lavender-lt); color:var(--lavender-dk); }
+    .ib-s { background:var(--sky-lt);    color:var(--sky-dk); }
+    .ib-r { background:var(--rose-lt);   color:var(--rose-dk); }
+
+    /* sub label */
+    .sub-lbl { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+    .sub-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+    .sub-lbl h3 { font-family:'Playfair Display',serif; font-size:1rem; font-weight:600; color:var(--muted); }
+
+    /* ── PRODUCT GRID ── */
+    .prod-grid {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:18px; margin-bottom:44px;
+    }
+    .prod-card {
+      background:var(--warm); border-radius:22px; overflow:hidden;
+      box-shadow:0 3px 16px rgba(27,67,50,0.08);
+      display:flex; flex-direction:column;
+      border:2px solid transparent;
+      transition:transform .22s, box-shadow .22s, border-color .22s;
+    }
+    .prod-card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 14px 40px rgba(27,67,50,0.14);
+    }
+    .prod-card.cf:hover  { border-color:var(--moss); }
+    .prod-card.ca:hover  { border-color:rgba(212,136,58,.4); }
+    .prod-card.ct:hover  { border-color:rgba(188,108,37,.4); }
+    .prod-card.cl:hover  { border-color:rgba(155,114,207,.4); }
+    .prod-card.cs:hover  { border-color:rgba(72,176,213,.4); }
+    .prod-card.cr:hover  { border-color:rgba(192,123,138,.4); }
+
+    /* image */
+    .prod-img {
+      height:196px; position:relative; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .bg-f { background:linear-gradient(145deg,#e8f5ee,#c8eada); }
+    .bg-a { background:linear-gradient(145deg,#fef3e2,#f8e0b8); }
+    .bg-t { background:linear-gradient(145deg,#fde8d0,#f8ccaa); }
+    .bg-l { background:linear-gradient(145deg,#f0e9fb,#ddd0f5); }
+    .bg-s { background:linear-gradient(145deg,#e4f4fb,#c4e6f5); }
+    .bg-r { background:linear-gradient(145deg,#faeef1,#f5d4dc); }
+
+    .img-ph {
+      width:116px; height:155px; border-radius:14px;
+      background:rgba(255,255,255,0.75);
+      border:2.5px dashed rgba(0,0,0,0.12);
+      display:flex; flex-direction:column; align-items:center;
+      justify-content:center; gap:8px; text-align:center;
+      padding:12px; backdrop-filter:blur(4px);
+    }
+    .img-ph .phi { font-size:2.1rem; opacity:0.36; }
+    .img-ph .phl { font-size:0.61rem; font-weight:800; color:rgba(0,0,0,0.28); line-height:1.4; }
+
+    /* badges */
+    .cat-badge {
+      position:absolute; top:11px; left:11px;
+      font-size:0.65rem; font-weight:800;
+      padding:3px 10px; border-radius:20px;
+      text-transform:uppercase; letter-spacing:0.06em;
+    }
+    .cb-f { background:var(--forest-lt); color:var(--forest-dk); }
+    .cb-a { background:var(--amber-lt);  color:var(--amber-dk); }
+    .cb-t { background:var(--terra-lt);  color:var(--terra-dk); }
+    .cb-l { background:var(--lavender-lt); color:var(--lavender-dk); }
+    .cb-s { background:var(--sky-lt);    color:var(--sky-dk); }
+    .cb-r { background:var(--rose-lt);   color:var(--rose-dk); }
+
+    .cert-badge {
+      position:absolute; top:11px; right:11px;
+      background:rgba(255,255,255,0.88);
+      font-size:0.63rem; font-weight:800; padding:3px 9px;
+      border-radius:20px; color:var(--forest-dk); backdrop-filter:blur(4px);
+    }
+    .fav-badge {
+      position:absolute; bottom:10px; right:10px;
+      background:linear-gradient(135deg,var(--honey),#f5c842);
+      color:var(--forest-dk); font-size:0.61rem; font-weight:800;
+      padding:3px 8px; border-radius:20px;
+    }
+
+    /* card body */
+    .prod-body { padding:15px 17px 20px; flex:1; display:flex; flex-direction:column; gap:6px; }
+    .prod-brand { font-size:0.67rem; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+    .prod-name { font-size:0.94rem; font-weight:800; color:var(--text); line-height:1.35; }
+    .prod-desc { font-size:0.79rem; color:var(--muted); line-height:1.55; flex:1; }
+    .prod-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:2px; }
+    .prod-tag { font-size:0.65rem; font-weight:800; padding:3px 10px; border-radius:20px; }
+    .tg-f { background:var(--forest-lt); color:var(--forest-dk); }
+    .tg-a { background:var(--amber-lt);  color:var(--amber-dk); }
+    .tg-t { background:var(--terra-lt);  color:var(--terra-dk); }
+    .tg-l { background:var(--lavender-lt); color:var(--lavender-dk); }
+    .tg-s { background:var(--sky-lt);    color:var(--sky-dk); }
+    .tg-r { background:var(--rose-lt);   color:var(--rose-dk); }
+    .prod-div { height:1px; background:var(--sand); margin:4px 0; }
+    .prod-avail {
+      font-size:0.72rem; color:var(--muted); font-weight:700;
+      display:flex; align-items:center; gap:6px;
+    }
+    .prod-avail::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:var(--forest); display:inline-block;
+    }
+
+    .tab-section { display:block; }
+    .tab-section.hidden { display:none; }
+
+    /* ── NATURE GUIDE BAND ── */
+    .guide-band {
+      background:linear-gradient(135deg,var(--forest-dk) 0%,#1e3a28 100%);
+      padding:52px 36px; position:relative; overflow:hidden;
+    }
+    .guide-band::before {
+      content:'🌿🌱🍃🌾🌻';
+      position:absolute; font-size:8rem; opacity:0.04;
+      top:-20px; right:-20px; letter-spacing:12px; pointer-events:none;
+    }
+    .guide-inner { max-width:1200px; margin:0 auto; position:relative; z-index:1; }
+    .guide-inner h2 {
+      font-family:'Playfair Display',serif;
+      font-size:1.8rem; font-weight:700; color:#fff; margin-bottom:6px;
+    }
+    .guide-inner .g-sub { font-size:0.87rem; color:rgba(255,255,255,0.5); margin-bottom:32px; }
+    .guide-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .guide-card {
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:18px; padding:22px 18px;
+      backdrop-filter:blur(4px); transition:background .2s;
+    }
+    .guide-card:hover { background:rgba(255,255,255,0.1); }
+    .g-emoji { font-size:2rem; margin-bottom:12px; display:block; }
+    .guide-card h4 {
+      font-family:'Playfair Display',serif;
+      font-size:1.02rem; font-weight:700; color:#fff; margin-bottom:7px;
+    }
+    .guide-card p { font-size:0.8rem; color:rgba(255,255,255,0.6); line-height:1.6; }
+    .g-tip {
+      display:inline-flex; align-items:center; gap:5px;
+      background:rgba(82,183,136,0.18); color:var(--moss);
+      border-radius:20px; padding:3px 12px; font-size:0.68rem;
+      font-weight:800; margin-top:10px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background:var(--bark); color:rgba(255,255,255,0.4);
+      text-align:center; padding:24px 36px; font-size:0.81rem;
+    }
+    footer a { color:var(--moss); text-decoration:none; }
+    footer a:hover { color:#fff; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px) { .prod-grid { grid-template-columns:repeat(3,1fr); } .guide-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:768px)  {
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-mosaic { display:none; }
+      .prod-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:500px)  { .prod-grid { grid-template-columns:1fr; } .guide-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- Leaf decos -->
+<span class="leaf-deco" style="top:80px;right:5%;animation-duration:8s;">🌿</span>
+<span class="leaf-deco" style="top:220px;left:2%;animation-duration:11s;animation-delay:-4s;font-size:3rem;">🍃</span>
+<span class="leaf-deco" style="top:160px;right:30%;animation-duration:13s;animation-delay:-6s;font-size:3.5rem;">🌱</span>
+
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a class="logo-link" href="farmacias_yair.html">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a>
+      <div class="hdr-sep"></div>
+      <span class="hdr-title">🌿 Catálogo · Productos Naturales</span>
+    </div>
+    <nav class="hdr-nav">
+      <a href="medicamentos.html">Medicamentos</a>
+      <a href="https://www.farmaciasyair.com/catalogo_bellesa">Maquillaje</a>
+      <a href="https://www.farmaciasyair.com/catalogo_bebes">Bebés</a>
+      <a href="https://www.farmaciasyair.com/" class="btn-back">← Volver a la tienda</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-pill">🌿 Productos Naturales · Catálogo Completo</div>
+      <h1>El poder de<br/>la <em>naturaleza</em><br/>para tu salud</h1>
+      <p>Suplementos, plantas medicinales, aceites esenciales, homeopatía y cosméticos naturales seleccionados con respaldo científico para el bienestar integral de tu cuerpo y mente.</p>
+      <div class="hero-stats">
+        <div class="h-stat"><strong>6</strong><span>Categorías</span></div>
+        <div class="h-stat"><strong>48+</strong><span>Productos</span></div>
+        <div class="h-stat"><strong>100%</strong><span>Natural</span></div>
+      </div>
+    </div>
+    <div class="hero-mosaic">
+      <div class="mosaic-card wide">
+        <div class="m-ph"><span class="phi">🌿</span><span>Imagen<br/>producto</span></div>
+        <div class="m-info">
+          <div class="m-brand">Nature's Bounty</div>
+          <h4>Vitamina C 1000 mg con Rosa Mosqueta</h4>
+          <span>Antioxidante premium con bioflavonoides. Refuerza el sistema inmune y la producción de colágeno.</span>
+        </div>
+      </div>
+      <div class="mosaic-card">
+        <div class="m-ph"><span class="phi">🍯</span><span>Imagen<br/>producto</span></div>
+        <div class="m-name-sm">Própolis en Gotas</div>
+        <div class="m-brand-sm">Api-Miel</div>
+      </div>
+      <div class="mosaic-card">
+        <div class="m-ph"><span class="phi">🌸</span><span>Imagen<br/>producto</span></div>
+        <div class="m-name-sm">Aceite de Lavanda</div>
+        <div class="m-brand-sm">Weleda</div>
+      </div>
+      <div class="mosaic-card">
+        <div class="m-ph"><span class="phi">🌾</span><span>Imagen<br/>producto</span></div>
+        <div class="m-name-sm">Magnesio + Vitamina B6</div>
+        <div class="m-brand-sm">Solgar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-inner">
+    <div class="si"><span class="ico">🌱</span><div><strong>100% origen natural</strong><span>Sin aditivos artificiales</span></div></div>
+    <div class="si"><span class="ico">🔬</span><div><strong>Respaldo científico</strong><span>Estudios clínicos avalizados</span></div></div>
+    <div class="si"><span class="ico">🌿</span><div><strong>Sin conservadores</strong><span>Fórmulas puras y limpias</span></div></div>
+    <div class="si"><span class="ico">🌍</span><div><strong>Sustentable</strong><span>Producción responsable</span></div></div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="cat-nav" id="catalogo">
+  <div class="cat-nav-inner">
+    <button class="cat-btn af" onclick="showCat('suplementos',this,'af')"><span class="cat-icon">🌿</span> Suplementos</button>
+    <button class="cat-btn" onclick="showCat('plantas',this,'aa')"><span class="cat-icon">🌱</span> Plantas Medicinales</button>
+    <button class="cat-btn" onclick="showCat('aceites',this,'at')"><span class="cat-icon">🫙</span> Aceites Esenciales</button>
+    <button class="cat-btn" onclick="showCat('homeopatia',this,'al')"><span class="cat-icon">💜</span> Homeopatía</button>
+    <button class="cat-btn" onclick="showCat('cosmetica',this,'as')"><span class="cat-icon">🧴</span> Cosmética Natural</button>
+    <button class="cat-btn" onclick="showCat('bienestar',this,'ar')"><span class="cat-icon">🧘</span> Bienestar y Relajación</button>
+    <div class="cat-search">
+      <svg width="14" height="14" fill="none" stroke="#7a7060" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" placeholder="Buscar producto…" oninput="filterProds(this.value)"/>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- ══ SUPLEMENTOS ══ -->
+  <div class="tab-section" id="cat-suplementos">
+    <div class="sec-lbl"><h2>🌿 Suplementos Naturales</h2><div class="sec-line sl-f"></div></div>
+    <p class="sec-desc">Vitaminas, minerales y suplementos de origen natural para complementar tu alimentación y fortalecer tu bienestar diario.</p>
+    <div class="info-banner ib-f">
+      <span class="bi">⚠️</span>
+      <span>Los suplementos naturales <strong>complementan</strong> pero no sustituyen una alimentación equilibrada ni un tratamiento médico. Consulta a tu médico antes de comenzar cualquier suplementación.</span>
+    </div>
+
+    <div class="sub-lbl"><div class="sub-dot" style="background:var(--forest)"></div><h3>Vitaminas y Minerales</h3></div>
+    <div class="prod-grid" style="margin-bottom:32px;">
+
+      <div class="prod-card cf" data-name="vitamina c rosa mosqueta 1000mg antioxidante inmune nature bounty">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🌿 Natural</span>
+          <span class="fav-badge">★ Favorito</span>
+          <div class="img-ph"><span class="phi">🍊</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Nature's Bounty</div>
+          <div class="prod-name">Vitamina C 1000 mg + Rosa Mosqueta</div>
+          <div class="prod-desc">Con bioflavonoides. Refuerza el sistema inmune y favorece la producción de colágeno. c/60 tabs.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Inmunidad</span><span class="prod-tag tg-f">Colágeno</span><span class="prod-tag tg-f">Antioxidante</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cf" data-name="magnesio vitamina b6 estrés cansancio músculos solgar natural">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🌿 Natural</span>
+          <div class="img-ph"><span class="phi">🌾</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Solgar</div>
+          <div class="prod-name">Magnesio + Vitamina B6 100 tabs</div>
+          <div class="prod-desc">Reduce el cansancio, el estrés y los calambres musculares. Esencial para el sistema nervioso.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Anti-estrés</span><span class="prod-tag tg-f">Músculos</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cf" data-name="vitamina d3 k2 huesos calcio sol inmunomodulador suplemento">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🌿 Natural</span>
+          <div class="img-ph"><span class="phi">☀️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Garden of Life</div>
+          <div class="prod-name">Vitamina D3 + K2 2000 UI c/60</div>
+          <div class="prod-desc">Fórmula sinérgica para absorción óptima de calcio. Fortalece huesos e inmunidad. Sin gluten.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Huesos</span><span class="prod-tag tg-f">Inmunidad</span><span class="prod-tag tg-f">Sin gluten</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cf" data-name="zinc gluconato inmunidad piel cicatrización antioxidante suplemento">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🌿 Natural</span>
+          <div class="img-ph"><span class="phi">🛡️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Nature's Bounty</div>
+          <div class="prod-name">Zinc Gluconato 50 mg c/100 tabs</div>
+          <div class="prod-desc">Mineral esencial para inmunidad, cicatrización de heridas y salud de la piel y cabello.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Inmunidad</span><span class="prod-tag tg-f">Piel</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sub-lbl"><div class="sub-dot" style="background:var(--forest)"></div><h3>Probióticos y Digestivos</h3></div>
+    <div class="prod-grid" style="margin-bottom:32px;">
+
+      <div class="prod-card cf" data-name="probiótico lactobacilos flora intestinal digestión microbioma suplemento">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🦠 Probiótico</span>
+          <div class="img-ph"><span class="phi">🦠</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Culturelle</div>
+          <div class="prod-name">Probiótico Diario 10 Billones UFC</div>
+          <div class="prod-desc">Lactobacillus rhamnosus GG. Restaura la flora intestinal, mejora la digestión y la inmunidad.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Flora intestinal</span><span class="prod-tag tg-f">10B UFC</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cf" data-name="aloe vera gel jugo digestivo gastritis suplemento natural">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🌿 Orgánico</span>
+          <div class="img-ph"><span class="phi">🌵</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Lily of the Desert</div>
+          <div class="prod-name">Jugo de Aloe Vera Orgánico 946 ml</div>
+          <div class="prod-desc">99.7% puro. Alivia gastritis, reflujo y mejora la digestión. Certificación orgánica USDA.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Digestivo</span><span class="prod-tag tg-f">Orgánico</span><span class="prod-tag tg-f">Gastritis</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cf" data-name="omega 3 aceite pescado triglicéridos corazón cerebro cápsulas">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🐟 Omega 3</span>
+          <div class="img-ph"><span class="phi">🐟</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Solgar</div>
+          <div class="prod-name">Omega 3 EPA/DHA 1000 mg c/60 caps</div>
+          <div class="prod-desc">Triple fuerza. Protege el corazón, apoya la función cerebral y reduce la inflamación. Sin metales pesados.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Corazón</span><span class="prod-tag tg-f">Cerebro</span><span class="prod-tag tg-f">Omega 3</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cf" data-name="cúrcuma cúrcumin pimienta antiinflamatorio articulaciones natural">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🌿 Natural</span>
+          <div class="img-ph"><span class="phi">🟡</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Garden of Life</div>
+          <div class="prod-name">Cúrcuma Curcumín 500 mg c/60 caps</div>
+          <div class="prod-desc">Con BioPerine para mayor absorción. Antiinflamatorio natural para articulaciones y sistema digestivo.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Antiinflamatorio</span><span class="prod-tag tg-f">Articulaciones</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sub-lbl"><div class="sub-dot" style="background:var(--forest)"></div><h3>Energía y Vitalidad</h3></div>
+    <div class="prod-grid" style="margin-bottom:0;">
+
+      <div class="prod-card cf" data-name="ginseng energía vitalidad cansancio concentración adaptógeno">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🌿 Natural</span>
+          <div class="img-ph"><span class="phi">⚡</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Nature's Bounty</div>
+          <div class="prod-name">Ginseng Panax 500 mg c/50 caps</div>
+          <div class="prod-desc">Adaptógeno que combate la fatiga, mejora la concentración y potencia la energía mental y física.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Energía</span><span class="prod-tag tg-f">Concentración</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cf" data-name="spirulina proteína vegetal hierro vitaminas alga verde azul suplemento">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🌊 Alga</span>
+          <div class="img-ph"><span class="phi">🌊</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Nutrex Hawaii</div>
+          <div class="prod-name">Spirulina Orgánica 500 mg c/100 tabs</div>
+          <div class="prod-desc">Superalimento con proteína, hierro, vitaminas B y antioxidantes. Energía y desintoxicación.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Proteína vegetal</span><span class="prod-tag tg-f">Hierro</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cf" data-name="melatonina sueño descanso insomnio natural hormona suplemento">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">🌙 Sueño</span>
+          <div class="img-ph"><span class="phi">🌙</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Natrol</div>
+          <div class="prod-name">Melatonina 5 mg Liberación Gradual c/60</div>
+          <div class="prod-desc">Regula el ciclo del sueño de forma natural. Sin dependencia. Mejora la calidad del descanso.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Sueño</span><span class="prod-tag tg-f">Sin dependencia</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cf" data-name="colágeno hidrolizado piel articulaciones proteína beauty natural">
+        <div class="prod-img bg-f">
+          <span class="cat-badge cb-f">Suplementos</span>
+          <span class="cert-badge">💎 Colágeno</span>
+          <div class="img-ph"><span class="phi">✨</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Vital Proteins</div>
+          <div class="prod-name">Colágeno Hidrolizado + Vitamina C 280 g</div>
+          <div class="prod-desc">Péptidos de colágeno tipo I y III. Mejora elasticidad de la piel, cabello, uñas y articulaciones.</div>
+          <div class="prod-tags"><span class="prod-tag tg-f">Piel</span><span class="prod-tag tg-f">Articulaciones</span><span class="prod-tag tg-f">Cabello</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /suplementos -->
+
+  <!-- ══ PLANTAS MEDICINALES ══ -->
+  <div class="tab-section hidden" id="cat-plantas">
+    <div class="sec-lbl"><h2>🌱 Plantas Medicinales</h2><div class="sec-line sl-a"></div></div>
+    <p class="sec-desc">Tinturas, cápsulas, tés e infusiones de hierbas medicinales con uso tradicional y respaldo científico. La sabiduría de la naturaleza en cada producto.</p>
+    <div class="info-banner ib-a">
+      <span class="bi">🌱</span>
+      <span>Las plantas medicinales pueden <strong>interactuar con medicamentos</strong>. Informa siempre a tu médico sobre cualquier hierba o suplemento que estés tomando.</span>
+    </div>
+
+    <div class="sub-lbl"><div class="sub-dot" style="background:var(--amber)"></div><h3>Tinturas y Extractos</h3></div>
+    <div class="prod-grid" style="margin-bottom:32px;">
+
+      <div class="prod-card ca" data-name="echinacea tintura extracto inmunidad gripe resfriado sistema inmune">
+        <div class="prod-img bg-a">
+          <span class="cat-badge cb-a">Plantas</span>
+          <span class="cert-badge">🌸 Extracto</span>
+          <span class="fav-badge">★ Favorito</span>
+          <div class="img-ph"><span class="phi">🌸</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Herbatint</div>
+          <div class="prod-name">Equinácea Tintura 50 ml</div>
+          <div class="prod-desc">Extracto fluido de Echinacea purpurea. Estimula el sistema inmune. Eficaz contra gripe y resfriado.</div>
+          <div class="prod-tags"><span class="prod-tag tg-a">Inmunidad</span><span class="prod-tag tg-a">Gripe</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ca" data-name="valeriana extracto ansiedad sueño nervios estrés tintura relajante">
+        <div class="prod-img bg-a">
+          <span class="cat-badge cb-a">Plantas</span>
+          <span class="cert-badge">🌱 Extracto</span>
+          <div class="img-ph"><span class="phi">😴</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Soria Natural</div>
+          <div class="prod-name">Valeriana Extracto Líquido 50 ml</div>
+          <div class="prod-desc">Raíz de valeriana estandardizada. Reduce el nerviosismo y mejora la calidad del sueño naturalmente.</div>
+          <div class="prod-tags"><span class="prod-tag tg-a">Sueño</span><span class="prod-tag tg-a">Anti-estrés</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ca" data-name="própolis gotas antibacterial inmune garganta infección natural apicultura">
+        <div class="prod-img bg-a">
+          <span class="cat-badge cb-a">Plantas</span>
+          <span class="cert-badge">🍯 Colmena</span>
+          <div class="img-ph"><span class="phi">🍯</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Api-Miel</div>
+          <div class="prod-name">Própolis Líquido Extra Concentrado 30 ml</div>
+          <div class="prod-desc">Extracto de própolis al 30%. Antibacterial y antiviral natural. Protege la garganta y el sistema inmune.</div>
+          <div class="prod-tags"><span class="prod-tag tg-a">Antibacterial</span><span class="prod-tag tg-a">Garganta</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ca" data-name="ginkgo biloba memoria circulación cerebro concentración extracto">
+        <div class="prod-img bg-a">
+          <span class="cat-badge cb-a">Plantas</span>
+          <span class="cert-badge">🍃 Extracto</span>
+          <div class="img-ph"><span class="phi">🧠</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Solgar</div>
+          <div class="prod-name">Ginkgo Biloba 60 mg c/60 caps</div>
+          <div class="prod-desc">Mejora la circulación cerebral, la memoria y la concentración. Antioxidante neuroprotector.</div>
+          <div class="prod-tags"><span class="prod-tag tg-a">Memoria</span><span class="prod-tag tg-a">Circulación</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sub-lbl"><div class="sub-dot" style="background:var(--amber)"></div><h3>Tés e Infusiones</h3></div>
+    <div class="prod-grid" style="margin-bottom:0;">
+
+      <div class="prod-card ca" data-name="té manzanilla camomila digestivo relajante infusión natural">
+        <div class="prod-img bg-a">
+          <span class="cat-badge cb-a">Plantas</span>
+          <span class="cert-badge">🫖 Infusión</span>
+          <div class="img-ph"><span class="phi">🌼</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Twinings</div>
+          <div class="prod-name">Infusión de Manzanilla 25 sobres</div>
+          <div class="prod-desc">Flores de manzanilla puras. Calma el sistema nervioso, alivia el malestar digestivo y favorece el sueño.</div>
+          <div class="prod-tags"><span class="prod-tag tg-a">Digestivo</span><span class="prod-tag tg-a">Relajante</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ca" data-name="té verde antioxidante metabolismo adelgazante infusión natural">
+        <div class="prod-img bg-a">
+          <span class="cat-badge cb-a">Plantas</span>
+          <span class="cert-badge">🍵 Infusión</span>
+          <div class="img-ph"><span class="phi">🍵</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Bigelow</div>
+          <div class="prod-name">Té Verde Orgánico 40 sobres</div>
+          <div class="prod-desc">Rico en catequinas y EGCG. Potente antioxidante que activa el metabolismo y protege las células.</div>
+          <div class="prod-tags"><span class="prod-tag tg-a">Antioxidante</span><span class="prod-tag tg-a">Metabolismo</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ca" data-name="jengibre limón infusión digestiva antiinflamatoria náuseas gripe">
+        <div class="prod-img bg-a">
+          <span class="cat-badge cb-a">Plantas</span>
+          <span class="cert-badge">🫖 Infusión</span>
+          <div class="img-ph"><span class="phi">🫚</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Celestial Seasonings</div>
+          <div class="prod-name">Infusión Jengibre & Limón 20 sobres</div>
+          <div class="prod-desc">Jengibre fresco y limón natural. Alivia náuseas, mejora la digestión y fortalece las defensas.</div>
+          <div class="prod-tags"><span class="prod-tag tg-a">Náuseas</span><span class="prod-tag tg-a">Defensas</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ca" data-name="tila pasiflora nervios ansiedad dormir infusión nocturna calma">
+        <div class="prod-img bg-a">
+          <span class="cat-badge cb-a">Plantas</span>
+          <span class="cert-badge">🫖 Nocturna</span>
+          <div class="img-ph"><span class="phi">🌙</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Soria Natural</div>
+          <div class="prod-name">Infusión Tila + Pasiflora + Melisa 20 sobres</div>
+          <div class="prod-desc">Mezcla serena-noche. Tres plantas sedantes que calman la ansiedad y preparan para el descanso.</div>
+          <div class="prod-tags"><span class="prod-tag tg-a">Ansiedad</span><span class="prod-tag tg-a">Noche</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /plantas -->
+
+  <!-- ══ ACEITES ESENCIALES ══ -->
+  <div class="tab-section hidden" id="cat-aceites">
+    <div class="sec-lbl"><h2>🫙 Aceites Esenciales</h2><div class="sec-line sl-t"></div></div>
+    <p class="sec-desc">Aceites esenciales puros para aromaterapia, masajes y cuidado personal. Extraídos por destilación al vapor o prensado en frío, sin diluyentes.</p>
+    <div class="info-banner ib-t">
+      <span class="bi">⚠️</span>
+      <span>Los aceites esenciales son <strong>altamente concentrados</strong>. Dilúyelos siempre en aceite portador antes de aplicar sobre la piel. Nunca los ingieras sin prescripción especializada.</span>
+    </div>
+    <div class="prod-grid">
+
+      <div class="prod-card ct" data-name="aceite lavanda relajante sueño estrés aromaterapia esencial puro">
+        <div class="prod-img bg-t">
+          <span class="cat-badge cb-t">Esenciales</span>
+          <span class="cert-badge">💜 Puro</span>
+          <span class="fav-badge">★ Favorito</span>
+          <div class="img-ph"><span class="phi">🌸</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Weleda</div>
+          <div class="prod-name">Aceite Esencial de Lavanda 10 ml</div>
+          <div class="prod-desc">100% puro. Relaja, calma el sistema nervioso y favorece el sueño. Aromaterapia y masaje.</div>
+          <div class="prod-tags"><span class="prod-tag tg-t">Relajante</span><span class="prod-tag tg-t">Sueño</span><span class="prod-tag tg-t">Aromaterapia</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ct" data-name="aceite árbol de té teatree antibacterial acné heridas antiséptico">
+        <div class="prod-img bg-t">
+          <span class="cat-badge cb-t">Esenciales</span>
+          <span class="cert-badge">🌿 Puro</span>
+          <div class="img-ph"><span class="phi">🌳</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Thursday Plantation</div>
+          <div class="prod-name">Aceite Tea Tree 100% Puro 10 ml</div>
+          <div class="prod-desc">Antiséptico y antibacterial natural. Trata el acné, hongos en uñas y pequeñas heridas cutáneas.</div>
+          <div class="prod-tags"><span class="prod-tag tg-t">Antiséptico</span><span class="prod-tag tg-t">Acné</span><span class="prod-tag tg-t">Hongos</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ct" data-name="aceite menta piperita dolor cabeza migraña digestivo energizante">
+        <div class="prod-img bg-t">
+          <span class="cat-badge cb-t">Esenciales</span>
+          <span class="cert-badge">🌿 Puro</span>
+          <div class="img-ph"><span class="phi">🌿</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Now Foods</div>
+          <div class="prod-name">Aceite Esencial Menta Piperita 30 ml</div>
+          <div class="prod-desc">Mentol natural. Alivia el dolor de cabeza, activa la energía y mejora la concentración mental.</div>
+          <div class="prod-tags"><span class="prod-tag tg-t">Dolor cabeza</span><span class="prod-tag tg-t">Energía</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ct" data-name="aceite eucalipto respiratorio congestión gripe descongestivo natural">
+        <div class="prod-img bg-t">
+          <span class="cat-badge cb-t">Esenciales</span>
+          <span class="cert-badge">🌿 Puro</span>
+          <div class="img-ph"><span class="phi">🌬️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Now Foods</div>
+          <div class="prod-name">Aceite de Eucalipto Globulus 30 ml</div>
+          <div class="prod-desc">Descongestionante natural. Facilita la respiración en gripes y alergias respiratorias.</div>
+          <div class="prod-tags"><span class="prod-tag tg-t">Respiratorio</span><span class="prod-tag tg-t">Congestión</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ct" data-name="aceite rosa mosqueta cicatrices antiedad piel vitamina c facial">
+        <div class="prod-img bg-t">
+          <span class="cat-badge cb-t">Esenciales</span>
+          <span class="cert-badge">🌹 Puro</span>
+          <div class="img-ph"><span class="phi">🌹</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Trilogy</div>
+          <div class="prod-name">Aceite Rosehip 100% Certificado 45 ml</div>
+          <div class="prod-desc">Rico en vitamina C y ácidos grasos. Reduce cicatrices, manchas y líneas de expresión. Certificado.</div>
+          <div class="prod-tags"><span class="prod-tag tg-t">Antiedad</span><span class="prod-tag tg-t">Cicatrices</span><span class="prod-tag tg-t">Facial</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ct" data-name="aceite argán marroquí cabello uñas piel nutritivo belleza natural">
+        <div class="prod-img bg-t">
+          <span class="cat-badge cb-t">Esenciales</span>
+          <span class="cert-badge">🌰 Puro</span>
+          <div class="img-ph"><span class="phi">🌰</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">OGX</div>
+          <div class="prod-name">Aceite de Argán de Marruecos 100 ml</div>
+          <div class="prod-desc">Aceite de argán prensado en frío. Nutre cabello, uñas y piel. Brillo y suavidad extraordinarios.</div>
+          <div class="prod-tags"><span class="prod-tag tg-t">Cabello</span><span class="prod-tag tg-t">Nutritivo</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ct" data-name="aceite coco virgen extra hidratante cuerpo cabello desmaquillante">
+        <div class="prod-img bg-t">
+          <span class="cat-badge cb-t">Esenciales</span>
+          <span class="cert-badge">🥥 Virgen</span>
+          <div class="img-ph"><span class="phi">🥥</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Viva Naturals</div>
+          <div class="prod-name">Aceite de Coco Orgánico Virgen Extra 473 ml</div>
+          <div class="prod-desc">Prensado en frío, sin refinar. Hidrata piel, nutre cabello y puede usarse como desmaquillante.</div>
+          <div class="prod-tags"><span class="prod-tag tg-t">Orgánico</span><span class="prod-tag tg-t">Multiusos</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card ct" data-name="aceite jojoba portador piel seca grasa mixta equilibrante natural">
+        <div class="prod-img bg-t">
+          <span class="cat-badge cb-t">Esenciales</span>
+          <span class="cert-badge">🌿 Portador</span>
+          <div class="img-ph"><span class="phi">🫙</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Now Solutions</div>
+          <div class="prod-name">Aceite de Jojoba Orgánico 118 ml</div>
+          <div class="prod-desc">Imita el sebo natural de la piel. Ideal como aceite portador y para equilibrar pieles grasas y secas.</div>
+          <div class="prod-tags"><span class="prod-tag tg-t">Portador</span><span class="prod-tag tg-t">Equilibrante</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /aceites -->
+
+  <!-- ══ HOMEOPATÍA ══ -->
+  <div class="tab-section hidden" id="cat-homeopatia">
+    <div class="sec-lbl"><h2>💜 Homeopatía</h2><div class="sec-line sl-l"></div></div>
+    <p class="sec-desc">Medicamentos homeopáticos para diversas condiciones. Altamente diluidos y preparados según la farmacopea homeopática internacional.</p>
+    <div class="info-banner ib-l">
+      <span class="bi">💜</span>
+      <span>La homeopatía es una práctica complementaria. <strong>No sustituye el tratamiento médico convencional</strong> en enfermedades graves. Consulta a un médico homeópata para una prescripción personalizada.</span>
+    </div>
+    <div class="prod-grid">
+
+      <div class="prod-card cl" data-name="oscilococinum gripe influenza homeopatía boiron natural">
+        <div class="prod-img bg-l">
+          <span class="cat-badge cb-l">Homeopatía</span>
+          <span class="cert-badge">💜 Boiron</span>
+          <span class="fav-badge">★ Favorito</span>
+          <div class="img-ph"><span class="phi">💜</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Boiron</div>
+          <div class="prod-name">Oscillococcinum 6 tubos homeopáticos</div>
+          <div class="prod-desc">Para síntomas de gripe e influenza. Tomado al primer signo, reduce la duración y la intensidad.</div>
+          <div class="prod-tags"><span class="prod-tag tg-l">Gripe</span><span class="prod-tag tg-l">Influenza</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cl" data-name="arnica montana golpes dolores musculares contusiones homeopatía">
+        <div class="prod-img bg-l">
+          <span class="cat-badge cb-l">Homeopatía</span>
+          <span class="cert-badge">💜 Boiron</span>
+          <div class="img-ph"><span class="phi">🌼</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Boiron</div>
+          <div class="prod-name">Arnica Montana 9CH Glóbulos</div>
+          <div class="prod-desc">Clásico homeopático para golpes, contusiones y dolores musculares. Reduce hematomas y edema.</div>
+          <div class="prod-tags"><span class="prod-tag tg-l">Golpes</span><span class="prod-tag tg-l">Dolor muscular</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cl" data-name="calms forte sueño ansiedad insomnio nervios homeopatía natural">
+        <div class="prod-img bg-l">
+          <span class="cat-badge cb-l">Homeopatía</span>
+          <span class="cert-badge">💜 Hyland's</span>
+          <div class="img-ph"><span class="phi">😌</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Hyland's</div>
+          <div class="prod-name">Calms Forté Sueño y Nervios 100 tabs</div>
+          <div class="prod-desc">Combinación de plantas sedantes en forma homeopática. Alivia la ansiedad y favorece el sueño.</div>
+          <div class="prod-tags"><span class="prod-tag tg-l">Sueño</span><span class="prod-tag tg-l">Ansiedad</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cl" data-name="nux vomica digestivo resaca malestar estomacal excesos homeopatía">
+        <div class="prod-img bg-l">
+          <span class="cat-badge cb-l">Homeopatía</span>
+          <span class="cert-badge">💜 Boiron</span>
+          <div class="img-ph"><span class="phi">🌿</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Boiron</div>
+          <div class="prod-name">Nux Vomica 9CH Glóbulos</div>
+          <div class="prod-desc">Para malestar digestivo, excesos alimenticios o alcohólicos. Alivia náuseas, acidez y estreñimiento.</div>
+          <div class="prod-tags"><span class="prod-tag tg-l">Digestivo</span><span class="prod-tag tg-l">Náuseas</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /homeopatia -->
+
+  <!-- ══ COSMÉTICA NATURAL ══ -->
+  <div class="tab-section hidden" id="cat-cosmetica">
+    <div class="sec-lbl"><h2>🧴 Cosmética Natural</h2><div class="sec-line sl-s"></div></div>
+    <p class="sec-desc">Cremas, jabones, champús y cosméticos formulados con ingredientes de origen natural, sin petroquímicos ni sintéticos agresivos.</p>
+    <div class="info-banner ib-s">
+      <span class="bi">🌿</span>
+      <span>La cosmética natural usa ingredientes de <strong>origen vegetal o mineral</strong>. Busca certificaciones como COSMOS Organic, ECOCERT o BDIH que garantizan estándares de producción responsable.</span>
+    </div>
+    <div class="prod-grid">
+
+      <div class="prod-card cs" data-name="jabón natural artesanal avena lavanda karité weleda piel sensible">
+        <div class="prod-img bg-s">
+          <span class="cat-badge cb-s">Cosmética</span>
+          <span class="cert-badge">🌿 ECOCERT</span>
+          <span class="fav-badge">★ Favorito</span>
+          <div class="img-ph"><span class="phi">🫧</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Weleda</div>
+          <div class="prod-name">Jabón Natural Avena & Karité 100 g</div>
+          <div class="prod-desc">Fórmula vegana. Avena calmante y karité nutritivo. Limpia sin resecar. Sin SLS ni parabenos.</div>
+          <div class="prod-tags"><span class="prod-tag tg-s">Vegano</span><span class="prod-tag tg-s">Sin SLS</span><span class="prod-tag tg-s">Sensible</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cs" data-name="champú natural cabello graso seco biotina romero sin sulfatos">
+        <div class="prod-img bg-s">
+          <span class="cat-badge cb-s">Cosmética</span>
+          <span class="cert-badge">🌿 Natural</span>
+          <div class="img-ph"><span class="phi">🌱</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Avalon Organics</div>
+          <div class="prod-name">Champú Romero + Biotina 414 ml</div>
+          <div class="prod-desc">Sin sulfatos, sin parabenos. Romero estimulante y biotina fortalecen y dan brillo al cabello.</div>
+          <div class="prod-tags"><span class="prod-tag tg-s">Sin sulfatos</span><span class="prod-tag tg-s">Biotina</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cs" data-name="crema hidratante natural aloe vera pepino piel grasa sin aceites cosmética">
+        <div class="prod-img bg-s">
+          <span class="cat-badge cb-s">Cosmética</span>
+          <span class="cert-badge">🌿 COSMOS</span>
+          <div class="img-ph"><span class="phi">💚</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Burt's Bees</div>
+          <div class="prod-name">Hidratante Facial Aloe Vera 50 ml</div>
+          <div class="prod-desc">Fórmula natural al 99%. Aloe vera orgánico. Hidrata sin obstruir poros. Vegana y biodegradable.</div>
+          <div class="prod-tags"><span class="prod-tag tg-s">Aloe orgánico</span><span class="prod-tag tg-s">Vegana</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cs" data-name="desodorante natural sin aluminio baking soda piedra alumbre sin químicos">
+        <div class="prod-img bg-s">
+          <span class="cat-badge cb-s">Cosmética</span>
+          <span class="cert-badge">🌿 Sin aluminio</span>
+          <div class="img-ph"><span class="phi">🌬️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Lavilin</div>
+          <div class="prod-name">Desodorante Natural Sin Aluminio 60 ml</div>
+          <div class="prod-desc">Sin sales de aluminio ni parabenos. Con extractos botánicos. Protección 72h. Apto piel sensible.</div>
+          <div class="prod-tags"><span class="prod-tag tg-s">Sin aluminio</span><span class="prod-tag tg-s">72h</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /cosmetica -->
+
+  <!-- ══ BIENESTAR ══ -->
+  <div class="tab-section hidden" id="cat-bienestar">
+    <div class="sec-lbl"><h2>🧘 Bienestar y Relajación</h2><div class="sec-line sl-r"></div></div>
+    <p class="sec-desc">Productos naturales para el manejo del estrés, la relajación y el equilibrio emocional. Cuida tu salud mental de forma natural.</p>
+    <div class="info-banner ib-r">
+      <span class="bi">🧘</span>
+      <span>El bienestar integral incluye mente y cuerpo. Estos productos son <strong>complementos naturales</strong> para una rutina de autocuidado. Ante síntomas de ansiedad o depresión, busca apoyo profesional.</span>
+    </div>
+    <div class="prod-grid">
+
+      <div class="prod-card cr" data-name="ashwagandha adaptógeno estrés ansiedad cortisol equilibrio natural">
+        <div class="prod-img bg-r">
+          <span class="cat-badge cb-r">Bienestar</span>
+          <span class="cert-badge">🌿 Adaptógeno</span>
+          <span class="fav-badge">★ Favorito</span>
+          <div class="img-ph"><span class="phi">🧘</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">KSM-66</div>
+          <div class="prod-name">Ashwagandha 600 mg c/60 caps</div>
+          <div class="prod-desc">El adaptógeno más estudiado. Reduce el cortisol, el estrés crónico y mejora el estado de ánimo.</div>
+          <div class="prod-tags"><span class="prod-tag tg-r">Anti-estrés</span><span class="prod-tag tg-r">Cortisol</span><span class="prod-tag tg-r">Ánimo</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cr" data-name="sales baño epsom magnesio relajante muscular aromaterapia lavanda">
+        <div class="prod-img bg-r">
+          <span class="cat-badge cb-r">Bienestar</span>
+          <span class="cert-badge">🛁 Baño</span>
+          <div class="img-ph"><span class="phi">🛁</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Dr. Teal's</div>
+          <div class="prod-name">Sales de Baño Epsom Lavanda 1.36 kg</div>
+          <div class="prod-desc">Sulfato de magnesio con aceite esencial de lavanda. Relaja músculos y calma la mente.</div>
+          <div class="prod-tags"><span class="prod-tag tg-r">Muscular</span><span class="prod-tag tg-r">Lavanda</span><span class="prod-tag tg-r">Baño</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cr" data-name="difusor aceites esenciales aromaterapia ultrasonido humidificador hogar">
+        <div class="prod-img bg-r">
+          <span class="cat-badge cb-r">Bienestar</span>
+          <span class="cert-badge">🌫️ Difusor</span>
+          <div class="img-ph"><span class="phi">🌫️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">URPOWER</div>
+          <div class="prod-name">Difusor Ultrasónico Aromaterapia 300 ml</div>
+          <div class="prod-desc">Difusor con luz ambiental multicolor y temporizador. Nebuliza aceites esenciales en frío.</div>
+          <div class="prod-tags"><span class="prod-tag tg-r">Aromaterapia</span><span class="prod-tag tg-r">Hogar</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cr" data-name="l-teanina triptófano serotonina ánimo calma concentración natural">
+        <div class="prod-img bg-r">
+          <span class="cat-badge cb-r">Bienestar</span>
+          <span class="cert-badge">🧠 Neuro</span>
+          <div class="img-ph"><span class="phi">🌿</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Now Foods</div>
+          <div class="prod-name">L-Teanina 200 mg c/60 caps</div>
+          <div class="prod-desc">Aminoácido del té verde. Promueve calma sin somnolencia. Mejora concentración y reduce la ansiedad.</div>
+          <div class="prod-tags"><span class="prod-tag tg-r">Calma</span><span class="prod-tag tg-r">Concentración</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cr" data-name="vela aromaterapia soya cera natural relajante hogar ambiente decoración">
+        <div class="prod-img bg-r">
+          <span class="cat-badge cb-r">Bienestar</span>
+          <span class="cert-badge">🕯️ Vegana</span>
+          <div class="img-ph"><span class="phi">🕯️</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Yankee Candle</div>
+          <div class="prod-name">Vela Aromaterapia Stress Relief 567 g</div>
+          <div class="prod-desc">Cera de soya con aceites esenciales de eucalipto y menta verde. Ambiente relajante en casa.</div>
+          <div class="prod-tags"><span class="prod-tag tg-r">Soya</span><span class="prod-tag tg-r">Eucalipto</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cr" data-name="hierba san juan hipérico depresión leve ánimo estrés herbal">
+        <div class="prod-img bg-r">
+          <span class="cat-badge cb-r">Bienestar</span>
+          <span class="cert-badge">🌿 Herbal</span>
+          <div class="img-ph"><span class="phi">🌻</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Solgar</div>
+          <div class="prod-name">Hierba de San Juan 300 mg c/90 caps</div>
+          <div class="prod-desc">Hypericum perforatum estandardizado. Apoya el bienestar emocional y el equilibrio del estado de ánimo.</div>
+          <div class="prod-tags"><span class="prod-tag tg-r">Estado de ánimo</span><span class="prod-tag tg-r">Herbal</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cr" data-name="almohada lavanda sachets sueño aroma natural relajante noche">
+        <div class="prod-img bg-r">
+          <span class="cat-badge cb-r">Bienestar</span>
+          <span class="cert-badge">🌸 Aroma</span>
+          <div class="img-ph"><span class="phi">😴</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Badger</div>
+          <div class="prod-name">Spray Almohada Lavanda & Bergamota 60 ml</div>
+          <div class="prod-desc">Mezcla de aceites esenciales para rociar la almohada. Induce un sueño tranquilo y reparador.</div>
+          <div class="prod-tags"><span class="prod-tag tg-r">Sueño</span><span class="prod-tag tg-r">Almohada</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+      <div class="prod-card cr" data-name="rhodiola rosea fatiga mental energía adaptógeno estrés concentración">
+        <div class="prod-img bg-r">
+          <span class="cat-badge cb-r">Bienestar</span>
+          <span class="cert-badge">🌿 Adaptógeno</span>
+          <div class="img-ph"><span class="phi">⚡</span><span class="phl">Imagen del<br/>producto aquí</span></div>
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Nature's Way</div>
+          <div class="prod-name">Rhodiola Rosea 500 mg c/60 caps</div>
+          <div class="prod-desc">Adaptógeno que combate la fatiga mental, mejora la resistencia al estrés y potencia la energía cognitiva.</div>
+          <div class="prod-tags"><span class="prod-tag tg-r">Energía mental</span><span class="prod-tag tg-r">Fatiga</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- /bienestar -->
+
+</div><!-- /main-wrap -->
+
+<!-- NATURE GUIDE -->
+<div class="guide-band">
+  <div class="guide-inner">
+    <h2>🔬 Guía de ingredientes naturales</h2>
+    <p class="g-sub">Los activos naturales más efectivos y qué hacen por tu salud.</p>
+    <div class="guide-grid">
+      <div class="guide-card">
+        <span class="g-emoji">🌿</span>
+        <h4>Adaptógenos</h4>
+        <p>Plantas como el ginseng, ashwagandha y rhodiola que ayudan al cuerpo a adaptarse al estrés físico y mental. Regulan el cortisol y mejoran la resistencia general.</p>
+        <span class="g-tip">💡 Tómalos por ciclos de 4–8 semanas</span>
+      </div>
+      <div class="guide-card">
+        <span class="g-emoji">🍯</span>
+        <h4>Polifenoles y Flavonoides</h4>
+        <p>Antioxidantes presentes en el própolis, el té verde y las bayas. Neutralizan radicales libres, protegen las células y reducen la inflamación crónica.</p>
+        <span class="g-tip">💡 Mejor con el estómago lleno</span>
+      </div>
+      <div class="guide-card">
+        <span class="g-emoji">🌱</span>
+        <h4>Probióticos Naturales</h4>
+        <p>Microorganismos vivos que equilibran la flora intestinal. Mejoran la digestión, la inmunidad y hasta el estado de ánimo a través del eje intestino-cerebro.</p>
+        <span class="g-tip">💡 Refrigerar para mayor viabilidad</span>
+      </div>
+      <div class="guide-card">
+        <span class="g-emoji">🫙</span>
+        <h4>Aceites Esenciales</h4>
+        <p>Concentrados bioactivos extraídos de plantas. Cada aceite tiene propiedades únicas: lavanda (relajante), árbol de té (antiséptico), menta (energizante), eucalipto (respiratorio).</p>
+        <span class="g-tip">💡 Dilúyelos siempre antes de aplicar</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Catálogo Productos Naturales · Consulta a tu médico antes de iniciar cualquier suplementación · 🌿 Salud natural con respaldo científico</p>
+</footer>
+
+<script>
+let activeCat = 'suplementos';
+const tabMap = {
+  suplementos:'af', plantas:'aa', aceites:'at',
+  homeopatia:'al', cosmetica:'as', bienestar:'ar'
+};
+function showCat(cat, btn, cls) {
+  activeCat = cat;
+  document.querySelectorAll('.tab-section').forEach(s => s.classList.add('hidden'));
+  document.getElementById('cat-' + cat).classList.remove('hidden');
+  document.querySelectorAll('.cat-btn').forEach(b => b.className = 'cat-btn');
+  btn.classList.add('cat-btn', cls);
+  document.querySelector('.cat-search input').value = '';
+  document.querySelectorAll('#cat-'+cat+' .prod-card').forEach(c => c.style.display='');
+}
+function filterProds(q) {
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('#cat-'+activeCat+' .prod-card').forEach(card => {
+    const hay = (card.dataset.name||'') + card.innerText.toLowerCase();
+    card.style.display = (!q || hay.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
