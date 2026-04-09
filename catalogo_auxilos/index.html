@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Primeros Auxilios – Farmacias Yair</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#dc2626;--red-lt:#fef2f2;--red-dk:#991b1b;--blue:#1d4ed8;--blue-lt:#eff6ff;--blue-dk:#1e3a8a;--teal:#0d9488;--teal-lt:#f0fdfa;--teal-dk:#134e4a;--orange:#ea580c;--orange-lt:#fff7ed;--green:#16a34a;--white:#fff;--off:#f8fafc;--gray:#e2e8f0;--text:#0f172a;--muted:#64748b;--dark:#0c1220}
+html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text)}
+header{background:var(--dark);position:sticky;top:0;z-index:300;box-shadow:0 2px 20px rgba(0,0,0,.5)}
+.hdr{max-width:1200px;margin:0 auto;padding:10px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-wrap img{height:44px;width:auto;filter:brightness(0) invert(1)}
+.hdr-sep{width:1px;height:26px;background:rgba(255,255,255,.18)}
+.hdr-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:7px}
+.hdr-nav{display:flex;align-items:center;gap:6px}
+.hdr-nav a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;font-weight:600;padding:6px 13px;border-radius:6px;transition:background .18s,color .18s}
+.hdr-nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.btn-back{background:var(--red)!important;color:#fff!important;font-weight:700!important}
+.btn-back:hover{background:var(--red-dk)!important}
+.hero{background:var(--dark);padding:64px 36px 72px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 30%,rgba(220,38,38,.2),transparent 50%),radial-gradient(ellipse at 15% 70%,rgba(29,78,216,.12),transparent 45%)}
+.cross-bg{position:absolute;right:4%;top:50%;transform:translateY(-50%);font-size:18rem;opacity:.03;color:#fff;pointer-events:none;line-height:1}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(220,38,38,.15);border:1.5px solid rgba(220,38,38,.4);color:#fca5a5;border-radius:6px;padding:5px 14px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+.hero-text h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.8rem,5vw,4.6rem);font-weight:900;line-height:.95;color:#fff;margin-bottom:16px}
+.hero-text h1 span{color:var(--red)}
+.hero-text p{font-size:.97rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:430px;margin-bottom:28px}
+.hero-stats{display:flex;gap:0;width:fit-content;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.h-stat{padding:14px 22px;text-align:center;border-right:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03)}
+.h-stat:last-child{border-right:none}
+.h-stat strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:1.9rem;color:var(--red);font-weight:900;line-height:1}
+.h-stat span{font-size:.68rem;color:rgba(255,255,255,.38);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px;display:block}
+.hero-mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.m-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:15px 12px 13px;display:flex;flex-direction:column;align-items:center;gap:8px;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
+.m-card:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
+.m-card.wide{grid-column:1/-1;flex-direction:row;gap:15px;padding:15px 18px}
+.m-ph{border-radius:10px;background:rgba(255,255,255,.06);border:2px dashed rgba(220,38,38,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;padding:8px;color:rgba(220,38,38,.7);font-size:.59rem;font-weight:700;line-height:1.4}
+.m-ph .phi{font-size:1.6rem;opacity:.6}
+.m-card.wide .m-ph{width:80px;height:100px;flex-shrink:0}
+.m-card:not(.wide) .m-ph{width:68px;height:88px}
+.m-info h4{font-family:'Barlow Condensed',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;color:#fff;margin-bottom:2px;line-height:1.2}
+.m-info .mb{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:2px}
+.m-info span{font-size:.72rem;color:rgba(255,255,255,.48);line-height:1.4;display:block}
+.m-ns{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.75);text-align:center;line-height:1.3}
+.m-bs{font-size:.61rem;color:rgba(255,255,255,.38);text-align:center}
+.strip{background:var(--red);padding:14px 36px}
+.strip-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-around;gap:16px;flex-wrap:wrap}
+.si{display:flex;align-items:center;gap:10px;color:#fff}
+.si .ico{font-size:1.4rem}
+.si strong{display:block;font-size:.84rem;font-weight:700}
+.si span{font-size:.72rem;opacity:.82}
+.cat-nav{background:var(--white);border-bottom:3px solid var(--gray);position:sticky;top:64px;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.cat-nav-inner{max-width:1200px;margin:0 auto;padding:0 36px;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none}
+.cat-nav-inner::-webkit-scrollbar{display:none}
+.cat-btn{display:flex;align-items:center;gap:7px;padding:14px 18px;background:none;border:none;font-family:'Inter',sans-serif;font-size:.84rem;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px;transition:color .18s}
+.cat-btn:hover{color:var(--text)}
+.ar{color:var(--red);border-bottom-color:var(--red)}
+.ab{color:var(--blue);border-bottom-color:var(--blue)}
+.at{color:var(--teal);border-bottom-color:var(--teal)}
+.ao{color:var(--orange);border-bottom-color:var(--orange)}
+.cat-icon{font-size:1.05rem}
+.cat-search{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--off);border:2px solid var(--gray);border-radius:7px;padding:6px 14px;flex-shrink:0;transition:border-color .2s}
+.cat-search:focus-within{border-color:var(--red)}
+.cat-search input{background:none;border:none;outline:none;font-family:'Inter',sans-serif;font-size:.83rem;color:var(--text);width:150px}
+.cat-search input::placeholder{color:var(--muted)}
+.main-wrap{max-width:1200px;margin:0 auto;padding:48px 36px 72px}
+.sec-lbl{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-lbl h2{font-family:'Barlow Condensed',sans-serif;font-size:1.8rem;font-weight:900;letter-spacing:.03em;color:var(--text)}
+.sec-line{flex:1;height:2px;border-radius:2px}
+.sl-r{background:linear-gradient(90deg,var(--red),transparent)}
+.sl-b{background:linear-gradient(90deg,var(--blue),transparent)}
+.sl-t{background:linear-gradient(90deg,var(--teal),transparent)}
+.sl-o{background:linear-gradient(90deg,var(--orange),transparent)}
+.sec-desc{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:22px;max-width:640px}
+.info-banner{border-radius:10px;padding:13px 18px;display:flex;align-items:center;gap:12px;margin-bottom:24px;font-size:.84rem;font-weight:600;line-height:1.5;border-left:4px solid}
+.info-banner .bi{font-size:1.5rem;flex-shrink:0}
+.ib-r{background:var(--red-lt);color:var(--red-dk);border-color:var(--red)}
+.ib-b{background:var(--blue-lt);color:var(--blue-dk);border-color:var(--blue)}
+.ib-t{background:var(--teal-lt);color:var(--teal-dk);border-color:var(--teal)}
+.ib-o{background:var(--orange-lt);color:var(--orange);border-color:var(--orange)}
+.sub-lbl{display:flex;align-items:center;gap:9px;margin-bottom:13px}
+.sub-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.sub-lbl h3{font-size:.82rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
+.prod-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);display:flex;flex-direction:column;border:2px solid transparent;transition:transform .2s,box-shadow .2s,border-color .2s}
+.prod-card:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
+.pc-r:hover{border-color:rgba(220,38,38,.35)}
+.pc-b:hover{border-color:rgba(29,78,216,.35)}
+.pc-t:hover{border-color:rgba(13,148,136,.35)}
+.pc-o:hover{border-color:rgba(234,88,12,.35)}
+.prod-img{height:185px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.bg-r{background:linear-gradient(145deg,#fef2f2,#fec4c4)}
+.bg-b{background:linear-gradient(145deg,#eff6ff,#c4d8ff)}
+.bg-t{background:linear-gradient(145deg,#f0fdfa,#b0e8e3)}
+.bg-o{background:linear-gradient(145deg,#fff7ed,#fed7aa)}
+.img-ph{width:112px;height:150px;border-radius:12px;background:rgba(255,255,255,.8);border:2.5px dashed rgba(0,0,0,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;padding:11px}
+.img-ph .phi{font-size:2rem;opacity:.35}
+.img-ph .phl{font-size:.6rem;font-weight:700;color:rgba(0,0,0,.28);line-height:1.4}
+.cat-badge{position:absolute;top:10px;left:10px;font-size:.63rem;font-weight:700;padding:3px 9px;border-radius:5px;text-transform:uppercase;letter-spacing:.06em}
+.cb-r{background:var(--red-lt);color:var(--red-dk)}
+.cb-b{background:var(--blue-lt);color:var(--blue-dk)}
+.cb-t{background:var(--teal-lt);color:var(--teal-dk)}
+.cb-o{background:var(--orange-lt);color:var(--orange)}
+.urg-badge{position:absolute;top:10px;right:10px;background:rgba(15,23,42,.75);color:#fff;font-size:.61rem;font-weight:700;padding:3px 8px;border-radius:5px;backdrop-filter:blur(4px)}
+.fav-badge{position:absolute;bottom:9px;right:9px;background:var(--red);color:#fff;font-size:.59rem;font-weight:800;padding:2px 7px;border-radius:5px}
+.prod-body{padding:13px 15px 17px;flex:1;display:flex;flex-direction:column;gap:5px}
+.prod-brand{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.prod-name{font-size:.91rem;font-weight:800;color:var(--text);line-height:1.3}
+.prod-desc{font-size:.77rem;color:var(--muted);line-height:1.55;flex:1}
+.prod-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+.prod-tag{font-size:.63rem;font-weight:700;padding:2px 9px;border-radius:5px}
+.tg-r{background:var(--red-lt);color:var(--red-dk)}
+.tg-b{background:var(--blue-lt);color:var(--blue-dk)}
+.tg-t{background:var(--teal-lt);color:var(--teal-dk)}
+.tg-o{background:var(--orange-lt);color:var(--orange)}
+.prod-div{height:1px;background:var(--off);margin:3px 0}
+.prod-avail{font-size:.7rem;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:5px}
+.prod-avail::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
+.tab-section{display:block}.tab-section.hidden{display:none}
+.guide-band{background:var(--dark);padding:48px 36px;position:relative;overflow:hidden}
+.guide-band::before{content:'✚';position:absolute;right:3%;top:50%;transform:translateY(-50%);font-size:16rem;opacity:.03;color:#fff;pointer-events:none}
+.guide-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.guide-inner h2{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:900;letter-spacing:.04em;color:#fff;margin-bottom:6px}
+.guide-inner .g-sub{font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:28px}
+.guide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.guide-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:20px 16px;position:relative;overflow:hidden}
+.guide-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.guide-card:nth-child(1)::before{background:var(--red)}
+.guide-card:nth-child(2)::before{background:var(--orange)}
+.guide-card:nth-child(3)::before{background:var(--teal)}
+.guide-card:nth-child(4)::before{background:var(--blue)}
+.g-emoji{font-size:1.8rem;margin-bottom:10px;display:block}
+.guide-card h4{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:900;letter-spacing:.04em;color:#fff;margin-bottom:6px}
+.guide-card p{font-size:.79rem;color:rgba(255,255,255,.55);line-height:1.6}
+.g-tip{display:inline-flex;align-items:center;gap:4px;background:rgba(220,38,38,.15);color:#fca5a5;border-radius:5px;padding:3px 9px;font-size:.66rem;font-weight:800;margin-top:9px}
+footer{background:#080d17;color:rgba(255,255,255,.35);text-align:center;padding:20px 36px;font-size:.8rem}
+footer a{color:var(--red);text-decoration:none}
+footer a:hover{color:#fff}
+@media(max-width:1024px){.prod-grid{grid-template-columns:repeat(3,1fr)}.guide-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-mosaic{display:none}.prod-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.prod-grid{grid-template-columns:1fr}.guide-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="hdr">
+  <div style="display:flex;align-items:center;gap:14px;">
+      <a class="logo-link" href="farmacias_yair.html">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a>
+     <div class="hdr-sep"></div><span class="hdr-title">✚ PRIMEROS AUXILIOS</span>
+  </div>
+  <nav class="hdr-nav">
+    <a href="https://www.farmaciasyair.com/catalogo_medicamentos">Medicamentos</a>
+    <a href="https://www.farmaciasyair.com/catalogo_bellesa">Belleza</a>
+    <a href="https://www.farmaciasyair.com/" class="btn-back">← Volver a la tienda</a>
+  </nav>
+</div></header>
+
+<section class="hero">
+  <div class="cross-bg">✚</div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">✚ Primeros Auxilios · Catálogo Completo</div>
+      <h1>PREPARADO<br/>PARA <span>CUALQUIER</span><br/>EMERGENCIA</h1>
+      <p>Material de curación, antisépticos, equipos de diagnóstico y protección personal para atender urgencias menores en casa, el trabajo o en cualquier lugar.</p>
+      <div class="hero-stats">
+        <div class="h-stat"><strong>4</strong><span>Categorías</span></div>
+        <div class="h-stat"><strong>32+</strong><span>Productos</span></div>
+        <div class="h-stat"><strong>24/7</strong><span>En sucursal</span></div>
+      </div>
+    </div>
+    <div class="hero-mosaic">
+      <div class="m-card wide">
+        <div class="m-ph"><span class="phi">🩺</span><span>Imagen<br/>producto</span></div>
+      <div class="m-card"><div class="m-ph"><span class="phi">🩹</span><span>Imagen</span></div><div class="m-ns">Curitas Flexibles</div><div class="m-bs">Band-Aid</div></div>
+      <div class="m-card"><div class="m-ph"><span class="phi">🌡️</span><span>Imagen</span></div><div class="m-ns">Termómetro Digital</div><div class="m-bs">Vicks</div></div>
+      <div class="m-card"><div class="m-ph"><span class="phi">🧤</span><span>Imagen</span></div><div class="m-ns">Guantes Nitrilo</div><div class="m-bs">Microflex</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="strip-inner">
+  <div class="si"><span class="ico">🩹</span><div><strong>Material de curación</strong><span>Gasas, vendas y apósitos</span></div></div>
+  <div class="si"><span class="ico">🧴</span><div><strong>Antisépticos</strong><span>Alcohol, iodo, clorhexidina</span></div></div>
+  <div class="si"><span class="ico">🌡️</span><div><strong>Diagnóstico</strong><span>Termómetros y oxímetros</span></div></div>
+  <div class="si"><span class="ico">🛡️</span><div><strong>Protección personal</strong><span>Guantes y mascarillas</span></div></div>
+</div></div>
+
+<div class="cat-nav" id="catalogo"><div class="cat-nav-inner">
+  <button class="cat-btn ar" onclick="showCat('curacion',this,'ar')"><span class="cat-icon">🩹</span> Material de Curación</button>
+  <button class="cat-btn" onclick="showCat('antisepticos',this,'ab')"><span class="cat-icon">🧴</span> Antisépticos</button>
+  <button class="cat-btn" onclick="showCat('diagnostico',this,'at')"><span class="cat-icon">🌡️</span> Diagnóstico</button>
+  <button class="cat-btn" onclick="showCat('proteccion',this,'ao')"><span class="cat-icon">🛡️</span> Protección Personal</button>
+  <div class="cat-search">
+    <svg width="13" height="13" fill="none" stroke="#64748b" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" placeholder="Buscar…" oninput="filterProds(this.value)"/>
+  </div>
+</div></div>
+
+<div class="main-wrap">
+
+<!-- CURACIÓN -->
+<div class="tab-section" id="cat-curacion">
+  <div class="sec-lbl"><h2>🩹 MATERIAL DE CURACIÓN</h2><div class="sec-line sl-r"></div></div>
+  <p class="sec-desc">Apósitos, gasas, vendas y cinta adhesiva médica para limpiar, cubrir y proteger heridas correctamente.</p>
+  <div class="info-banner ib-r"><span class="bi">⚠️</span><span>Ante heridas profundas o cortes que no cierran, <strong>acude a urgencias médicas</strong>. Los primeros auxilios tratan lesiones menores únicamente.</span></div>
+  <div class="sub-lbl"><div class="sub-dot" style="background:var(--red)"></div><h3>Apósitos y Curitas</h3></div>
+  <div class="prod-grid" style="margin-bottom:28px;">
+    <div class="prod-card pc-r" data-name="band-aid curitas adhesivas surtidas tela flexible hipoalergénico heridas">
+      <div class="prod-img bg-r"><span class="cat-badge cb-r">Curación</span><span class="fav-badge">★ ESENCIAL</span><div class="img-ph"><span class="phi">🩹</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Band-Aid</div><div class="prod-name">Curitas Flexibles Surtidas x40</div><div class="prod-desc">Tela flexible que se adapta al movimiento. Adhesivo hipoalergénico. Surtido de tamaños para toda la familia.</div><div class="prod-tags"><span class="prod-tag tg-r">Hipoalergénico</span><span class="prod-tag tg-r">Flexible</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-r" data-name="apósito estéril no adherente quemadura herida gasa telfa curalín">
+      <div class="prod-img bg-r"><span class="cat-badge cb-r">Curación</span><div class="img-ph"><span class="phi">🟦</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Curalín</div><div class="prod-name">Apósito No Adherente Estéril 7.5x10 x10</div><div class="prod-desc">No se pega a la herida. Ideal para quemaduras leves y heridas con exudado. Envuelto individualmente estéril.</div><div class="prod-tags"><span class="prod-tag tg-r">No adherente</span><span class="prod-tag tg-r">Quemaduras</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-r" data-name="gasas estériles orilladas 10x10 algodón curación herida apósito">
+      <div class="prod-img bg-r"><span class="cat-badge cb-r">Curación</span><div class="img-ph"><span class="phi">⬜</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Curalín</div><div class="prod-name">Gasas Estériles Orilladas 10x10cm x10</div><div class="prod-desc">100% algodón. Envueltas individualmente. Para limpiar heridas, cubrir y empapar con antisépticos.</div><div class="prod-tags"><span class="prod-tag tg-r">100% algodón</span><span class="prod-tag tg-r">Estéril</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-r" data-name="cinta micropore 3M adhesiva médica tape porosa respirar piel">
+      <div class="prod-img bg-r"><span class="cat-badge cb-r">Curación</span><div class="img-ph"><span class="phi">🩹</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">3M Micropore</div><div class="prod-name">Cinta Adhesiva Médica 2.5cm x 9.1m</div><div class="prod-desc">Porosa, respira y no irrita. Sujeción segura de gasas. Sin residuo al retirar.</div><div class="prod-tags"><span class="prod-tag tg-r">Porosa</span><span class="prod-tag tg-r">Sin residuo</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+  <div class="sub-lbl"><div class="sub-dot" style="background:var(--red)"></div><h3>Vendas y Botiquines</h3></div>
+  <div class="prod-grid">
+    <div class="prod-card pc-r" data-name="venda cohesiva elástica coheplus 3M esguince compresión tobillo">
+      <div class="prod-img bg-r"><span class="cat-badge cb-r">Vendaje</span><div class="img-ph"><span class="phi">🌀</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">3M Coheplus</div><div class="prod-name">Venda Cohesiva Elástica 7.5cm x 4.5m</div><div class="prod-desc">Se adhiere a sí misma sin pegar a piel. Compresión para esguinces y soporte articular leve.</div><div class="prod-tags"><span class="prod-tag tg-r">Cohesiva</span><span class="prod-tag tg-r">Esguinces</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-r" data-name="algodón médico rollo curación limpieza purificado farmacéutico">
+      <div class="prod-img bg-r"><span class="cat-badge cb-r">Curación</span><div class="img-ph"><span class="phi">☁️</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Farmacias Yair</div><div class="prod-name">Rollo de Algodón Médico 100 g</div><div class="prod-desc">Algodón purificado 100% natural. Limpieza de heridas, aplicación de antisépticos y desmaquillado.</div><div class="prod-tags"><span class="prod-tag tg-r">100% natural</span><span class="prod-tag tg-r">Purificado</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-r" data-name="tijeras enfermería vendaje botiquín inox punta roma segura médica">
+      <div class="prod-img bg-r"><span class="cat-badge cb-r">Instrumental</span><div class="img-ph"><span class="phi">✂️</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Riester</div><div class="prod-name">Tijeras de Vendaje Punta Roma 14cm</div><div class="prod-desc">Inoxidables. Punta roma para cortar vendas sin riesgo. Mango ergonómico para mayor control.</div><div class="prod-tags"><span class="prod-tag tg-r">Inox</span><span class="prod-tag tg-r">Punta roma</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-r" data-name="botiquín completo kit primeros auxilios 100 piezas hogar Johnson emergencia">
+      <div class="prod-img bg-r"><span class="cat-badge cb-r">Kit</span><span class="fav-badge">★ TOP</span><div class="img-ph"><span class="phi">🩺</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Johnson & Johnson</div><div class="prod-name">Kit Botiquín de Emergencias 100 pzs</div><div class="prod-desc">100 piezas en bolsa resistente. Curitas, gasas, alcohol, cinta, guantes y tijeras. Completo para el hogar.</div><div class="prod-tags"><span class="prod-tag tg-r">100 piezas</span><span class="prod-tag tg-r">Completo</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANTISÉPTICOS -->
+<div class="tab-section hidden" id="cat-antisepticos">
+  <div class="sec-lbl"><h2>🧴 ANTISÉPTICOS</h2><div class="sec-line sl-b"></div></div>
+  <p class="sec-desc">Desinfectantes y antisépticos para heridas, superficies y piel. Esenciales para prevenir infecciones en lesiones menores.</p>
+  <div class="info-banner ib-b"><span class="bi">💡</span><span>Para heridas limpias usa <strong>solución salina</strong> primero. El alcohol al 70% es más bactericida que al 96%. Evita el agua oxigenada en heridas profundas pues puede dañar el tejido nuevo.</span></div>
+  <div class="prod-grid">
+    <div class="prod-card pc-b" data-name="alcohol isopropílico 70% antiséptico desinfectante bactericida heridas superficies">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Antiséptico</span><span class="fav-badge">★ ESENCIAL</span><div class="img-ph"><span class="phi">🧴</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Farmacias Yair</div><div class="prod-name">Alcohol Isopropílico 70% 1 Litro</div><div class="prod-desc">Bactericida y fungicida de amplio uso. Antiséptico de piel íntegra y desinfección de superficies e instrumental.</div><div class="prod-tags"><span class="prod-tag tg-b">70%</span><span class="prod-tag tg-b">Bactericida</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="agua oxigenada peróxido hidrógeno 3% heridas limpieza desinfección espuma">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Antiséptico</span><div class="img-ph"><span class="phi">💧</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Farmacias Yair</div><div class="prod-name">Agua Oxigenada 3% 250 ml</div><div class="prod-desc">Peróxido de hidrógeno al 3%. Limpieza superficial de heridas leves. Efecto espumante que arrastra suciedad.</div><div class="prod-tags"><span class="prod-tag tg-b">3%</span><span class="prod-tag tg-b">Limpieza</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="isodine povidona yodada betadine antiséptico amplio espectro herida profunda">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Antiséptico</span><div class="img-ph"><span class="phi">🟤</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Isodine</div><div class="prod-name">Solución Povidona Yodada 10% 120 ml</div><div class="prod-desc">Amplio espectro contra bacterias, hongos y virus. Para heridas con riesgo de infección y preparación quirúrgica.</div><div class="prod-tags"><span class="prod-tag tg-b">Amplio espectro</span><span class="prod-tag tg-b">Yodada</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="solución salina isotónica lavado herida ocular nasal irrigación b-braun">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Antiséptico</span><div class="img-ph"><span class="phi">🫙</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">B-Braun</div><div class="prod-name">Solución Salina 0.9% 250 ml</div><div class="prod-desc">Limpieza fisiológica de heridas. No irrita tejido sano. Para irrigación ocular, nasal y de heridas limpias.</div><div class="prod-tags"><span class="prod-tag tg-b">Isotónica</span><span class="prod-tag tg-b">Sin irritar</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="isodine espuma povidona jabonosa herida contaminada limpieza antisepsia">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Antiséptico</span><div class="img-ph"><span class="phi">🫧</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Isodine</div><div class="prod-name">Isodine Espuma Jabonosa 250 ml</div><div class="prod-desc">Povidona yodada en espuma. Limpieza y antisepsia simultánea. Para heridas contaminadas y sucias.</div><div class="prod-tags"><span class="prod-tag tg-b">Espuma</span><span class="prod-tag tg-b">Jabonosa</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="neosporin crema antibiótica bacitracina neomicina infección herida tópico">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Antibiótico tópico</span><div class="img-ph"><span class="phi">💊</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Neosporin</div><div class="prod-name">Neosporin Crema Antibiótica 14 g</div><div class="prod-desc">Triple acción: bacitracina + neomicina + polimixina B. Previene infección en heridas, quemaduras y abrasiones leves.</div><div class="prod-tags"><span class="prod-tag tg-b">Triple acción</span><span class="prod-tag tg-b">Anti-infección</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="spray clorhexidina antiséptico sin contacto sin escozor herida superficial">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Antiséptico</span><div class="img-ph"><span class="phi">💨</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Curalín</div><div class="prod-name">Spray Antiséptico Clorhexidina 100 ml</div><div class="prod-desc">Antisepsia sin contacto directo. Clorhexidina gluconato 0.5%. Sin escozor. Para heridas superficiales.</div><div class="prod-tags"><span class="prod-tag tg-b">Sin escozor</span><span class="prod-tag tg-b">Spray</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="cicatricure gel cicatrizante vitamina e alántoína herida quemadura leve">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Cicatrizante</span><div class="img-ph"><span class="phi">🌿</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Cicatricure</div><div class="prod-name">Gel Cicatrizante Vitamina E 30 g</div><div class="prod-desc">Acelera cicatrización de heridas leves y quemaduras de 1°. Vitamina E y alantoína suavizan la piel.</div><div class="prod-tags"><span class="prod-tag tg-b">Cicatrizante</span><span class="prod-tag tg-b">Vitamina E</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DIAGNÓSTICO -->
+<div class="tab-section hidden" id="cat-diagnostico">
+  <div class="sec-lbl"><h2>🌡️ DIAGNÓSTICO</h2><div class="sec-line sl-t"></div></div>
+  <p class="sec-desc">Termómetros, tensiómetros, oxímetros y glucómetros para el monitoreo de signos vitales en casa.</p>
+  <div class="info-banner ib-t"><span class="bi">🔬</span><span><strong>Rangos normales:</strong> Temperatura 36–37.5°C · Presión &lt;120/80 mmHg · Saturación 95–100% · Glucosa en ayunas 70–100 mg/dL.</span></div>
+  <div class="prod-grid">
+    <div class="prod-card pc-t" data-name="termómetro infrarrojo frente sien sin contacto fiebre vicks digital rápido">
+      <div class="prod-img bg-t"><span class="cat-badge cb-t">Diagnóstico</span><span class="urg-badge">🌡️ Temperatura</span><span class="fav-badge">★ TOP</span><div class="img-ph"><span class="phi">🌡️</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Vicks</div><div class="prod-name">Termómetro Infrarrojo SpeedRead</div><div class="prod-desc">Sin contacto. Lectura en 8 segundos. Memoria 8 mediciones. Apto bebés y adultos.</div><div class="prod-tags"><span class="prod-tag tg-t">Sin contacto</span><span class="prod-tag tg-t">8 seg</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-t" data-name="tensiómetro presión arterial brazo omron digital automático arritmias monitor">
+      <div class="prod-img bg-t"><span class="cat-badge cb-t">Diagnóstico</span><span class="urg-badge">💓 Presión</span><div class="img-ph"><span class="phi">💓</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Omron</div><div class="prod-name">Tensiómetro Digital Brazo HEM-7120</div><div class="prod-desc">Automático con detección de arritmias. Memoria para 2 usuarios × 30 lecturas c/u.</div><div class="prod-tags"><span class="prod-tag tg-t">Automático</span><span class="prod-tag tg-t">Arritmias</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-t" data-name="oxímetro pulso saturación SpO2 dedo frecuencia cardíaca contec OLED">
+      <div class="prod-img bg-t"><span class="cat-badge cb-t">Diagnóstico</span><span class="urg-badge">🫁 Oxígeno</span><div class="img-ph"><span class="phi">🫁</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Contec</div><div class="prod-name">Oxímetro de Pulso Dedo CMS50D</div><div class="prod-desc">SpO2 y frecuencia cardíaca en segundos. Pantalla OLED giratoria. Incluye baterías AA.</div><div class="prod-tags"><span class="prod-tag tg-t">SpO2</span><span class="prod-tag tg-t">OLED</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-t" data-name="glucómetro accu-chek instant diabetes glucosa sangre app conectado">
+      <div class="prod-img bg-t"><span class="cat-badge cb-t">Diagnóstico</span><span class="urg-badge">🩸 Glucosa</span><div class="img-ph"><span class="phi">🩸</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Accu-Chek</div><div class="prod-name">Glucómetro Accu-Chek Instant + tiras</div><div class="prod-desc">Resultado en 4 segundos. App Accu-Chek incluida. 10 tiras reactivas y dispositivo de punción.</div><div class="prod-tags"><span class="prod-tag tg-t">4 segundos</span><span class="prod-tag tg-t">App</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-t" data-name="tiras reactivas accu-chek instant glucosa x50 reactivas precisión">
+      <div class="prod-img bg-t"><span class="cat-badge cb-t">Diagnóstico</span><div class="img-ph"><span class="phi">📊</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Accu-Chek</div><div class="prod-name">Tiras Reactivas Accu-Chek Instant x50</div><div class="prod-desc">0.6µL de muestra. Alta precisión. Compatibles con glucómetro Accu-Chek Instant.</div><div class="prod-tags"><span class="prod-tag tg-t">0.6µL</span><span class="prod-tag tg-t">x50</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-t" data-name="termómetro digital flexible oral rectal axilar vicks clásico bebé">
+      <div class="prod-img bg-t"><span class="cat-badge cb-t">Diagnóstico</span><div class="img-ph"><span class="phi">🌡️</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Vicks</div><div class="prod-name">Termómetro Digital Flexible 3 modos</div><div class="prod-desc">Punta flexible segura. Lectura en 10 seg. Alarma de fiebre. Oral, rectal o axilar.</div><div class="prod-tags"><span class="prod-tag tg-t">Flexible</span><span class="prod-tag tg-t">3 modos</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-t" data-name="lancetas accu-chek fastclix punción glucosa indoloras x102 desechables">
+      <div class="prod-img bg-t"><span class="cat-badge cb-t">Diagnóstico</span><div class="img-ph"><span class="phi">📍</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Accu-Chek</div><div class="prod-name">Lancetas FastClix x102</div><div class="prod-desc">Punción casi indolora. Compatible con dispositivo FastClix. Estériles, uso único.</div><div class="prod-tags"><span class="prod-tag tg-t">Indoloras</span><span class="prod-tag tg-t">x102</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-t" data-name="estetoscopio fonendoscopio clínico doble campana médico enfermería diagnóstico">
+      <div class="prod-img bg-t"><span class="cat-badge cb-t">Diagnóstico</span><div class="img-ph"><span class="phi">🩺</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Riester</div><div class="prod-name">Estetoscopio Clínico Doble 30cm</div><div class="prod-desc">Campana y membrana. Acústica precisa para ruidos cardíacos y pulmonares. Uso doméstico y clínico.</div><div class="prod-tags"><span class="prod-tag tg-t">Doble campana</span><span class="prod-tag tg-t">Clínico</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROTECCIÓN -->
+<div class="tab-section hidden" id="cat-proteccion">
+  <div class="sec-lbl"><h2>🛡️ PROTECCIÓN PERSONAL</h2><div class="sec-line sl-o"></div></div>
+  <p class="sec-desc">Guantes, mascarillas y productos de higiene para protección al atender lesiones y prevenir contagios.</p>
+  <div class="info-banner ib-o"><span class="bi">🛡️</span><span>Usa siempre <strong>guantes desechables</strong> al atender heridas de terceros. Protege tanto al herido como al auxiliador de posibles infecciones cruzadas.</span></div>
+  <div class="prod-grid">
+    <div class="prod-card pc-o" data-name="guantes nitrilo desechables examinación médico sin látex sin polvo 100">
+      <div class="prod-img bg-o"><span class="cat-badge cb-o">Protección</span><span class="fav-badge">★ ESENCIAL</span><div class="img-ph"><span class="phi">🧤</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Microflex</div><div class="prod-name">Guantes de Nitrilo Desechables S/M/L x100</div><div class="prod-desc">Sin látex, sin polvo. Resistentes a químicos. Ambidiestros. Para examen médico y primeros auxilios.</div><div class="prod-tags"><span class="prod-tag tg-o">Sin látex</span><span class="prod-tag tg-o">Sin polvo</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-o" data-name="mascarilla quirúrgica 3 capas tipo II filtración 98% clip nasal desechable">
+      <div class="prod-img bg-o"><span class="cat-badge cb-o">Protección</span><div class="img-ph"><span class="phi">😷</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">3M</div><div class="prod-name">Mascarilla Quirúrgica Tipo II x50</div><div class="prod-desc">3 capas. Filtración ≥98%. Clip nasal metálico ajustable. Uso médico y protección general.</div><div class="prod-tags"><span class="prod-tag tg-o">3 capas</span><span class="prod-tag tg-o">≥98%</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-o" data-name="mascarilla KN95 FFP2 5 capas 95% partículas alta protección honeywell">
+      <div class="prod-img bg-o"><span class="cat-badge cb-o">Protección</span><div class="img-ph"><span class="phi">🛡️</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Honeywell</div><div class="prod-name">Mascarilla KN95 FFP2 x5 unidades</div><div class="prod-desc">Filtra ≥95% de partículas ≥0.3µm. Ajuste anatómico. 5 capas de protección para alta exposición.</div><div class="prod-tags"><span class="prod-tag tg-o">KN95</span><span class="prod-tag tg-o">5 capas</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-o" data-name="gel antibacterial purell alcohol 70% manos higiene sin agua gérmenes">
+      <div class="prod-img bg-o"><span class="cat-badge cb-o">Higiene</span><div class="img-ph"><span class="phi">🤲</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Purell</div><div class="prod-name">Gel Antibacterial Purell 236 ml</div><div class="prod-desc">Alcohol 70%. Mata el 99.99% de gérmenes sin agua. Gel no pegajoso con aloe vera hidratante.</div><div class="prod-tags"><span class="prod-tag tg-o">70% alcohol</span><span class="prod-tag tg-o">Aloe vera</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main-wrap -->
+
+<div class="guide-band"><div class="guide-inner">
+  <h2>✚ GUÍA DE ACCIÓN RÁPIDA</h2>
+  <p class="g-sub">Pasos básicos para las urgencias más frecuentes.</p>
+  <div class="guide-grid">
+    <div class="guide-card"><span class="g-emoji">🩹</span><h4>Heridas Leves</h4><p>1) Lava con agua y jabón. 2) Aplica solución salina. 3) Antiséptico (clorhexidina). 4) Cubre con apósito estéril. 5) Cambia cada 24–48h.</p><span class="g-tip">💡 No uses algodón directo</span></div>
+    <div class="guide-card"><span class="g-emoji">🔥</span><h4>Quemaduras 1°</h4><p>1) Agua fría corriente 10–20 min. 2) No usar hielo. 3) Apósito no adherente húmedo. 4) Nunca reventar ampollas. 5) Si cubre &gt;5cm → urgencias.</p><span class="g-tip">💡 Nunca pasta de dientes</span></div>
+    <div class="guide-card"><span class="g-emoji">🌡️</span><h4>Fiebre</h4><p>Normal: 36–37.5°C. Fiebre: &gt;38°C. Paracetamol o ibuprofeno según prescripción. Hidratación y reposo. &gt;39°C o más de 3 días → médico.</p><span class="g-tip">💡 Mide siempre en la misma zona</span></div>
+    <div class="guide-card"><span class="g-emoji">🦴</span><h4>Esguinces (RICE)</h4><p>1) Rest (reposo). 2) Ice (hielo 20 min c/2h). 3) Compression (vendaje). 4) Elevation (elevar). Si no mejora en 48h → médico.</p><span class="g-tip">💡 Hielo siempre con tela</span></div>
+  </div>
+</div></div>
+
+<footer><p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Catálogo Primeros Auxilios · Ante emergencias graves llama al <strong>911</strong> · ✚ Tu seguridad, nuestra prioridad</p></footer>
+
+<script>
+let activePA='curacion';
+function showCat(cat,btn,cls){
+  activePA=cat;
+  document.querySelectorAll('.tab-section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById('cat-'+cat).classList.remove('hidden');
+  document.querySelectorAll('.cat-btn').forEach(b=>b.className='cat-btn');
+  btn.classList.add('cat-btn',cls);
+  document.querySelector('.cat-search input').value='';
+  document.querySelectorAll('#cat-'+cat+' .prod-card').forEach(c=>c.style.display='');
+}
+function filterProds(q){
+  q=q.toLowerCase().trim();
+  document.querySelectorAll('#cat-'+activePA+' .prod-card').forEach(card=>{
+    const hay=(card.dataset.name||'')+card.innerText.toLowerCase();
+    card.style.display=(!q||hay.includes(q))?'':'none';
+  });
+}
+</script>
+</body>
+</html>
