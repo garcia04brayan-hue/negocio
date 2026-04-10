@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog Bebés – Farmacias Yair</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sky:#5bc8f5;--sky-lt:#e8f8fe;--sky-dk:#1a90c8;
+  --mint:#52c99a;--mint-lt:#e2f9ee;--mint-dk:#1e7a54;
+  --peach:#ff9472;--peach-lt:#fff0eb;--peach-dk:#c04820;
+  --lemon:#f9d94b;--lemon-lt:#fffce5;--lemon-dk:#8a6a00;
+  --lilac:#b084e8;--lilac-lt:#f2ebfc;--lilac-dk:#5a2898;
+  --rose:#f07aaa;--rose-lt:#fef0f6;--rose-dk:#8a2050;
+  --cream:#fdfaf6;--warm:#faf5ee;--sand:#f2e8d4;
+  --gray:#ddd6c8;--text:#2c1f10;--muted:#8a7a65;--dark:#1a1008
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text)}
+
+/* ── HEADER ── */
+header{
+  background:var(--sky-dk);position:sticky;top:0;z-index:300;
+  box-shadow:0 3px 20px rgba(26,144,200,.35);
+}
+.hdr{
+  max-width:1200px;margin:0 auto;padding:10px 36px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px
+}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-wrap img{height:46px;width:auto;filter:brightness(0) invert(1)}
+.hdr-sep{width:1px;height:28px;background:rgba(255,255,255,.25)}
+.hdr-title{
+  font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;
+  color:rgba(255,255,255,.9);display:flex;align-items:center;gap:7px
+}
+.hdr-nav{display:flex;align-items:center;gap:6px}
+.hdr-nav a{
+  color:rgba(255,255,255,.65);text-decoration:none;font-size:.83rem;font-weight:700;
+  padding:7px 14px;border-radius:20px;transition:background .18s,color .18s
+}
+.hdr-nav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.btn-back{background:rgba(255,255,255,.2)!important;color:#fff!important;font-weight:800!important}
+.btn-back:hover{background:rgba(255,255,255,.35)!important}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#e0f4ff 0%,#e8faf3 40%,#fef6e8 100%);
+  padding:64px 36px 72px;position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(91,200,245,.15),transparent 45%),
+    radial-gradient(circle at 10% 75%,rgba(176,132,232,.10),transparent 40%)
+}
+/* floating blobs */
+.blob{
+  position:absolute;border-radius:50%;opacity:.12;
+  animation:blobFloat ease-in-out infinite;pointer-events:none
+}
+@keyframes blobFloat{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-16px) scale(1.04)}
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:60px;position:relative;z-index:1
+}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--sky-lt);border:2px solid rgba(91,200,245,.4);
+  color:var(--sky-dk);border-radius:30px;padding:6px 18px;
+  font-size:.74rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;margin-bottom:16px
+}
+.hero-text h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,4.2vw,3.5rem);
+  font-weight:800;line-height:1.12;color:var(--text);margin-bottom:14px
+}
+.hero-text h1 em{font-style:italic;color:var(--sky-dk)}
+.hero-text p{
+  font-size:1rem;color:var(--muted);line-height:1.72;
+  max-width:420px;margin-bottom:28px;font-weight:600
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--sky-dk);color:#fff;text-decoration:none;
+  padding:13px 28px;border-radius:40px;font-weight:800;font-size:.93rem;
+  box-shadow:0 8px 24px rgba(91,200,245,.45);transition:transform .18s,box-shadow .18s
+}
+.hero-cta:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(91,200,245,.5)}
+
+/* hero cards */
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hero-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:0 6px 24px rgba(0,0,0,.09);
+  cursor:pointer;transition:transform .22s,box-shadow .22s
+}
+.hero-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.14)}
+.hc-visual{
+  height:100px;display:flex;align-items:center;justify-content:center;
+  font-size:3rem;position:relative
+}
+.hc-tag{
+  position:absolute;bottom:8px;left:10px;
+  font-size:.64rem;font-weight:800;padding:2px 9px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:.05em
+}
+.hc-body{padding:12px 14px 14px}
+.hc-body h4{
+  font-family:'Playfair Display',serif;font-size:.95rem;
+  font-weight:700;color:var(--text);line-height:1.3;margin-bottom:4px
+}
+.hc-body span{font-size:.75rem;color:var(--muted);font-weight:600}
+
+/* ── STRIP ── */
+.strip{
+  background:linear-gradient(90deg,var(--sky-dk) 0%,var(--mint-dk) 60%,#3ab0c0 100%);
+  padding:15px 36px
+}
+.strip-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-around;gap:16px;flex-wrap:wrap
+}
+.si{display:flex;align-items:center;gap:10px;color:#fff}
+.si .ico{font-size:1.4rem}
+.si strong{display:block;font-size:.85rem;font-weight:800}
+.si span{font-size:.73rem;opacity:.82}
+
+/* ── CATEGORY TABS ── */
+.cat-nav{
+  background:#fff;border-bottom:3px solid var(--sand);
+  position:sticky;top:66px;z-index:200;
+  box-shadow:0 3px 14px rgba(0,0,0,.06)
+}
+.cat-nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 36px;
+  display:flex;align-items:center;overflow-x:auto;scrollbar-width:none
+}
+.cat-nav-inner::-webkit-scrollbar{display:none}
+.cat-btn{
+  display:flex;align-items:center;gap:7px;padding:14px 20px;
+  background:none;border:none;font-family:'Nunito',sans-serif;
+  font-size:.87rem;font-weight:800;color:var(--muted);cursor:pointer;
+  white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px;transition:color .18s
+}
+.cat-btn:hover{color:var(--text)}
+.as{color:var(--sky-dk);border-bottom-color:var(--sky-dk)}
+.am{color:var(--mint-dk);border-bottom-color:var(--mint-dk)}
+.ap{color:var(--peach-dk);border-bottom-color:var(--peach-dk)}
+.al{color:var(--lilac-dk);border-bottom-color:var(--lilac-dk)}
+.ar{color:var(--rose-dk);border-bottom-color:var(--rose-dk)}
+.ay{color:var(--lemon-dk);border-bottom-color:var(--lemon-dk)}
+.cat-icon{font-size:1.05rem}
+.cat-search{
+  margin-left:auto;display:flex;align-items:center;gap:8px;
+  background:var(--cream);border:2px solid var(--sand);
+  border-radius:30px;padding:7px 16px;flex-shrink:0;transition:border-color .2s
+}
+.cat-search:focus-within{border-color:var(--sky-dk)}
+.cat-search input{
+  background:none;border:none;outline:none;
+  font-family:'Nunito',sans-serif;font-size:.85rem;
+  font-weight:600;color:var(--text);width:155px
+}
+.cat-search input::placeholder{color:var(--muted)}
+
+/* ── MAIN WRAP ── */
+.main-wrap{max-width:1200px;margin:0 auto;padding:52px 36px 80px}
+.sec-lbl{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.sec-lbl h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.65rem;font-weight:800;color:var(--text)
+}
+.sec-line{flex:1;height:2px;border-radius:2px}
+.sl-s{background:linear-gradient(90deg,var(--sky),transparent)}
+.sl-m{background:linear-gradient(90deg,var(--mint),transparent)}
+.sl-p{background:linear-gradient(90deg,var(--peach),transparent)}
+.sl-l{background:linear-gradient(90deg,var(--lilac),transparent)}
+.sl-r{background:linear-gradient(90deg,var(--rose),transparent)}
+.sl-y{background:linear-gradient(90deg,var(--lemon),transparent)}
+.sec-desc{font-size:.88rem;color:var(--muted);line-height:1.65;margin-bottom:28px;max-width:640px;font-weight:600}
+
+/* ── BLOG GRID ── */
+.blog-grid{display:grid;grid-template-columns:1.55fr 1fr 1fr;gap:20px;margin-bottom:48px}
+/* featured spans 1 col vertically */
+.blog-card{
+  background:#fff;border-radius:22px;overflow:hidden;
+  box-shadow:0 3px 16px rgba(0,0,0,.08);display:flex;flex-direction:column;
+  cursor:pointer;transition:transform .22s,box-shadow .22s;
+  border:2px solid transparent
+}
+.blog-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(0,0,0,.13)}
+.blog-card.featured{grid-row:1/3}
+.blog-card.featured:hover{border-color:rgba(91,200,245,.4)}
+
+/* card visual */
+.bc-visual{
+  position:relative;display:flex;align-items:center;
+  justify-content:center;overflow:hidden
+}
+.blog-card.featured .bc-visual{height:260px}
+.blog-card:not(.featured) .bc-visual{height:140px}
+
+/* color themes */
+.cv-sky    {background:linear-gradient(145deg,#dff4ff,#b8e8fa)}
+.cv-mint   {background:linear-gradient(145deg,#daf7ee,#aae8d4)}
+.cv-peach  {background:linear-gradient(145deg,#ffeee6,#ffd0bb)}
+.cv-lilac  {background:linear-gradient(145deg,#f0e8fc,#d8c8f8)}
+.cv-rose   {background:linear-gradient(145deg,#fde8f2,#f8c8e0)}
+.cv-lemon  {background:linear-gradient(145deg,#fffce0,#faf0a8)}
+
+.bc-emoji{font-size:3.5rem;filter:drop-shadow(0 3px 8px rgba(0,0,0,.12))}
+.blog-card.featured .bc-emoji{font-size:5.5rem}
+.bc-cat{
+  position:absolute;top:12px;left:12px;
+  font-size:.68rem;font-weight:800;
+  padding:4px 12px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:.06em
+}
+.cc-sky  {background:var(--sky-lt);color:var(--sky-dk)}
+.cc-mint {background:var(--mint-lt);color:var(--mint-dk)}
+.cc-peach{background:var(--peach-lt);color:var(--peach-dk)}
+.cc-lilac{background:var(--lilac-lt);color:var(--lilac-dk)}
+.cc-rose {background:var(--rose-lt);color:var(--rose-dk)}
+.cc-lemon{background:var(--lemon-lt);color:var(--lemon-dk)}
+.bc-new{
+  position:absolute;top:12px;right:12px;
+  background:var(--peach);color:#fff;
+  font-size:.62rem;font-weight:800;padding:3px 9px;border-radius:20px
+}
+
+/* card body */
+.bc-body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column;gap:8px}
+.bc-meta{font-size:.73rem;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:8px}
+.bc-meta .dot{color:var(--gray)}
+.bc-body h3{
+  font-family:'Playfair Display',serif;font-weight:700;
+  color:var(--text);line-height:1.35
+}
+.blog-card.featured .bc-body h3{font-size:1.35rem}
+.blog-card:not(.featured) .bc-body h3{font-size:1rem}
+.bc-body p{font-size:.82rem;color:var(--muted);line-height:1.6;flex:1}
+.bc-read{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--sky-dk);font-weight:800;font-size:.82rem;
+  text-decoration:none;margin-top:4px;
+  transition:gap .15s,color .15s;width:fit-content
+}
+.bc-read:hover{gap:10px}
+
+/* ── TAB SECTIONS ── */
+.tab-section{display:block}.tab-section.hidden{display:none}
+
+/* ── NEWSLETTER BAND ── */
+.nl-band{
+  background:linear-gradient(135deg,var(--sky-dk) 0%,var(--mint-dk) 100%);
+  padding:48px 36px;text-align:center
+}
+.nl-inner{max-width:560px;margin:0 auto}
+.nl-inner h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:8px
+}
+.nl-inner p{font-size:.95rem;color:rgba(255,255,255,.7);margin-bottom:24px;line-height:1.6}
+.nl-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.nl-input{
+  flex:1;min-width:220px;border:none;border-radius:30px;
+  padding:13px 22px;font-family:'Nunito',sans-serif;font-size:.92rem;
+  outline:none;color:var(--text)
+}
+.nl-btn{
+  background:var(--lemon);color:var(--dark);border:none;
+  border-radius:30px;padding:13px 28px;font-weight:800;font-size:.92rem;
+  font-family:'Nunito',sans-serif;cursor:pointer;
+  transition:transform .15s,box-shadow .15s;white-space:nowrap
+}
+.nl-btn:hover{transform:scale(1.04);box-shadow:0 6px 20px rgba(249,217,75,.45)}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(26,16,8,.72);backdrop-filter:blur(6px);
+  z-index:500;display:none;align-items:flex-start;
+  justify-content:center;padding:24px 16px;overflow-y:auto
+}
+.modal-overlay.open{display:flex;animation:fadeOv .25s ease}
+@keyframes fadeOv{from{opacity:0}to{opacity:1}}
+.modal-box{
+  background:#fff;border-radius:28px;
+  max-width:820px;width:100%;overflow:hidden;
+  animation:slideUp .3s ease;margin:auto;position:relative
+}
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* modal hero */
+.modal-hero{
+  padding:48px 52px 40px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:12px
+}
+.modal-close{
+  position:absolute;top:18px;right:18px;background:rgba(0,0,0,.08);
+  border:none;width:38px;height:38px;border-radius:50%;
+  font-size:1.1rem;cursor:pointer;display:flex;align-items:center;
+  justify-content:center;transition:background .18s;z-index:10
+}
+.modal-close:hover{background:rgba(0,0,0,.15)}
+.modal-hero-emoji{font-size:3.5rem;line-height:1;margin-bottom:4px}
+.modal-cat{
+  display:inline-flex;align-items:center;gap:6px;
+  border-radius:20px;padding:4px 14px;font-size:.73rem;
+  font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  width:fit-content
+}
+.modal-hero h2{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;font-weight:800;color:var(--text);line-height:1.2
+}
+.modal-meta{font-size:.78rem;color:var(--muted);font-weight:700;display:flex;gap:12px}
+
+/* modal content */
+.modal-content{padding:36px 52px 52px}
+.modal-content p{
+  font-size:.97rem;line-height:1.78;color:#4a3c28;margin-bottom:18px;font-weight:600
+}
+.modal-content h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.22rem;font-weight:700;color:var(--text);
+  margin:28px 0 10px;display:flex;align-items:center;gap:10px
+}
+.modal-content ul{padding-left:22px;margin-bottom:18px}
+.modal-content ul li{
+  font-size:.95rem;color:#4a3c28;line-height:1.68;
+  margin-bottom:7px;font-weight:600
+}
+.callout{
+  border-radius:14px;padding:16px 20px;margin:20px 0;
+  font-size:.93rem;font-weight:700;line-height:1.6;
+  border-left:4px solid
+}
+.callout-sky{background:var(--sky-lt);color:var(--sky-dk);border-color:var(--sky)}
+.callout-mint{background:var(--mint-lt);color:var(--mint-dk);border-color:var(--mint)}
+.callout-peach{background:var(--peach-lt);color:var(--peach-dk);border-color:var(--peach)}
+.callout-lemon{background:var(--lemon-lt);color:var(--lemon-dk);border-color:var(--lemon)}
+.callout-lilac{background:var(--lilac-lt);color:var(--lilac-dk);border-color:var(--lilac)}
+.callout-rose{background:var(--rose-lt);color:var(--rose-dk);border-color:var(--rose)}
+
+/* modal age badge */
+.age-chips{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.age-chip{
+  display:flex;align-items:center;gap:6px;
+  background:var(--cream);border:2px solid var(--sand);
+  border-radius:30px;padding:6px 16px;font-size:.78rem;font-weight:800;color:var(--text)
+}
+
+/* footer */
+footer{
+  background:var(--dark);color:rgba(255,255,255,.4);
+  text-align:center;padding:22px 36px;font-size:.81rem
+}
+footer a{color:var(--sky);text-decoration:none}
+footer a:hover{color:#fff}
+
+/* responsive */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-cards{grid-template-columns:repeat(4,1fr)}
+  .blog-grid{grid-template-columns:1fr 1fr}
+  .blog-card.featured{grid-row:auto}
+}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr}
+  .hero-cards{display:none}
+  .modal-hero{padding:32px 24px 28px}
+  .modal-content{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header><div class="hdr">
+  <div class="hdr">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a class="logo-link" href="farmacias_yair.html">
+     <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+            </a>
+    <div class="hdr-sep"></div>
+    <span class="hdr-title">👶 Blog de Bebés</span>
+  </div>
+  <nav class="hdr-nav">
+    <a href="https://www.farmaciasyair.com/catalogo_bebes">Catálogo Bebés</a>
+    <a href="https://www.farmaciasyair.com/" class="btn-back">← Inicio</a>
+  </nav>
+</div></header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob" style="width:280px;height:280px;background:var(--sky);top:-60px;right:10%;animation-duration:9s;"></div>
+  <div class="blob" style="width:180px;height:180px;background:var(--mint);bottom:20px;left:-50px;animation-duration:11s;animation-delay:-5s;"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-pill">👶 Blog de Bebés · Farmacias Yair</div>
+      <h1>Todo lo que<br/>necesitas saber<br/>sobre tu <em>bebé</em></h1>
+      <p>Artículos escritos por pediatras y especialistas para acompañarte en cada etapa del desarrollo de tu pequeño. Desde el primer día hasta sus primeros pasos.</p>
+      <a href="#articulos" class="hero-cta">Explorar artículos ↓</a>
+    </div>
+    <div class="hero-cards">
+      <div class="hero-card" onclick="openModal('a1')">
+        <div class="hc-visual cv-sky"><span style="font-size:2.8rem">🍼</span><div class="hc-tag cc-sky">Nutrición</div></div>
+        <div class="hc-body"><h4>¿Cuándo dar sólidos?</h4><span>4 min · Alimentación</span></div>
+      </div>
+      <div class="hero-card" onclick="openModal('a4')">
+        <div class="hc-visual cv-mint"><span style="font-size:2.8rem">😴</span><div class="hc-tag cc-mint">Sueño</div></div>
+        <div class="hc-body"><h4>Rutina de sueño</h4><span>5 min · 0–12 meses</span></div>
+      </div>
+      <div class="hero-card" onclick="openModal('a7')">
+        <div class="hc-visual cv-peach"><span style="font-size:2.8rem">💉</span><div class="hc-tag cc-peach">Vacunas</div></div>
+        <div class="hc-body"><h4>Esquema de vacunas</h4><span>6 min · Salud</span></div>
+      </div>
+      <div class="hero-card" onclick="openModal('a10')">
+        <div class="hc-visual cv-lilac"><span style="font-size:2.8rem">🛁</span><div class="hc-tag cc-lilac">Higiene</div></div>
+        <div class="hc-body"><h4>El primer baño</h4><span>4 min · Cuidado</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip"><div class="strip-inner">
+  <div class="si"><span class="ico">👩‍⚕️</span><div><strong>Redactado por pediatras</strong><span>Contenido avalado médicamente</span></div></div>
+  <div class="si"><span class="ico">📅</span><div><strong>Por etapas</strong><span>0–1 mes, 3, 6, 12 meses y más</span></div></div>
+  <div class="si"><span class="ico">🌿</span><div><strong>Consejos prácticos</strong><span>Aplicables desde el primer día</span></div></div>
+  <div class="si"><span class="ico">❤️</span><div><strong>Con amor y ciencia</strong><span>Para mamás y papás reales</span></div></div>
+</div></div>
+
+<!-- CAT TABS -->
+<div class="cat-nav"><div class="cat-nav-inner">
+  <button class="cat-btn as" onclick="showCat('all',this,'as')"><span class="cat-icon">🌟</span> Todos</button>
+  <button class="cat-btn" onclick="showCat('nutricion',this,'as')"><span class="cat-icon">🍼</span> Nutrición</button>
+  <button class="cat-btn" onclick="showCat('sueno',this,'am')"><span class="cat-icon">😴</span> Sueño</button>
+  <button class="cat-btn" onclick="showCat('salud',this,'ap')"><span class="cat-icon">🏥</span> Salud</button>
+  <button class="cat-btn" onclick="showCat('desarrollo',this,'al')"><span class="cat-icon">🌱</span> Desarrollo</button>
+  <button class="cat-btn" onclick="showCat('cuidado',this,'ar')"><span class="cat-icon">🛁</span> Higiene</button>
+  <button class="cat-btn" onclick="showCat('maternidad',this,'ay')"><span class="cat-icon">🤱</span> Maternidad</button>
+  <div class="cat-search">
+    <svg width="13" height="13" fill="none" stroke="#8a7a65" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" placeholder="Buscar artículo…" oninput="filterArticles(this.value)"/>
+  </div>
+</div></div>
+
+<!-- MAIN -->
+<div class="main-wrap" id="articulos">
+
+  <!-- ══ NUTRICIÓN ══ -->
+  <div class="tab-section" id="sec-nutricion" data-cat="nutricion">
+    <div class="sec-lbl"><h2>🍼 Nutrición</h2><div class="sec-line sl-s"></div></div>
+    <p class="sec-desc">Todo sobre lactancia, fórmulas, introducción de sólidos y la alimentación complementaria mes a mes.</p>
+    <div class="blog-grid">
+      <div class="blog-card featured" onclick="openModal('a1')" data-tags="nutricion alimentacion solidos lactancia">
+        <div class="bc-visual cv-sky">
+          <span class="bc-emoji">🍼</span>
+          <span class="bc-cat cc-sky">Nutrición</span>
+          <span class="bc-new">⭐ Destacado</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>10 Mar 2026</span><span class="dot">·</span><span>Pediatra Dra. G. Sánchez</span><span class="dot">·</span><span>5 min</span></div>
+          <h3>¿Cuándo y cómo introducir alimentos sólidos en la dieta de tu bebé?</h3>
+          <p>Descubre las señales que indican que tu bebé está listo para dar el gran paso de la lactancia a los primeros alimentos, y cómo hacerlo de forma segura, gradual y sin ansiedad.</p>
+          <a class="bc-read" href="#">Leer artículo completo →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a2')" data-tags="nutricion lactancia pecho materna formula">
+        <div class="bc-visual cv-peach">
+          <span class="bc-emoji">🤱</span>
+          <span class="bc-cat cc-peach">Lactancia</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>5 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+          <h3>Lactancia materna vs. fórmula: lo que debes saber</h3>
+          <p>Guía sin juicios para mamás que se preguntan entre la lactancia materna y la fórmula infantil.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a3')" data-tags="nutricion papilla cereales solidos etapas">
+        <div class="bc-visual cv-lemon">
+          <span class="bc-emoji">🥕</span>
+          <span class="bc-cat cc-lemon">Alimentación</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>1 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+          <h3>Los primeros 10 alimentos recomendados para bebés de 6 meses</h3>
+          <p>Puré de calabaza, plátano, aguacate y más. Los mejores alimentos para comenzar la alimentación complementaria.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SUEÑO ══ -->
+  <div class="tab-section" id="sec-sueno" data-cat="sueno">
+    <div class="sec-lbl"><h2>😴 Sueño</h2><div class="sec-line sl-m"></div></div>
+    <p class="sec-desc">Rutinas de sueño, métodos de entrenamiento y consejos para toda la familia duerma mejor.</p>
+    <div class="blog-grid">
+      <div class="blog-card featured" onclick="openModal('a4')" data-tags="sueno rutina noche dormir habitos">
+        <div class="bc-visual cv-mint">
+          <span class="bc-emoji">😴</span>
+          <span class="bc-cat cc-mint">Sueño</span>
+          <span class="bc-new">⭐ Destacado</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>8 Mar 2026</span><span class="dot">·</span><span>Lic. Sueño Infantil</span><span class="dot">·</span><span>5 min</span></div>
+          <h3>Cómo establecer una rutina de sueño para tu recién nacido</h3>
+          <p>Una rutina consistente ayuda al cerebro del bebé a entender cuándo es hora de dormir. Aprende a crear una rutina relajante y efectiva desde las primeras semanas.</p>
+          <a class="bc-read" href="#">Leer artículo completo →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a5')" data-tags="sueno regresion bebe noche despertar">
+        <div class="bc-visual cv-lilac">
+          <span class="bc-emoji">🌙</span>
+          <span class="bc-cat cc-lilac">Sueño</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>3 Mar 2026</span><span class="dot">·</span><span>5 min</span></div>
+          <h3>Regresiones del sueño: qué son y cómo sobrevivirlas</h3>
+          <p>Tu bebé dormía bien y de pronto se despierta toda la noche. Tranquila: es normal y temporal.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a6')" data-tags="sueno colecho cuna seguro posicion boca arriba">
+        <div class="bc-visual cv-sky">
+          <span class="bc-emoji">🛏️</span>
+          <span class="bc-cat cc-sky">Sueño seguro</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>27 Feb 2026</span><span class="dot">·</span><span>4 min</span></div>
+          <h3>Sueño seguro: cómo acostar al bebé correctamente</h3>
+          <p>Posición boca arriba, superficie firme, temperatura adecuada. Todo lo que necesitas para que duerma seguro.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SALUD ══ -->
+  <div class="tab-section" id="sec-salud" data-cat="salud">
+    <div class="sec-lbl"><h2>🏥 Salud</h2><div class="sec-line sl-p"></div></div>
+    <p class="sec-desc">Vacunas, fiebre, cólicos, señales de alarma y todo lo que debes saber para cuidar la salud de tu bebé.</p>
+    <div class="blog-grid">
+      <div class="blog-card featured" onclick="openModal('a7')" data-tags="salud vacunas esquema inmunizacion pediatra">
+        <div class="bc-visual cv-peach">
+          <span class="bc-emoji">💉</span>
+          <span class="bc-cat cc-peach">Vacunas</span>
+          <span class="bc-new">⭐ Destacado</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>12 Mar 2026</span><span class="dot">·</span><span>Pediatra Dr. A. Torres</span><span class="dot">·</span><span>6 min</span></div>
+          <h3>Esquema completo de vacunación en el primer año de vida</h3>
+          <p>Todo lo que necesitas saber sobre las vacunas esenciales para proteger a tu bebé en el primer año: cuáles son, cuándo se aplican y por qué son tan importantes.</p>
+          <a class="bc-read" href="#">Leer artículo completo →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a8')" data-tags="salud fiebre temperatura termometro bebe cuidado">
+        <div class="bc-visual cv-rose">
+          <span class="bc-emoji">🌡️</span>
+          <span class="bc-cat cc-rose">Salud</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>6 Mar 2026</span><span class="dot">·</span><span>5 min</span></div>
+          <h3>Fiebre en bebés: cuándo preocuparse y cuándo no</h3>
+          <p>La fiebre es una respuesta inmune normal, pero hay rangos que requieren atención médica inmediata.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a9')" data-tags="salud colicos llanto gases probioticos aliviar">
+        <div class="bc-visual cv-lemon">
+          <span class="bc-emoji">😭</span>
+          <span class="bc-cat cc-lemon">Cólicos</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>2 Mar 2026</span><span class="dot">·</span><span>5 min</span></div>
+          <h3>Cólicos del bebé: causas, señales y cómo aliviarlos</h3>
+          <p>El llanto inconsolable en bebés menores de 3 meses tiene solución. Conoce estrategias efectivas y probadas.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DESARROLLO ══ -->
+  <div class="tab-section" id="sec-desarrollo" data-cat="desarrollo">
+    <div class="sec-lbl"><h2>🌱 Desarrollo</h2><div class="sec-line sl-l"></div></div>
+    <p class="sec-desc">Hitos del desarrollo motor, del lenguaje y cognitivo mes a mes para saber qué esperar en cada etapa.</p>
+    <div class="blog-grid">
+      <div class="blog-card featured" onclick="openModal('a11')" data-tags="desarrollo hitos motor lenguaje cognitivo mes">
+        <div class="bc-visual cv-lilac">
+          <span class="bc-emoji">🌱</span>
+          <span class="bc-cat cc-lilac">Desarrollo</span>
+          <span class="bc-new">⭐ Destacado</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>14 Mar 2026</span><span class="dot">·</span><span>Lic. Psicología Infantil</span><span class="dot">·</span><span>7 min</span></div>
+          <h3>Hitos del desarrollo mes a mes: qué esperar del 1 al 12</h3>
+          <p>Guía completa de los hitos del desarrollo de tu bebé durante el primer año de vida. Sonrisas, volteos, gateo y primeros pasos: todo tiene su momento.</p>
+          <a class="bc-read" href="#">Leer artículo completo →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a12')" data-tags="desarrollo estimulacion juegos tummy time">
+        <div class="bc-visual cv-mint">
+          <span class="bc-emoji">🎯</span>
+          <span class="bc-cat cc-mint">Estimulación</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>9 Mar 2026</span><span class="dot">·</span><span>5 min</span></div>
+          <h3>Estimulación temprana: juegos simples con gran impacto</h3>
+          <p>No necesitas juguetes caros. El contacto visual, el hablarle y el tummy time son los mejores estímulos.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a13')" data-tags="desarrollo lenguaje palabras hablar balbuceo comunicacion">
+        <div class="bc-visual cv-rose">
+          <span class="bc-emoji">💬</span>
+          <span class="bc-cat cc-rose">Lenguaje</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>4 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+          <h3>Cómo estimular el lenguaje desde el nacimiento</h3>
+          <p>Hablarle al bebé desde el día uno estimula su cerebro. Canciones, cuentos y conversaciones son clave.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HIGIENE ══ -->
+  <div class="tab-section" id="sec-cuidado" data-cat="cuidado">
+    <div class="sec-lbl"><h2>🛁 Higiene y Cuidado</h2><div class="sec-line sl-r"></div></div>
+    <p class="sec-desc">Baño, cuidado de la piel, cambio de pañal y todo lo relacionado con la higiene diaria del bebé.</p>
+    <div class="blog-grid">
+      <div class="blog-card featured" onclick="openModal('a10')" data-tags="cuidado bano higiene piel jabón temperatura agua">
+        <div class="bc-visual cv-sky">
+          <span class="bc-emoji">🛁</span>
+          <span class="bc-cat cc-sky">Higiene</span>
+          <span class="bc-new">⭐ Destacado</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>11 Mar 2026</span><span class="dot">·</span><span>Dermatóloga Dra. M. Ríos</span><span class="dot">·</span><span>4 min</span></div>
+          <h3>El primer baño del bebé: guía paso a paso para hacerlo bien</h3>
+          <p>Temperatura del agua, productos adecuados, técnica segura y todo lo que necesitas para que el baño sea una experiencia relajante y segura para tu bebé y para ti.</p>
+          <a class="bc-read" href="#">Leer artículo completo →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a14')" data-tags="cuidado panal rozadura dermatitis crema zinc prevencion">
+        <div class="bc-visual cv-peach">
+          <span class="bc-emoji">🩹</span>
+          <span class="bc-cat cc-peach">Piel</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>7 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+          <h3>Dermatitis del pañal: prevención y tratamiento efectivo</h3>
+          <p>La dermatitis del pañal es muy frecuente y muy tratable. Aprende a prevenirla y a actuar cuando aparece.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a15')" data-tags="cuidado costra lactea cuero cabelludo seborrhea aceite">
+        <div class="bc-visual cv-lemon">
+          <span class="bc-emoji">👶</span>
+          <span class="bc-cat cc-lemon">Piel</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>25 Feb 2026</span><span class="dot">·</span><span>4 min</span></div>
+          <h3>Costra láctea: ¿qué es y cómo tratarla sin preocuparte?</h3>
+          <p>Las escamitas amarillentas en el cuero cabelludo son normales, inofensivas y tienen solución sencilla.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MATERNIDAD ══ -->
+  <div class="tab-section" id="sec-maternidad" data-cat="maternidad">
+    <div class="sec-lbl"><h2>🤱 Maternidad</h2><div class="sec-line sl-y"></div></div>
+    <p class="sec-desc">Artículos para mamás y papás: recuperación postparto, vínculo con el bebé, salud mental y vida en pareja.</p>
+    <div class="blog-grid">
+      <div class="blog-card featured" onclick="openModal('a16')" data-tags="maternidad postparto recuperacion blues depresion emociones">
+        <div class="bc-visual cv-rose">
+          <span class="bc-emoji">💙</span>
+          <span class="bc-cat cc-rose">Postparto</span>
+          <span class="bc-new">⭐ Destacado</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>13 Mar 2026</span><span class="dot">·</span><span>Psicóloga Lic. P. Mora</span><span class="dot">·</span><span>6 min</span></div>
+          <h3>Baby blues vs. depresión postparto: diferencias que debes conocer</h3>
+          <p>El 80% de las mamás experimenta el "baby blues" en los primeros días. Pero cuando la tristeza se prolonga, puede ser depresión postparto. Aprende a identificarla y a buscar ayuda.</p>
+          <a class="bc-read" href="#">Leer artículo completo →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a17')" data-tags="maternidad vinculo apego bebe amor contacto">
+        <div class="bc-visual cv-lemon">
+          <span class="bc-emoji">❤️</span>
+          <span class="bc-cat cc-lemon">Vínculo</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>8 Mar 2026</span><span class="dot">·</span><span>5 min</span></div>
+          <h3>Cómo fortalecer el vínculo afectivo con tu bebé</h3>
+          <p>El apego seguro es la base del desarrollo emocional. No necesitas ser perfecto, solo estar presente.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+      <div class="blog-card" onclick="openModal('a18')" data-tags="maternidad papá padre participacion paternidad lactancia">
+        <div class="bc-visual cv-sky">
+          <span class="bc-emoji">👨‍👶</span>
+          <span class="bc-cat cc-sky">Paternidad</span>
+        </div>
+        <div class="bc-body">
+          <div class="bc-meta"><span>3 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+          <h3>El papel del papá en los primeros meses: más importante de lo que crees</h3>
+          <p>Los papás juegan un rol único e insustituible en el desarrollo del bebé. Aquí te decimos cómo participar activamente.</p>
+          <a class="bc-read" href="#">Leer →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- NEWSLETTER -->
+<div class="nl-band">
+  <div class="nl-inner">
+    <h2>📬 Recibe artículos para papás</h2>
+    <p>Consejos semanales de nuestros pediatras y especialistas directo a tu correo. Sin spam, solo amor por tu bebé.</p>
+    <div class="nl-form">
+      <input class="nl-input" type="email" placeholder="tu@correo.com"/>
+      <button class="nl-btn" onclick="alert('¡Suscrito! 🎉 Recibirás nuestros artículos cada semana.')">Suscribirme 💌</button>
+    </div>
+  </div>
+</div>
+
+<footer><p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Blog de Bebés · Contenido redactado por pediatras y especialistas · Para dudas urgentes consulta siempre a tu médico 👶</p></footer>
+
+<!-- ══ MODAL ══ -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="modal-hero" id="m-hero">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-hero-emoji" id="m-emoji"></div>
+      <div class="modal-cat" id="m-cat"></div>
+      <h2 id="m-title"></h2>
+      <div class="modal-meta" id="m-meta"></div>
+    </div>
+    <div class="modal-content" id="m-content"></div>
+  </div>
+</div>
+
+<script>
+// ── Article data ──────────────────────────────────────────────────────────
+const articles = {
+
+  a1:{
+    emoji:'🍼', cat:'🍼 Nutrición · Alimentación complementaria',
+    catClass:'cc-sky', heroBg:'cv-sky',
+    title:'¿Cuándo y cómo introducir alimentos sólidos en la dieta de tu bebé?',
+    meta:'10 Mar 2026 · Pediatra Dra. G. Sánchez · 5 min lectura',
+    content:`
+      <p>Uno de los momentos más emocionantes —y también más confusos— para los papás es cuando el bebé está listo para comenzar con los sólidos. ¿A los 4 meses? ¿A los 6? ¿Empieza con papillas o con trocitos? Aquí te damos toda la información basada en evidencia.</p>
+      <div class="callout callout-sky">📋 La Organización Mundial de la Salud (OMS) recomienda iniciar la alimentación complementaria a los <strong>6 meses</strong>, manteniendo la lactancia materna o la fórmula como base hasta los 2 años.</div>
+      <h3>🔍 ¿Cómo saber si mi bebé está listo?</h3>
+      <p>No basta con el calendario. Hay señales claras de madurez que debes observar:</p>
+      <ul>
+        <li><strong>Sostiene su cabeza</strong> de forma estable y erguida.</li>
+        <li>Se <strong>sienta con apoyo</strong> sin desmoronarse hacia los lados.</li>
+        <li>Muestra <strong>interés por la comida</strong> de los adultos (mira o alcanza los platos).</li>
+        <li>Ha <strong>desaparecido el reflejo de extrusión</strong> (ya no saca la lengua automáticamente).</li>
+        <li>Ha <strong>duplicado su peso al nacer</strong> y pesa al menos 6–7 kg.</li>
+      </ul>
+      <h3>🥕 ¿Con qué alimento empezar?</h3>
+      <p>No hay un único orden correcto, pero sí recomendaciones generales:</p>
+      <ul>
+        <li>Verduras como <strong>calabaza, zanahoria, camote o chayote</strong> son ideales por su textura suave y sabor suave.</li>
+        <li>Las <strong>frutas</strong> como plátano, manzana y pera cocida son nutritivas y bien aceptadas.</li>
+        <li>El <strong>aguacate</strong> es un superalimento para bebés por sus grasas saludables.</li>
+        <li>Los <strong>cereales sin gluten</strong> (arroz, maíz) son una buena opción como primera papilla.</li>
+      </ul>
+      <div class="callout callout-mint">🥄 Introduce los alimentos <strong>de uno en uno</strong>, esperando 3–5 días entre cada nuevo alimento para detectar posibles reacciones alérgicas. Nada de prisas.</div>
+      <h3>🚫 Alimentos prohibidos antes del año</h3>
+      <ul>
+        <li><strong>Miel:</strong> riesgo de botulismo infantil.</li>
+        <li><strong>Sal y azúcar:</strong> los riñones y el gusto del bebé no lo necesitan.</li>
+        <li><strong>Leche de vaca como bebida</strong> (puede usarse en recetas).</li>
+        <li><strong>Alimentos duros</strong> que supongan riesgo de atragantamiento.</li>
+        <li><strong>Pescado ahumado, mariscos y atún en exceso</strong> por el mercurio.</li>
+      </ul>
+      <h3>🥣 ¿Papillas o Baby-Led Weaning (BLW)?</h3>
+      <p>Ambas son opciones válidas. Las papillas facilitan el control de la cantidad ingerida; el BLW promueve la autonomía y la exploración sensorial. Puedes combinar ambos enfoques. Lo más importante es que el bebé esté siempre bajo supervisión directa mientras come.</p>
+      <p>Si tienes dudas, tu pediatra de confianza puede orientarte sobre el enfoque más adecuado para tu bebé. En Farmacias Yair también encontrarás cereales, papillas y purés de las mejores marcas para esta etapa.</p>
+    `
+  },
+
+  a2:{
+    emoji:'🤱', cat:'🤱 Nutrición · Lactancia',
+    catClass:'cc-peach', heroBg:'cv-peach',
+    title:'Lactancia materna vs. fórmula: lo que realmente debes saber',
+    meta:'5 Mar 2026 · Lic. Nutriología Infantil · 4 min lectura',
+    content:`
+      <p>Pocas decisiones generan más presión social en las mamás que la elección entre lactancia materna y fórmula. La realidad es que <strong>ambas opciones pueden nutrir a un bebé perfectamente</strong>. Lo que importa es que mamá y bebé estén bien.</p>
+      <div class="callout callout-peach">💙 No existe la "mejor mamá" según la forma en que alimentas a tu hijo. La mejor decisión es la que funciona para tu familia.</div>
+      <h3>🌸 Ventajas de la lactancia materna</h3>
+      <ul>
+        <li>Contiene <strong>anticuerpos</strong> que protegen al bebé contra infecciones.</li>
+        <li>Se adapta a las necesidades del bebé en cada etapa.</li>
+        <li>Refuerza el <strong>vínculo emocional</strong> madre-hijo.</li>
+        <li>Reduce el riesgo de alergias, asma y diabetes tipo 1.</li>
+        <li>Beneficios para la mamá: recuperación uterina, reducción de riesgo de cáncer de mama.</li>
+      </ul>
+      <h3>🍼 ¿Cuándo es válida la fórmula?</h3>
+      <ul>
+        <li>Cuando la mamá no puede o no desea amamantar.</li>
+        <li>Cuando el bebé no gana peso suficiente con la lactancia.</li>
+        <li>En casos de adopción o mamás con ciertas condiciones médicas.</li>
+        <li>Como complemento a la lactancia (lactancia mixta).</li>
+      </ul>
+      <div class="callout callout-sky">🔬 Las fórmulas modernas están estrictamente reguladas y están diseñadas para imitar la composición de la leche materna en lo posible. Son seguras y nutritivas.</div>
+      <h3>🤝 Lactancia mixta: lo mejor de ambos mundos</h3>
+      <p>Muchas familias optan por combinar ambas opciones. Puedes amamantar de día y dar fórmula de noche, o en los momentos en que la mamá no esté disponible. Es completamente válido y funciona muy bien.</p>
+      <p>En Farmacias Yair encontramos fórmulas de las principales marcas (Enfamil, Similac, NAN) y asesoría en sucursal para elegir la más adecuada para tu bebé.</p>
+    `
+  },
+
+  a3:{
+    emoji:'🥕', cat:'🥕 Nutrición · Primeros alimentos',
+    catClass:'cc-lemon', heroBg:'cv-lemon',
+    title:'Los 10 primeros alimentos recomendados para bebés de 6 meses',
+    meta:'1 Mar 2026 · Lic. Nutriología L. Hernández · 4 min lectura',
+    content:`
+      <p>A los 6 meses el bebé está listo para explorar sabores y texturas. Aquí van los 10 alimentos más recomendados para comenzar la alimentación complementaria de forma segura y nutritiva.</p>
+      <div class="age-chips"><span class="age-chip">👶 6+ meses</span><span class="age-chip">🥄 Papilla o BLW</span></div>
+      <h3>🏆 Los 10 mejores primeros alimentos</h3>
+      <ul>
+        <li><strong>1. Aguacate:</strong> grasa saludable, textura perfecta, sin cocción necesaria.</li>
+        <li><strong>2. Plátano:</strong> dulce natural, suave, fácil de aplastar.</li>
+        <li><strong>3. Calabaza:</strong> puré cremoso, sabor suave, rica en vitamina A.</li>
+        <li><strong>4. Camote:</strong> dulce, nutritivo, fácil digestión.</li>
+        <li><strong>5. Manzana cocida:</strong> rica en fibra, suaviza bien al vapor.</li>
+        <li><strong>6. Pera cocida:</strong> muy suave, ideal para el estreñimiento.</li>
+        <li><strong>7. Zanahoria:</strong> betacarotenos, se aplasta bien al cocer.</li>
+        <li><strong>8. Cereal de arroz:</strong> primer cereal, sin gluten, enriquecido con hierro.</li>
+        <li><strong>9. Chícharo (guisante):</strong> proteína vegetal, hierro, se puede moler.</li>
+        <li><strong>10. Pollo desmenuzado:</strong> proteína de alto valor, introduce con caldo suave.</li>
+      </ul>
+      <div class="callout callout-lemon">⏰ Introduce <strong>un alimento nuevo cada 3–5 días</strong> para detectar posibles alergias. Anota en un diario qué alimentos has introducido y cómo reaccionó el bebé.</div>
+      <h3>🚫 Texturas a evitar</h3>
+      <p>Todo lo que pueda suponer atragantamiento: uvas enteras, nueces enteras, verduras crudas duras, trozos grandes de carne. Si haces BLW, ofrece siempre trozos blandos del tamaño de un dedo.</p>
+    `
+  },
+
+  a4:{
+    emoji:'😴', cat:'😴 Sueño · Rutinas',
+    catClass:'cc-mint', heroBg:'cv-mint',
+    title:'Cómo establecer una rutina de sueño para tu recién nacido',
+    meta:'8 Mar 2026 · Lic. Sueño Infantil C. Vega · 5 min lectura',
+    content:`
+      <p>La palabra "rutina" puede sonar intimidante para un bebé de pocas semanas, pero no se trata de horarios estrictos —sino de <strong>secuencias consistentes de señales</strong> que le indican al cerebro del bebé que se acerca la hora de dormir.</p>
+      <div class="callout callout-mint">✨ Un bebé no puede "aprender" a dormir antes de los 3–4 meses. Antes de esa edad, el objetivo es simplemente <strong>responder a sus señales de sueño</strong> y crear un ambiente tranquilo.</div>
+      <h3>🌙 La rutina de los 3 pasos</h3>
+      <p>La rutina más efectiva y sencilla para recién nacidos es la que funciona en 3 pasos simples, siempre en el mismo orden:</p>
+      <ul>
+        <li><strong>1. Baño o limpieza:</strong> agua tibia calma el sistema nervioso. No es necesario bañar todos los días; una esponja húmeda también funciona.</li>
+        <li><strong>2. Alimentación:</strong> pecho o biberón en posición calmada, con poca estimulación visual y luces bajas.</li>
+        <li><strong>3. Canción o cuento:</strong> la misma cada noche. Tu voz es el anclaje emocional más poderoso que existe para el bebé.</li>
+      </ul>
+      <h3>🕰️ ¿Cuántas horas debe dormir?</h3>
+      <ul>
+        <li><strong>Recién nacido (0–3 meses):</strong> 14–17 horas en total, en ciclos de 2–4 horas.</li>
+        <li><strong>4–6 meses:</strong> 12–16 horas. Empieza a consolidarse el sueño nocturno.</li>
+        <li><strong>7–12 meses:</strong> 12–16 horas, con 2 siestas diurnas bien establecidas.</li>
+      </ul>
+      <div class="callout callout-sky">🌟 Tip de oro: intenta acostar al bebé <strong>somnoliento pero despierto</strong>. Esto le ayuda a aprender a conciliar el sueño por sí mismo con el tiempo.</div>
+      <h3>🔇 El ambiente importa</h3>
+      <p>Temperatura entre 20–22°C, oscuridad total o luz muy tenue, y ruido blanco suave (ventilador o app) pueden mejorar mucho la calidad del sueño del bebé.</p>
+    `
+  },
+
+  a5:{
+    emoji:'🌙', cat:'🌙 Sueño · Regresiones',
+    catClass:'cc-lilac', heroBg:'cv-lilac',
+    title:'Regresiones del sueño: qué son y cómo sobrevivirlas',
+    meta:'3 Mar 2026 · Lic. Sueño Infantil · 5 min lectura',
+    content:`
+      <p>Tu bebé dormía 5 horas seguidas y de repente, a los 4 meses, se despierta cada hora. No está enfermo. No es "malacostumbrado". Está en plena <strong>regresión del sueño</strong>: un período normal vinculado a saltos en el desarrollo cerebral.</p>
+      <h3>📅 ¿Cuándo ocurren?</h3>
+      <ul>
+        <li><strong>3–4 meses:</strong> la más intensa. La arquitectura del sueño madura y cambia.</li>
+        <li><strong>6 meses:</strong> relacionada con el inicio de los sólidos y habilidades motoras.</li>
+        <li><strong>8–10 meses:</strong> ansiedad por separación, gateo, bipedestación.</li>
+        <li><strong>12 meses:</strong> inicio de la marcha y desarrollo del lenguaje.</li>
+      </ul>
+      <div class="callout callout-lilac">💜 Las regresiones son <strong>señal de que el cerebro de tu bebé está creciendo</strong>, no de que algo va mal. Duran entre 2 y 6 semanas en la mayoría de los casos.</div>
+      <h3>🛠️ Estrategias para sobrevivirlas</h3>
+      <ul>
+        <li>Mantén la rutina de sueño habitual aunque parezca que no funciona.</li>
+        <li>Responde al bebé con calma: el estrés de los papás se transmite.</li>
+        <li>Prioriza el descanso de los adultos: túrnense para las noches.</li>
+        <li>No empieces nuevos hábitos que luego quieras quitar (ej. mecerlo toda la noche).</li>
+        <li>Esto también pasará. La frase más repetida —y más cierta— de la crianza.</li>
+      </ul>
+    `
+  },
+
+  a6:{
+    emoji:'🛏️', cat:'🛏️ Sueño · Seguridad',
+    catClass:'cc-sky', heroBg:'cv-sky',
+    title:'Sueño seguro: cómo acostar al bebé correctamente',
+    meta:'27 Feb 2026 · Pediatra Dr. A. Torres · 4 min lectura',
+    content:`
+      <p>El síndrome de muerte súbita del lactante (SMSL) es una de las mayores preocupaciones de los padres nuevos. La buena noticia es que hay recomendaciones claras que reducen significativamente el riesgo.</p>
+      <div class="callout callout-sky">🛡️ La regla de oro: <strong>boca arriba, superficie firme, sin objetos en la cuna</strong>. Estas tres medidas han reducido el SMSL en más de un 50% en los últimos 30 años.</div>
+      <h3>✅ Las reglas del sueño seguro</h3>
+      <ul>
+        <li><strong>Posición:</strong> siempre boca arriba, nunca de lado ni boca abajo.</li>
+        <li><strong>Superficie:</strong> colchón firme específico para bebés. Nada blando.</li>
+        <li><strong>Sin objetos:</strong> sin almohadas, cobertores sueltos, peluches ni posicionadores.</li>
+        <li><strong>Temperatura:</strong> entre 20–22°C. Ni frío ni calor excesivo.</li>
+        <li><strong>Cuna independiente:</strong> ideal que esté en el mismo cuarto de los papás los primeros 6 meses.</li>
+        <li><strong>Sin humo:</strong> nunca cerca de fumadores ni en superficies con residuos de tabaco.</li>
+      </ul>
+      <h3>🛌 ¿Y el colecho?</h3>
+      <p>El colecho en superficies blandas (cama de adultos) aumenta el riesgo. Si deseas tener al bebé cerca, existen cunas adosadas a la cama de los padres (sidecar) que son una alternativa más segura.</p>
+    `
+  },
+
+  a7:{
+    emoji:'💉', cat:'💉 Salud · Vacunas',
+    catClass:'cc-peach', heroBg:'cv-peach',
+    title:'Esquema completo de vacunación en el primer año de vida',
+    meta:'12 Mar 2026 · Pediatra Dr. A. Torres · 6 min lectura',
+    content:`
+      <p>Las vacunas son uno de los mayores logros de la medicina moderna y el método más efectivo para proteger a tu bebé de enfermedades graves que pueden ser mortales en menores de un año.</p>
+      <div class="callout callout-peach">💉 Las vacunas <strong>no causan autismo</strong>. Esta afirmación fue desmentida por numerosos estudios científicos. Son seguras y esenciales para la salud de tu bebé y de la comunidad.</div>
+      <h3>📅 Esquema recomendado en México (1er año)</h3>
+      <ul>
+        <li><strong>Al nacer:</strong> BCG (tuberculosis) + Hepatitis B 1ª dosis.</li>
+        <li><strong>2 meses:</strong> Pentavalente acelular (Difteria, Tétanos, Tos ferina, Hib, Polio) + Neumocócica + Rotavirus.</li>
+        <li><strong>4 meses:</strong> Pentavalente 2ª + Neumocócica 2ª + Rotavirus 2ª.</li>
+        <li><strong>6 meses:</strong> Pentavalente 3ª + Neumocócica 3ª + Influenza 1ª dosis.</li>
+        <li><strong>7 meses:</strong> Influenza 2ª dosis (refuerzo).</li>
+        <li><strong>12 meses:</strong> SRP (Sarampión, Rubéola, Parotiditis) + Neumocócica refuerzo.</li>
+      </ul>
+      <h3>🤔 ¿Qué esperar después de la vacuna?</h3>
+      <ul>
+        <li><strong>Fiebre leve</strong> (hasta 38.5°C) en las siguientes 24–48h: normal.</li>
+        <li><strong>Irritabilidad y llanto</strong> más intenso de lo usual: normal.</li>
+        <li><strong>Enrojecimiento o bulto</strong> en el sitio de inyección: normal y temporal.</li>
+        <li>Paracetamol pediátrico puede usarse para el malestar, según indicación del pediatra.</li>
+      </ul>
+      <div class="callout callout-mint">🚨 Acude al médico si la fiebre supera los 39°C, si el llanto es inconsolable por más de 3 horas, o si notas convulsiones o dificultad respiratoria.</div>
+    `
+  },
+
+  a8:{
+    emoji:'🌡️', cat:'🌡️ Salud · Fiebre',
+    catClass:'cc-rose', heroBg:'cv-rose',
+    title:'Fiebre en bebés: cuándo preocuparse y cuándo no',
+    meta:'6 Mar 2026 · Pediatra Dra. G. Sánchez · 5 min lectura',
+    content:`
+      <p>La fiebre en bebés asusta mucho a los papás primerizos. Pero entender qué es la fiebre y cuándo realmente es una emergencia puede marcar toda la diferencia entre una noche de pánico y una noche tranquila.</p>
+      <div class="callout callout-rose">🌡️ La fiebre <strong>NO es una enfermedad</strong>: es una respuesta del sistema inmune que indica que el cuerpo está combatiendo una infección. No es dañina en sí misma hasta ciertos rangos.</div>
+      <h3>📊 Rangos de temperatura</h3>
+      <ul>
+        <li><strong>Normal:</strong> 36.5 – 37.5°C</li>
+        <li><strong>Febrícula:</strong> 37.5 – 38°C (monitorear, sin medicación)</li>
+        <li><strong>Fiebre:</strong> 38°C o más (valorar según edad y síntomas)</li>
+        <li><strong>Fiebre alta:</strong> más de 39°C (consultar al médico)</li>
+        <li><strong>Urgencia:</strong> más de 40°C, o cualquier fiebre en menores de 3 meses</li>
+      </ul>
+      <h3>🚨 Ve de inmediato al médico si:</h3>
+      <ul>
+        <li>Tu bebé tiene <strong>menos de 3 meses</strong> y tiene cualquier temperatura de 38°C o más.</li>
+        <li>La fiebre supera los <strong>40°C</strong> a cualquier edad.</li>
+        <li>El bebé tiene <strong>convulsiones febriles</strong>.</li>
+        <li>Hay <strong>manchas rojas o moradas</strong> en la piel.</li>
+        <li>El bebé parece <strong>muy decaído, no reacciona</strong> o le cuesta respirar.</li>
+      </ul>
+      <h3>💊 ¿Cuándo medicar?</h3>
+      <p>La medicación (paracetamol o ibuprofeno pediátrico) se recomienda cuando la fiebre supera los 38.5°C <strong>y el bebé parece incómodo o con malestar</strong>. El objetivo no es normalizar la temperatura, sino aliviar el malestar. Sigue siempre las indicaciones de tu pediatra en dosis y frecuencia.</p>
+    `
+  },
+
+  a9:{
+    emoji:'😭', cat:'😭 Salud · Cólicos',
+    catClass:'cc-lemon', heroBg:'cv-lemon',
+    title:'Cólicos del bebé: causas, señales y cómo aliviarlos',
+    meta:'2 Mar 2026 · Pediatra Dr. A. Torres · 5 min lectura',
+    content:`
+      <p>Los cólicos son el gran miedo de los padres primerizos: un llanto intenso, inconsolable, que puede durar horas sin causa aparente. Afectan al 20–30% de los bebés entre las 2 semanas y los 4 meses de vida.</p>
+      <div class="callout callout-lemon">📌 La "regla de los 3": cólico se define como llanto por más de <strong>3 horas al día, más de 3 días a la semana, durante más de 3 semanas</strong>, en un bebé por lo demás sano.</div>
+      <h3>🔍 ¿Qué causa los cólicos?</h3>
+      <p>La causa exacta no se conoce completamente, pero los factores más estudiados incluyen:</p>
+      <ul>
+        <li>Inmadurez del sistema digestivo y del sistema nervioso.</li>
+        <li>Gas intestinal acumulado.</li>
+        <li>Sensibilidad a proteínas de la leche (materna o fórmula).</li>
+        <li>Sobreestimulación sensorial al final del día.</li>
+        <li>Microbioma intestinal inmaduro (desequilibrio de bacterias).</li>
+      </ul>
+      <h3>🛠️ Técnicas que ayudan</h3>
+      <ul>
+        <li><strong>Las 5 S de Harvey Karp:</strong> Swaddle (envoltura), Side (lado), Swing (balanceo), Shush (ruido blanco), Suck (succión). Funcionan mejor juntas.</li>
+        <li><strong>Masaje abdominal:</strong> movimientos circulares en sentido de las agujas del reloj.</li>
+        <li><strong>Posición de "avioncito":</strong> boca abajo sobre tu antebrazo con leve presión en el abdomen.</li>
+        <li><strong>Probióticos:</strong> Lactobacillus reuteri (BioGaia) tiene evidencia clínica para reducir el llanto por cólicos.</li>
+        <li><strong>Calor:</strong> una toallita tibia sobre el abdomen puede aliviar el espasmo intestinal.</li>
+      </ul>
+      <div class="callout callout-mint">🌿 Los probióticos infantiles como el BioGaia Protectis (con L. reuteri) han mostrado en estudios clínicos una <strong>reducción del llanto por cólicos de hasta el 50%</strong> en bebés amamantados. Consúltalo con tu pediatra. Lo encontrarás en Farmacias Yair.</div>
+    `
+  },
+
+  a10:{
+    emoji:'🛁', cat:'🛁 Higiene · Baño',
+    catClass:'cc-sky', heroBg:'cv-sky',
+    title:'El primer baño del bebé: guía paso a paso',
+    meta:'11 Mar 2026 · Dermatóloga Dra. M. Ríos · 4 min lectura',
+    content:`
+      <p>El primer baño es un momento especial y también un poco intimidante. Con la técnica correcta se convierte en una rutina relajante que tu bebé acabará adorando.</p>
+      <div class="callout callout-sky">💡 Espera a que el cordón umbilical haya caído completamente (7–14 días) antes de bañar al bebé en agua. Mientras tanto, usa una esponja húmeda con agua tibia.</div>
+      <h3>🌡️ Temperatura del agua</h3>
+      <p>La temperatura ideal es <strong>37–38°C</strong> — igual que la corporal, para que no sorprenda al bebé. Usa un termómetro de baño para confirmarlo. Si no tienes, introduce el codo: debe sentirse apenas tibio, no caliente.</p>
+      <h3>🧴 Productos adecuados</h3>
+      <ul>
+        <li>Usa gel o jabón específico para bebés, con <strong>pH neutro</strong> y sin perfumes agresivos.</li>
+        <li>Elige productos testados dermatológicamente y sin parabenos.</li>
+        <li>Menos es más: no necesitas muchos productos, solo limpieza suave.</li>
+        <li>Marcas como Mustela, Johnson's Baby o Dove Baby están formuladas para la piel del recién nacido.</li>
+      </ul>
+      <h3>👐 Paso a paso</h3>
+      <ul>
+        <li><strong>1.</strong> Prepara todo antes de meter al bebé al agua (toalla, ropa, pañal).</li>
+        <li><strong>2.</strong> Sujeta al bebé firmemente con una mano bajo su nuca.</li>
+        <li><strong>3.</strong> Introduce los pies primero, habla con voz tranquila.</li>
+        <li><strong>4.</strong> Lava cara con agua sola, luego cuerpo con gel suave.</li>
+        <li><strong>5.</strong> No más de <strong>5–10 minutos</strong> para no resecar la piel.</li>
+        <li><strong>6.</strong> Envuelve inmediatamente en toalla tibia y seca con toques suaves.</li>
+      </ul>
+      <div class="callout callout-mint">⚠️ <strong>Nunca dejes al bebé solo en el baño</strong>, ni un segundo. Si suena el teléfono o la puerta, lleva al bebé contigo. El riesgo de ahogamiento es real incluso en pocos centímetros de agua.</div>
+    `
+  },
+
+  a11:{
+    emoji:'🌱', cat:'🌱 Desarrollo · Hitos',
+    catClass:'cc-lilac', heroBg:'cv-lilac',
+    title:'Hitos del desarrollo mes a mes: qué esperar del 1 al 12',
+    meta:'14 Mar 2026 · Lic. Psicología Infantil M. Pérez · 7 min lectura',
+    content:`
+      <p>Cada bebé es único y tiene su propio ritmo de desarrollo. Sin embargo, existen <strong>hitos generales</strong> que ayudan a los pediatras (y a los papás) a seguir el progreso del bebé y detectar si necesita apoyo en algún área.</p>
+      <div class="callout callout-lilac">📌 Los rangos de hitos son amplios y normales. Si tu bebé aún no alcanzó un hito puntual, no entres en pánico. Consúltalo con tu pediatra en la próxima cita de control.</div>
+      <h3>👶 1–2 meses</h3><ul><li>Fija la mirada en caras.</li><li>Sonrisa social (primer "regalo" del bebé a los papás).</li><li>Reacciona a sonidos fuertes.</li><li>Voltea la cabeza en busca de la voz de mamá.</li></ul>
+      <h3>🤲 3–4 meses</h3><ul><li>Controla la cabeza al estar boca abajo (tummy time).</li><li>Sigue objetos con la mirada a 180°.</li><li>Ríe en voz alta.</li><li>Empieza a llevarse las manos a la boca.</li></ul>
+      <h3>🎯 5–6 meses</h3><ul><li>Se sienta con apoyo.</li><li>Transfiere objetos de una mano a la otra.</li><li>Balbuceo ("ba-ba", "ma-ma" sin intención).</li><li>Muestra interés por la comida de los adultos.</li></ul>
+      <h3>🐾 7–9 meses</h3><ul><li>Se sienta sin apoyo.</li><li>Inicia el gateo o arrastre.</li><li>Pinza inferior (agarra con pulgar e índice).</li><li>Ansiedad ante extraños.</li><li>Entiende el concepto de "no".</li></ul>
+      <h3>🚶 10–12 meses</h3><ul><li>Se pone de pie con apoyo.</li><li>Primeros pasos (algunos lo hacen hasta los 14–15 meses).</li><li>Primera palabra con significado.</li><li>Señala con el dedo índice.</li><li>Imita gestos sencillos.</li></ul>
+      <div class="callout callout-mint">🚨 Señales que siempre merecen consulta: a los 3 meses no hay sonrisa social; a los 6 meses no hace sonidos; a los 12 meses no señala ni dice ninguna palabra; en cualquier momento pierde habilidades que ya había logrado.</div>
+    `
+  },
+
+  a12:{
+    emoji:'🎯', cat:'🎯 Desarrollo · Estimulación',
+    catClass:'cc-mint', heroBg:'cv-mint',
+    title:'Estimulación temprana: juegos simples con gran impacto',
+    meta:'9 Mar 2026 · Lic. Terapia Ocupacional · 5 min lectura',
+    content:`
+      <p>La estimulación temprana no requiere juguetes caros ni programas elaborados. El mayor estímulo para el cerebro de un bebé eres <strong>tú</strong>: tu voz, tu cara, tu contacto y tu presencia.</p>
+      <h3>👁️ Por edades</h3>
+      <ul>
+        <li><strong>0–2 meses:</strong> Contacto visual intenso, hablarle y cantarle, móvil en blanco y negro a 20–30 cm.</li>
+        <li><strong>3–4 meses:</strong> Tiempo boca abajo (tummy time) 3–5 min varias veces al día. Sonajeros de colores vivos. Canciones con ritmo.</li>
+        <li><strong>5–6 meses:</strong> Espejos irrompibles, exploración de texturas, libros de tela.</li>
+        <li><strong>7–9 meses:</strong> Esconder y revelar objetos (permanencia del objeto). Primeras canciones de acción (tortillitas, palmas).</li>
+        <li><strong>10–12 meses:</strong> Apilar y vaciar recipientes, señalar en libros, caminar con apoyo.</li>
+      </ul>
+      <div class="callout callout-mint">🌟 El <strong>tummy time</strong> es esencial: 30 minutos diarios (repartidos) fortalecen el cuello, los hombros y preparan al bebé para el gateo. Hazlo cuando esté despierto y bajo supervisión.</div>
+      <h3>📵 Pantallas y bebés</h3>
+      <p>La Academia Americana de Pediatría recomienda <strong>evitar las pantallas antes de los 18–24 meses</strong> (excepto videollamadas). El cerebro del bebé aprende mejor del mundo real y de la interacción humana directa.</p>
+    `
+  },
+
+  a13:{
+    emoji:'💬', cat:'💬 Desarrollo · Lenguaje',
+    catClass:'cc-rose', heroBg:'cv-rose',
+    title:'Cómo estimular el lenguaje desde el nacimiento',
+    meta:'4 Mar 2026 · Fonoaudióloga Lic. C. García · 4 min lectura',
+    content:`
+      <p>El lenguaje comienza mucho antes de las primeras palabras. Desde el vientre materno el bebé escucha tu voz, y en los primeros meses de vida absorbe cada sonido como una esponja.</p>
+      <h3>🗣️ Lo que funciona</h3>
+      <ul>
+        <li><strong>Hablarle constantemente:</strong> descríbele lo que estás haciendo ("ahora te voy a cambiar el pañal", "mira ese perrito").</li>
+        <li><strong>Parentés infantil:</strong> el "baby talk" o habla infantil (voz más aguda, ritmo más lento) es estimulante para el cerebro. No es malo.</li>
+        <li><strong>Leer en voz alta</strong> desde los primeros días, aunque no "entienda".</li>
+        <li><strong>Cantar:</strong> las canciones repetitivas fijan patrones de lenguaje.</li>
+        <li><strong>Tiempo de cara a cara</strong> sin distracciones: contacto visual e imitación de expresiones.</li>
+      </ul>
+      <div class="callout callout-rose">💬 Los bebés aprenden más lenguaje en conversaciones <strong>cara a cara</strong> que de cualquier otra fuente. El tiempo de pantalla no reemplaza la interacción humana para el desarrollo del lenguaje.</div>
+      <h3>📅 Hitos del lenguaje</h3>
+      <ul><li>2 meses: arrullos y gorjeos.</li><li>4–6 meses: balbuceo ("ba", "da", "ma").</li><li>9 meses: "mamá", "papá" sin intención.</li><li>12 meses: 1–3 palabras con intención clara.</li></ul>
+    `
+  },
+
+  a14:{
+    emoji:'🩹', cat:'🩹 Higiene · Piel del bebé',
+    catClass:'cc-peach', heroBg:'cv-peach',
+    title:'Dermatitis del pañal: prevención y tratamiento efectivo',
+    meta:'7 Mar 2026 · Dermatóloga Dra. M. Ríos · 4 min lectura',
+    content:`
+      <p>La dermatitis del pañal es la condición dermatológica más frecuente en bebés. Aunque suele ser leve, causa incomodidad y puede complicarse si no se trata correctamente.</p>
+      <div class="callout callout-peach">📌 La causa principal es el <strong>contacto prolongado con la humedad</strong>: orina y heces irritan la piel delicada del bebé cuando el pañal no se cambia con frecuencia suficiente.</div>
+      <h3>🛡️ Prevención: los 5 pasos de oro</h3>
+      <ul>
+        <li><strong>Cambiar el pañal frecuentemente:</strong> cada 2–3 horas o inmediatamente después de cada deposición.</li>
+        <li><strong>Limpiar con agua y jabón suave</strong> o toallitas sin alcohol ni fragancia.</li>
+        <li><strong>Secar bien</strong> con toques suaves (no frotar) antes de colocar el nuevo pañal.</li>
+        <li><strong>Crema barrera:</strong> aplica una capa de crema con óxido de zinc en cada cambio como barrera protectora.</li>
+        <li><strong>Tiempo sin pañal:</strong> 15–30 minutos al aire libre al día ayuda a secar y sanar la piel.</li>
+      </ul>
+      <h3>💊 ¿Cuándo acudir al médico?</h3>
+      <p>Si hay ampollas, pus, fiebre, o si la dermatitis se extiende más allá del área del pañal, puede ser una infección por cándida que requiere tratamiento antifúngico prescrito por el pediatra.</p>
+    `
+  },
+
+  a15:{
+    emoji:'👶', cat:'👶 Higiene · Piel',
+    catClass:'cc-lemon', heroBg:'cv-lemon',
+    title:'Costra láctea: qué es y cómo tratarla sin preocuparte',
+    meta:'25 Feb 2026 · Dermatóloga Dra. M. Ríos · 4 min lectura',
+    content:`
+      <p>Las escamitas amarillentas o blanquecinas en el cuero cabelludo del bebé tienen un nombre médico: <strong>dermatitis seborreica del lactante</strong>. Se conoce popularmente como "costra láctea" y es inofensiva.</p>
+      <div class="callout callout-lemon">✅ La costra láctea <strong>no duele, no pica y no indica mala higiene</strong>. Es causada por la sobreactividad de las glándulas sebáceas del bebé, estimuladas por las hormonas maternas.</div>
+      <h3>🕐 ¿Cuándo aparece y cuándo desaparece?</h3>
+      <p>Suele aparecer en las <strong>primeras 6–8 semanas de vida</strong> y se resuelve sola hacia los 6–12 meses. En algunos bebés puede durar hasta los 3 años sin ser problemático.</p>
+      <h3>🧴 Tratamiento sencillo</h3>
+      <ul>
+        <li>Aplica <strong>aceite de bebé, aceite de almendras o aceite de coco</strong> en el cuero cabelludo 15–20 minutos antes del baño.</li>
+        <li>Con un cepillo de cerdas naturales suaves, <strong>masajea suavemente</strong> en círculos para aflojar las escamas.</li>
+        <li>Lava con champú específico para bebés (como el Gel Cradle Cap de Mustela).</li>
+        <li><strong>No arranques las costras a la fuerza</strong>: puede provocar irritación e infección.</li>
+      </ul>
+      <p>Si la costra se extiende a la cara, las orejas o el cuello, consulta al pediatra. Puede requerir una crema suave con corticosteroide tópico.</p>
+    `
+  },
+
+  a16:{
+    emoji:'💙', cat:'💙 Maternidad · Postparto',
+    catClass:'cc-rose', heroBg:'cv-rose',
+    title:'Baby blues vs. depresión postparto: diferencias que debes conocer',
+    meta:'13 Mar 2026 · Psicóloga Lic. P. Mora · 6 min lectura',
+    content:`
+      <p>Imaginas que la llegada de tu bebé será pura alegría, y en cambio te sientes triste, ansiosa o vacía. No estás sola: esto es mucho más frecuente de lo que se habla, y tiene solución.</p>
+      <h3>💛 Baby Blues (tristeza postparto)</h3>
+      <ul>
+        <li>Afecta hasta el <strong>80% de las mamás</strong> en los primeros días.</li>
+        <li>Síntomas: llanto sin causa aparente, irritabilidad, tristeza, inseguridad.</li>
+        <li>Comienza 2–3 días después del parto y <strong>dura máximo 2 semanas</strong>.</li>
+        <li>Causa principal: caída brusca de hormonas (estrógeno y progesterona) tras el parto.</li>
+        <li><strong>Se resuelve solo</strong> con apoyo emocional, descanso y comprensión.</li>
+      </ul>
+      <div class="callout callout-rose">⚠️ Si la tristeza, la ansiedad o la desconexión duran <strong>más de 2 semanas</strong> o son muy intensas, puede ser depresión postparto. No es debilidad: es una condición médica que requiere ayuda profesional.</div>
+      <h3>💙 Depresión Postparto</h3>
+      <ul>
+        <li>Afecta al <strong>10–20% de las mamás</strong> (y también puede afectar a papás).</li>
+        <li>Síntomas: tristeza intensa persistente, incapacidad de conectar con el bebé, pensamientos de hacerse daño, agotamiento extremo, ansiedad severa.</li>
+        <li>Puede aparecer en cualquier momento del <strong>primer año postparto</strong>.</li>
+        <li><strong>Tiene tratamiento efectivo:</strong> psicoterapia, apoyo grupal y en algunos casos medicación.</li>
+      </ul>
+      <h3>🤝 ¿Qué hacer?</h3>
+      <p>Habla con tu médico o ginecóloga. Pide ayuda a familiares para no estar sola. Busca grupos de mamás. Recuerda: pedir ayuda no significa que eres mala mamá. Es lo más valiente que puedes hacer.</p>
+    `
+  },
+
+  a17:{
+    emoji:'❤️', cat:'❤️ Maternidad · Vínculo',
+    catClass:'cc-lemon', heroBg:'cv-lemon',
+    title:'Cómo fortalecer el vínculo afectivo con tu bebé',
+    meta:'8 Mar 2026 · Psicóloga Infantil Lic. P. Mora · 5 min lectura',
+    content:`
+      <p>El vínculo afectivo (o apego) es la conexión emocional profunda entre el bebé y sus cuidadores principales. Es la <strong>base de toda su salud emocional futura</strong>: autoestima, confianza y capacidad de relacionarse.</p>
+      <div class="callout callout-lemon">💛 No necesitas ser perfecto para crear un apego seguro. Lo que importa es <strong>responder de forma consistente</strong> a las necesidades del bebé la mayor parte del tiempo.</div>
+      <h3>❤️ Actividades que fortalecen el vínculo</h3>
+      <ul>
+        <li><strong>Piel con piel:</strong> el contacto físico libera oxitocina en bebé y cuidador. Ideal desde el nacimiento.</li>
+        <li><strong>Mirarle a los ojos</strong> durante las tomas o el cambio de pañal.</li>
+        <li><strong>Responder a su llanto:</strong> no puedes "malacostumbrar" a un bebé respondiendo a su llanto. La respuesta rápida crea seguridad.</li>
+        <li><strong>Hablarle y cantarle</strong> aunque no entienda: tu voz es su ancla al mundo.</li>
+        <li><strong>Masaje infantil:</strong> técnica de contacto que reduce el estrés en el bebé y fortalece el vínculo.</li>
+      </ul>
+      <h3>😟 ¿Y si no siento el vínculo de inmediato?</h3>
+      <p>Muchas mamás y papás no sienten esa "explosión de amor" inmediata que las películas prometen. El vínculo se construye día a día, en cada cambio de pañal, cada toma, cada abrazo. Si te preocupa, coméntalo con tu pediatra o un psicólogo perinatal sin miedo.</p>
+    `
+  },
+
+  a18:{
+    emoji:'👨‍👶', cat:'👨‍👶 Maternidad · Paternidad',
+    catClass:'cc-sky', heroBg:'cv-sky',
+    title:'El papel del papá en los primeros meses: más importante de lo que crees',
+    meta:'3 Mar 2026 · Psicólogo Dr. R. Vega · 4 min lectura',
+    content:`
+      <p>Durante décadas el rol del papá en los primeros meses fue minimizado. La investigación actual demuestra lo contrario: la participación activa del padre tiene un impacto enorme y duradero en el desarrollo del bebé.</p>
+      <h3>🧠 ¿Qué dice la ciencia?</h3>
+      <ul>
+        <li>Los bebés que tienen papás involucrados desde el principio desarrollan mayor <strong>seguridad emocional</strong>.</li>
+        <li>El cerebro del papá también produce oxitocina al cuidar al bebé.</li>
+        <li>La presencia paterna reduce el riesgo de <strong>depresión postparto en la mamá</strong>.</li>
+        <li>Los niños con padres involucrados tienen mejor rendimiento académico y social a largo plazo.</li>
+      </ul>
+      <div class="callout callout-sky">💙 No hay una forma "correcta" de ser papá. Lo que importa es estar <strong>presente, consistente y dispuesto a aprender</strong>. Los errores son parte del proceso.</div>
+      <h3>🙌 Ideas concretas para papás</h3>
+      <ul>
+        <li>Sé el "experto en baño": hacer una actividad exclusivamente tuya crea un vínculo único.</li>
+        <li>Toma turnos nocturnos cuando el bebé no está amamantando.</li>
+        <li>Lleva al bebé en porteo o cargador: el contacto corporal es estimulante para ambos.</li>
+        <li>Habla al bebé con tu voz natural —no imites la voz de mamá. El bebé necesita aprender que hay personas distintas en su mundo.</li>
+        <li>Lee en voz alta. La variedad de voces enriquece el desarrollo del lenguaje.</li>
+      </ul>
+    `
+  }
+
+};
+
+// ── Logic ─────────────────────────────────────────────────────────────────
+let activeCat = 'all';
+
+function openModal(id) {
+  const a = articles[id];
+  if (!a) return;
+  const hero = document.getElementById('m-hero');
+  // apply background color class
+  hero.className = 'modal-hero ' + a.heroBg;
+  document.getElementById('m-emoji').textContent = a.emoji;
+  const catEl = document.getElementById('m-cat');
+  catEl.textContent = a.cat;
+  catEl.className = 'modal-cat ' + a.catClass;
+  document.getElementById('m-title').textContent = a.title;
+  document.getElementById('m-meta').textContent = a.meta;
+  document.getElementById('m-content').innerHTML = a.content;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  window.scrollTo({top:0});
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+function showCat(cat, btn, cls) {
+  activeCat = cat;
+  // show/hide sections
+  document.querySelectorAll('.tab-section').forEach(s => {
+    if (cat === 'all' || s.dataset.cat === cat) s.classList.remove('hidden');
+    else s.classList.add('hidden');
+  });
+  // update buttons
+  document.querySelectorAll('.cat-btn').forEach(b => b.className = 'cat-btn');
+  btn.classList.add('cat-btn', cls);
+  document.querySelector('.cat-search input').value = '';
+  // reset card display
+  document.querySelectorAll('.blog-card').forEach(c => c.style.display = '');
+}
+
+function filterArticles(q) {
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.blog-card').forEach(card => {
+    const hay = (card.dataset.tags || '') + card.innerText.toLowerCase();
+    card.style.display = (!q || hay.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
