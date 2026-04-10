@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Cuidado Bucal – Farmacias Yair</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --mint:#00b4a0;--mint-lt:#e6f9f7;--mint-dk:#00756a;
+  --blue:#1a6cf0;--blue-lt:#e8f0fe;--blue-dk:#0d3d9e;
+  --pearl:#f5f0e8;--pearl-dk:#9a8e76;
+  --gold:#d4a843;--gold-lt:#fef9ec;--gold-dk:#8a6720;
+  --purple:#7c4dbe;--purple-lt:#f2edfb;--purple-dk:#4a2480;
+  --coral:#e05050;--coral-lt:#fdeaea;--coral-dk:#961e1e;
+  --white:#fff;--off:#f7faf9;--gray:#dde7e5;
+  --text:#0d1f1c;--muted:#5a7470;--dark:#08120f
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--off);color:var(--text)}
+
+/* HEADER */
+header{background:var(--dark);position:sticky;top:0;z-index:300;box-shadow:0 2px 20px rgba(0,0,0,.55)}
+.hdr{max-width:1200px;margin:0 auto;padding:10px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-wrap img{height:44px;width:auto;filter:brightness(0) invert(1)}
+.hdr-sep{width:1px;height:26px;background:rgba(255,255,255,.18)}
+.hdr-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--mint);display:flex;align-items:center;gap:7px}
+.hdr-nav{display:flex;align-items:center;gap:6px}
+.hdr-nav a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;font-weight:600;padding:6px 13px;border-radius:8px;transition:background .18s,color .18s}
+.hdr-nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.btn-back{background:var(--mint)!important;color:var(--dark)!important;font-weight:800!important}
+.btn-back:hover{background:var(--mint-dk)!important;color:#fff!important}
+
+/* HERO */
+.hero{background:linear-gradient(145deg,var(--dark) 0%,#0a1e1a 50%,#0d2218 100%);padding:68px 36px 76px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 78% 35%,rgba(0,180,160,.18),transparent 50%),radial-gradient(ellipse at 12% 68%,rgba(26,108,240,.12),transparent 45%)}
+/* tooth deco */
+.tooth-deco{position:absolute;right:3%;top:50%;transform:translateY(-50%);font-size:16rem;opacity:.04;pointer-events:none;line-height:1}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,180,160,.15);border:1.5px solid rgba(0,180,160,.4);color:var(--mint);border-radius:8px;padding:5px 14px;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.hero-text h1{font-family:'Fraunces',serif;font-size:clamp(2.6rem,4.5vw,4rem);font-weight:800;line-height:1.05;color:#fff;margin-bottom:16px}
+.hero-text h1 em{font-style:italic;color:var(--mint)}
+.hero-text p{font-size:.97rem;color:rgba(255,255,255,.54);line-height:1.72;max-width:420px;margin-bottom:28px}
+.hero-stats{display:flex;gap:0;width:fit-content;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden}
+.h-stat{padding:14px 22px;text-align:center;border-right:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03)}
+.h-stat:last-child{border-right:none}
+.h-stat strong{display:block;font-family:'Fraunces',serif;font-size:1.9rem;color:var(--mint);font-weight:700;line-height:1}
+.h-stat span{font-size:.68rem;color:rgba(255,255,255,.38);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px;display:block}
+.hero-mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.m-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:15px 12px 13px;display:flex;flex-direction:column;align-items:center;gap:8px;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
+.m-card:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
+.m-card.wide{grid-column:1/-1;flex-direction:row;gap:15px;padding:15px 18px}
+.m-ph{border-radius:10px;background:rgba(255,255,255,.06);border:2px dashed rgba(0,180,160,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;padding:8px;color:rgba(0,180,160,.7);font-size:.59rem;font-weight:700;line-height:1.4}
+.m-ph .phi{font-size:1.6rem;opacity:.6}
+.m-card.wide .m-ph{width:80px;height:100px;flex-shrink:0}
+.m-card:not(.wide) .m-ph{width:68px;height:88px}
+.m-info h4{font-family:'Fraunces',serif;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:2px;line-height:1.2}
+.m-info .mb{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);margin-bottom:2px}
+.m-info span{font-size:.72rem;color:rgba(255,255,255,.48);line-height:1.4;display:block}
+.m-ns{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.75);text-align:center;line-height:1.3}
+.m-bs{font-size:.61rem;color:rgba(255,255,255,.38);text-align:center}
+
+/* STRIP */
+.strip{background:linear-gradient(90deg,var(--mint-dk) 0%,var(--mint) 50%,var(--blue) 100%);padding:15px 36px}
+.strip-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-around;gap:16px;flex-wrap:wrap}
+.si{display:flex;align-items:center;gap:10px;color:#fff}
+.si .ico{font-size:1.4rem}
+.si strong{display:block;font-size:.84rem;font-weight:700}
+.si span{font-size:.72rem;opacity:.82}
+
+/* TAB NAV */
+.cat-nav{background:var(--white);border-bottom:3px solid var(--gray);position:sticky;top:64px;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.cat-nav-inner{max-width:1200px;margin:0 auto;padding:0 36px;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none}
+.cat-nav-inner::-webkit-scrollbar{display:none}
+.cat-btn{display:flex;align-items:center;gap:7px;padding:14px 18px;background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:.84rem;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px;transition:color .18s}
+.cat-btn:hover{color:var(--text)}
+.am{color:var(--mint);border-bottom-color:var(--mint)}
+.ab{color:var(--blue);border-bottom-color:var(--blue)}
+.ag{color:var(--gold);border-bottom-color:var(--gold)}
+.ap{color:var(--purple);border-bottom-color:var(--purple)}
+.ac{color:var(--coral);border-bottom-color:var(--coral)}
+.cat-icon{font-size:1.05rem}
+.cat-search{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--off);border:2px solid var(--gray);border-radius:8px;padding:6px 14px;flex-shrink:0;transition:border-color .2s}
+.cat-search:focus-within{border-color:var(--mint)}
+.cat-search input{background:none;border:none;outline:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:.83rem;color:var(--text);width:150px}
+.cat-search input::placeholder{color:var(--muted)}
+
+/* MAIN */
+.main-wrap{max-width:1200px;margin:0 auto;padding:48px 36px 72px}
+.sec-lbl{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-lbl h2{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:800;color:var(--text)}
+.sec-line{flex:1;height:2px;border-radius:2px}
+.sl-m{background:linear-gradient(90deg,var(--mint),transparent)}
+.sl-b{background:linear-gradient(90deg,var(--blue),transparent)}
+.sl-g{background:linear-gradient(90deg,var(--gold),transparent)}
+.sl-p{background:linear-gradient(90deg,var(--purple),transparent)}
+.sl-c{background:linear-gradient(90deg,var(--coral),transparent)}
+.sec-desc{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:22px;max-width:640px}
+.info-banner{border-radius:10px;padding:13px 18px;display:flex;align-items:center;gap:12px;margin-bottom:24px;font-size:.84rem;font-weight:600;line-height:1.5;border-left:4px solid}
+.info-banner .bi{font-size:1.5rem;flex-shrink:0}
+.ib-m{background:var(--mint-lt);color:var(--mint-dk);border-color:var(--mint)}
+.ib-b{background:var(--blue-lt);color:var(--blue-dk);border-color:var(--blue)}
+.ib-g{background:var(--gold-lt);color:var(--gold-dk);border-color:var(--gold)}
+.ib-p{background:var(--purple-lt);color:var(--purple-dk);border-color:var(--purple)}
+.ib-c{background:var(--coral-lt);color:var(--coral-dk);border-color:var(--coral)}
+.sub-lbl{display:flex;align-items:center;gap:9px;margin-bottom:13px}
+.sub-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.sub-lbl h3{font-size:.82rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.09em}
+
+/* PRODUCT GRID */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
+.prod-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);display:flex;flex-direction:column;border:2px solid transparent;transition:transform .2s,box-shadow .2s,border-color .2s}
+.prod-card:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(0,0,0,.12)}
+.pc-m:hover{border-color:rgba(0,180,160,.4)}
+.pc-b:hover{border-color:rgba(26,108,240,.4)}
+.pc-g:hover{border-color:rgba(212,168,67,.4)}
+.pc-p:hover{border-color:rgba(124,77,190,.4)}
+.pc-c:hover{border-color:rgba(224,80,80,.4)}
+.prod-img{height:185px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.bg-m{background:linear-gradient(145deg,#e6f9f7,#b0efe9)}
+.bg-b{background:linear-gradient(145deg,#e8f0fe,#c0d4ff)}
+.bg-g{background:linear-gradient(145deg,#fef9ec,#fae8bc)}
+.bg-p{background:linear-gradient(145deg,#f2edfb,#ddd0f5)}
+.bg-c{background:linear-gradient(145deg,#fdeaea,#f8c4c4)}
+.img-ph{width:112px;height:150px;border-radius:12px;background:rgba(255,255,255,.8);border:2.5px dashed rgba(0,0,0,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;padding:11px}
+.img-ph .phi{font-size:2rem;opacity:.35}
+.img-ph .phl{font-size:.6rem;font-weight:700;color:rgba(0,0,0,.28);line-height:1.4}
+.cat-badge{position:absolute;top:10px;left:10px;font-size:.63rem;font-weight:700;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.06em}
+.cb-m{background:var(--mint-lt);color:var(--mint-dk)}
+.cb-b{background:var(--blue-lt);color:var(--blue-dk)}
+.cb-g{background:var(--gold-lt);color:var(--gold-dk)}
+.cb-p{background:var(--purple-lt);color:var(--purple-dk)}
+.cb-c{background:var(--coral-lt);color:var(--coral-dk)}
+.spec-chip{position:absolute;top:10px;right:10px;background:rgba(8,18,15,.75);color:#fff;font-size:.61rem;font-weight:700;padding:3px 8px;border-radius:6px;backdrop-filter:blur(4px)}
+.fav-badge{position:absolute;bottom:9px;right:9px;background:var(--mint);color:var(--dark);font-size:.59rem;font-weight:800;padding:2px 7px;border-radius:6px}
+.prod-body{padding:13px 15px 17px;flex:1;display:flex;flex-direction:column;gap:5px}
+.prod-brand{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.prod-name{font-size:.91rem;font-weight:800;color:var(--text);line-height:1.3}
+.prod-desc{font-size:.77rem;color:var(--muted);line-height:1.55;flex:1}
+.prod-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+.prod-tag{font-size:.63rem;font-weight:700;padding:2px 9px;border-radius:5px}
+.tg-m{background:var(--mint-lt);color:var(--mint-dk)}
+.tg-b{background:var(--blue-lt);color:var(--blue-dk)}
+.tg-g{background:var(--gold-lt);color:var(--gold-dk)}
+.tg-p{background:var(--purple-lt);color:var(--purple-dk)}
+.tg-c{background:var(--coral-lt);color:var(--coral-dk)}
+.prod-div{height:1px;background:var(--off);margin:3px 0}
+.prod-avail{font-size:.7rem;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:5px}
+.prod-avail::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--mint);display:inline-block}
+.tab-section{display:block}.tab-section.hidden{display:none}
+
+/* GUIDE */
+.guide-band{background:var(--dark);padding:48px 36px;position:relative;overflow:hidden}
+.guide-band::before{content:'🦷';position:absolute;right:4%;top:50%;transform:translateY(-50%);font-size:14rem;opacity:.04;pointer-events:none}
+.guide-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.guide-inner h2{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:6px}
+.guide-inner .g-sub{font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:28px}
+.guide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.guide-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:22px 18px;position:relative;overflow:hidden}
+.guide-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
+.guide-card:nth-child(1)::before{background:var(--mint)}
+.guide-card:nth-child(2)::before{background:var(--blue)}
+.guide-card:nth-child(3)::before{background:var(--gold)}
+.guide-card:nth-child(4)::before{background:var(--purple)}
+.g-emoji{font-size:1.8rem;margin-bottom:10px;display:block}
+.guide-card h4{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:6px}
+.guide-card p{font-size:.79rem;color:rgba(255,255,255,.55);line-height:1.6}
+.g-tip{display:inline-flex;align-items:center;gap:4px;background:rgba(0,180,160,.15);color:var(--mint);border-radius:6px;padding:3px 9px;font-size:.66rem;font-weight:800;margin-top:9px}
+
+footer{background:#050d0b;color:rgba(255,255,255,.35);text-align:center;padding:20px 36px;font-size:.8rem}
+footer a{color:var(--mint);text-decoration:none}
+footer a:hover{color:#fff}
+@media(max-width:1024px){.prod-grid{grid-template-columns:repeat(3,1fr)}.guide-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-mosaic{display:none}.prod-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.prod-grid{grid-template-columns:1fr}.guide-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header><div class="hdr">
+  <div class="hdr">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a class="logo-link" href="farmacias_yair.html">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a><div class="hdr-sep"></div><span class="hdr-title">🦷 Cuidado Bucal</span>
+  </div>
+  <nav class="hdr-nav">
+    <a href="dermocosmeticos.html">Dermocosméticos</a>
+    <a href="primeros_auxilios.html">Primeros Auxilios</a>
+    <a href="farmacias_yair.html" class="btn-back">← Volver a la tienda</a>
+  </nav>
+</div></header>
+
+<section class="hero">
+  <div class="tooth-deco">🦷</div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">🦷 Cuidado Bucal · Catálogo Completo</div>
+      <h1>Sonrisa <em>sana</em>,<br/>vida saludable</h1>
+      <p>Pastas dentales, cepillos, enjuagues, hilo dental y tratamientos especializados para mantener tu higiene bucal en su mejor nivel. Marcas líderes recomendadas por dentistas.</p>
+      <div class="hero-stats">
+        <div class="h-stat"><strong>5</strong><span>Categorías</span></div>
+        <div class="h-stat"><strong>40+</strong><span>Productos</span></div>
+        <div class="h-stat"><strong>Top</strong><span>Marcas</span></div>
+      </div>
+    </div>
+    <div class="hero-mosaic">
+      <div class="m-card wide">
+        <div class="m-ph"><span class="phi">🦷</span><span>Imagen<br/>producto</span></div>
+        <div class="m-info"><div class="mb">Oral-B</div><h4>Cepillo Eléctrico Pro 3000</h4><span>Tecnología oscilante-rotatoria. Elimina 100% más placa que un cepillo manual. Con sensor de presión.</span></div>
+      </div>
+      <div class="m-card"><div class="m-ph"><span class="phi">🪥</span><span>Imagen</span></div><div class="m-ns">Pasta Blanqueadora</div><div class="m-bs">Colgate Optic White</div></div>
+      <div class="m-card"><div class="m-ph"><span class="phi">💧</span><span>Imagen</span></div><div class="m-ns">Enjuague Bucal</div><div class="m-bs">Listerine Total Care</div></div>
+      <div class="m-card"><div class="m-ph"><span class="phi">🧵</span><span>Imagen</span></div><div class="m-ns">Hilo Dental PTFE</div><div class="m-bs">Oral-B</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="strip-inner">
+  <div class="si"><span class="ico">🦷</span><div><strong>Higiene diaria</strong><span>Pastas y cepillos premium</span></div></div>
+  <div class="si"><span class="ico">✨</span><div><strong>Blanqueamiento</strong><span>Tratamientos efectivos</span></div></div>
+  <div class="si"><span class="ico">🦠</span><div><strong>Anti-bacteriano</strong><span>Control de placa y sarro</span></div></div>
+  <div class="si"><span class="ico">👨‍⚕️</span><div><strong>Aval dental</strong><span>Recomendado por dentistas</span></div></div>
+</div></div>
+
+<div class="cat-nav" id="catalogo"><div class="cat-nav-inner">
+  <button class="cat-btn am" onclick="showCat('higiene',this,'am')"><span class="cat-icon">🪥</span> Higiene Diaria</button>
+  <button class="cat-btn" onclick="showCat('blanqueamiento',this,'ag')"><span class="cat-icon">✨</span> Blanqueamiento</button>
+  <button class="cat-btn" onclick="showCat('enjuague',this,'ab')"><span class="cat-icon">💧</span> Enjuagues</button>
+  <button class="cat-btn" onclick="showCat('especializado',this,'ap')"><span class="cat-icon">🦷</span> Tratamientos</button>
+  <button class="cat-btn" onclick="showCat('infantil',this,'ac')"><span class="cat-icon">👶</span> Infantil</button>
+  <div class="cat-search">
+    <svg width="13" height="13" fill="none" stroke="#5a7470" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" placeholder="Buscar…" oninput="filterProds(this.value)"/>
+  </div>
+</div></div>
+
+<div class="main-wrap">
+
+<!-- HIGIENE DIARIA -->
+<div class="tab-section" id="cat-higiene">
+  <div class="sec-lbl"><h2>🪥 Higiene Diaria</h2><div class="sec-line sl-m"></div></div>
+  <p class="sec-desc">Las bases de una buena salud bucal: pasta dental fluorada, cepillos manuales y eléctricos, e hilo dental para la higiene interdental.</p>
+  <div class="info-banner ib-m"><span class="bi">✅</span><span>Cepíllate <strong>mínimo 2 minutos, 3 veces al día</strong>. Usa hilo dental o cepillos interdentales al menos una vez al día para limpiar los espacios que el cepillo no alcanza.</span></div>
+  <div class="sub-lbl"><div class="sub-dot" style="background:var(--mint)"></div><h3>Pastas Dentales</h3></div>
+  <div class="prod-grid" style="margin-bottom:28px;">
+    <div class="prod-card pc-m" data-name="colgate triple acción pasta dental flúor anticaries protección total">
+      <div class="prod-img bg-m"><span class="cat-badge cb-m">Pasta</span><span class="fav-badge">★ FAVORITO</span><div class="img-ph"><span class="phi">🪥</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Colgate</div><div class="prod-name">Colgate Triple Acción 150 ml</div><div class="prod-desc">Protege contra caries, sarro y refresca el aliento. Con flúor triple acción. Para toda la familia.</div><div class="prod-tags"><span class="prod-tag tg-m">Anti-caries</span><span class="prod-tag tg-m">Anti-sarro</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-m" data-name="sensodyne pasta dientes sensibles frío calor dentífrico sensibilidad">
+      <div class="prod-img bg-m"><span class="cat-badge cb-m">Pasta</span><span class="spec-chip">🦷 Sensible</span><div class="img-ph"><span class="phi">❄️</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Sensodyne</div><div class="prod-name">Sensodyne Protección Completa 100 ml</div><div class="prod-desc">Para dientes sensibles al frío, calor, dulce y ácido. Alivio clínicamente comprobado desde el 1° uso.</div><div class="prod-tags"><span class="prod-tag tg-m">Sensibilidad</span><span class="prod-tag tg-m">Clínico</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-m" data-name="oral-b pro expert pasta fluoruro multibeneficios encías sarro caries">
+      <div class="prod-img bg-m"><span class="cat-badge cb-m">Pasta</span><div class="img-ph"><span class="phi">🌟</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Oral-B</div><div class="prod-name">Oral-B Pro-Expert Multibeneficios 125 ml</div><div class="prod-desc">7 beneficios en 1: caries, encías, sarro, manchas, sensibilidad, esmalte y aliento. Con fluoruro estanoso.</div><div class="prod-tags"><span class="prod-tag tg-m">7 en 1</span><span class="prod-tag tg-m">Encías</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-m" data-name="parodontax encías sangrado gingivitis periodontitis anti-inflamatorio pasta">
+      <div class="prod-img bg-m"><span class="cat-badge cb-m">Pasta</span><span class="spec-chip">🫀 Encías</span><div class="img-ph"><span class="phi">🫀</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Parodontax</div><div class="prod-name">Parodontax Herbal 75 ml</div><div class="prod-desc">Con bicarbonato de sodio y hierbas. Reduce el sangrado de encías. Para gingivitis y salud periodontal.</div><div class="prod-tags"><span class="prod-tag tg-m">Anti-sangrado</span><span class="prod-tag tg-m">Herbal</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+  <div class="sub-lbl"><div class="sub-dot" style="background:var(--mint)"></div><h3>Cepillos Dentales</h3></div>
+  <div class="prod-grid">
+    <div class="prod-card pc-m" data-name="oral-b cepillo eléctrico pro 3000 oscilante placa sensor presión 2 min">
+      <div class="prod-img bg-m"><span class="cat-badge cb-m">Cepillo</span><span class="fav-badge">★ TOP</span><div class="img-ph"><span class="phi">⚡</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Oral-B</div><div class="prod-name">Cepillo Eléctrico Pro 3000</div><div class="prod-desc">Oscilante-rotatorio. 100% más placa que manual. Sensor de presión. Temporizador 2 minutos. 3 modos.</div><div class="prod-tags"><span class="prod-tag tg-m">Eléctrico</span><span class="prod-tag tg-m">Sensor presión</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-m" data-name="colgate 360 cepillo manual suave limpieza lengua mejillas completa">
+      <div class="prod-img bg-m"><span class="cat-badge cb-m">Cepillo</span><div class="img-ph"><span class="phi">🪥</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Colgate</div><div class="prod-name">Colgate 360° Suave</div><div class="prod-desc">Cerdas suaves con punta redondeada. Limpia dientes, encías, lengua y mejillas. Cabezal compacto.</div><div class="prod-tags"><span class="prod-tag tg-m">360°</span><span class="prod-tag tg-m">Suave</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-m" data-name="hilo dental oral-b essential floss ptfe deslizante suave encías espacios">
+      <div class="prod-img bg-m"><span class="cat-badge cb-m">Hilo dental</span><div class="img-ph"><span class="phi">🧵</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Oral-B</div><div class="prod-name">Hilo Dental Satinado PTFE 50 m</div><div class="prod-desc">Recubierto de PTFE. Se desliza suavemente entre dientes ajustados sin desflecarse. Con cera de menta.</div><div class="prod-tags"><span class="prod-tag tg-m">PTFE</span><span class="prod-tag tg-m">Menta</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-m" data-name="cepillos interdentales oral-b espacios amplios puentes prótesis encías">
+      <div class="prod-img bg-m"><span class="cat-badge cb-m">Interdental</span><div class="img-ph"><span class="phi">🔍</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">TePe</div><div class="prod-name">Cepillos Interdentales TePe x8 (varios tamaños)</div><div class="prod-desc">Para espacios interdentales amplios, puentes e implantes. Recubrimiento suave. Mango ergonómico.</div><div class="prod-tags"><span class="prod-tag tg-m">Implantes</span><span class="prod-tag tg-m">Varios tamaños</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BLANQUEAMIENTO -->
+<div class="tab-section hidden" id="cat-blanqueamiento">
+  <div class="sec-lbl"><h2>✨ Blanqueamiento Dental</h2><div class="sec-line sl-g"></div></div>
+  <p class="sec-desc">Pastas, tiras y tratamientos blanqueadores para recuperar el brillo natural de tus dientes de forma segura y eficaz.</p>
+  <div class="info-banner ib-g"><span class="bi">⚠️</span><span>Los blanqueadores caseros son seguros si se usan correctamente. Evítalos en dientes sensibles o con empastes visibles. <strong>No abuses</strong>: úsalos según las instrucciones del fabricante.</span></div>
+  <div class="prod-grid">
+    <div class="prod-card pc-g" data-name="colgate optic white pasta blanqueadora esmalte manchas café té">
+      <div class="prod-img bg-g"><span class="cat-badge cb-g">Blanqueamiento</span><span class="fav-badge">★ FAVORITO</span><div class="img-ph"><span class="phi">✨</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Colgate</div><div class="prod-name">Optic White Advanced 100 ml</div><div class="prod-desc">Con peróxido de hidrógeno al 2%. Blanquea el esmalte en 3 días. Elimina manchas externas de café, té y vino.</div><div class="prod-tags"><span class="prod-tag tg-g">H₂O₂ 2%</span><span class="prod-tag tg-g">3 días</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-g" data-name="tiras blanqueadoras crest whitestrips 3D blanco professional dientes 14 días">
+      <div class="prod-img bg-g"><span class="cat-badge cb-g">Blanqueamiento</span><span class="spec-chip">💎 Premium</span><div class="img-ph"><span class="phi">💎</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Crest</div><div class="prod-name">3D Whitestrips Professional Effects x20</div><div class="prod-desc">Tiras con sello Advanced Seal. Peróxido de hidrógeno. 14 días de tratamiento. Resultados hasta 3 tonos.</div><div class="prod-tags"><span class="prod-tag tg-g">3 tonos</span><span class="prod-tag tg-g">14 días</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-g" data-name="gel blanqueador jeringa peroxido carbamida cubeta dientes profesional casero">
+      <div class="prod-img bg-g"><span class="cat-badge cb-g">Blanqueamiento</span><div class="img-ph"><span class="phi">💉</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Opalescence</div><div class="prod-name">Opalescence Go 15% PF x10 cubetas</div><div class="prod-desc">Sistema listo para usar. Peróxido de carbamida 15%. Cubeta preformada desechable. Resultados en 5–10 días.</div><div class="prod-tags"><span class="prod-tag tg-g">PF 15%</span><span class="prod-tag tg-g">Cubeta lista</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-g" data-name="pluma blanqueadora lápiz go smile blanqueador dientes teeth whitening pen">
+      <div class="prod-img bg-g"><span class="cat-badge cb-g">Blanqueamiento</span><div class="img-ph"><span class="phi">🖊️</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Colgate</div><div class="prod-name">Pluma Blanqueadora Optic White 2.5 ml</div><div class="prod-desc">Aplicación precisa en dientes. Peróxido de hidrógeno. Gel adherente que actúa mientras duermes.</div><div class="prod-tags"><span class="prod-tag tg-g">Pluma</span><span class="prod-tag tg-g">Nocturna</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-g" data-name="pasta carbón activado blanqueamiento natural whitening carbon teeth charcoal">
+      <div class="prod-img bg-g"><span class="cat-badge cb-g">Blanqueamiento</span><div class="img-ph"><span class="phi">⚫</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Hello</div><div class="prod-name">Pasta Carbón Activado + Coco 141 g</div><div class="prod-desc">Carbón activado de cáscara de coco. Absorbe manchas superficiales. Sin flúor ni sulfatos. Vegana.</div><div class="prod-tags"><span class="prod-tag tg-g">Carbón</span><span class="prod-tag tg-g">Vegana</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-g" data-name="enjuague blanqueador colgate optic white whitening mouthwash alcohol free">
+      <div class="prod-img bg-g"><span class="cat-badge cb-g">Blanqueamiento</span><div class="img-ph"><span class="phi">💛</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Colgate</div><div class="prod-name">Enjuague Optic White Blanqueador 500 ml</div><div class="prod-desc">Enjuague blanqueador diario sin alcohol. Peróxido de hidrógeno. Protege y blanquea en cada uso.</div><div class="prod-tags"><span class="prod-tag tg-g">Sin alcohol</span><span class="prod-tag tg-g">Diario</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-g" data-name="seda blanqueadora hilo floss dental whitening activos blancos manchas">
+      <div class="prod-img bg-g"><span class="cat-badge cb-g">Blanqueamiento</span><div class="img-ph"><span class="phi">🧵</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Listerine</div><div class="prod-name">Listerine Ultraclean Floss Whitening 91m</div><div class="prod-desc">Hilo dental con microtexturas y agentes blanqueadores. Limpieza profunda entre dientes con efecto blanqueador.</div><div class="prod-tags"><span class="prod-tag tg-g">Micro-textura</span><span class="prod-tag tg-g">91m</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-g" data-name="tiras blanqueadoras sensodyne true white dientes sensibles blanquear">
+      <div class="prod-img bg-g"><span class="cat-badge cb-g">Blanqueamiento</span><span class="spec-chip">🥶 Sensible</span><div class="img-ph"><span class="phi">🤍</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Sensodyne</div><div class="prod-name">Sensodyne True White Pasta 75 ml</div><div class="prod-desc">Blanqueamiento suave para dientes sensibles. Sin peróxido agresivo. Efecto visible en 4 semanas.</div><div class="prod-tags"><span class="prod-tag tg-g">Sensible</span><span class="prod-tag tg-g">Sin peróxido</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ENJUAGUES -->
+<div class="tab-section hidden" id="cat-enjuague">
+  <div class="sec-lbl"><h2>💧 Enjuagues Bucales</h2><div class="sec-line sl-b"></div></div>
+  <p class="sec-desc">Enjuagues antisépticos, fluorados y especializados para complementar el cepillado y alcanzar zonas donde el cepillo no llega.</p>
+  <div class="info-banner ib-b"><span class="bi">💧</span><span>Usa el enjuague bucal <strong>después de cepillarte</strong>, no antes. Enjuaga durante 30 segundos y no comas ni bebas al menos 30 minutos después para mayor eficacia del flúor.</span></div>
+  <div class="prod-grid">
+    <div class="prod-card pc-b" data-name="listerine total care antiséptico 6 beneficios eucalipto menta timol">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Enjuague</span><span class="fav-badge">★ FAVORITO</span><div class="img-ph"><span class="phi">💧</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Listerine</div><div class="prod-name">Listerine Total Care 500 ml</div><div class="prod-desc">6 beneficios: caries, placa, encías, sarro, manchas y aliento. Con aceites esenciales de eucalipto y timol.</div><div class="prod-tags"><span class="prod-tag tg-b">6 beneficios</span><span class="prod-tag tg-b">Aceites esenciales</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="listerine sin alcohol cool mint suave sensible encías enjuague gentle">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Enjuague</span><span class="spec-chip">🌿 Sin alcohol</span><div class="img-ph"><span class="phi">🌿</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Listerine</div><div class="prod-name">Listerine Zero% Sin Alcohol 500 ml</div><div class="prod-desc">Misma efectividad que el original sin la sensación de ardor. Para quienes prefieren suavidad.</div><div class="prod-tags"><span class="prod-tag tg-b">Sin alcohol</span><span class="prod-tag tg-b">Suave</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="colgate plax enjuague antiplaques fluoruro caries protección diaria">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Enjuague</span><div class="img-ph"><span class="phi">💙</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Colgate</div><div class="prod-name">Colgate Plax Multi-Protección 500 ml</div><div class="prod-desc">Con flúor. 12h de protección anti-placa y anti-caries. Deja una película protectora en los dientes.</div><div class="prod-tags"><span class="prod-tag tg-b">12h</span><span class="prod-tag tg-b">Anti-placa</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-b" data-name="parodontax enjuague encías sangrado gingivitis herbal concentrado oral">
+      <div class="prod-img bg-b"><span class="cat-badge cb-b">Enjuague</span><span class="spec-chip">🫀 Encías</span><div class="img-ph"><span class="phi">🌿</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Parodontax</div><div class="prod-name">Parodontax Enjuague Herbal 500 ml</div><div class="prod-desc">Diseñado para encías que sangran. Clorhexidina + herbales. Reduce el sangrado y la inflamación gingival.</div><div class="prod-tags"><span class="prod-tag tg-b">Encías</span><span class="prod-tag tg-b">Anti-sangrado</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRATAMIENTOS ESPECIALIZADOS -->
+<div class="tab-section hidden" id="cat-especializado">
+  <div class="sec-lbl"><h2>🦷 Tratamientos Especializados</h2><div class="sec-line sl-p"></div></div>
+  <p class="sec-desc">Gel para encías, fluoruro concentrado, irrigadores bucales y productos de cuidado para implantes, ortodoncia y prótesis dentales.</p>
+  <div class="info-banner ib-p"><span class="bi">🦷</span><span>Si usas <strong>brackets, implantes o prótesis</strong>, necesitas productos especiales. Consulta a tu dentista qué herramientas de higiene son las más adecuadas para tu caso particular.</span></div>
+  <div class="prod-grid">
+    <div class="prod-card pc-p" data-name="irrigador bucal waterpik oral-B presión agua implantes brackets ortodoncia">
+      <div class="prod-img bg-p"><span class="cat-badge cb-p">Irrigador</span><span class="fav-badge">★ TOP</span><div class="img-ph"><span class="phi">💦</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Waterpik</div><div class="prod-name">Irrigador Bucal Waterpik WP-660</div><div class="prod-desc">10 ajustes de presión. 3 boquillas incluidas. Ideal para implantes, coronas y brackets. 600ml depósito.</div><div class="prod-tags"><span class="prod-tag tg-p">Implantes</span><span class="prod-tag tg-p">Ortodoncia</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-p" data-name="gel encías antiséptico clorhexidina gingivitis periodontitis tratamiento oral">
+      <div class="prod-img bg-p"><span class="cat-badge cb-p">Gel gingival</span><div class="img-ph"><span class="phi">🧪</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Elgydium</div><div class="prod-name">Gel Gingival Clorhexidina 0.5% 15 ml</div><div class="prod-desc">Gel antiséptico de aplicación directa en encías inflamadas. Alivia gingivitis y protege el tejido gingival.</div><div class="prod-tags"><span class="prod-tag tg-p">Clorhexidina</span><span class="prod-tag tg-p">Gingivitis</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-p" data-name="limpiador prótesis dental tabletas efervescentes dentadura soaking tablet">
+      <div class="prod-img bg-p"><span class="cat-badge cb-p">Prótesis</span><div class="img-ph"><span class="phi">😁</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Corega</div><div class="prod-name">Corega Tabs Limpiador de Prótesis x30</div><div class="prod-desc">Tabletas efervescentes. Elimina el 99% de bacterias y manchas. Limpieza profunda para prótesis totales y parciales.</div><div class="prod-tags"><span class="prod-tag tg-p">Prótesis</span><span class="prod-tag tg-p">99% bacterias</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-p" data-name="fluoruro gel aplicación tópica caries prevención fluor alta concentración">
+      <div class="prod-img bg-p"><span class="cat-badge cb-p">Flúor</span><div class="img-ph"><span class="phi">🛡️</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Duraphat</div><div class="prod-name">Pasta Duraphat 5000ppm Fluoruro</div><div class="prod-desc">Alta concentración de flúor para pacientes con riesgo de caries. Uso bajo prescripción dental.</div><div class="prod-tags"><span class="prod-tag tg-p">5000ppm</span><span class="prod-tag tg-p">Alto riesgo</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-p" data-name="pasta ortodoncia brackets cuidado brakets flúor limpieza arco dental">
+      <div class="prod-img bg-p"><span class="cat-badge cb-p">Ortodoncia</span><div class="img-ph"><span class="phi">😬</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Oral-B</div><div class="prod-name">Pasta Oral-B Ortho Defense Brackets</div><div class="prod-desc">Fórmula especial para usuarios de ortodoncia. Limpia alrededor de brackets y protege el esmalte.</div><div class="prod-tags"><span class="prod-tag tg-p">Brackets</span><span class="prod-tag tg-p">Esmalte</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-p" data-name="spray aliento mal fresco antiséptico ozono halitosis boca seca">
+      <div class="prod-img bg-p"><span class="cat-badge cb-p">Aliento</span><div class="img-ph"><span class="phi">💨</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">CB12</div><div class="prod-name">CB12 Spray Aliento Fresco 50 ml</div><div class="prod-desc">Neutraliza los compuestos de azufre responsables del mal aliento. Efecto 12 horas con una sola aplicación.</div><div class="prod-tags"><span class="prod-tag tg-p">12h</span><span class="prod-tag tg-p">Halitosis</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-p" data-name="raspa lengua limpiatador limpiador lingua bacteria malos olores oral">
+      <div class="prod-img bg-p"><span class="cat-badge cb-p">Higiene</span><div class="img-ph"><span class="phi">👅</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Tongue Cleanser</div><div class="prod-name">Raspador de Lengua Inox</div><div class="prod-desc">Acero inoxidable. Elimina bacterias, residuos y placa de la lengua. Reusable y fácil de limpiar.</div><div class="prod-tags"><span class="prod-tag tg-p">Inox</span><span class="prod-tag tg-p">Reutilizable</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-p" data-name="sellante protector dientes barniz flúor cavidades fosa fisura dental">
+      <div class="prod-img bg-p"><span class="cat-badge cb-p">Protección</span><div class="img-ph"><span class="phi">🪨</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">GC</div><div class="prod-name">GC Tooth Mousse Plus 40g</div><div class="prod-desc">Crema con CPP-ACP + flúor. Remineraliza el esmalte, reduce sensibilidad y protege contra la erosión ácida.</div><div class="prod-tags"><span class="prod-tag tg-p">Remineralizante</span><span class="prod-tag tg-p">Erosión</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- INFANTIL -->
+<div class="tab-section hidden" id="cat-infantil">
+  <div class="sec-lbl"><h2>👶 Higiene Bucal Infantil</h2><div class="sec-line sl-c"></div></div>
+  <p class="sec-desc">Pastas dentales, cepillos y productos especialmente formulados para bebés, niños y adolescentes en cada etapa de su desarrollo dental.</p>
+  <div class="info-banner ib-c"><span class="bi">👶</span><span>Comienza la higiene bucal desde que sale el <strong>primer diente</strong>. Usa pasta sin flúor hasta los 3 años, y con flúor (500–1000 ppm) del tazmaño de un grano de arroz de los 3 a los 6 años.</span></div>
+  <div class="prod-grid">
+    <div class="prod-card pc-c" data-name="pasta dientes bebé infant primer diente sin fluor 0-2 años Tom's natural">
+      <div class="prod-img bg-c"><span class="cat-badge cb-c">Bebé</span><span class="spec-chip">👶 0–2 años</span><span class="fav-badge">★ FAVORITO</span><div class="img-ph"><span class="phi">👶</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Tom's of Maine</div><div class="prod-name">Pasta Wicked Cool! Bebé sin Flúor 42g</div><div class="prod-desc">Sin flúor. Segura si se traga. Ingredientes naturales. Para bebés desde la salida del primer diente.</div><div class="prod-tags"><span class="prod-tag tg-c">Sin flúor</span><span class="prod-tag tg-c">0–2 años</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-c" data-name="pasta dientes niños colgate kids 2-6 años flúor 1000ppm sabor frutal">
+      <div class="prod-img bg-c"><span class="cat-badge cb-c">Niños</span><span class="spec-chip">🧒 2–6 años</span><div class="img-ph"><span class="phi">🌈</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Colgate</div><div class="prod-name">Colgate Kids Fresa 2–6 años 75ml</div><div class="prod-desc">1000 ppm flúor. Tamaño de dosis adecuado para niños. Sabor fresa suave que incentiva el cepillado.</div><div class="prod-tags"><span class="prod-tag tg-c">1000ppm</span><span class="prod-tag tg-c">Fresa</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-c" data-name="cepillo niños oral-b stages 3-5 años cabezal pequeño suave divertido">
+      <div class="prod-img bg-c"><span class="cat-badge cb-c">Cepillo</span><span class="spec-chip">🧒 3–5 años</span><div class="img-ph"><span class="phi">🪥</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Oral-B</div><div class="prod-name">Cepillo Stages 3 (3–5 años) x2</div><div class="prod-desc">Cabezal pequeño y cerdas extra suaves para boquitas en desarrollo. Mango ancho fácil de sostener.</div><div class="prod-tags"><span class="prod-tag tg-c">Extra suave</span><span class="prod-tag tg-c">Ergonómico</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+    <div class="prod-card pc-c" data-name="enjuague bucal niños fluor alcohol libre 6 años act junior kids menta">
+      <div class="prod-img bg-c"><span class="cat-badge cb-c">Enjuague</span><span class="spec-chip">🧒 +6 años</span><div class="img-ph"><span class="phi">💧</span><span class="phl">Imagen del<br/>producto aquí</span></div></div>
+      <div class="prod-body"><div class="prod-brand">Listerine</div><div class="prod-name">Listerine Smart Rinse Niños 500ml</div><div class="prod-desc">Sin alcohol. Flúor 230ppm. Revelador de placa al enjuagarse. Sabor menta suave. Para mayores de 6 años.</div><div class="prod-tags"><span class="prod-tag tg-c">Sin alcohol</span><span class="prod-tag tg-c">Flúor</span></div><div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main-wrap -->
+
+<div class="guide-band"><div class="guide-inner">
+  <h2>🦷 Guía de salud bucal</h2>
+  <p class="g-sub">Lo que debes saber para mantener tu sonrisa en perfecta salud.</p>
+  <div class="guide-grid">
+    <div class="guide-card"><span class="g-emoji">🪥</span><h4>Técnica de cepillado</h4><p>Angula el cepillo a 45° hacia la encía. Movimientos suaves y circulares. 2 minutos mínimo. No presiones fuerte: el cepillado agresivo daña el esmalte y retrae las encías.</p><span class="g-tip">💡 Cambia el cepillo cada 3 meses</span></div>
+    <div class="guide-card"><span class="g-emoji">🧵</span><h4>Hilo dental</h4><p>Úsalo al menos una vez al día, preferiblemente antes de dormir. Introduce el hilo en forma de "C" alrededor del diente y desliza hacia arriba y abajo. No saltes dientes.</p><span class="g-tip">💡 Sin hilo, limpias solo el 60%</span></div>
+    <div class="guide-card"><span class="g-emoji">🦠</span><h4>Placa y sarro</h4><p>La placa es la película de bacterias que se forma cada día. Si no se elimina, se mineraliza en sarro (solo lo quita el dentista). Cepilla mínimo 2 veces al día para prevenirla.</p><span class="g-tip">💡 El enjuague no sustituye al cepillo</span></div>
+    <div class="guide-card"><span class="g-emoji">👨‍⚕️</span><h4>Visitas al dentista</h4><p>Visita al dentista cada 6 meses aunque no tengas molestias. La detección temprana de caries, gingivitis o problemas de mandíbula ahorra tiempo, dinero y dolor.</p><span class="g-tip">💡 2 visitas al año es lo ideal</span></div>
+  </div>
+</div></div>
+
+<footer><p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Catálogo Cuidado Bucal · Consulta a tu dentista para un diagnóstico personalizado · 🦷 Por tu sonrisa y tu salud</p></footer>
+
+<script>
+let activeOral='higiene';
+function showCat(cat,btn,cls){
+  activeOral=cat;
+  document.querySelectorAll('.tab-section').forEach(s=>s.classList.add('hidden'));
+  document.getElementById('cat-'+cat).classList.remove('hidden');
+  document.querySelectorAll('.cat-btn').forEach(b=>b.className='cat-btn');
+  btn.classList.add('cat-btn',cls);
+  document.querySelector('.cat-search input').value='';
+  document.querySelectorAll('#cat-'+cat+' .prod-card').forEach(c=>c.style.display='');
+}
+function filterProds(q){
+  q=q.toLowerCase().trim();
+  document.querySelectorAll('#cat-'+activeOral+' .prod-card').forEach(card=>{
+    const hay=(card.dataset.name||'')+card.innerText.toLowerCase();
+    card.style.display=(!q||hay.includes(q))?'':'none';
+  });
+}
+</script>
+</body>
+</html>
