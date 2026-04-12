@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog Naturales – Farmacias Yair</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.ico">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --forest:#1e5c38;--forest-lt:#e6f4ec;--forest-dk:#0d3320;
+  --herb:#3aaa6f;--herb-lt:#d4f1e4;--herb-dk:#1a6040;
+  --amber:#c07c20;--amber-lt:#fef3df;--amber-dk:#7a4800;
+  --terra:#9b5230;--terra-lt:#fdebd8;--terra-dk:#5c2410;
+  --sky:#2a8fc0;--sky-lt:#e3f2fb;--sky-dk:#0d4e75;
+  --lavender:#7048b8;--lavender-lt:#f0eafc;--lavender-dk:#3d1e7a;
+  --rose:#b84870;--rose-lt:#fce8f0;--rose-dk:#6a1838;
+  --cream:#fdfaf5;--warm:#f8f2e8;--sand:#efe5cf;
+  --gray:#ddd5c0;--text:#1c1208;--muted:#7a6a50;--bark:#0e0905
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;background:var(--cream);color:var(--text)}
+
+/* ── HEADER ── */
+header{
+  background:var(--forest-dk);
+  position:sticky;top:0;z-index:300;
+  box-shadow:0 2px 20px rgba(13,51,32,.5);
+}
+.hdr{
+  max-width:1200px;margin:0 auto;padding:10px 36px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px
+}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-wrap img{height:46px;width:auto;filter:brightness(0) invert(1)}
+.hdr-sep{width:1px;height:28px;background:rgba(255,255,255,.22)}
+.hdr-title{
+  font-family:'Lora',serif;font-size:.98rem;font-weight:600;
+  color:var(--herb);display:flex;align-items:center;gap:7px
+}
+.hdr-nav{display:flex;align-items:center;gap:6px}
+.hdr-nav a{
+  color:rgba(255,255,255,.6);text-decoration:none;font-size:.83rem;font-weight:700;
+  padding:7px 14px;border-radius:20px;transition:background .18s,color .18s
+}
+.hdr-nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+.btn-back{background:var(--herb)!important;color:var(--forest-dk)!important;font-weight:800!important}
+.btn-back:hover{background:var(--herb-dk)!important;color:#fff!important}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(155deg,var(--forest-dk) 0%,#1a4a28 50%,#0d3820 100%);
+  padding:68px 36px 76px;position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 80% 30%,rgba(58,170,111,.18),transparent 50%),
+    radial-gradient(ellipse at 12% 70%,rgba(192,124,32,.10),transparent 44%)
+}
+/* leaf pattern */
+.hero-leaves{
+  position:absolute;right:0;top:0;bottom:0;width:42%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:9rem;opacity:.05;pointer-events:none;letter-spacing:8px;
+  line-height:1.2;word-break:break-all
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:56px;position:relative;z-index:1
+}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(58,170,111,.18);border:1.5px solid rgba(58,170,111,.4);
+  color:var(--herb);border-radius:8px;padding:5px 14px;
+  font-size:.72rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:14px
+}
+.hero-text h1{
+  font-family:'Lora',serif;
+  font-size:clamp(2.4rem,4.2vw,3.4rem);
+  font-weight:700;line-height:1.12;color:#fff;margin-bottom:14px
+}
+.hero-text h1 em{font-style:italic;color:var(--herb)}
+.hero-text p{
+  font-size:.98rem;color:rgba(255,255,255,.58);
+  line-height:1.72;max-width:420px;margin-bottom:28px
+}
+.hero-stats{
+  display:flex;gap:0;
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;width:fit-content
+}
+.h-stat{
+  padding:13px 20px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.04)
+}
+.h-stat:last-child{border-right:none}
+.h-stat strong{
+  display:block;font-family:'Lora',serif;
+  font-size:1.8rem;color:var(--herb);font-weight:700;line-height:1
+}
+.h-stat span{
+  font-size:.68rem;color:rgba(255,255,255,.38);
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  margin-top:3px;display:block
+}
+
+/* hero mini cards */
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hc{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;padding:14px 12px 13px;
+  display:flex;flex-direction:column;align-items:flex-start;gap:8px;
+  backdrop-filter:blur(8px);cursor:pointer;
+  transition:background .2s,transform .2s
+}
+.hc:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
+.hc .hc-icon{font-size:1.6rem;line-height:1}
+.hc h4{font-family:'Lora',serif;font-size:.9rem;font-weight:600;color:#fff;line-height:1.2}
+.hc span{font-size:.7rem;color:rgba(255,255,255,.48);font-weight:700}
+
+/* ── GREEN STRIP ── */
+.strip{
+  background:linear-gradient(90deg,var(--forest) 0%,var(--herb) 55%,var(--amber) 100%);
+  padding:14px 36px
+}
+.strip-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-around;gap:16px;flex-wrap:wrap
+}
+.si{display:flex;align-items:center;gap:10px;color:#fff}
+.si .ico{font-size:1.35rem}
+.si strong{display:block;font-size:.84rem;font-weight:800}
+.si span{font-size:.72rem;opacity:.82}
+
+/* ── CATEGORY TABS ── */
+.cat-nav{
+  background:var(--cream);border-bottom:2px solid var(--sand);
+  position:sticky;top:66px;z-index:200;
+  box-shadow:0 3px 14px rgba(30,92,56,.08)
+}
+.cat-nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 36px;
+  display:flex;align-items:center;overflow-x:auto;scrollbar-width:none
+}
+.cat-nav-inner::-webkit-scrollbar{display:none}
+.cat-btn{
+  display:flex;align-items:center;gap:6px;padding:14px 18px;
+  background:none;border:none;font-family:'Nunito Sans',sans-serif;
+  font-size:.86rem;font-weight:800;color:var(--muted);cursor:pointer;
+  white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;
+  transition:color .18s
+}
+.cat-btn:hover{color:var(--text)}
+.af{color:var(--forest);border-bottom-color:var(--forest)}
+.ah{color:var(--herb-dk);border-bottom-color:var(--herb-dk)}
+.aa{color:var(--amber-dk);border-bottom-color:var(--amber-dk)}
+.at{color:var(--terra-dk);border-bottom-color:var(--terra-dk)}
+.al{color:var(--lavender-dk);border-bottom-color:var(--lavender-dk)}
+.ar{color:var(--rose-dk);border-bottom-color:var(--rose-dk)}
+.cat-icon{font-size:1rem}
+.cat-search{
+  margin-left:auto;display:flex;align-items:center;gap:8px;
+  background:var(--warm);border:2px solid var(--sand);
+  border-radius:30px;padding:6px 15px;flex-shrink:0;transition:border-color .2s
+}
+.cat-search:focus-within{border-color:var(--forest)}
+.cat-search input{
+  background:none;border:none;outline:none;
+  font-family:'Nunito Sans',sans-serif;font-size:.84rem;
+  font-weight:600;color:var(--text);width:152px
+}
+.cat-search input::placeholder{color:var(--muted)}
+
+/* ── MAIN WRAP ── */
+.main-wrap{max-width:1200px;margin:0 auto;padding:52px 36px 72px}
+.sec-lbl{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-lbl h2{font-family:'Lora',serif;font-size:1.6rem;font-weight:700;color:var(--text)}
+.sec-line{flex:1;height:2px;border-radius:2px}
+.sl-f{background:linear-gradient(90deg,var(--forest),transparent)}
+.sl-h{background:linear-gradient(90deg,var(--herb),transparent)}
+.sl-a{background:linear-gradient(90deg,var(--amber),transparent)}
+.sl-t{background:linear-gradient(90deg,var(--terra),transparent)}
+.sl-l{background:linear-gradient(90deg,var(--lavender),transparent)}
+.sl-r{background:linear-gradient(90deg,var(--rose),transparent)}
+.sec-desc{font-size:.87rem;color:var(--muted);line-height:1.65;margin-bottom:24px;max-width:640px;font-weight:600}
+
+/* ── BLOG GRID ── */
+.blog-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:18px;margin-bottom:48px}
+.blog-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:0 3px 16px rgba(30,92,56,.08);
+  display:flex;flex-direction:column;
+  cursor:pointer;border:2px solid transparent;
+  transition:transform .22s,box-shadow .22s,border-color .22s
+}
+.blog-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(30,92,56,.14)}
+.blog-card.featured{grid-row:1/3}
+
+/* visual areas */
+.bc-visual{
+  position:relative;display:flex;
+  align-items:center;justify-content:center;overflow:hidden
+}
+.blog-card.featured .bc-visual{height:240px}
+.blog-card:not(.featured) .bc-visual{height:140px}
+.cv-forest{background:linear-gradient(145deg,#daf0e4,#b0e0c4)}
+.cv-herb  {background:linear-gradient(145deg,#e6f9f0,#b8f0d4)}
+.cv-amber {background:linear-gradient(145deg,#fef8e8,#fae4b0)}
+.cv-terra {background:linear-gradient(145deg,#fdf0e8,#f4d0b8)}
+.cv-sky   {background:linear-gradient(145deg,#e4f4fc,#b8dff5)}
+.cv-lavender{background:linear-gradient(145deg,#f4eeff,#ddd0f8)}
+.cv-rose  {background:linear-gradient(145deg,#fdf0f6,#f8d0e4)}
+
+.bc-emoji{font-size:3.5rem;filter:drop-shadow(0 3px 8px rgba(0,0,0,.1))}
+.blog-card.featured .bc-emoji{font-size:5.5rem}
+.bc-cat{
+  position:absolute;top:11px;left:11px;
+  font-size:.67rem;font-weight:800;padding:3px 10px;border-radius:6px;
+  text-transform:uppercase;letter-spacing:.06em
+}
+.cc-f{background:var(--forest-lt);color:var(--forest-dk)}
+.cc-h{background:var(--herb-lt);color:var(--herb-dk)}
+.cc-a{background:var(--amber-lt);color:var(--amber-dk)}
+.cc-t{background:var(--terra-lt);color:var(--terra-dk)}
+.cc-l{background:var(--lavender-lt);color:var(--lavender-dk)}
+.cc-r{background:var(--rose-lt);color:var(--rose-dk)}
+.cc-s{background:var(--sky-lt);color:var(--sky-dk)}
+.bc-new{
+  position:absolute;top:11px;right:11px;
+  background:var(--amber);color:#fff;
+  font-size:.61rem;font-weight:800;padding:2px 8px;border-radius:6px
+}
+
+/* card body */
+.bc-body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column;gap:8px}
+.bc-meta{font-size:.73rem;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:8px}
+.bc-meta .dot{color:var(--gray)}
+.bc-body h3{font-family:'Lora',serif;font-weight:700;color:var(--text);line-height:1.35}
+.blog-card.featured .bc-body h3{font-size:1.3rem}
+.blog-card:not(.featured) .bc-body h3{font-size:.97rem}
+.bc-body p{font-size:.81rem;color:var(--muted);line-height:1.6;flex:1}
+.bc-read{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--forest);font-weight:800;font-size:.81rem;
+  text-decoration:none;margin-top:4px;
+  transition:gap .15s,color .15s;width:fit-content
+}
+.bc-read:hover{gap:10px;color:var(--herb-dk)}
+
+.tab-section{display:block}.tab-section.hidden{display:none}
+
+/* ── NL BAND ── */
+.nl-band{
+  background:linear-gradient(135deg,var(--forest-dk) 0%,#1e4428 100%);
+  padding:48px 36px;text-align:center;position:relative;overflow:hidden
+}
+.nl-band::before{
+  content:'🌿🌱🍃🌾';position:absolute;
+  font-size:7rem;opacity:.04;top:-10px;right:-10px;letter-spacing:8px;pointer-events:none
+}
+.nl-inner{max-width:540px;margin:0 auto;position:relative;z-index:1}
+.nl-inner h2{font-family:'Lora',serif;font-size:1.8rem;font-weight:700;color:#fff;margin-bottom:8px}
+.nl-inner p{font-size:.93rem;color:rgba(255,255,255,.65);margin-bottom:22px;line-height:1.6}
+.nl-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.nl-input{
+  flex:1;min-width:210px;border:none;border-radius:10px;
+  padding:12px 20px;font-family:'Nunito Sans',sans-serif;font-size:.9rem;
+  outline:none;color:var(--text)
+}
+.nl-btn{
+  background:var(--herb);color:var(--forest-dk);border:none;
+  border-radius:10px;padding:12px 26px;font-weight:800;font-size:.9rem;
+  font-family:'Nunito Sans',sans-serif;cursor:pointer;
+  transition:transform .15s,background .18s;white-space:nowrap
+}
+.nl-btn:hover{transform:scale(1.03);background:var(--herb-dk);color:#fff}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(14,9,5,.76);backdrop-filter:blur(7px);
+  z-index:500;display:none;align-items:flex-start;
+  justify-content:center;padding:24px 16px;overflow-y:auto
+}
+.modal-overlay.open{display:flex;animation:fadeOv .25s ease}
+@keyframes fadeOv{from{opacity:0}to{opacity:1}}
+.modal-box{
+  background:var(--cream);border-radius:26px;
+  max-width:820px;width:100%;overflow:hidden;
+  animation:slideUp .3s ease;margin:auto;position:relative
+}
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(26px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* modal hero */
+.modal-hero{
+  padding:48px 52px 38px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:10px
+}
+.modal-close{
+  position:absolute;top:16px;right:16px;background:rgba(0,0,0,.07);
+  border:none;width:36px;height:36px;border-radius:50%;
+  font-size:1.05rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s;z-index:10
+}
+.modal-close:hover{background:rgba(0,0,0,.14)}
+.modal-hero-emoji{font-size:3.5rem;line-height:1;margin-bottom:4px}
+.modal-cat{
+  display:inline-flex;align-items:center;gap:6px;
+  border-radius:8px;padding:4px 13px;font-size:.72rem;
+  font-weight:800;letter-spacing:.07em;text-transform:uppercase;width:fit-content
+}
+.modal-hero h2{
+  font-family:'Lora',serif;font-size:1.85rem;font-weight:700;
+  color:var(--text);line-height:1.2
+}
+.modal-meta{font-size:.77rem;color:var(--muted);font-weight:700;display:flex;gap:12px}
+
+/* modal content */
+.modal-content{padding:34px 52px 52px}
+.modal-content p{font-size:.96rem;line-height:1.78;color:#3c2c18;margin-bottom:16px;font-weight:600}
+.modal-content h3{
+  font-family:'Lora',serif;font-size:1.18rem;font-weight:700;
+  color:var(--text);margin:26px 0 9px;
+  display:flex;align-items:center;gap:9px
+}
+.modal-content ul{padding-left:20px;margin-bottom:16px}
+.modal-content ul li{font-size:.94rem;color:#3c2c18;line-height:1.68;margin-bottom:6px;font-weight:600}
+.callout{
+  border-radius:12px;padding:14px 18px;margin:18px 0;
+  font-size:.92rem;font-weight:700;line-height:1.6;border-left:4px solid
+}
+.callout-f{background:var(--forest-lt);color:var(--forest-dk);border-color:var(--forest)}
+.callout-h{background:var(--herb-lt);color:var(--herb-dk);border-color:var(--herb)}
+.callout-a{background:var(--amber-lt);color:var(--amber-dk);border-color:var(--amber)}
+.callout-t{background:var(--terra-lt);color:var(--terra-dk);border-color:var(--terra)}
+.callout-l{background:var(--lavender-lt);color:var(--lavender-dk);border-color:var(--lavender)}
+.callout-r{background:var(--rose-lt);color:var(--rose-dk);border-color:var(--rose)}
+
+/* available chip */
+.avail-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--herb-lt);color:var(--herb-dk);
+  border-radius:8px;padding:5px 14px;font-size:.78rem;font-weight:800;
+  margin-top:4px;margin-bottom:16px
+}
+.avail-chip::before{
+  content:'';width:7px;height:7px;border-radius:50%;
+  background:var(--herb);display:inline-block
+}
+
+/* footer */
+footer{background:var(--bark);color:rgba(255,255,255,.38);text-align:center;padding:20px 36px;font-size:.8rem}
+footer a{color:var(--herb);text-decoration:none}
+footer a:hover{color:#fff}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-cards{grid-template-columns:repeat(4,1fr)}
+  .blog-grid{grid-template-columns:1fr 1fr}
+  .blog-card.featured{grid-row:auto}
+}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr}
+  .hero-cards{display:none}
+  .modal-hero{padding:30px 22px 24px}
+  .modal-content{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<header><div class="hdr">
+    <div style="display:flex;align-items:center;gap:14px;">
+        <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;"></a>
+      <div class="hdr-sep"></div>
+    <span class="hdr-title">🌿 Blog Remedios Naturales</span>
+  </div>
+  <nav class="hdr-nav">
+    <a href="https://www.farmaciasyair.com/catalogo_natural">Catálogo Naturales</a>
+    <a href="https://www.farmaciasyair.com/" class="btn-back">← Tienda</a>
+  </nav>
+</div></header>
+
+<section class="hero">
+  <div class="hero-leaves">🌿🌱🍃🌾🌺🌻</div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-pill">🌿 Medicina Natural · México</div>
+      <h1>Remedios <em>naturales</em><br/>que sí encuentras<br/>en farmacia</h1>
+      <p>Artículos sobre los medicamentos naturales y orgánicos más comunes disponibles en farmacias de México: plantas medicinales, homeopatía, suplementos y remedios tradicionales con respaldo científico.</p>
+      <div class="hero-stats">
+        <div class="h-stat"><strong>6</strong><span>Categorías</span></div>
+        <div class="h-stat"><strong>18</strong><span>Artículos</span></div>
+        <div class="h-stat"><strong>100%</strong><span>Disponibles</span></div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hc" onclick="openModal('a1')">
+        <span class="hc-icon">🧄</span>
+        <h4>Ajo: el antibiótico de la naturaleza</h4>
+        <span>Plantas medicinales · 5 min</span>
+      </div>
+      <div class="hc" onclick="openModal('a4')">
+        <span class="hc-icon">🍯</span>
+        <h4>Própolis: defensa natural</h4>
+        <span>Apiterapia · 4 min</span>
+      </div>
+      <div class="hc" onclick="openModal('a7')">
+        <span class="hc-icon">💜</span>
+        <h4>Homeopatía en México</h4>
+        <span>Guía práctica · 5 min</span>
+      </div>
+      <div class="hc" onclick="openModal('a10')">
+        <span class="hc-icon">🌿</span>
+        <h4>Equinácea y gripe</h4>
+        <span>Inmunidad · 4 min</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="strip-inner">
+  <div class="si"><span class="ico">🌿</span><div><strong>Plantas medicinales</strong><span>Uso tradicional avalado</span></div></div>
+  <div class="si"><span class="ico">🔬</span><div><strong>Respaldo científico</strong><span>Evidencia clínica real</span></div></div>
+  <div class="si"><span class="ico">🏪</span><div><strong>En farmacias mexicanas</strong><span>Sin receta en la mayoría</span></div></div>
+  <div class="si"><span class="ico">⚠️</span><div><strong>Con precaución</strong><span>Consulta a tu médico</span></div></div>
+</div></div>
+
+<div class="cat-nav"><div class="cat-nav-inner">
+  <button class="cat-btn af" onclick="showCat('all',this,'af')"><span class="cat-icon">🌟</span> Todos</button>
+  <button class="cat-btn" onclick="showCat('plantas',this,'ah')"><span class="cat-icon">🌱</span> Plantas Medicinales</button>
+  <button class="cat-btn" onclick="showCat('suplementos',this,'aa')"><span class="cat-icon">💊</span> Suplementos</button>
+  <button class="cat-btn" onclick="showCat('homeopatia',this,'al')"><span class="cat-icon">💜</span> Homeopatía</button>
+  <button class="cat-btn" onclick="showCat('aceites',this,'at')"><span class="cat-icon">🫙</span> Aceites Esenciales</button>
+  <button class="cat-btn" onclick="showCat('apiterapia',this,'ar')"><span class="cat-icon">🍯</span> Apiterapia</button>
+  <div class="cat-search">
+    <svg width="13" height="13" fill="none" stroke="#7a6a50" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" placeholder="Buscar artículo…" oninput="filterArticles(this.value)"/>
+  </div>
+</div></div>
+
+<div class="main-wrap">
+
+<!-- PLANTAS MEDICINALES -->
+<div class="tab-section" id="sec-plantas" data-cat="plantas">
+  <div class="sec-lbl"><h2>🌱 Plantas Medicinales</h2><div class="sec-line sl-h"></div></div>
+  <p class="sec-desc">Las plantas medicinales más vendidas en farmacias mexicanas: sus usos, evidencia científica y cómo encontrarlas.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a1')" data-tags="plantas ajo antibiotico infeccion cardiovascular presion">
+      <div class="bc-visual cv-herb">
+        <span class="bc-emoji">🧄</span>
+        <span class="bc-cat cc-h">Plantas · Antimicrobiano</span>
+        <span class="bc-new">⭐ Destacado</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>14 Mar 2026</span><span class="dot">·</span><span>Herbolaria & Farmacognosia</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Ajo (Allium sativum): el antibiótico natural con más evidencia científica</h3>
+        <p>El ajo es uno de los remedios naturales más estudiados del mundo. Alicina, su principio activo, tiene propiedades antimicrobianas, cardiovasculares e inmunomoduladoras bien documentadas. ¿Cómo tomarlo correctamente?</p>
+        <a class="bc-read" href="#">Leer artículo completo →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a2')" data-tags="plantas valeriana sueño ansiedad nervios insomnio calma">
+      <div class="bc-visual cv-lavender">
+        <span class="bc-emoji">😴</span>
+        <span class="bc-cat cc-l">Plantas · Sueño</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>10 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Valeriana: el ansiolítico natural que venden en todas las farmacias</h3>
+        <p>Valeriana officinalis es la planta más vendida en México para el sueño y los nervios. Qué dice la ciencia sobre su eficacia y cómo tomarla bien.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a3')" data-tags="plantas ginkgo biloba memoria circulacion cerebro concentracion">
+      <div class="bc-visual cv-forest">
+        <span class="bc-emoji">🧠</span>
+        <span class="bc-cat cc-f">Plantas · Cerebro</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>7 Mar 2026</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Ginkgo biloba: ¿realmente mejora la memoria y la circulación?</h3>
+        <p>El ginkgo es una de las plantas más vendidas en México. Revisamos su evidencia real, dosis adecuada e interacciones importantes a considerar.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUPLEMENTOS -->
+<div class="tab-section" id="sec-suplementos" data-cat="suplementos">
+  <div class="sec-lbl"><h2>💊 Suplementos Naturales</h2><div class="sec-line sl-a"></div></div>
+  <p class="sec-desc">Los suplementos de origen natural más populares en farmacias de México: omega 3, cúrcuma, espirulina y más.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a5')" data-tags="suplementos curcuma curcumin antiinflamatorio articulaciones digestion">
+      <div class="bc-visual cv-amber">
+        <span class="bc-emoji">🌿</span>
+        <span class="bc-cat cc-a">Suplementos · Antiinflamatorio</span>
+        <span class="bc-new">⭐ Destacado</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>12 Mar 2026</span><span class="dot">·</span><span>Nutrición Funcional</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Cúrcuma y curcumina: el antiinflamatorio natural más vendido en México</h3>
+        <p>La cúrcuma pasó de ser condimento de cocina a uno de los suplementos más populares del país. ¿Qué tan efectiva es realmente? ¿Con qué tomarla para maximizar su absorción? Todo lo que debes saber.</p>
+        <a class="bc-read" href="#">Leer artículo completo →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a6')" data-tags="suplementos omega 3 corazon cerebro articulaciones inflamacion pescado">
+      <div class="bc-visual cv-sky">
+        <span class="bc-emoji">🐟</span>
+        <span class="bc-cat cc-s">Suplementos · Omega 3</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>8 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Omega 3: por qué es el suplemento más recomendado por médicos en México</h3>
+        <p>EPA y DHA tienen más estudios que casi cualquier otro suplemento natural. Corazón, cerebro, articulaciones... ¿cuál elegir y en qué dosis?</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a_aloe')" data-tags="suplementos aloe vera gel digestivo gastritis piel regeneracion natural">
+      <div class="bc-visual cv-herb">
+        <span class="bc-emoji">🌵</span>
+        <span class="bc-cat cc-h">Suplementos · Digestivo</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>4 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Aloe vera: del gel para quemaduras al suplemento digestivo</h3>
+        <p>El aloe vera mexicano es una de las plantas con mayor historia de uso medicinal. Sus usos internos y externos respaldados por ciencia.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOMEOPATÍA -->
+<div class="tab-section" id="sec-homeopatia" data-cat="homeopatia">
+  <div class="sec-lbl"><h2>💜 Homeopatía en México</h2><div class="sec-line sl-l"></div></div>
+  <p class="sec-desc">México es uno de los países con mayor consumo de homeopatía. Conoce los productos más vendidos, qué son y cómo se usan.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a7')" data-tags="homeopatia mexico boiron oscillococcinum arnica globulos diluciones">
+      <div class="bc-visual cv-lavender">
+        <span class="bc-emoji">💜</span>
+        <span class="bc-cat cc-l">Homeopatía · Guía</span>
+        <span class="bc-new">⭐ Destacado</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>13 Mar 2026</span><span class="dot">·</span><span>Farmacéutica</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Guía práctica de homeopatía: los productos más vendidos en farmacias de México</h3>
+        <p>Oscillococcinum, Arnica, Nux Vomica... Los mexicanos son grandes consumidores de homeopatía. Qué son exactamente estos productos, cómo se usan y qué dice la evidencia actual.</p>
+        <a class="bc-read" href="#">Leer artículo completo →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a8')" data-tags="homeopatia arnica montana golpes dolor musculo contusion">
+      <div class="bc-visual cv-amber">
+        <span class="bc-emoji">🌼</span>
+        <span class="bc-cat cc-a">Homeopatía · Dolor</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>9 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Árnica Montana: el remedio homeopático para golpes más famoso de México</h3>
+        <p>Árnica en crema, gel o glóbulos: está en casi todas las farmacias y botiquines del país. Qué funciona y qué no.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a9')" data-tags="homeopatia nux vomica estomago digestion resaca malestar higado">
+      <div class="bc-visual cv-terra">
+        <span class="bc-emoji">🌿</span>
+        <span class="bc-cat cc-t">Homeopatía · Digestivo</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>5 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Nux Vomica: el homeopático digestivo más recetado en México</h3>
+        <p>Para excesos alimenticios, resacas y malestar estomacal. Por qué tantos mexicanos confían en Nux Vomica.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACEITES ESENCIALES -->
+<div class="tab-section" id="sec-aceites" data-cat="aceites">
+  <div class="sec-lbl"><h2>🫙 Aceites Esenciales</h2><div class="sec-line sl-t"></div></div>
+  <p class="sec-desc">Los aceites esenciales más populares en farmacias mexicanas y sus usos terapéuticos validados.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a10')" data-tags="aceites esenciales lavanda relajante sueño ansiedad aromaterapia">
+      <div class="bc-visual cv-lavender">
+        <span class="bc-emoji">🌸</span>
+        <span class="bc-cat cc-l">Aceites · Relajante</span>
+        <span class="bc-new">⭐ Destacado</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>11 Mar 2026</span><span class="dot">·</span><span>Aromaterapia</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Aceite de lavanda: el más vendido en México y lo que realmente hace</h3>
+        <p>Del relajante para el sueño al ansiolítico natural. El aceite de lavanda tiene evidencia clínica sólida. Aprende a usarlo correctamente en aromaterapia, masajes y aplicación tópica.</p>
+        <a class="bc-read" href="#">Leer artículo completo →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a11')" data-tags="aceites tree tea arbol antibacterial acne hongos heridas">
+      <div class="bc-visual cv-herb">
+        <span class="bc-emoji">🌲</span>
+        <span class="bc-cat cc-h">Aceites · Antiséptico</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>6 Mar 2026</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Aceite de árbol de té: el antiséptico natural con más usos en farmacia</h3>
+        <p>Acné, hongos en uñas, caspa, heridas superficiales... El tea tree tiene decenas de aplicaciones respaldadas por estudios clínicos.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a12')" data-tags="aceites eucalipto menta respiratorio congestion gripe dolor cabeza">
+      <div class="bc-visual cv-sky">
+        <span class="bc-emoji">🌬️</span>
+        <span class="bc-cat cc-s">Aceites · Respiratorio</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>2 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Eucalipto y menta: los aceites respiratorios favoritos de México</h3>
+        <p>Vicks VapoRub los hizo famosos, pero sus aceites puros tienen usos más amplios. Todo sobre el eucalipto y la menta en farmacia.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APITERAPIA -->
+<div class="tab-section" id="sec-apiterapia" data-cat="apiterapia">
+  <div class="sec-lbl"><h2>🍯 Apiterapia</h2><div class="sec-line sl-r"></div></div>
+  <p class="sec-desc">Los productos de la colmena: própolis, miel, jalea real y polen. Ampliamente disponibles en farmacias mexicanas.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a4')" data-tags="apiterapia propolis inmunidad antibacterial garganta infeccion natural colmena">
+      <div class="bc-visual cv-amber">
+        <span class="bc-emoji">🍯</span>
+        <span class="bc-cat cc-a">Apiterapia · Inmunidad</span>
+        <span class="bc-new">⭐ Destacado</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>15 Mar 2026</span><span class="dot">·</span><span>Farmacéutica</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Própolis: la resina de la colmena que venden en farmacias mexicanas como defensa natural</h3>
+        <p>El própolis es un compuesto que las abejas crean para sellar y proteger la colmena. Sus propiedades antimicrobianas y antiinflamatorias lo han convertido en uno de los suplementos naturales más populares de México.</p>
+        <a class="bc-read" href="#">Leer artículo completo →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a13')" data-tags="apiterapia jalea real energia fatiga vitalidad sistema inmune reina">
+      <div class="bc-visual cv-terra">
+        <span class="bc-emoji">👑</span>
+        <span class="bc-cat cc-t">Apiterapia · Energía</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>8 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Jalea real: el "superfood" de las abejas que venden en farmacia</h3>
+        <p>La jalea real alimenta a la reina abeja toda su vida. Qué evidencia existe sobre sus beneficios para la energía y la inmunidad humana.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a14')" data-tags="apiterapia ecuinacea equinacea gripe resfriado sistema inmune defensas temporada">
+      <div class="bc-visual cv-herb">
+        <span class="bc-emoji">💐</span>
+        <span class="bc-cat cc-h">Plantas · Inmunidad</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>4 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Equinácea: la flor que fortalece las defensas y venden en todas las farmacias</h3>
+        <p>La equinácea es el suplemento para el sistema inmune más vendido en temporada de gripe. Cuándo tomarla y cuándo no sirve.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main-wrap -->
+
+<div class="nl-band">
+  <div class="nl-inner">
+    <h2>🌿 Recibe artículos naturales</h2>
+    <p>Consejos semanales sobre remedios naturales y suplementos disponibles en Farmacias Yair. Sin spam, solo salud natural.</p>
+    <div class="nl-form">
+      <input class="nl-input" type="email" placeholder="tu@correo.com"/>
+      <button class="nl-btn" onclick="alert('¡Suscrito! 🌿')">Suscribirme</button>
+    </div>
+  </div>
+</div>
+
+<footer><p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Blog Remedios Naturales · El contenido es informativo. Consulta a tu médico antes de iniciar cualquier suplementación 🌿</p></footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="modal-hero" id="m-hero">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-hero-emoji" id="m-emoji"></div>
+      <div class="modal-cat" id="m-cat"></div>
+      <h2 id="m-title"></h2>
+      <div class="modal-meta" id="m-meta"></div>
+    </div>
+    <div class="modal-content" id="m-content"></div>
+  </div>
+</div>
+
+<script>
+const articles = {
+
+  a1:{
+    emoji:'🧄',cat:'🌱 Plantas Medicinales · Antimicrobiano',catClass:'cc-h',heroBg:'cv-herb',
+    title:'Ajo (Allium sativum): el antibiótico natural con más evidencia científica',
+    meta:'14 Mar 2026 · Farmacognosia & Herbolaria · 5 min lectura',
+    content:`
+      <p>El ajo es probablemente la planta medicinal con mayor acumulación de estudios científicos en el mundo. Su principio activo principal, la <strong>alicina</strong>, se forma cuando el ajo es machacado o picado y es responsable de la mayoría de sus efectos terapéuticos.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: cápsulas, extracto líquido, tabletas</div>
+      <div class="callout callout-h">🧄 Para obtener alicina, el ajo debe ser <strong>machacado o picado y esperar 10 minutos</strong> antes de consumirse o cocinarse. El calor inmediato destruye la enzima que produce alicina.</div>
+      <h3>✅ Usos con evidencia científica sólida</h3>
+      <ul>
+        <li><strong>Cardiovascular:</strong> reduce moderadamente la presión arterial sistólica (4–9 mmHg) y el colesterol LDL.</li>
+        <li><strong>Antimicrobiano:</strong> la alicina inhibe bacterias como <em>H. pylori</em>, <em>Staphylococcus aureus</em> y algunas bacterias resistentes.</li>
+        <li><strong>Antifúngico:</strong> eficaz contra <em>Candida albicans</em>.</li>
+        <li><strong>Inmunomodulador:</strong> estudios muestran reducción de la duración del resfriado en 61% con suplementación diaria.</li>
+      </ul>
+      <h3>💊 Presentaciones en farmacia mexicana</h3>
+      <ul>
+        <li><strong>Cápsulas odorizadas:</strong> extracto seco, sin olor, más cómodas. Dosis típica: 600–1200 mg/día.</li>
+        <li><strong>Extracto líquido de ajo añejo (aged garlic extract):</strong> mejor tolerancia digestiva, buena biodisponibilidad.</li>
+        <li><strong>Tabletas con alicina estandarizada:</strong> las más potentes para efectos antimicrobianos.</li>
+      </ul>
+      <div class="callout callout-a">⚠️ <strong>Interacciones importantes:</strong> el ajo potencia el efecto de anticoagulantes (warfarina, aspirina) y puede bajar la presión arterial en exceso si se combina con antihipertensivos. Consulta a tu médico si tomas estos medicamentos.</div>
+      <h3>🌿 El ajo mexicano: sabor y medicina</h3>
+      <p>México es uno de los mayores consumidores y productores de ajo del mundo. El ajo mexicano (<em>Allium sativum</em> variedad morado) tiene alta concentración de alicina comparado con otras variedades. Úsalo fresco en tu cocina o en suplemento según tu objetivo terapéutico.</p>
+    `
+  },
+
+  a2:{
+    emoji:'😴',cat:'🌱 Plantas Medicinales · Sueño & Ansiedad',catClass:'cc-l',heroBg:'cv-lavender',
+    title:'Valeriana: el ansiolítico natural más vendido en farmacias de México',
+    meta:'10 Mar 2026 · Fitoterapia · 4 min lectura',
+    content:`
+      <p>La valeriana (<em>Valeriana officinalis</em>) es la planta sedante más vendida en México y en el mundo. Se encuentra en casi cualquier farmacia del país, en múltiples presentaciones y a precios muy accesibles.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: cápsulas, gotas, tabletas, infusión</div>
+      <div class="callout callout-l">💜 La valeriana <strong>no causa dependencia</strong> como los benzodiacepinas. Es una de sus principales ventajas frente a los ansiolíticos farmacológicos convencionales.</div>
+      <h3>✅ Qué dice la ciencia</h3>
+      <ul>
+        <li>Metaanálisis de 2006 en <em>American Journal of Medicine</em>: mejora subjetiva del sueño en 16 de 16 estudios revisados.</li>
+        <li>Mecanismo: los valerénidos inhiben la degradación del GABA, favoreciendo la relajación del sistema nervioso central.</li>
+        <li>Efecto más consistente para <strong>reducir el tiempo de conciliar el sueño</strong> y mejorar la calidad del descanso.</li>
+        <li>La eficacia para la ansiedad diurna tiene evidencia más débil que para el sueño.</li>
+      </ul>
+      <h3>📋 Cómo tomarla correctamente</h3>
+      <ul>
+        <li><strong>Para el sueño:</strong> 300–600 mg de extracto estandarizado, 30–60 minutos antes de dormir.</li>
+        <li><strong>Para la ansiedad:</strong> dosis divididas de 150–300 mg, 2–3 veces al día.</li>
+        <li>El efecto pleno se alcanza tras <strong>2–4 semanas</strong> de uso regular.</li>
+        <li>No tomar con alcohol ni con otros sedantes.</li>
+      </ul>
+      <div class="callout callout-a">⚠️ Aunque es segura en general, la valeriana puede causar somnolencia residual al día siguiente en algunas personas. Evita conducir si notas este efecto.</div>
+    `
+  },
+
+  a3:{
+    emoji:'🧠',cat:'🌱 Plantas Medicinales · Cerebro & Circulación',catClass:'cc-f',heroBg:'cv-forest',
+    title:'Ginkgo biloba: ¿realmente mejora la memoria y la circulación?',
+    meta:'7 Mar 2026 · Neurología & Fitoterapia · 5 min lectura',
+    content:`
+      <p>El ginkgo biloba es el árbol más antiguo del mundo (más de 200 millones de años) y uno de los suplementos más vendidos en farmacias mexicanas. Su fama se debe a supuestas propiedades para mejorar la memoria y la circulación cerebral. Pero ¿qué dice realmente la evidencia?</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: cápsulas 60 mg, 120 mg, extracto líquido</div>
+      <h3>✅ Lo que sí está demostrado</h3>
+      <ul>
+        <li><strong>Tinnitus (zumbido de oídos):</strong> mejora moderada en varios estudios clínicos.</li>
+        <li><strong>Insuficiencia arterial periférica:</strong> aumenta la distancia de marcha sin dolor en pacientes con claudicación intermitente.</li>
+        <li><strong>Vértigo:</strong> algunos estudios muestran beneficio comparable a betahistina.</li>
+        <li><strong>Demencia establecida:</strong> mejora modesta de los síntomas cognitivos en pacientes con Alzheimer leve-moderado.</li>
+      </ul>
+      <h3>❌ Lo que NO está demostrado</h3>
+      <ul>
+        <li>Prevención de demencia o Alzheimer en personas sanas (el estudio GEM, el más grande, fue negativo).</li>
+        <li>Mejora significativa de memoria en adultos jóvenes y sanos.</li>
+      </ul>
+      <div class="callout callout-a">⚠️ <strong>Interacción crítica:</strong> el ginkgo inhibe el factor activador de plaquetas. Combinado con anticoagulantes (warfarina, aspirina, clopidogrel) puede aumentar el riesgo de sangrado significativamente. Informa a tu médico.</div>
+      <h3>💊 Dosis y presentaciones</h3>
+      <p>La dosis estándar es <strong>120 mg de extracto seco estandarizado al 24% de flavonoides</strong>, dividida en 2 tomas al día. El efecto tarda 4–6 semanas en hacerse evidente. Encuentra el extracto estandarizado EGb 761 en farmacias (es el más estudiado).</p>
+    `
+  },
+
+  a4:{
+    emoji:'🍯',cat:'🍯 Apiterapia · Inmunidad',catClass:'cc-a',heroBg:'cv-amber',
+    title:'Própolis: la resina de la colmena que venden en farmacias mexicanas como defensa natural',
+    meta:'15 Mar 2026 · Apiterapia & Farmacognosia · 5 min lectura',
+    content:`
+      <p>El própolis es una resina que las abejas recolectan de yemas y cortezas de árboles y mezclan con cera y enzimas para sellar y desinfectar la colmena. Su composición es extraordinariamente rica en flavonoides, ácidos fenólicos y terpenos con propiedades antimicrobianas bien documentadas.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: extracto líquido, cápsulas, spray bucal</div>
+      <div class="callout callout-h">🍯 El própolis mexicano se extrae principalmente de abejas melipona (abejas sin aguijón), endémicas de México, y tiene una composición química diferente y muy rica comparada con el própolis europeo.</div>
+      <h3>✅ Propiedades con evidencia</h3>
+      <ul>
+        <li><strong>Antimicrobiano:</strong> activo contra bacterias gram-positivas (incluyendo <em>S. aureus</em> resistente) y varios hongos.</li>
+        <li><strong>Antiviral:</strong> estudios in vitro muestran actividad contra virus del herpes, influenza y otros.</li>
+        <li><strong>Antiinflamatorio:</strong> inhibe la síntesis de prostaglandinas por mecanismo similar al ibuprofeno.</li>
+        <li><strong>Cicatrizante:</strong> acelera la regeneración tisular en heridas leves y úlceras bucales.</li>
+      </ul>
+      <h3>🌿 Usos más frecuentes en México</h3>
+      <ul>
+        <li><strong>Spray bucal:</strong> para faringitis, aftas, gingivitis y mal aliento.</li>
+        <li><strong>Extracto líquido:</strong> diluido en agua como refuerzo inmune en temporada de gripe.</li>
+        <li><strong>Cápsulas:</strong> para uso sistémico como inmunomodulador.</li>
+      </ul>
+      <div class="callout callout-a">⚠️ El própolis puede causar <strong>reacciones alérgicas</strong> en personas alérgicas a los productos de la abeja o a la resina de álamo. Haz una prueba de parche antes del primer uso tópico.</div>
+    `
+  },
+
+  a5:{
+    emoji:'🌿',cat:'💊 Suplementos · Antiinflamatorio',catClass:'cc-a',heroBg:'cv-amber',
+    title:'Cúrcuma y curcumina: el antiinflamatorio natural más vendido en México',
+    meta:'12 Mar 2026 · Nutrición Funcional · 5 min lectura',
+    content:`
+      <p>La cúrcuma (<em>Curcuma longa</em>) es la raíz dorada que ha pasado de condimento de cocina india a uno de los suplementos más vendidos en farmacias mexicanas. Su principio activo, la <strong>curcumina</strong>, tiene más de 10,000 estudios publicados sobre sus propiedades.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: cápsulas, polvo, extracto estandarizado</div>
+      <div class="callout callout-a">🟡 El gran problema de la curcumina: tiene muy <strong>baja biodisponibilidad</strong> por sí sola. Solo el 1–2% se absorbe en el intestino. La solución: tomarla siempre con <strong>piperina (pimienta negra)</strong>, que aumenta su absorción hasta un 2,000%.</div>
+      <h3>✅ Beneficios con respaldo científico</h3>
+      <ul>
+        <li><strong>Antiinflamatorio crónico:</strong> inhibe NF-κB y las principales vías inflamatorias. Comparable al ibuprofeno en artritis leve según algunos ensayos.</li>
+        <li><strong>Artritis:</strong> metaanálisis de 2016 muestra reducción del dolor articular comparable a AINEs.</li>
+        <li><strong>Digestivo:</strong> mejora los síntomas del intestino irritable y la colitis leve.</li>
+        <li><strong>Antioxidante:</strong> neutraliza radicales libres directamente y activa enzimas antioxidantes endógenas.</li>
+      </ul>
+      <h3>💊 Cómo elegir el suplemento correcto</h3>
+      <ul>
+        <li>Busca etiquetas que digan <strong>"curcumina con BioPerine"</strong> o "piperina" (95% biodisponibilidad mejorada).</li>
+        <li>También existen formas liposomales y con fosfolípidos (Meriva®, BCM-95®) con absorción superior.</li>
+        <li>Dosis efectiva: 500–1000 mg de curcumina estandarizada al 95%, 2 veces al día.</li>
+        <li>Tomar con una comida que contenga grasa para mejorar aún más la absorción.</li>
+      </ul>
+    `
+  },
+
+  a6:{
+    emoji:'🐟',cat:'💊 Suplementos · Omega 3',catClass:'cc-s',heroBg:'cv-sky',
+    title:'Omega 3: por qué es el suplemento más recomendado por médicos en México',
+    meta:'8 Mar 2026 · Cardiología & Nutrición · 4 min lectura',
+    content:`
+      <p>El omega 3 (EPA y DHA) es el suplemento nutricional con mayor número de estudios clínicos en humanos y uno de los poquísimos que la mayoría de las sociedades médicas recomienda activamente.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: cápsulas blandas, aceite líquido, versión vegana (algas)</div>
+      <h3>🫀 Beneficios cardiovasculares</h3>
+      <ul>
+        <li>Reduce los <strong>triglicéridos</strong> hasta un 30–45% con dosis altas (3–4 g/día).</li>
+        <li>Reduce la <strong>presión arterial</strong> moderadamente.</li>
+        <li>Tiene efecto antiagregante plaquetario (antiinflamatorio vascular).</li>
+        <li>La FDA aprobó Vascepa (EPA puro) para reducción de riesgo cardiovascular.</li>
+      </ul>
+      <h3>🧠 Otros beneficios documentados</h3>
+      <ul>
+        <li><strong>Depresión:</strong> metaanálisis muestran beneficio del EPA en depresión mayor.</li>
+        <li><strong>Artritis reumatoide:</strong> reduce rigidez matutina y necesidad de AINEs.</li>
+        <li><strong>Desarrollo cerebral infantil:</strong> esencial durante el embarazo y lactancia.</li>
+        <li><strong>Inflamación crónica:</strong> mecanismo base de múltiples enfermedades crónicas.</li>
+      </ul>
+      <div class="callout callout-h">🐟 Prefiere aceite de pescado de fuentes certificadas (IFOS, MSC). El omega 3 de algas es la opción vegana directa al DHA sin intermediario animal — contiene las mismas moléculas que el aceite de pescado.</div>
+      <h3>💊 Dosis según el objetivo</h3>
+      <ul>
+        <li>Mantenimiento general: <strong>1 g de EPA+DHA diario</strong>.</li>
+        <li>Triglicéridos altos: <strong>3–4 g bajo supervisión médica</strong>.</li>
+        <li>Artritis: <strong>2–3 g de EPA+DHA</strong> con predominio de EPA.</li>
+      </ul>
+    `
+  },
+
+  a_aloe:{
+    emoji:'🌵',cat:'💊 Suplementos · Digestivo & Piel',catClass:'cc-h',heroBg:'cv-herb',
+    title:'Aloe vera: del gel para quemaduras al suplemento digestivo más popular de México',
+    meta:'4 Mar 2026 · Dermatología & Fitoterapia · 4 min lectura',
+    content:`
+      <p>El aloe vera (<em>Aloe barbadensis miller</em>) es una planta suculenta oriunda del norte de África que en México tiene uso medicinal desde la época prehispánica. Hoy sus productos se encuentran en todas las farmacias del país en múltiples formas.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: gel tópico, jugo oral, cápsulas, tabletas</div>
+      <h3>🌿 Usos tópicos con evidencia</h3>
+      <ul>
+        <li><strong>Quemaduras de 1° y 2° grado superficial:</strong> aceleran la cicatrización vs. crema de sulfadiazina de plata en varios estudios.</li>
+        <li><strong>Dermatitis por radiación:</strong> reduce la severidad en pacientes oncológicos.</li>
+        <li><strong>Psoriasis leve:</strong> el gel al 0.5% tres veces al día mostró mejora en ensayo controlado.</li>
+        <li><strong>Herpes labial:</strong> el extracto al 0.5% acorta la duración del brote.</li>
+      </ul>
+      <h3>🥤 Usos internos (gel/jugo)</h3>
+      <ul>
+        <li><strong>Reflujo gastroesofágico:</strong> estudio de 2015 mostró reducción de síntomas comparable a ranitidina y omeprazol.</li>
+        <li><strong>Síndrome de intestino irritable:</strong> evidencia preliminar positiva para reducir inflamación intestinal.</li>
+        <li><strong>Estreñimiento:</strong> la aloína (del látex) es un laxante, pero puede ser irritante. El gel puro no tiene este efecto.</li>
+      </ul>
+      <div class="callout callout-a">⚠️ El <strong>látex de aloe</strong> (la capa amarilla bajo la piel) es un laxante potente y estimulante. Los productos comerciales para consumo oral usan solo el gel interior. Nunca consumas la hoja entera sin procesar.</div>
+    `
+  },
+
+  a7:{
+    emoji:'💜',cat:'💜 Homeopatía · Guía práctica',catClass:'cc-l',heroBg:'cv-lavender',
+    title:'Guía práctica de homeopatía: los productos más vendidos en farmacias de México',
+    meta:'13 Mar 2026 · Farmacéutica · 5 min lectura',
+    content:`
+      <p>México es uno de los países con mayor consumo de homeopatía en el mundo. Farmacias como Similares, Chedraui, Benavides y Yair tienen secciones completas dedicadas a estos productos. ¿Pero qué son exactamente los medicamentos homeopáticos?</p>
+      <div class="callout callout-l">💜 La homeopatía es un sistema de medicina alternativa creado en 1796. Parte del principio de que "lo similar cura lo similar" y usa diluciones extremas de sustancias. La <strong>Organización Mundial de la Salud</strong> y múltiples agencias regulatorias señalan que su eficacia no supera al placebo en revisiones sistemáticas rigurosas. Sin embargo, son seguros (por la dilución) y muchos usuarios reportan beneficio subjetivo.</div>
+      <h3>📦 Los más vendidos en farmacias mexicanas</h3>
+      <ul>
+        <li><strong>Oscillococcinum (Boiron):</strong> para gripe e influenza. Es el medicamento homeopático más vendido del mundo.</li>
+        <li><strong>Arnica Montana:</strong> para golpes, contusiones y dolores musculares. En glóbulos, crema y gel.</li>
+        <li><strong>Nux Vomica:</strong> para malestar digestivo, excesos y resaca.</li>
+        <li><strong>Calms Forté:</strong> para ansiedad leve y sueño.</li>
+        <li><strong>Gelsemium:</strong> para ansiedad previa a eventos (exámenes, presentaciones).</li>
+        <li><strong>Belladonna:</strong> para fiebre con inicio súbito en niños.</li>
+      </ul>
+      <h3>🤔 ¿Debo tomarlo?</h3>
+      <p>La homeopatía no tiene contraindicaciones por su seguridad intrínseca. Si ya la usas y sientes beneficio, no hay riesgo. El riesgo está en <strong>usarla en lugar de tratamientos efectivos</strong> para condiciones graves. Para condiciones menores, es una opción que muchos pacientes encuentran útil de forma subjetiva.</p>
+    `
+  },
+
+  a8:{
+    emoji:'🌼',cat:'💜 Homeopatía · Dolor y Golpes',catClass:'cc-a',heroBg:'cv-amber',
+    title:'Árnica Montana: el remedio homeopático para golpes más famoso de México',
+    meta:'9 Mar 2026 · Farmacéutica · 4 min lectura',
+    content:`
+      <p>Si preguntas en cualquier farmacia mexicana cuál es su homeopático más vendido, la respuesta casi siempre es Árnica Montana. Está en los botiquines de casi todos los hogares mexicanos y se recomienda casi de forma automática para cualquier golpe, caída o contusión.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: crema, gel, glóbulos 9CH, tabletas</div>
+      <h3>🌸 Las dos formas de árnica y su diferencia</h3>
+      <ul>
+        <li><strong>Árnica homeopática (glóbulos/tabletas):</strong> dilución ultraalta (9CH, 30CH). No contiene moléculas activas medibles. Efecto: placebo según la evidencia sistemática.</li>
+        <li><strong>Árnica tópica (crema/gel) al 15–25% de tintura madre:</strong> contiene sesquiterpenlactonas (helanalín) con propiedades antiinflamatorias reales. Esta sí tiene evidencia clínica para hematomas y dolor muscular.</li>
+      </ul>
+      <div class="callout callout-t">🔑 Distinción importante: la <strong>árnica tópica con concentración real</strong> (cremas como Traumeel, que contiene árnica + otras plantas) sí tiene estudios positivos. Los <strong>glóbulos homeopáticos</strong> no han demostrado eficacia superior al placebo.</div>
+      <h3>💊 Recomendación práctica</h3>
+      <p>Para golpes y hematomas, la crema de árnica concentrada (no homeopática) aplicada en la zona 3 veces al día tiene más respaldo científico. Si usas los glóbulos homeopáticos y te funcionan, es seguro seguir haciéndolo —no hay riesgo. Pero no los substituyas por un tratamiento médico necesario.</p>
+    `
+  },
+
+  a9:{
+    emoji:'🌿',cat:'💜 Homeopatía · Digestivo',catClass:'cc-t',heroBg:'cv-terra',
+    title:'Nux Vomica: el homeopático digestivo más recetado en México',
+    meta:'5 Mar 2026 · Farmacéutica · 4 min lectura',
+    content:`
+      <p>Nux Vomica es un preparado homeopático derivado de la nuez vómica (<em>Strychnos nux-vomica</em>), una semilla altamente tóxica en estado natural que en dilución homeopática se convierte en un preparado completamente seguro.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: glóbulos 9CH, tabletas, gotas</div>
+      <h3>🍽️ ¿Para qué lo usan los mexicanos?</h3>
+      <ul>
+        <li>Malestar estomacal después de excesos alimenticios o alcohólicos (la llamada "cruda").</li>
+        <li>Náuseas, acidez y sensación de plenitud estomacal.</li>
+        <li>Estreñimiento con espasmos.</li>
+        <li>Irritabilidad y tensión relacionadas con el estrés.</li>
+      </ul>
+      <div class="callout callout-a">💊 La sustancia base (nuez vómica cruda) contiene estricnina, un veneno potente. En dilución homeopática 9CH o superior, <strong>no quedan moléculas activas</strong>. Es completamente seguro, pero tampoco tiene efecto farmacológico más allá del placebo según la evidencia científica actual.</div>
+      <h3>🌿 Alternativas naturales con más evidencia para digestión</h3>
+      <ul>
+        <li><strong>Jengibre:</strong> 1 g para náuseas. Evidencia sólida, especialmente en náuseas del embarazo y posquimioterapia.</li>
+        <li><strong>Menta piperita:</strong> aceite esencial en cápsulas entéricas para el síndrome de intestino irritable.</li>
+        <li><strong>Alcachofa:</strong> extracto para dispepsia y digestión lenta. Disponible en farmacia como Cynarax.</li>
+      </ul>
+    `
+  },
+
+  a10:{
+    emoji:'🌸',cat:'🫙 Aceites Esenciales · Relajante',catClass:'cc-l',heroBg:'cv-lavender',
+    title:'Aceite de lavanda: el más vendido en México y lo que realmente hace',
+    meta:'11 Mar 2026 · Aromaterapia & Farmacología · 5 min lectura',
+    content:`
+      <p>El aceite esencial de lavanda (<em>Lavandula angustifolia</em>) es el más vendido en farmacias y tiendas naturistas de México. Linalool y acetato de linalilo, sus componentes principales, tienen efectos sobre el sistema nervioso documentados en múltiples estudios.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: aceite esencial 10ml, 30ml, cápsulas orales</div>
+      <h3>✅ Lo que la ciencia confirma</h3>
+      <ul>
+        <li><strong>Ansiedad:</strong> Silexan (cápsulas orales de lavanda 80mg) mostró reducción de la ansiedad comparable a lorazepam en ensayos controlados.</li>
+        <li><strong>Sueño:</strong> la inhalación de lavanda mejora la calidad subjetiva del sueño y reduce el tiempo de conciliación.</li>
+        <li><strong>Dolor:</strong> evidencia preliminar para reducción de dolor en dismenorrea y cefalea tensional.</li>
+        <li><strong>Antiséptico leve:</strong> actividad bacteriostática contra bacterias gram-positivas.</li>
+      </ul>
+      <h3>🌿 Modos de uso en México</h3>
+      <ul>
+        <li><strong>Aromaterapia:</strong> difusor ultrasónico, 4–6 gotas, 15–30 min antes de dormir.</li>
+        <li><strong>Tópico diluido:</strong> 2–3% en aceite portador (jojoba, almendras). Para masaje relajante o tensión muscular cervical.</li>
+        <li><strong>Inhalación directa:</strong> 1–2 gotas en la almohada para facilitar el sueño.</li>
+        <li><strong>Baño:</strong> 10 gotas en sales de baño o directamente en la tina.</li>
+      </ul>
+      <div class="callout callout-a">⚠️ <strong>Nunca apliques aceite esencial puro en piel</strong> sin diluir. Puede causar quemaduras químicas. Diluye siempre en aceite portador (mínimo al 2%). Evita el contacto con ojos y mucosas.</div>
+    `
+  },
+
+  a11:{
+    emoji:'🌲',cat:'🫙 Aceites Esenciales · Antiséptico',catClass:'cc-h',heroBg:'cv-herb',
+    title:'Aceite de árbol de té (tea tree): el antiséptico natural con más usos en farmacia',
+    meta:'6 Mar 2026 · Dermatología Natural · 5 min lectura',
+    content:`
+      <p>El aceite de árbol de té (<em>Melaleuca alternifolia</em>) es el aceite esencial con mayor número de estudios clínicos sobre sus propiedades antimicrobianas. Es nativo de Australia, pero se vende en farmacias mexicanas de todos los niveles.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: aceite puro 10ml/30ml, gel, shampoo</div>
+      <h3>✅ Usos con evidencia sólida</h3>
+      <ul>
+        <li><strong>Acné:</strong> gel al 5% de tea tree fue tan efectivo como peróxido de benzoílo al 5% en ensayo controlado de 3 meses, con menos efectos adversos.</li>
+        <li><strong>Onicomicosis (hongos en uñas):</strong> solución al 100% durante 6 meses mostró erradicación en el 18% vs 11% del placebo.</li>
+        <li><strong>Pie de atleta:</strong> crema al 25–50% durante 4 semanas redujo síntomas en estudios clínicos.</li>
+        <li><strong>Caspa seborreica:</strong> shampoo al 5% de tea tree redujo la caspa en un 41%.</li>
+      </ul>
+      <h3>💊 Precauciones importantes</h3>
+      <ul>
+        <li><strong>Nunca ingerir:</strong> el aceite de tea tree es <strong>tóxico por vía oral</strong>. Úsalo solo tópicamente.</li>
+        <li><strong>Diluir antes de aplicar:</strong> al 2–5% en aceite portador para la mayoría de usos.</li>
+        <li>Puede causar dermatitis de contacto en piel sensible. Prueba en área pequeña primero.</li>
+        <li><strong>Mascota precaución:</strong> es tóxico para gatos y perros. No lo uses en superficies donde puedan lamerlo.</li>
+      </ul>
+    `
+  },
+
+  a12:{
+    emoji:'🌬️',cat:'🫙 Aceites Esenciales · Respiratorio',catClass:'cc-s',heroBg:'cv-sky',
+    title:'Eucalipto y menta: los aceites respiratorios favoritos de México',
+    meta:'2 Mar 2026 · Fitoterapia Respiratoria · 4 min lectura',
+    content:`
+      <p>El eucalipto y la menta son los aceites esenciales más usados en México para síntomas respiratorios. Vicks VapoRub los popularizó, pero sus aceites puros ofrecen flexibilidad de uso adicional.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: aceite de eucalipto, aceite de menta, mezclas respiratorias</div>
+      <h3>🫁 Eucalipto (Eucalyptus globulus)</h3>
+      <ul>
+        <li><strong>1,8-cineol (eucaliptol):</strong> el principal componente activo, expectorante y broncodilatador moderado.</li>
+        <li>Inhalar vapor con 5 gotas de eucalipto en agua caliente reduce la congestión nasal y facilita la expectoración.</li>
+        <li>Hay presentaciones en cápsulas entéricas (Soledum® o equivalentes) para uso interno en bronquitis.</li>
+      </ul>
+      <h3>🌿 Menta piperita (Mentha × piperita)</h3>
+      <ul>
+        <li><strong>Mentol:</strong> activa los receptores de frío (TRPM8) creando sensación de frescor y apertura de vías nasales.</li>
+        <li>No descongestionante real (no reduce inflamación), pero mejora la sensación de respirar.</li>
+        <li>En cápsulas entéricas al 0.2 ml, eficaz para síndrome de intestino irritable (reducción de espasmos).</li>
+        <li>Aplicación tópica en sien y nuca para cefalea tensional tiene evidencia comparable a paracetamol.</li>
+      </ul>
+      <div class="callout callout-a">⚠️ <strong>No apliques mentol ni eucalipto directamente bajo la nariz de bebés y niños menores de 2 años</strong>. El mentol puede causar espasmo laríngeo en bebés. Usa alternativas pediátricas específicas.</div>
+    `
+  },
+
+  a13:{
+    emoji:'👑',cat:'🍯 Apiterapia · Energía & Vitalidad',catClass:'cc-t',heroBg:'cv-terra',
+    title:'Jalea real: el "superfood" de las abejas que venden en farmacia',
+    meta:'8 Mar 2026 · Apiterapia · 4 min lectura',
+    content:`
+      <p>La jalea real es la secreción glandular que las abejas obreras producen para alimentar exclusivamente a la reina durante toda su vida. Este alimento hace que la reina viva 5 años cuando las obreras viven 6 semanas. De ahí su reputación de "elixir de vida".</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: fresco refrigerado, cápsulas liofilizadas, ampollas</div>
+      <h3>✅ Lo que sí tiene evidencia</h3>
+      <ul>
+        <li><strong>10-HDA (ácido 10-hidroxidecanoico):</strong> el componente único de la jalea real, con actividad antibacteriana, antitumoral in vitro y neuroprotectora en modelos animales.</li>
+        <li><strong>Menopausia:</strong> un estudio japonés mostró mejoría de síntomas menopáusicos con 150 mg/día durante 12 semanas.</li>
+        <li><strong>Cicatrización:</strong> evidencia preliminar in vitro y en modelos animales para acelerar la regeneración celular.</li>
+        <li><strong>Colesterol:</strong> estudios menores muestran reducción del LDL con uso prolongado.</li>
+      </ul>
+      <div class="callout callout-a">⚠️ La jalea real puede causar <strong>reacciones alérgicas severas</strong> (incluyendo anafilaxia) en personas con alergia al veneno de abeja o a los productos apícolas. Contraindicada en asmáticos severos.</div>
+      <h3>💊 Presentaciones y dosis</h3>
+      <p>La jalea real fresca (refrigerada) es la más potente pero requiere cadena de frío. Las cápsulas liofilizadas conservan mejor las propiedades. Dosis habitual: 100–500 mg/día. Tomar preferentemente en ayunas por la mañana.</p>
+    `
+  },
+
+  a14:{
+    emoji:'💐',cat:'🌱 Plantas · Inmunidad',catClass:'cc-h',heroBg:'cv-herb',
+    title:'Equinácea: la flor que fortalece las defensas y venden en todas las farmacias',
+    meta:'4 Mar 2026 · Fitoterapia · 4 min lectura',
+    content:`
+      <p>La equinácea (<em>Echinacea purpurea</em>) es la planta más vendida en México en temporada de gripe. Cada otoño-invierno sus ventas se disparan. ¿Vale la pena tomarla? La respuesta de la ciencia es: <em>sí, pero con matices importantes</em>.</p>
+      <div class="avail-chip">Disponible en Farmacias Yair: cápsulas, tintura, tabletas, jarabe</div>
+      <h3>✅ Lo que funciona</h3>
+      <ul>
+        <li>Metaanálisis de Cochrane (2015, 24 estudios): <strong>reduce el riesgo de contraer un resfriado en un 10–15%</strong> con uso preventivo.</li>
+        <li>Reduce la duración del resfriado aproximadamente <strong>1.4 días</strong> cuando se toma al primer síntoma.</li>
+        <li>Mecanismo: estimula la producción de interleucinas y activa los macrófagos (inmunidad innata).</li>
+      </ul>
+      <h3>❌ Lo que NO funciona</h3>
+      <ul>
+        <li>Tomar equinácea de forma continua todo el año pierde efecto. Funciona como <strong>tratamiento de ciclos cortos</strong> (8–10 semanas máximo, luego 2 semanas de descanso).</li>
+        <li>No es efectiva contra la influenza (gripe real). Solo para resfriados comunes.</li>
+        <li>No reemplaza la vacuna de la gripe.</li>
+      </ul>
+      <div class="callout callout-a">⚠️ <strong>Contraindicada</strong> en enfermedades autoinmunes (lupus, artritis reumatoide, esclerosis múltiple) porque estimula el sistema inmune, lo que puede empeorar estas condiciones. También evitar en trasplantados que toman inmunosupresores.</div>
+    `
+  }
+
+};
+
+let activeCat = 'all';
+
+function openModal(id) {
+  const a = articles[id];
+  if (!a) return;
+  const hero = document.getElementById('m-hero');
+  hero.className = 'modal-hero ' + a.heroBg;
+  document.getElementById('m-emoji').textContent = a.emoji;
+  const catEl = document.getElementById('m-cat');
+  catEl.textContent = a.cat;
+  catEl.className = 'modal-cat ' + a.catClass;
+  document.getElementById('m-title').textContent = a.title;
+  document.getElementById('m-meta').textContent = a.meta;
+  document.getElementById('m-content').innerHTML = a.content;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+function showCat(cat, btn, cls) {
+  activeCat = cat;
+  document.querySelectorAll('.tab-section').forEach(s => {
+    if (cat === 'all' || s.dataset.cat === cat) s.classList.remove('hidden');
+    else s.classList.add('hidden');
+  });
+  document.querySelectorAll('.cat-btn').forEach(b => b.className = 'cat-btn');
+  btn.classList.add('cat-btn', cls);
+  document.querySelector('.cat-search input').value = '';
+  document.querySelectorAll('.blog-card').forEach(c => c.style.display = '');
+}
+
+function filterArticles(q) {
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.blog-card').forEach(card => {
+    const hay = (card.dataset.tags || '') + card.innerText.toLowerCase();
+    card.style.display = (!q || hay.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
