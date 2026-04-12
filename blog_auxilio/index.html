@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog Primeros Auxilios – Farmacias Yair</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.ico">
+  <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#c8202a;--red-lt:#fdf0f0;--red-dk:#7a0a10;
+  --orange:#d45a1a;--orange-lt:#fef3eb;--orange-dk:#8a2a00;
+  --blue:#1a5cb8;--blue-lt:#eef4fd;--blue-dk:#0a2e6a;
+  --teal:#0e8a7a;--teal-lt:#e8f8f5;--teal-dk:#044a40;
+  --slate:#3a5068;--slate-lt:#edf2f7;--slate-dk:#1a2838;
+  --green:#1a7a3a;--green-lt:#ecf8f0;--green-dk:#0a3a1a;
+  --cream:#fafafa;--off:#f4f5f7;--warm:#f8f4f0;--gray:#dde3ec;
+  --text:#111827;--muted:#6b7280;--dark:#0d1117
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+
+/* ── HEADER ── */
+header{
+  background:var(--dark);position:sticky;top:0;z-index:300;
+  border-bottom:3px solid var(--red);
+  box-shadow:0 2px 24px rgba(0,0,0,.55)
+}
+.hdr{
+  max-width:1240px;margin:0 auto;padding:10px 36px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px
+}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-wrap img{height:44px;width:auto;filter:brightness(0) invert(1)}
+.hdr-sep{width:1px;height:26px;background:rgba(255,255,255,.2)}
+.hdr-title{
+  font-family:'Oswald',sans-serif;font-size:1.05rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--red);display:flex;align-items:center;gap:7px
+}
+.hdr-nav{display:flex;align-items:center;gap:6px}
+.hdr-nav a{
+  color:rgba(255,255,255,.6);text-decoration:none;
+  font-size:.83rem;font-weight:600;padding:7px 14px;
+  border-radius:6px;transition:background .18s,color .18s
+}
+.hdr-nav a:hover{background:rgba(255,255,255,.1);color:#fff}
+.btn-back{background:var(--red)!important;color:#fff!important;font-weight:700!important}
+.btn-back:hover{background:var(--red-dk)!important}
+
+/* ── HERO ── */
+.hero{
+  background:var(--dark);
+  padding:72px 36px 80px;position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 82% 28%,rgba(200,32,42,.22),transparent 52%),
+    radial-gradient(ellipse at 12% 68%,rgba(26,92,184,.14),transparent 46%)
+}
+/* cross watermark */
+.hero-cross{
+  position:absolute;right:4%;top:50%;transform:translateY(-50%);
+  font-size:20rem;opacity:.04;color:#fff;
+  pointer-events:none;line-height:1;user-select:none
+}
+/* pulse ring on cross */
+.hero-pulse{
+  position:absolute;right:4%;top:50%;transform:translate(12%,-50%);
+  width:220px;height:220px;border-radius:50%;
+  border:2px solid rgba(200,32,42,.2);
+  animation:pulsRing 3s ease-in-out infinite;pointer-events:none
+}
+@keyframes pulsRing{
+  0%,100%{transform:translate(12%,-50%) scale(1);opacity:.2}
+  50%{transform:translate(12%,-50%) scale(1.12);opacity:.05}
+}
+.hero-inner{
+  max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:60px;position:relative;z-index:1
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(200,32,42,.15);border:1.5px solid rgba(200,32,42,.4);
+  color:#fca5a5;border-radius:6px;padding:5px 15px;
+  font-size:.72rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:14px
+}
+.hero-text h1{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(2.8rem,5vw,4.4rem);
+  font-weight:700;line-height:.98;color:#fff;margin-bottom:16px;
+  letter-spacing:.01em
+}
+.hero-text h1 span{color:var(--red)}
+.hero-text p{
+  font-size:.98rem;color:rgba(255,255,255,.56);
+  line-height:1.72;max-width:430px;margin-bottom:28px
+}
+.hero-stats{
+  display:flex;gap:0;width:fit-content;
+  border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden
+}
+.h-stat{
+  padding:13px 22px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.03)
+}
+.h-stat:last-child{border-right:none}
+.h-stat strong{
+  display:block;font-family:'Oswald',sans-serif;
+  font-size:1.9rem;color:var(--red);font-weight:700;line-height:1
+}
+.h-stat span{
+  font-size:.68rem;color:rgba(255,255,255,.38);
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  margin-top:3px;display:block
+}
+
+/* hero urgency cards */
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hc{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;padding:14px 14px 13px;cursor:pointer;
+  display:flex;flex-direction:column;gap:8px;
+  backdrop-filter:blur(8px);transition:background .2s,transform .2s
+}
+.hc:hover{background:rgba(255,255,255,.12);transform:translateY(-3px)}
+.hc .hc-icon{font-size:1.6rem;line-height:1}
+.hc h4{
+  font-family:'Oswald',sans-serif;font-size:.93rem;
+  letter-spacing:.03em;color:#fff;line-height:1.2
+}
+.hc span{font-size:.7rem;color:rgba(255,255,255,.45);font-weight:600}
+.hc-urg{
+  display:inline-block;font-size:.6rem;font-weight:800;
+  padding:2px 8px;border-radius:4px;text-transform:uppercase;
+  letter-spacing:.06em;width:fit-content
+}
+.urg-r{background:rgba(200,32,42,.3);color:#fca5a5}
+.urg-o{background:rgba(212,90,26,.3);color:#fcd9b8}
+.urg-b{background:rgba(26,92,184,.3);color:#b8d0fc}
+
+/* ── RED STRIP ── */
+.strip{background:var(--red);padding:14px 36px}
+.strip-inner{
+  max-width:1240px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-around;gap:16px;flex-wrap:wrap
+}
+.si{display:flex;align-items:center;gap:10px;color:#fff}
+.si .ico{font-size:1.4rem}
+.si strong{display:block;font-size:.84rem;font-weight:700}
+.si span{font-size:.72rem;opacity:.84}
+
+/* ── EMERGENCY BANNER ── */
+.emergency-banner{
+  background:linear-gradient(90deg,#7a0a10 0%,var(--red) 50%,#7a0a10 100%);
+  padding:16px 36px;
+}
+.eb-inner{
+  max-width:1240px;margin:0 auto;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  justify-content:center;text-align:center
+}
+.eb-inner .eb-icon{font-size:1.8rem}
+.eb-inner p{
+  font-size:.9rem;font-weight:700;color:#fff;
+  line-height:1.5
+}
+.eb-inner p strong{color:var(--red-lt);font-size:1.1rem}
+.eb-call{
+  background:#fff;color:var(--red-dk);border:none;
+  border-radius:8px;padding:10px 22px;font-weight:800;
+  font-size:.9rem;cursor:pointer;font-family:'DM Sans',sans-serif;
+  white-space:nowrap;transition:transform .15s
+}
+.eb-call:hover{transform:scale(1.04)}
+
+/* ── CATEGORY TABS ── */
+.cat-nav{
+  background:#fff;border-bottom:3px solid var(--gray);
+  position:sticky;top:67px;z-index:200;
+  box-shadow:0 3px 14px rgba(0,0,0,.06)
+}
+.cat-nav-inner{
+  max-width:1240px;margin:0 auto;padding:0 36px;
+  display:flex;align-items:center;overflow-x:auto;scrollbar-width:none
+}
+.cat-nav-inner::-webkit-scrollbar{display:none}
+.cat-btn{
+  display:flex;align-items:center;gap:7px;padding:14px 18px;
+  background:none;border:none;font-family:'DM Sans',sans-serif;
+  font-size:.86rem;font-weight:700;color:var(--muted);cursor:pointer;
+  white-space:nowrap;border-bottom:3px solid transparent;
+  margin-bottom:-3px;transition:color .18s
+}
+.cat-btn:hover{color:var(--text)}
+.ar{color:var(--red);border-bottom-color:var(--red)}
+.ao{color:var(--orange-dk);border-bottom-color:var(--orange)}
+.ab{color:var(--blue-dk);border-bottom-color:var(--blue)}
+.at{color:var(--teal-dk);border-bottom-color:var(--teal)}
+.as{color:var(--slate-dk);border-bottom-color:var(--slate)}
+.ag{color:var(--green-dk);border-bottom-color:var(--green)}
+.cat-icon{font-size:1.05rem}
+.cat-search{
+  margin-left:auto;display:flex;align-items:center;gap:8px;
+  background:var(--off);border:2px solid var(--gray);
+  border-radius:7px;padding:6px 14px;flex-shrink:0;transition:border-color .2s
+}
+.cat-search:focus-within{border-color:var(--red)}
+.cat-search input{
+  background:none;border:none;outline:none;
+  font-family:'DM Sans',sans-serif;font-size:.85rem;
+  color:var(--text);width:155px
+}
+.cat-search input::placeholder{color:var(--muted)}
+
+/* ── MAIN ── */
+.main-wrap{max-width:1240px;margin:0 auto;padding:52px 36px 80px}
+.sec-lbl{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-lbl h2{
+  font-family:'Oswald',sans-serif;
+  font-size:1.7rem;font-weight:600;letter-spacing:.04em;color:var(--text)
+}
+.sec-line{flex:1;height:2px;border-radius:2px}
+.sl-r{background:linear-gradient(90deg,var(--red),transparent)}
+.sl-o{background:linear-gradient(90deg,var(--orange),transparent)}
+.sl-b{background:linear-gradient(90deg,var(--blue),transparent)}
+.sl-t{background:linear-gradient(90deg,var(--teal),transparent)}
+.sl-s{background:linear-gradient(90deg,var(--slate),transparent)}
+.sl-g{background:linear-gradient(90deg,var(--green),transparent)}
+.sec-desc{font-size:.87rem;color:var(--muted);line-height:1.65;margin-bottom:24px;max-width:640px}
+
+/* ── BLOG GRID ── */
+.blog-grid{
+  display:grid;
+  grid-template-columns:1.55fr 1fr 1fr;
+  gap:18px;margin-bottom:48px
+}
+.blog-card{
+  background:#fff;border-radius:16px;overflow:hidden;
+  box-shadow:0 3px 16px rgba(0,0,0,.08);
+  display:flex;flex-direction:column;
+  cursor:pointer;border:2px solid transparent;
+  transition:transform .22s,box-shadow .22s,border-color .22s
+}
+.blog-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(0,0,0,.14)}
+.blog-card.featured{grid-row:1/3}
+.blog-card.featured:hover{border-color:rgba(200,32,42,.35)}
+
+/* visual */
+.bc-visual{
+  position:relative;display:flex;
+  align-items:center;justify-content:center;overflow:hidden
+}
+.blog-card.featured .bc-visual{height:240px}
+.blog-card:not(.featured) .bc-visual{height:138px}
+.cv-r{background:linear-gradient(145deg,#fde8e8,#f8c0c0)}
+.cv-o{background:linear-gradient(145deg,#fef0e4,#fdd8b8)}
+.cv-b{background:linear-gradient(145deg,#e8f0fd,#c4d8f8)}
+.cv-t{background:linear-gradient(145deg,#e4f8f4,#b0ece4)}
+.cv-s{background:linear-gradient(145deg,#edf2f7,#c8d8e8)}
+.cv-g{background:linear-gradient(145deg,#e8f8ec,#b8eccc)}
+
+.bc-emoji{font-size:3.5rem;filter:drop-shadow(0 3px 8px rgba(0,0,0,.12))}
+.blog-card.featured .bc-emoji{font-size:5.5rem}
+.bc-cat{
+  position:absolute;top:11px;left:11px;
+  font-size:.65rem;font-weight:800;padding:3px 10px;
+  border-radius:5px;text-transform:uppercase;letter-spacing:.07em
+}
+.cc-r{background:var(--red-lt);color:var(--red-dk)}
+.cc-o{background:var(--orange-lt);color:var(--orange-dk)}
+.cc-b{background:var(--blue-lt);color:var(--blue-dk)}
+.cc-t{background:var(--teal-lt);color:var(--teal-dk)}
+.cc-s{background:var(--slate-lt);color:var(--slate-dk)}
+.cc-g{background:var(--green-lt);color:var(--green-dk)}
+.bc-urg{
+  position:absolute;top:11px;right:11px;
+  font-size:.6rem;font-weight:800;
+  padding:3px 9px;border-radius:5px;
+  text-transform:uppercase;letter-spacing:.06em
+}
+.bu-r{background:var(--red);color:#fff}
+.bu-o{background:var(--orange);color:#fff}
+
+/* card body */
+.bc-body{padding:17px 19px 21px;flex:1;display:flex;flex-direction:column;gap:8px}
+.bc-meta{font-size:.72rem;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:8px}
+.bc-meta .dot{color:var(--gray)}
+.bc-body h3{font-family:'Source Serif 4',serif;font-weight:700;color:var(--text);line-height:1.32}
+.blog-card.featured .bc-body h3{font-size:1.3rem}
+.blog-card:not(.featured) .bc-body h3{font-size:.97rem}
+.bc-body p{font-size:.81rem;color:var(--muted);line-height:1.6;flex:1}
+.bc-read{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--red);font-weight:800;font-size:.81rem;
+  text-decoration:none;margin-top:4px;
+  transition:gap .15s,color .15s;width:fit-content
+}
+.bc-read:hover{gap:10px;color:var(--red-dk)}
+
+.tab-section{display:block}.tab-section.hidden{display:none}
+
+/* ── 911 BAND ── */
+.call911-band{
+  background:linear-gradient(135deg,var(--dark) 0%,#1a0808 100%);
+  padding:48px 36px;position:relative;overflow:hidden
+}
+.call911-band::before{
+  content:'✚';position:absolute;right:4%;top:50%;
+  transform:translateY(-50%);font-size:18rem;
+  opacity:.04;color:#fff;pointer-events:none
+}
+.call911-inner{max-width:1240px;margin:0 auto;position:relative;z-index:1}
+.call911-inner h2{
+  font-family:'Oswald',sans-serif;font-size:2rem;
+  font-weight:700;letter-spacing:.04em;color:#fff;margin-bottom:6px
+}
+.call911-inner .sub{font-size:.88rem;color:rgba(255,255,255,.45);margin-bottom:28px}
+.call911-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.c911-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:20px 16px;position:relative;overflow:hidden
+}
+.c911-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:4px;border-radius:4px 0 0 4px
+}
+.c911-card:nth-child(1)::before{background:var(--red)}
+.c911-card:nth-child(2)::before{background:var(--orange)}
+.c911-card:nth-child(3)::before{background:var(--blue)}
+.c911-card:nth-child(4)::before{background:var(--teal)}
+.c911-card .ce{font-size:1.8rem;margin-bottom:10px;display:block}
+.c911-card h4{
+  font-family:'Oswald',sans-serif;font-size:1rem;
+  font-weight:600;color:#fff;margin-bottom:6px;letter-spacing:.03em
+}
+.c911-card p{font-size:.79rem;color:rgba(255,255,255,.55);line-height:1.6}
+.c911-num{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--red);color:#fff;border-radius:6px;
+  padding:4px 12px;font-size:.72rem;font-weight:800;
+  margin-top:10px;letter-spacing:.04em
+}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(13,17,23,.78);backdrop-filter:blur(7px);
+  z-index:500;display:none;align-items:flex-start;
+  justify-content:center;padding:22px 16px;overflow-y:auto
+}
+.modal-overlay.open{display:flex;animation:fadeOv .25s ease}
+@keyframes fadeOv{from{opacity:0}to{opacity:1}}
+.modal-box{
+  background:#fff;border-radius:22px;
+  max-width:840px;width:100%;overflow:hidden;
+  animation:slideUp .3s ease;margin:auto;position:relative
+}
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(26px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* modal hero */
+.m-hero{
+  padding:44px 52px 36px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;gap:10px
+}
+.m-close{
+  position:absolute;top:15px;right:15px;
+  background:rgba(0,0,0,.07);border:none;
+  width:36px;height:36px;border-radius:50%;
+  font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s;z-index:10
+}
+.m-close:hover{background:rgba(0,0,0,.14)}
+.m-emoji{font-size:3.4rem;line-height:1;margin-bottom:4px}
+.m-cat-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  border-radius:6px;padding:4px 13px;font-size:.72rem;
+  font-weight:800;letter-spacing:.07em;text-transform:uppercase;width:fit-content
+}
+.m-hero h2{
+  font-family:'Source Serif 4',serif;
+  font-size:1.9rem;font-weight:700;color:var(--text);line-height:1.18
+}
+.m-meta{font-size:.77rem;color:var(--muted);font-weight:700;display:flex;gap:12px}
+
+/* modal body */
+.m-body{padding:34px 52px 52px}
+.m-body p{
+  font-size:.97rem;line-height:1.78;
+  color:#2c2c2c;margin-bottom:16px;font-weight:500
+}
+.m-body h3{
+  font-family:'Source Serif 4',serif;
+  font-size:1.18rem;font-weight:700;color:var(--text);
+  margin:26px 0 9px;display:flex;align-items:center;gap:9px
+}
+.m-body ul{padding-left:22px;margin-bottom:16px}
+.m-body ul li{
+  font-size:.95rem;color:#2c2c2c;line-height:1.68;
+  margin-bottom:6px;font-weight:500
+}
+.m-body ol{padding-left:22px;margin-bottom:16px;counter-reset:step}
+.m-body ol li{
+  font-size:.95rem;color:#2c2c2c;line-height:1.68;
+  margin-bottom:8px;font-weight:500
+}
+
+/* callouts */
+.callout{
+  border-radius:10px;padding:14px 18px;margin:18px 0;
+  font-size:.92rem;font-weight:700;line-height:1.6;border-left:4px solid
+}
+.co-r{background:var(--red-lt);color:var(--red-dk);border-color:var(--red)}
+.co-o{background:var(--orange-lt);color:var(--orange-dk);border-color:var(--orange)}
+.co-b{background:var(--blue-lt);color:var(--blue-dk);border-color:var(--blue)}
+.co-t{background:var(--teal-lt);color:var(--teal-dk);border-color:var(--teal)}
+.co-g{background:var(--green-lt);color:var(--green-dk);border-color:var(--green)}
+.co-s{background:var(--slate-lt);color:var(--slate-dk);border-color:var(--slate)}
+
+/* step chips */
+.steps-row{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.step-chip{
+  display:flex;align-items:center;gap:8px;
+  background:var(--off);border:1.5px solid var(--gray);
+  border-radius:8px;padding:8px 14px;
+  font-size:.83rem;font-weight:700;color:var(--text)
+}
+.step-chip .sn{
+  background:var(--red);color:#fff;border-radius:4px;
+  width:22px;height:22px;display:flex;align-items:center;
+  justify-content:center;font-size:.75rem;font-weight:800;flex-shrink:0
+}
+
+/* footer */
+footer{
+  background:var(--dark);color:rgba(255,255,255,.35);
+  text-align:center;padding:22px 36px;font-size:.8rem;
+  border-top:3px solid var(--red)
+}
+footer a{color:var(--red);text-decoration:none}
+footer a:hover{color:#fff}
+
+/* responsive */
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-cards{grid-template-columns:repeat(4,1fr)}
+  .blog-grid{grid-template-columns:1fr 1fr}
+  .blog-card.featured{grid-row:auto}
+  .call911-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .blog-grid{grid-template-columns:1fr}
+  .hero-cards{display:none}
+  .m-hero{padding:28px 22px 22px}
+  .m-body{padding:22px}
+  .call911-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header><div class="hdr">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a>
+      <div class="hdr-sep"></div>
+      <span class="hdr-title">✚ Blog Primeros Auxilios</span>
+    </div>
+  <nav class="hdr-nav">
+    <a href="https://www.farmaciasyair.com/catalogo_auxilos">Catálogo</a>
+    <a href="https://www.farmaciasyair.com/" class="btn-back">← Tienda</a>
+  </nav>
+</div></header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-cross">✚</div>
+  <div class="hero-pulse"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">✚ Primeros Auxilios · Guías Prácticas</div>
+      <h1>SABER<br/><span>ACTUAR</span><br/>SALVA VIDAS</h1>
+      <p>Guías paso a paso redactadas con criterio médico para que sepas exactamente qué hacer en una emergencia: heridas, quemaduras, atragantamiento, desmayos y mucho más.</p>
+      <div class="hero-stats">
+        <div class="h-stat"><strong>6</strong><span>Categorías</span></div>
+        <div class="h-stat"><strong>18</strong><span>Guías</span></div>
+        <div class="h-stat"><strong>911</strong><span>Urgencias</span></div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hc" onclick="openModal('a1')">
+        <span class="hc-icon">🩹</span>
+        <div class="hc-urg urg-o">Básico</div>
+        <h4>Cómo curar una herida</h4>
+        <span>Heridas · 4 min</span>
+      </div>
+      <div class="hc" onclick="openModal('a4')">
+        <span class="hc-icon">🔥</span>
+        <div class="hc-urg urg-r">Urgente</div>
+        <h4>Quemaduras: qué hacer</h4>
+        <span>Quemaduras · 4 min</span>
+      </div>
+      <div class="hc" onclick="openModal('a7')">
+        <span class="hc-icon">😵</span>
+        <div class="hc-urg urg-r">Urgente</div>
+        <h4>Atragantamiento: maniobra Heimlich</h4>
+        <span>Vía aérea · 5 min</span>
+      </div>
+      <div class="hc" onclick="openModal('a10')">
+        <span class="hc-icon">💓</span>
+        <div class="hc-urg urg-r">Crítico</div>
+        <h4>RCP paso a paso</h4>
+        <span>Reanimación · 6 min</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY BANNER -->
+<div class="emergency-banner"><div class="eb-inner">
+  <span class="eb-icon">🚨</span>
+  <p>Ante una emergencia grave: <strong>llama al 911 inmediatamente</strong>. Los primeros auxilios son medidas temporales hasta la llegada de los servicios de emergencia.</p>
+  <button class="eb-call" onclick="alert('Número de emergencias México: 911')">📞 911 México</button>
+</div></div>
+
+<!-- STRIP -->
+<div class="strip"><div class="strip-inner">
+  <div class="si"><span class="ico">🩹</span><div><strong>Heridas y cortes</strong><span>Limpieza y curación</span></div></div>
+  <div class="si"><span class="ico">🔥</span><div><strong>Quemaduras</strong><span>Por calor, químicos y sol</span></div></div>
+  <div class="si"><span class="ico">🦴</span><div><strong>Traumas</strong><span>Esguinces y fracturas</span></div></div>
+  <div class="si"><span class="ico">💓</span><div><strong>Reanimación</strong><span>RCP y DEA</span></div></div>
+</div></div>
+
+<!-- CATEGORY TABS -->
+<div class="cat-nav"><div class="cat-nav-inner">
+  <button class="cat-btn ar" onclick="showCat('all',this,'ar')"><span class="cat-icon">🌟</span> Todas las guías</button>
+  <button class="cat-btn" onclick="showCat('heridas',this,'ao')"><span class="cat-icon">🩹</span> Heridas y Sangrado</button>
+  <button class="cat-btn" onclick="showCat('quemaduras',this,'ar')"><span class="cat-icon">🔥</span> Quemaduras</button>
+  <button class="cat-btn" onclick="showCat('traumas',this,'ab')"><span class="cat-icon">🦴</span> Traumas y Caídas</button>
+  <button class="cat-btn" onclick="showCat('reanimacion',this,'ar')"><span class="cat-icon">💓</span> Reanimación</button>
+  <button class="cat-btn" onclick="showCat('pediatrico',this,'at')"><span class="cat-icon">👶</span> Pediátrico</button>
+  <button class="cat-btn" onclick="showCat('botiquin',this,'ag')"><span class="cat-icon">🧰</span> Botiquín</button>
+  <div class="cat-search">
+    <svg width="13" height="13" fill="none" stroke="#6b7280" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" placeholder="Buscar guía…" oninput="filterArticles(this.value)"/>
+  </div>
+</div></div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+<!-- HERIDAS -->
+<div class="tab-section" id="sec-heridas" data-cat="heridas">
+  <div class="sec-lbl"><h2>🩹 HERIDAS Y SANGRADO</h2><div class="sec-line sl-o"></div></div>
+  <p class="sec-desc">Cómo limpiar, desinfectar y cubrir heridas correctamente. Técnicas para controlar el sangrado y cuándo ir a urgencias.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a1')" data-tags="heridas corte sangrado curación antiséptico limpieza pasos">
+      <div class="bc-visual cv-o">
+        <span class="bc-emoji">🩹</span>
+        <span class="bc-cat cc-o">Heridas</span>
+        <span class="bc-urg bu-o">⭐ Básico</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>14 Mar 2026</span><span class="dot">·</span><span>Enfermería de Urgencias</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Cómo curar una herida correctamente: pasos y errores más comunes</h3>
+        <p>Aprende el protocolo correcto para limpiar, desinfectar y cubrir heridas menores en casa. Evita los errores más frecuentes que pueden retrasar la cicatrización o provocar infecciones.</p>
+        <a class="bc-read" href="#">Leer guía completa →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a2')" data-tags="heridas sangrado hemorragia presion torniquete control">
+      <div class="bc-visual cv-r">
+        <span class="bc-emoji">🩸</span>
+        <span class="bc-cat cc-r">Sangrado</span>
+        <span class="bc-urg bu-r">Urgente</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>10 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Cómo controlar una hemorragia severa</h3>
+        <p>Presión directa, vendaje compresivo y cuándo usar un torniquete improvisado. Lo que debes saber para salvar una vida en los primeros minutos.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a3')" data-tags="heridas mordedura animal perro rabia limpieza infeccion">
+      <div class="bc-visual cv-o">
+        <span class="bc-emoji">🐕</span>
+        <span class="bc-cat cc-o">Mordeduras</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>7 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Mordeduras de animales: qué hacer en los primeros minutos</h3>
+        <p>Las mordeduras tienen alto riesgo de infección. Limpieza correcta, cuándo ir a urgencias y por qué la vacuna antitetánica y antirrábica importan.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUEMADURAS -->
+<div class="tab-section" id="sec-quemaduras" data-cat="quemaduras">
+  <div class="sec-lbl"><h2>🔥 QUEMADURAS</h2><div class="sec-line sl-r"></div></div>
+  <p class="sec-desc">Clasificación por grados, primeros auxilios para quemaduras por calor, químicos y sol. Qué hacer y qué nunca hacer.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a4')" data-tags="quemaduras grados calor agua fría tratamiento urgencias">
+      <div class="bc-visual cv-r">
+        <span class="bc-emoji">🔥</span>
+        <span class="bc-cat cc-r">Quemaduras</span>
+        <span class="bc-urg bu-r">⭐ Urgente</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>12 Mar 2026</span><span class="dot">·</span><span>Medicina de Emergencias</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Quemaduras por calor: clasificación, tratamiento y errores peligrosos</h3>
+        <p>¿Agua fría, pasta dental o hielo? Aprende a clasificar una quemadura por su grado y a actuar correctamente según su extensión. Hay mitos populares que pueden empeorar gravemente la situación.</p>
+        <a class="bc-read" href="#">Leer guía completa →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a5')" data-tags="quemaduras químicas ácido base ojos lavado agua abundante">
+      <div class="bc-visual cv-o">
+        <span class="bc-emoji">⚗️</span>
+        <span class="bc-cat cc-o">Quemaduras</span>
+        <span class="bc-urg bu-r">Urgente</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>8 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Quemaduras químicas: lavado inmediato es la clave</h3>
+        <p>Ácidos, álcalis y productos domésticos pueden causar quemaduras graves en segundos. El lavado con agua abundante por 20 minutos es la acción más crítica.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a6')" data-tags="quemadura solar golpe calor insolacion hidratacion crema">
+      <div class="bc-visual cv-o">
+        <span class="bc-emoji">☀️</span>
+        <span class="bc-cat cc-o">Quemaduras</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>4 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Quemadura solar y golpe de calor: diferencias y tratamiento</h3>
+        <p>La quemadura solar es lesión local; el golpe de calor es emergencia sistémica. Aprende a diferenciarlos y actuar correctamente en cada caso.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRAUMAS -->
+<div class="tab-section" id="sec-traumas" data-cat="traumas">
+  <div class="sec-lbl"><h2>🦴 TRAUMAS Y CAÍDAS</h2><div class="sec-line sl-b"></div></div>
+  <p class="sec-desc">Esguinces, fracturas, luxaciones y golpes en la cabeza. Cómo inmovilizar, aplicar el método RICE y cuándo sospechar algo más grave.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a8')" data-tags="trauma esguince torcedura tobillo rodilla RICE hielo reposo vendaje">
+      <div class="bc-visual cv-b">
+        <span class="bc-emoji">🦴</span>
+        <span class="bc-cat cc-b">Traumas</span>
+        <span class="bc-urg bu-o">⭐ Básico</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>11 Mar 2026</span><span class="dot">·</span><span>Medicina Deportiva</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Esguinces y torceduras: el método RICE que todos deberían conocer</h3>
+        <p>Rest, Ice, Compression, Elevation. Este protocolo de 4 pasos puede marcar la diferencia entre una recuperación rápida y semanas de dolor. Aprende a aplicarlo correctamente desde los primeros minutos.</p>
+        <a class="bc-read" href="#">Leer guía completa →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a9')" data-tags="trauma fractura hueso inmovilizar ferula tablilla señales sospecha">
+      <div class="bc-visual cv-s">
+        <span class="bc-emoji">🩻</span>
+        <span class="bc-cat cc-s">Traumas</span>
+        <span class="bc-urg bu-r">Urgente</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>6 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Fractura sospechada: cómo inmovilizar antes de llegar al médico</h3>
+        <p>No siempre se puede saber si es fractura sin radiografía. Aprende las señales de alarma y cómo inmovilizar con materiales caseros sin empeorar la lesión.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a_cabeza')" data-tags="trauma golpe cabeza conmoción cerebral síntomas vigilar neurológico">
+      <div class="bc-visual cv-b">
+        <span class="bc-emoji">🤕</span>
+        <span class="bc-cat cc-b">Traumas</span>
+        <span class="bc-urg bu-r">Urgente</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>2 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Golpe en la cabeza: señales que requieren urgencias inmediatas</h3>
+        <p>La mayoría de los golpes en la cabeza son leves, pero algunas señales indican una emergencia neurológica. Aprende cuáles vigilar durante las siguientes 24 horas.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REANIMACIÓN -->
+<div class="tab-section" id="sec-reanimacion" data-cat="reanimacion">
+  <div class="sec-lbl"><h2>💓 REANIMACIÓN CARDIOPULMONAR</h2><div class="sec-line sl-r"></div></div>
+  <p class="sec-desc">RCP básico para adultos, niños y bebés. Maniobra de Heimlich para atragantamiento. Cuándo y cómo actuar en los primeros minutos críticos.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a10')" data-tags="RCP reanimacion paro cardiaco compresiones respiraciones cadena supervivencia pasos">
+      <div class="bc-visual cv-r">
+        <span class="bc-emoji">💓</span>
+        <span class="bc-cat cc-r">Reanimación</span>
+        <span class="bc-urg bu-r">⭐ Crítico</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>15 Mar 2026</span><span class="dot">·</span><span>Cardiólogo Urgenciólogo</span><span class="dot">·</span><span>6 min</span></div>
+        <h3>RCP paso a paso: cómo reanimar a una persona en paro cardíaco</h3>
+        <p>Cada minuto sin RCP reduce la supervivencia un 10%. Aprende el protocolo oficial 30:2 de compresiones y ventilaciones, cómo colocar las manos y el ritmo correcto. Esta guía puede salvar una vida hoy.</p>
+        <a class="bc-read" href="#">Leer guía completa →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a7')" data-tags="atragantamiento asfixia Heimlich obstruccion via aerea bebé adulto">
+      <div class="bc-visual cv-r">
+        <span class="bc-emoji">😵</span>
+        <span class="bc-cat cc-r">Vía aérea</span>
+        <span class="bc-urg bu-r">Crítico</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>9 Mar 2026</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Atragantamiento y maniobra de Heimlich: guía completa</h3>
+        <p>La maniobra de Heimlich es la técnica de elección para obstrucción total de vía aérea en adultos. Aprende también qué hacer con bebés y embarazadas, donde la técnica es diferente.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a11')" data-tags="desmayo síncope posición recuperacion consciencia inconsciencia">
+      <div class="bc-visual cv-s">
+        <span class="bc-emoji">💫</span>
+        <span class="bc-cat cc-s">Reanimación</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>5 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Desmayo y pérdida de consciencia: qué hacer y qué no hacer</h3>
+        <p>Un desmayo simple y una emergencia neurológica pueden parecer iguales al inicio. Aprende a diferenciarlos y a colocar correctamente a la persona.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PEDIÁTRICO -->
+<div class="tab-section" id="sec-pediatrico" data-cat="pediatrico">
+  <div class="sec-lbl"><h2>👶 PRIMEROS AUXILIOS PEDIÁTRICOS</h2><div class="sec-line sl-t"></div></div>
+  <p class="sec-desc">Técnicas específicas para bebés y niños: las maniobras son diferentes. Fiebre, convulsiones febriles, atragantamiento en bebés y más.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a12')" data-tags="pediatrico bebe atragantamiento palmadas espalda obstruccion tecnica">
+      <div class="bc-visual cv-t">
+        <span class="bc-emoji">👶</span>
+        <span class="bc-cat cc-t">Pediátrico</span>
+        <span class="bc-urg bu-r">⭐ Crítico</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>13 Mar 2026</span><span class="dot">·</span><span>Pediatra Urgenciólogo</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>Atragantamiento en bebés menores de 1 año: técnica correcta paso a paso</h3>
+        <p>La maniobra de Heimlich NO se aplica en bebés menores de 1 año. La técnica correcta es completamente diferente: 5 palmadas en la espalda + 5 compresiones torácicas. Esta diferencia puede salvar la vida de tu bebé.</p>
+        <a class="bc-read" href="#">Leer guía completa →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a13')" data-tags="pediatrico convulsion febril niño epilepsia pasos seguridad primeros auxilios">
+      <div class="bc-visual cv-o">
+        <span class="bc-emoji">⚡</span>
+        <span class="bc-cat cc-o">Pediátrico</span>
+        <span class="bc-urg bu-r">Urgente</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>9 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Convulsión febril en niños: cómo actuar sin entrar en pánico</h3>
+        <p>Las convulsiones febriles son aterradoras pero generalmente benignas. Aprende qué hacer durante la convulsión, qué no hacer y cuándo llamar al 911.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a14')" data-tags="pediatrico RCP bebe niño compresiones reanimacion paro cardiaco">
+      <div class="bc-visual cv-r">
+        <span class="bc-emoji">💗</span>
+        <span class="bc-cat cc-r">Pediátrico</span>
+        <span class="bc-urg bu-r">Crítico</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>4 Mar 2026</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>RCP pediátrico: diferencias con el adulto y técnica correcta</h3>
+        <p>El RCP en bebés y niños tiene diferencias cruciales en fuerza, frecuencia y técnica. Aprende las especificidades para cada grupo de edad.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTIQUÍN -->
+<div class="tab-section" id="sec-botiquin" data-cat="botiquin">
+  <div class="sec-lbl"><h2>🧰 BOTIQUÍN DE EMERGENCIAS</h2><div class="sec-line sl-g"></div></div>
+  <p class="sec-desc">Qué debe tener tu botiquín en casa, el auto y el trabajo. Cómo mantenerlo, caducidades y los errores más comunes al armar uno.</p>
+  <div class="blog-grid">
+    <div class="blog-card featured" onclick="openModal('a15')" data-tags="botiquin casa lista completa materiales medicamentos básico emergencia">
+      <div class="bc-visual cv-g">
+        <span class="bc-emoji">🧰</span>
+        <span class="bc-cat cc-g">Botiquín</span>
+        <span class="bc-urg bu-o">⭐ Esencial</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>11 Mar 2026</span><span class="dot">·</span><span>Farmacéutica</span><span class="dot">·</span><span>5 min</span></div>
+        <h3>El botiquín perfecto para el hogar: lista completa y cómo mantenerlo</h3>
+        <p>Un botiquín bien equipado puede marcar la diferencia entre una urgencia manejable y una situación que se complica. Lista completa con los 30 elementos esenciales, dónde guardarlos y cómo verificar caducidades.</p>
+        <a class="bc-read" href="#">Leer guía completa →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a16')" data-tags="botiquin auto viaje carro accidente carretera kit emergencia vehiculo">
+      <div class="bc-visual cv-s">
+        <span class="bc-emoji">🚗</span>
+        <span class="bc-cat cc-s">Botiquín</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>7 Mar 2026</span><span class="dot">·</span><span>4 min</span></div>
+        <h3>Botiquín para el auto: qué llevar en carretera y ciudad</h3>
+        <p>Los accidentes de tráfico son la principal causa de traumatismos en México. Tu auto debe tener los materiales básicos para actuar en los primeros minutos.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+    <div class="blog-card" onclick="openModal('a17')" data-tags="botiquin medicamentos caducados vencidos desechar correctamente farmacias">
+      <div class="bc-visual cv-t">
+        <span class="bc-emoji">⏰</span>
+        <span class="bc-cat cc-t">Botiquín</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta"><span>3 Mar 2026</span><span class="dot">·</span><span>3 min</span></div>
+        <h3>Medicamentos caducados: cómo desecharlos correctamente en México</h3>
+        <p>Tirar medicamentos al drenaje contamina el agua. México tiene puntos de acopio en farmacias. Aprende dónde y cómo desecharlos de forma responsable.</p>
+        <a class="bc-read" href="#">Leer →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main-wrap -->
+
+<!-- 911 BAND -->
+<div class="call911-band"><div class="call911-inner">
+  <h2>✚ CUÁNDO LLAMAR AL 911</h2>
+  <p class="sub">Algunas situaciones requieren atención médica profesional inmediata. No esperes.</p>
+  <div class="call911-grid">
+    <div class="c911-card">
+      <span class="ce">💓</span>
+      <h4>Paro Cardíaco</h4>
+      <p>Persona inconsciente, sin pulso ni respiración. Inicia RCP inmediatamente y llama al 911.</p>
+      <span class="c911-num">📞 911</span>
+    </div>
+    <div class="c911-card">
+      <span class="ce">🧠</span>
+      <h4>ACV (Derrame Cerebral)</h4>
+      <p>FAST: Face (asimetría facial), Arms (brazo caído), Speech (habla difusa), Time (tiempo es clave).</p>
+      <span class="c911-num">📞 911</span>
+    </div>
+    <div class="c911-card">
+      <span class="ce">🩸</span>
+      <h4>Hemorragia Grave</h4>
+      <p>Sangrado que no cede con presión directa en 10 minutos o herida profunda en cuello/tórax/abdomen.</p>
+      <span class="c911-num">📞 911</span>
+    </div>
+    <div class="c911-card">
+      <span class="ce">🔥</span>
+      <h4>Quemadura Grave</h4>
+      <p>Quemaduras 2° profundo/3° en &gt;1% del cuerpo, en cara, manos, pies o genitales.</p>
+      <span class="c911-num">📞 911</span>
+    </div>
+  </div>
+</div></div>
+
+<footer><p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Blog Primeros Auxilios · Contenido informativo. Ante emergencias graves llama al <strong style="color:var(--red)">911</strong>. Las guías no reemplazan la formación presencial en primeros auxilios. ✚</p></footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="m-hero" id="m-hero">
+      <button class="m-close" onclick="closeModal()">✕</button>
+      <div class="m-emoji" id="m-emoji"></div>
+      <div class="m-cat-badge" id="m-cat"></div>
+      <h2 id="m-title"></h2>
+      <div class="m-meta" id="m-meta"></div>
+    </div>
+    <div class="m-body" id="m-body"></div>
+  </div>
+</div>
+
+<script>
+const articles = {
+
+  a1:{
+    emoji:'🩹',cat:'🩹 Heridas · Curación básica',catClass:'cc-o',bg:'cv-o',
+    title:'Cómo curar una herida correctamente: pasos y errores más comunes',
+    meta:'14 Mar 2026 · Enfermería de Urgencias · 4 min',
+    body:`
+      <p>La mayoría de las heridas menores pueden y deben tratarse en casa. El error más común es aplicar antisépticos agresivos directamente o no limpiar la herida antes de cubrirla. Aquí el protocolo correcto.</p>
+      <div class="callout co-o">⚠️ Ve a urgencias si: la herida es profunda o mayor de 1 cm, no para de sangrar tras 10 min de presión, está en cara o articulaciones, hay cuerpo extraño incrustado, o la persona no recuerda su última vacuna antitetánica.</div>
+      <h3>🪜 Pasos en orden</h3>
+      <div class="steps-row">
+        <div class="step-chip"><div class="sn">1</div>Lávate las manos con agua y jabón o usa guantes.</div>
+        <div class="step-chip"><div class="sn">2</div>Controla el sangrado con presión directa 5–10 min.</div>
+        <div class="step-chip"><div class="sn">3</div>Lava la herida con agua limpia y jabón suave durante 5 min.</div>
+        <div class="step-chip"><div class="sn">4</div>Aclara con solución salina o agua limpia.</div>
+        <div class="step-chip"><div class="sn">5</div>Aplica antiséptico (clorhexidina spray o povidona).</div>
+        <div class="step-chip"><div class="sn">6</div>Cubre con apósito estéril no adherente.</div>
+        <div class="step-chip"><div class="sn">7</div>Cambia el apósito cada 24–48 h.</div>
+      </div>
+      <h3>❌ Errores frecuentes</h3>
+      <ul>
+        <li><strong>Alcohol directo en la herida:</strong> mata los gérmenes pero también el tejido sano y retrasa la cicatrización. Úsalo solo en piel íntegra alrededor de la herida.</li>
+        <li><strong>Agua oxigenada:</strong> la espuma parece eficaz pero daña el tejido de granulación. Evítala en heridas abiertas.</li>
+        <li><strong>Cubrir con algodón directo:</strong> las fibras se incrustan. Usa siempre gasa estéril.</li>
+        <li><strong>Quitar la costra:</strong> la costra es el apósito natural del cuerpo. Arrancarla retrasa la cicatrización y deja más cicatriz.</li>
+        <li><strong>Cubrir demasiado:</strong> la herida necesita cierto grado de humedad pero también aire. El apósito apretado en exceso corta la circulación.</li>
+      </ul>
+      <h3>🔍 Señales de infección (vigila en 24–72 h)</h3>
+      <ul>
+        <li>Enrojecimiento creciente con bordes calientes que se extiende.</li>
+        <li>Pus amarillo o verde (no confundir con el exudado transparente-amarillento normal).</li>
+        <li>Mal olor inusual.</li>
+        <li>Fiebre mayor de 38°C.</li>
+        <li>Rayas rojas que se extienden desde la herida (linfangitis — urgencia real).</li>
+      </ul>
+    `
+  },
+
+  a2:{
+    emoji:'🩸',cat:'🩸 Heridas · Hemorragia',catClass:'cc-r',bg:'cv-r',
+    title:'Cómo controlar una hemorragia severa: técnicas de primeros auxilios',
+    meta:'10 Mar 2026 · Medicina de Emergencias · 4 min',
+    body:`
+      <p>Una hemorragia severa puede llevar a la muerte por pérdida de sangre en minutos. La buena noticia: la mayoría pueden controlarse con las técnicas correctas antes de que llegue la ayuda médica.</p>
+      <div class="callout co-r">🚨 Llama al 911 inmediatamente con una hemorragia severa. Mientras esperas, actúa. No dejes al herido solo si es posible.</div>
+      <h3>🛑 Paso 1: Presión directa (siempre primero)</h3>
+      <ul>
+        <li>Usa un paño limpio, gasa o cualquier tela disponible. Si no tienes nada, usa tu mano.</li>
+        <li>Aplica presión <strong>firme y continua</strong> directamente sobre la herida.</li>
+        <li>Mantén la presión <strong>mínimo 10 minutos</strong> sin levantar para revisar. Si el paño se empapa, agrega otro encima sin retirar el primero.</li>
+        <li>Eleva el miembro afectado por encima del nivel del corazón si es posible.</li>
+      </ul>
+      <h3>🩹 Paso 2: Vendaje compresivo</h3>
+      <p>Si la presión directa no es suficiente o necesitas liberar las manos, aplica un vendaje compresivo firmemente sobre la gasa. Verifica que los dedos del miembro no se pongan azules (exceso de presión).</p>
+      <h3>⚠️ Torniquete: solo como último recurso</h3>
+      <div class="callout co-o">🔴 El torniquete puede salvar una vida en hemorragias masivas de extremidades, pero mal aplicado puede causar necrosis y pérdida del miembro. Úsalo solo cuando la presión directa falla y la vida está en riesgo.</div>
+      <ul>
+        <li>Coloca a 5–8 cm por encima de la herida (nunca sobre ella ni en coyunturas).</li>
+        <li>Aprieta hasta que el sangrado cese completamente.</li>
+        <li>Anota la hora de aplicación con marcador en la piel del paciente.</li>
+        <li>No retires el torniquete una vez aplicado: solo el médico puede hacerlo.</li>
+      </ul>
+    `
+  },
+
+  a3:{
+    emoji:'🐕',cat:'🐕 Heridas · Mordeduras',catClass:'cc-o',bg:'cv-o',
+    title:'Mordeduras de animales: qué hacer en los primeros minutos',
+    meta:'7 Mar 2026 · Medicina de Urgencias · 4 min',
+    body:`
+      <p>Las mordeduras de animales, especialmente de perros, son una consulta frecuente en urgencias. El riesgo principal no es la herida en sí, sino la infección bacteriana y, en casos específicos, la rabia.</p>
+      <div class="callout co-r">🚨 Ve a urgencias <strong>siempre</strong> si: la mordedura es profunda o extensa, es en cara/mano/articulación, el animal es desconocido o tiene comportamiento raro, el herido es niño menor de 5 años o inmunocomprometido.</div>
+      <h3>🚿 Primeros minutos (crítico)</h3>
+      <ol>
+        <li><strong>Lava con agua y jabón durante mínimo 5 minutos</strong> — esto es lo más importante para reducir el riesgo de rabia e infección.</li>
+        <li>Aplica antiséptico: povidona yodada o clorhexidina.</li>
+        <li>Controla el sangrado con presión directa.</li>
+        <li>Cubre con apósito estéril.</li>
+        <li>Busca atención médica dentro de las primeras 24 horas.</li>
+      </ol>
+      <h3>💉 Vacunas que se deben considerar</h3>
+      <ul>
+        <li><strong>Antitetánica:</strong> si no está actualizada (cada 10 años) o la herida es profunda y sucia.</li>
+        <li><strong>Antirrábica:</strong> si el animal es desconocido, silvestre, o no puede ser observado. En México la vacunación antirrábica post-exposición es gratuita en Centros de Salud.</li>
+      </ul>
+      <h3>🦠 Animales de alto riesgo en México</h3>
+      <p>Murciélagos, zorrillos, mapaches, coyotes y perros/gatos sin vacunación son los vectores más frecuentes de rabia en México. Ante cualquier contacto con murciélago (incluso sin mordedura visible), acudir a valoración médica.</p>
+    `
+  },
+
+  a4:{
+    emoji:'🔥',cat:'🔥 Quemaduras · Calor',catClass:'cc-r',bg:'cv-r',
+    title:'Quemaduras por calor: clasificación, tratamiento y errores peligrosos',
+    meta:'12 Mar 2026 · Medicina de Emergencias · 5 min',
+    body:`
+      <p>Las quemaduras son lesiones frecuentes en el hogar. Conocer su clasificación y actuar correctamente desde el primer momento determina la velocidad de cicatrización y el riesgo de infección.</p>
+      <h3>📊 Clasificación por grados</h3>
+      <ul>
+        <li><strong>1° grado:</strong> solo epidermis. Enrojecimiento sin ampollas, dolor al tacto. Ejemplo: quemadura solar leve. Tratamiento en casa.</li>
+        <li><strong>2° grado superficial:</strong> epidermis + dermis superficial. Ampollas, muy dolorosa, base rosada. Puede tratarse en casa si es pequeña.</li>
+        <li><strong>2° grado profundo:</strong> dermis profunda. Menos dolorosa (destrucción nerviosa), base blanquecina o moteada. <strong>Requiere atención médica.</strong></li>
+        <li><strong>3° grado:</strong> todas las capas de la piel. Sin dolor (sin nervios), aspecto carbonizado, blanco nacarado o negro. <strong>Urgencia médica.</strong></li>
+      </ul>
+      <div class="callout co-r">🚨 Ve a urgencias si: quemadura 2° mayor de 5 cm, 3° de cualquier tamaño, afecta cara/manos/pies/genitales/articulaciones, quemadura circunferencial en extremidad, herido menor de 5 años o mayor de 60.</div>
+      <h3>✅ Qué hacer (protocolo correcto)</h3>
+      <div class="steps-row">
+        <div class="step-chip"><div class="sn">1</div>Retira del calor. Aleja a la persona de la fuente.</div>
+        <div class="step-chip"><div class="sn">2</div>Agua fría corriente 10–20 min. Nunca hielo.</div>
+        <div class="step-chip"><div class="sn">3</div>Retira ropa y joyas (si no están adheridas).</div>
+        <div class="step-chip"><div class="sn">4</div>Cubre con apósito no adherente húmedo o film transparente.</div>
+        <div class="step-chip"><div class="sn">5</div>Evalúa si requiere atención médica.</div>
+      </div>
+      <h3>❌ Lo que NUNCA debes hacer</h3>
+      <ul>
+        <li><strong>Pasta dental:</strong> el mito más peligroso. Retiene el calor, introduce bacterias y contamina la herida.</li>
+        <li><strong>Hielo o agua helada:</strong> causa vasoconstricción y puede agravar la lesión. Solo agua fría corriente.</li>
+        <li><strong>Mantequilla, aceite u otras grasas:</strong> retienen el calor y aumentan el riesgo de infección.</li>
+        <li><strong>Reventar las ampollas:</strong> son la barrera natural contra infecciones. Nunca las pinches.</li>
+        <li><strong>Alcohol:</strong> irrita y seca el tejido quemado. No tiene función en quemaduras.</li>
+      </ul>
+    `
+  },
+
+  a5:{
+    emoji:'⚗️',cat:'⚗️ Quemaduras · Químicas',catClass:'cc-o',bg:'cv-o',
+    title:'Quemaduras químicas: el lavado inmediato con agua es la acción más crítica',
+    meta:'8 Mar 2026 · Toxicología & Urgencias · 4 min',
+    body:`
+      <p>Las quemaduras químicas ocurren cuando ácidos, álcalis o sustancias corrosivas entran en contacto con la piel o los ojos. Su característica más peligrosa: siguen dañando mientras la sustancia esté en contacto con el tejido.</p>
+      <div class="callout co-r">🚨 Las quemaduras químicas son siempre urgencias médicas. Después del lavado inicial, ve a urgencias o llama al Centro Antitóxico de México: <strong>800 890 0024</strong> (24h, gratuito).</div>
+      <h3>💧 La regla de oro: lavar, lavar, lavar</h3>
+      <div class="steps-row">
+        <div class="step-chip"><div class="sn">1</div>Retira la ropa y joyas contaminadas (con guantes si es posible).</div>
+        <div class="step-chip"><div class="sn">2</div>Lava con agua abundante a temperatura ambiente durante MÍNIMO 20 minutos.</div>
+        <div class="step-chip"><div class="sn">3</div>No intentes neutralizar (no pongas bicarbonato en ácidos ni vinagre en álcalis — genera calor).</div>
+        <div class="step-chip"><div class="sn">4</div>Cubre con gasa húmeda limpia.</div>
+        <div class="step-chip"><div class="sn">5</div>Ve a urgencias con el producto que causó la quemadura (etiqueta o nombre).</div>
+      </div>
+      <h3>👁️ Quemadura química en ojos</h3>
+      <ul>
+        <li>Lava con agua limpia o solución salina durante 20–30 minutos continuos.</li>
+        <li>Mantén el ojo abierto con los dedos si el espasmo lo cierra.</li>
+        <li>Retira lentes de contacto si los usa.</li>
+        <li>Esta situación requiere atención oftalmológica urgente siempre.</li>
+      </ul>
+      <h3>🏠 Sustancias domésticas de riesgo</h3>
+      <p>Lejía, sosa cáustica (limpiador de drenajes), ácido muriático, desengrasantes industriales, y baterías de auto (ácido sulfúrico). Ten especial cuidado al mezclar productos de limpieza: lejía + amoníaco o lejía + ácido generan gases tóxicos.</p>
+    `
+  },
+
+  a6:{
+    emoji:'☀️',cat:'☀️ Quemaduras · Solar & Calor',catClass:'cc-o',bg:'cv-o',
+    title:'Quemadura solar y golpe de calor: diferencias y tratamiento',
+    meta:'4 Mar 2026 · Medicina de Urgencias · 4 min',
+    body:`
+      <p>Con el calor de México, las quemaduras solares y el golpe de calor son emergencias frecuentes, especialmente en niños. Aunque parecen similares, son condiciones muy diferentes en gravedad y tratamiento.</p>
+      <h3>☀️ Quemadura solar (local)</h3>
+      <p>Es una quemadura de 1° a 2° grado causada por la radiación UV. Enrojecimiento, dolor al tacto, en casos severos ampollas.</p>
+      <ul>
+        <li>Aplica agua fresca (no helada) sobre la zona afectada.</li>
+        <li>Crema hidratante con aloe vera fresco o gel de aloe.</li>
+        <li>Ibuprofeno o paracetamol para el dolor.</li>
+        <li>No revientes las ampollas. No uses mantequilla o aceite.</li>
+        <li>Hidratación oral abundante.</li>
+      </ul>
+      <h3>🌡️ Golpe de calor (sistémico — emergencia)</h3>
+      <div class="callout co-r">🚨 El golpe de calor (temperatura corporal &gt;40°C + confusión o pérdida de consciencia) es una emergencia que puede causar daño cerebral y muerte. Llama al 911 inmediatamente.</div>
+      <ul>
+        <li>Trasladar a lugar fresco y a la sombra inmediatamente.</li>
+        <li>Quitar la ropa.</li>
+        <li>Enfriar con paños húmedos fríos en cuello, axilas e ingles (zonas de grandes vasos).</li>
+        <li>Abanicar mientras se aplican los paños.</li>
+        <li>Si está consciente, líquidos frescos (no agua helada de golpe).</li>
+        <li>No dar líquidos si está inconsciente o confuso.</li>
+      </ul>
+    `
+  },
+
+  a7:{
+    emoji:'😵',cat:'😵 Vía aérea · Atragantamiento',catClass:'cc-r',bg:'cv-r',
+    title:'Atragantamiento y maniobra de Heimlich: guía completa para adultos',
+    meta:'9 Mar 2026 · Medicina de Urgencias · 5 min',
+    body:`
+      <p>El atragantamiento (obstrucción de vía aérea por cuerpo extraño) es una emergencia que requiere acción inmediata. En obstrucción total la persona no puede hablar, toser ni respirar. Sin intervención, puede morir en minutos.</p>
+      <div class="callout co-r">🚨 Diferencia clave: si la persona puede toser con fuerza, hablar o respirar → NO intervengas, anímala a que siga tosiendo. Solo actúa si hay obstrucción TOTAL (no puede hablar, ni toser, se lleva las manos a la garganta).</div>
+      <h3>💪 Maniobra de Heimlich (adultos y niños &gt;1 año)</h3>
+      <div class="steps-row">
+        <div class="step-chip"><div class="sn">1</div>Colócate detrás de la persona.</div>
+        <div class="step-chip"><div class="sn">2</div>Rodea su cintura con tus brazos.</div>
+        <div class="step-chip"><div class="sn">3</div>Cierra el puño y ponlo entre ombligo y esternón.</div>
+        <div class="step-chip"><div class="sn">4</div>Agarra tu puño con la otra mano.</div>
+        <div class="step-chip"><div class="sn">5</div>Empuja hacia adentro y hacia arriba con fuerza.</div>
+        <div class="step-chip"><div class="sn">6</div>Repite hasta que salga el objeto o pierda consciencia.</div>
+      </div>
+      <h3>🤰 Personas embarazadas y obesas</h3>
+      <p>La presión abdominal no es posible. Aplica compresiones torácicas: posición idéntica pero las manos se colocan en el centro del pecho (igual que en RCP) empujando hacia atrás.</p>
+      <h3>🚨 Si la persona pierde la consciencia</h3>
+      <ul>
+        <li>Llama al 911.</li>
+        <li>Recuesta a la persona con cuidado en el suelo.</li>
+        <li>Inicia RCP — las compresiones pueden expulsar el objeto.</li>
+        <li>Antes de cada ventilación, mira si el objeto es visible en la boca y retíralo si puedes.</li>
+      </ul>
+      <h3>🦺 Solo (atragantado sin ayuda)</h3>
+      <p>Golpea una superficie dura (borde de mesa o silla) con tu abdomen con fuerza hacia adentro. Puedes hacer tú mismo la compresión abdominal con el puño cerrado.</p>
+    `
+  },
+
+  a8:{
+    emoji:'🦴',cat:'🦴 Traumas · Esguinces',catClass:'cc-b',bg:'cv-b',
+    title:'Esguinces y torceduras: el método RICE que todos deberían conocer',
+    meta:'11 Mar 2026 · Medicina Deportiva · 5 min',
+    body:`
+      <p>Los esguinces son la lesión musculoesquelética más frecuente en México, especialmente de tobillo. El tratamiento inmediato con el método RICE puede reducir significativamente el dolor, la inflamación y el tiempo de recuperación.</p>
+      <div class="callout co-b">⚠️ Si hay deformidad visible, imposibilidad total de apoyar el miembro, o el dolor es extremo, puede ser una fractura. Ve a urgencias para descartar con radiografía (Regla de Ottawa para tobillo).</div>
+      <h3>🧊 RICE: el protocolo de las primeras 48 horas</h3>
+      <div class="steps-row">
+        <div class="step-chip"><div class="sn">R</div><strong>Rest</strong> — Reposo. Evita cargar peso en el miembro afectado.</div>
+        <div class="step-chip"><div class="sn">I</div><strong>Ice</strong> — Hielo 20 min cada 2 h. Nunca directo sobre piel — envuelve en tela.</div>
+        <div class="step-chip"><div class="sn">C</div><strong>Compression</strong> — Vendaje elástico sin apretar demasiado. Verifica que los dedos no se pongan azules.</div>
+        <div class="step-chip"><div class="sn">E</div><strong>Elevation</strong> — Eleva el miembro por encima del corazón para reducir inflamación.</div>
+      </div>
+      <h3>💊 Medicación complementaria</h3>
+      <ul>
+        <li><strong>Ibuprofeno 400 mg:</strong> analgésico y antiinflamatorio de primera línea para esguinces. Tomar con alimentos.</li>
+        <li><strong>Diclofenaco gel tópico:</strong> aplicar sobre la zona 3–4 veces al día. Menor riesgo gástrico.</li>
+        <li>Evita el ibuprofeno si hay úlcera gástrica o tomas anticoagulantes.</li>
+      </ul>
+      <h3>🗓️ Cronograma de recuperación</h3>
+      <ul>
+        <li><strong>Grado 1</strong> (leve, fibras íntegras): 1–2 semanas. RICE + movilización temprana.</li>
+        <li><strong>Grado 2</strong> (rotura parcial): 3–6 semanas. Puede requerir fisioterapia.</li>
+        <li><strong>Grado 3</strong> (rotura completa): 6–12 semanas o más. Posible cirugía. Requiere valoración ortopédica.</li>
+      </ul>
+    `
+  },
+
+  a9:{
+    emoji:'🩻',cat:'🩻 Traumas · Fracturas',catClass:'cc-s',bg:'cv-s',
+    title:'Fractura sospechada: cómo inmovilizar antes de llegar al médico',
+    meta:'6 Mar 2026 · Traumatología · 4 min',
+    body:`
+      <p>Sin radiografía no puedes saber con certeza si hay fractura, pero hay señales que hacen sospecharla. El principio de primeros auxilios ante sospecha de fractura es siempre <strong>inmovilizar como si lo fuera</strong>.</p>
+      <h3>🔍 Señales que sugieren fractura</h3>
+      <ul>
+        <li>Deformidad visible o angulación anormal del miembro.</li>
+        <li>Imposibilidad de mover o apoyar el miembro.</li>
+        <li>Crepitación (sonido o sensación de "crujido") al palpar.</li>
+        <li>Dolor intenso, puntual, que aumenta con la presión directa.</li>
+        <li>Edema rápido e importante en la zona.</li>
+        <li>Fractura expuesta (el hueso atraviesa la piel) — urgencia absoluta.</li>
+      </ul>
+      <div class="callout co-r">🚨 Fractura de columna vertebral sospechada: NO muevas a la persona. Mantén la cabeza en posición neutra. Espera a los servicios de emergencia para el traslado.</div>
+      <h3>🔧 Inmovilización con materiales caseros</h3>
+      <ul>
+        <li>La férula debe abarcar la articulación por encima y por debajo de la fractura.</li>
+        <li>Materiales: cartón rígido, tablas, revistas enrolladas, palos de escoba. Acolcha con ropa o toallas para evitar presión.</li>
+        <li>Fija con vendas, corbatas o tiras de tela. No aprietes tanto que cortes la circulación.</li>
+        <li>Verifica pulso, temperatura y color distal cada 10–15 minutos.</li>
+        <li>Para brazo/antebrazo: inmoviliza pegado al cuerpo con cabestrillo hecho con pañuelo o tela.</li>
+      </ul>
+    `
+  },
+
+  a_cabeza:{
+    emoji:'🤕',cat:'🤕 Traumas · Golpe en cabeza',catClass:'cc-b',bg:'cv-b',
+    title:'Golpe en la cabeza: señales de alarma que requieren urgencias inmediatas',
+    meta:'2 Mar 2026 · Neurocirugía & Urgencias · 4 min',
+    body:`
+      <p>La mayoría de los golpes en la cabeza son leves y no tienen consecuencias. Pero algunos pueden causar hematomas cerebrales que se desarrollan lentamente durante horas. Saber distinguirlos es vital.</p>
+      <div class="callout co-r">🚨 Llama al 911 inmediatamente si hay: pérdida de consciencia (aunque sea breve), convulsión, vómitos repetidos, pupila desigual, confusión persistente, debilidad de un lado del cuerpo, o dificultad para hablar.</div>
+      <h3>⚠️ Las 24 horas de vigilancia</h3>
+      <p>Después de un golpe moderado, la persona debe ser vigilada durante 24 horas. Si ocurre alguna de las siguientes señales, ve a urgencias:</p>
+      <ul>
+        <li><strong>Dolor de cabeza que empeora</strong> progresivamente (no mejora con paracetamol).</li>
+        <li><strong>Somnolencia inusual</strong> o dificultad para despertar.</li>
+        <li><strong>Confusión, desorientación</strong> o cambio de personalidad.</li>
+        <li><strong>Náuseas o vómitos</strong> más de 2 veces.</li>
+        <li><strong>Visión doble</strong> o dificultad para enfocar.</li>
+        <li><strong>Pérdida de memoria</strong> de eventos cercanos al golpe.</li>
+      </ul>
+      <h3>🏡 Cuidados en casa (golpe leve sin señales de alarma)</h3>
+      <ul>
+        <li>Reposo relativo — no hace falta inmovilización total.</li>
+        <li>Paracetamol para el dolor (evita ibuprofeno y aspirina las primeras 24 h — pueden aumentar sangrado).</li>
+        <li>Hielo envuelto en tela sobre el chichón los primeros 20 min.</li>
+        <li>No dejes dormir al accidentado las primeras 2 h — despiértalo cada hora las primeras 6 h.</li>
+        <li>Evita alcohol las siguientes 24 h.</li>
+      </ul>
+    `
+  },
+
+  a10:{
+    emoji:'💓',cat:'💓 Reanimación · RCP Adulto',catClass:'cc-r',bg:'cv-r',
+    title:'RCP paso a paso: cómo reanimar a una persona en paro cardíaco',
+    meta:'15 Mar 2026 · Cardiólogo Urgenciólogo · 6 min',
+    body:`
+      <p>El paro cardíaco puede ocurrirle a cualquier persona en cualquier lugar. Cada minuto sin RCP reduce las posibilidades de sobrevivir un 10%. Sin desfibrilador, el RCP de calidad es lo único que puede mantener la vida hasta que llegue ayuda.</p>
+      <div class="callout co-r">🚨 Llama al 911 antes de iniciar el RCP si estás solo. Si hay alguien más, uno llama al 911 mientras el otro inicia el RCP inmediatamente.</div>
+      <h3>🔍 ¿Cómo saber si necesita RCP?</h3>
+      <ul>
+        <li>La persona no responde a tus llamadas ni a sacudidas en el hombro.</li>
+        <li>No respira o solo jadea/boquea (gasping — no es respiración normal).</li>
+        <li>No hay pulso (si no eres profesional, no busques pulso — el tiempo es crítico).</li>
+      </ul>
+      <h3>💪 El protocolo 30:2</h3>
+      <div class="steps-row">
+        <div class="step-chip"><div class="sn">1</div>Acuesta a la persona boca arriba en superficie firme.</div>
+        <div class="step-chip"><div class="sn">2</div>Arrodíllate al lado de su pecho.</div>
+        <div class="step-chip"><div class="sn">3</div>Coloca el talón de tu mano en el centro del pecho (entre los pezones).</div>
+        <div class="step-chip"><div class="sn">4</div>Entrelaza tus dedos y mantén los brazos rectos.</div>
+        <div class="step-chip"><div class="sn">5</div>Comprime al menos 5 cm de profundidad, fuerte y rápido.</div>
+        <div class="step-chip"><div class="sn">6</div>Ritmo: 100–120 compresiones por minuto (al ritmo de "Stayin' Alive").</div>
+        <div class="step-chip"><div class="sn">7</div>Tras 30 compresiones, 2 ventilaciones boca a boca si sabes hacerlo.</div>
+        <div class="step-chip"><div class="sn">8</div>Continúa hasta que llegue el DEA, la ambulancia o el paciente respire.</div>
+      </div>
+      <div class="callout co-t">💡 RCP solo con compresiones: si no te sientes cómodo con las ventilaciones, el RCP solo con compresiones (sin respiraciones) es igualmente efectivo para adultos y es mejor que no hacer nada. Las compresiones son lo esencial.</div>
+      <h3>⚡ Desfibrilador (DEA/AED)</h3>
+      <p>Si hay un desfibrilador disponible (en centros comerciales, aeropuertos, gimnasios), úsalo inmediatamente. Los aparatos modernos dan instrucciones de voz paso a paso. No tengas miedo de usarlo — no puede dañar a alguien que ya está en paro.</p>
+    `
+  },
+
+  a11:{
+    emoji:'💫',cat:'💫 Reanimación · Desmayo',catClass:'cc-s',bg:'cv-s',
+    title:'Desmayo y pérdida de consciencia: qué hacer y qué no hacer',
+    meta:'5 Mar 2026 · Medicina de Urgencias · 4 min',
+    body:`
+      <p>El síncope (desmayo) es la pérdida temporal de consciencia por reducción del flujo sanguíneo al cerebro. La mayoría son benignos y se recuperan solos, pero algunos indican problemas cardíacos graves.</p>
+      <div class="callout co-r">🚨 Llama al 911 si: el desmayo ocurrió durante el ejercicio, hay dolor de pecho previo, la persona no recupera la consciencia en 1 minuto, tiene convulsiones, o tiene antecedentes cardíacos.</div>
+      <h3>✅ Qué hacer correctamente</h3>
+      <div class="steps-row">
+        <div class="step-chip"><div class="sn">1</div>Si ves que se va a desmayar: recuesta a la persona en el suelo antes de que caiga.</div>
+        <div class="step-chip"><div class="sn">2</div>Si ya está en el suelo: no la muevas si cayó con fuerza (puede haber lesión).</div>
+        <div class="step-chip"><div class="sn">3</div>Eleva las piernas 20–30 cm para aumentar el flujo de sangre al cerebro.</div>
+        <div class="step-chip"><div class="sn">4</div>Afloja ropa ajustada (corbata, cinturón, botones del cuello).</div>
+        <div class="step-chip"><div class="sn">5</div>Asegúrate de que respira. Si no respira: inicia RCP y llama al 911.</div>
+      </div>
+      <h3>❌ Lo que NO debes hacer</h3>
+      <ul>
+        <li><strong>No le des de beber</strong> mientras está inconsciente — riesgo de aspiración.</li>
+        <li><strong>No la incorpores rápidamente</strong> — puede volver a desmayarse.</li>
+        <li><strong>No le des palmadas en la cara</strong> — no sirve y puede lesionar.</li>
+        <li><strong>No le pongas nada bajo la nariz</strong> (alcohol, amoníaco) — puede causar broncoespasmo.</li>
+      </ul>
+    `
+  },
+
+  a12:{
+    emoji:'👶',cat:'👶 Pediátrico · Atragantamiento',catClass:'cc-t',bg:'cv-t',
+    title:'Atragantamiento en bebés menores de 1 año: técnica paso a paso',
+    meta:'13 Mar 2026 · Pediatra Urgenciólogo · 5 min',
+    body:`
+      <p>La maniobra de Heimlich <strong>NO se aplica en bebés menores de 1 año</strong>. La técnica incorrecta puede causar lesiones internas graves. La técnica correcta es diferente y todos los cuidadores de bebés deben conocerla.</p>
+      <div class="callout co-r">🚨 Si el bebé puede llorar, toser o respirar → no intervengas, lleva al pediatra. Solo actúa si hay obstrucción TOTAL: no llora, no tose, labios azules.</div>
+      <h3>🤲 Técnica para bebés (&lt;1 año)</h3>
+      <div class="steps-row">
+        <div class="step-chip"><div class="sn">1</div>Sujeta al bebé boca abajo sobre tu antebrazo, cabeza más baja que el cuerpo.</div>
+        <div class="step-chip"><div class="sn">2</div>Da 5 palmadas firmes entre los omóplatos con el talón de tu mano.</div>
+        <div class="step-chip"><div class="sn">3</div>Voltea al bebé boca arriba sobre tu otro antebrazo (apoya la cabeza).</div>
+        <div class="step-chip"><div class="sn">4</div>Da 5 compresiones torácicas: 2 dedos en el centro del pecho, 1 cm bajo la línea de los pezones.</div>
+        <div class="step-chip"><div class="sn">5</div>Alterna 5 palmadas + 5 compresiones hasta que salga el objeto o el bebé llore.</div>
+        <div class="step-chip"><div class="sn">6</div>Si pierde consciencia: RCP pediátrico y llama al 911.</div>
+      </div>
+      <h3>🧒 Niños de 1 a 8 años</h3>
+      <p>Puede usarse Heimlich abdominal con menos fuerza que en adulto, o bien 5 palmadas en la espalda + 5 compresiones abdominales. Nunca comprimas la parte baja del abdomen (puede lesionar órganos).</p>
+      <div class="callout co-t">💡 Todos los padres, abuelos y cuidadores de bebés deberían tomar un curso presencial de primeros auxilios pediátricos. Los simulacros en maniquí tienen un valor que ninguna guía escrita puede reemplazar.</div>
+    `
+  },
+
+  a13:{
+    emoji:'⚡',cat:'⚡ Pediátrico · Convulsiones',catClass:'cc-o',bg:'cv-o',
+    title:'Convulsión febril en niños: cómo actuar sin entrar en pánico',
+    meta:'9 Mar 2026 · Pediatra · 4 min',
+    body:`
+      <p>Las convulsiones febriles son la urgencia neurológica más frecuente en niños de 6 meses a 5 años. Afectan al 2–5% de los niños y, aunque son aterradoras para los padres, la gran mayoría son benignas y sin consecuencias a largo plazo.</p>
+      <div class="callout co-r">🚨 Llama al 911 si: la convulsión dura más de 5 minutos, hay 2 o más episodios en 24 h, el niño no recupera la consciencia tras la convulsión, o hay dificultad para respirar después.</div>
+      <h3>✅ Qué hacer DURANTE la convulsión</h3>
+      <div class="steps-row">
+        <div class="step-chip"><div class="sn">1</div>Mantén la calma. La convulsión parece peor de lo que es.</div>
+        <div class="step-chip"><div class="sn">2</div>Coloca al niño en el suelo o en superficie blanda. De lado (posición de recuperación).</div>
+        <div class="step-chip"><div class="sn">3</div>Retira objetos cercanos que puedan causar golpes.</div>
+        <div class="step-chip"><div class="sn">4</div>Afloja ropa del cuello.</div>
+        <div class="step-chip"><div class="sn">5</div>Mira el reloj: anota cuánto dura la convulsión.</div>
+        <div class="step-chip"><div class="sn">6</div>No te alejes. Espera a que termine.</div>
+      </div>
+      <h3>❌ Lo que NUNCA debes hacer</h3>
+      <ul>
+        <li><strong>No sujetes al niño</strong> ni trates de detener los movimientos — puede causar fracturas.</li>
+        <li><strong>No introduzcas nada en la boca</strong> — los niños no se tragan la lengua. Meter objetos puede romper dientes o lesionar.</li>
+        <li><strong>No le des agua ni medicamentos</strong> mientras está convulsionando.</li>
+        <li><strong>No lo muevas</strong> a menos que esté en peligro inmediato.</li>
+      </ul>
+    `
+  },
+
+  a14:{
+    emoji:'💗',cat:'💗 Pediátrico · RCP Bebé',catClass:'cc-r',bg:'cv-r',
+    title:'RCP en bebés y niños: diferencias clave con el adulto',
+    meta:'4 Mar 2026 · Pediatría de Urgencias · 5 min',
+    body:`
+      <p>El RCP pediátrico tiene diferencias cruciales respecto al adulto. Aplicar la técnica de adulto en un bebé puede causar lesiones graves. Aprende estas diferencias antes de que las necesites.</p>
+      <h3>📊 Comparación rápida</h3>
+      <ul>
+        <li><strong>Profundidad:</strong> adulto = 5–6 cm · niño = 5 cm · bebé = 4 cm (1/3 del pecho).</li>
+        <li><strong>Técnica de manos:</strong> adulto = 2 manos · niño = 1 mano o 2 · bebé = 2 dedos (índice y medio) o técnica de los 2 pulgares si hay 2 rescatadores.</li>
+        <li><strong>Ritmo:</strong> todos = 100–120 compresiones/minuto.</li>
+        <li><strong>Relación:</strong> adulto y niño = 30:2 · bebé con 1 rescatador = 30:2 · bebé con 2 rescatadores = 15:2.</li>
+        <li><strong>Ventilaciones:</strong> en niños y bebés las ventilaciones son MÁS importantes que en adultos (el paro suele ser respiratorio, no cardíaco).</li>
+      </ul>
+      <div class="callout co-t">💡 En los bebés la causa más frecuente de paro es la asfixia, no el paro cardíaco primario. Por eso en lactantes las ventilaciones son prioritarias — no omitirlas si sabes hacerlas.</div>
+      <h3>🌬️ Ventilaciones en bebés</h3>
+      <ul>
+        <li>Cubre boca Y nariz del bebé con tu boca.</li>
+        <li>Sopla suavemente (solo el volumen de tus mejillas infladas).</li>
+        <li>El pecho debe elevarse ligeramente — si no, reposiciona la cabeza en posición neutra (no hiperextender).</li>
+      </ul>
+    `
+  },
+
+  a15:{
+    emoji:'🧰',cat:'🧰 Botiquín · Hogar',catClass:'cc-g',bg:'cv-g',
+    title:'El botiquín perfecto para el hogar: lista completa y mantenimiento',
+    meta:'11 Mar 2026 · Farmacéutica · 5 min',
+    body:`
+      <p>Un botiquín bien equipado puede marcar la diferencia entre atender una emergencia menor en casa y hacer un viaje innecesario a urgencias. La clave: tener lo correcto, en buen estado y saber usarlo.</p>
+      <div class="callout co-g">💚 Guarda el botiquín en un lugar accesible para adultos pero fuera del alcance de niños. Ideal: armario alto de baño o cocina. No en el baño (la humedad deteriora los medicamentos).</div>
+      <h3>🩹 Material de curación</h3>
+      <ul>
+        <li>Curitas de varios tamaños (caja surtida Band-Aid o genérico).</li>
+        <li>Gasas estériles 10×10 cm (mínimo 10).</li>
+        <li>Venda elástica 7.5 cm y 10 cm.</li>
+        <li>Cinta adhesiva médica (Micropore 3M).</li>
+        <li>Apósitos no adherentes (Telfa) para quemaduras.</li>
+        <li>Algodón médico 100 g.</li>
+        <li>Tijeras de punta roma y pinzas.</li>
+      </ul>
+      <h3>🧴 Antisépticos</h3>
+      <ul>
+        <li>Alcohol isopropílico 70% (250 ml).</li>
+        <li>Solución salina 0.9% para lavado de heridas.</li>
+        <li>Spray antiséptico clorhexidina (sin escozor).</li>
+        <li>Agua oxigenada 3% (solo para uso externo superficial).</li>
+        <li>Crema antibiótica tópica (Neosporin o genérico).</li>
+      </ul>
+      <h3>💊 Medicamentos básicos</h3>
+      <ul>
+        <li>Paracetamol 500 mg (adulto) y pediátrico en gotas/jarabe.</li>
+        <li>Ibuprofeno 400 mg (adulto) — antiinflamatorio y analgésico.</li>
+        <li>Antihistamínico oral (loratadina) — para reacciones alérgicas leves.</li>
+        <li>Suero de rehidratación oral (Pedialyte) — para vómito/diarrea.</li>
+        <li>Termómetro digital.</li>
+        <li>Guantes de nitrilo desechables x10.</li>
+      </ul>
+      <h3>🗓️ Mantenimiento del botiquín</h3>
+      <ul>
+        <li>Revisa las caducidades cada 6 meses (marca en el calendario).</li>
+        <li>Repón inmediatamente lo que usas para no encontrarte sin materiales.</li>
+        <li>Verifica que el alcohol no se haya evaporado (tapa bien cerrada).</li>
+        <li>Los medicamentos caducados devuélvelos en Farmacias Yair — no los tires al drenaje.</li>
+      </ul>
+    `
+  },
+
+  a16:{
+    emoji:'🚗',cat:'🚗 Botiquín · Auto',catClass:'cc-s',bg:'cv-s',
+    title:'Botiquín para el auto: qué llevar en carretera y ciudad',
+    meta:'7 Mar 2026 · Seguridad Vial · 4 min',
+    body:`
+      <p>Los accidentes de tráfico son la principal causa de muertes por trauma en México. Tener los materiales correctos en el auto puede hacer la diferencia en los primeros minutos críticos.</p>
+      <div class="callout co-o">⚠️ En México es obligatorio por ley tener un botiquín básico en el vehículo. Además del botiquín, lleva siempre: triángulos de emergencia, extintor portátil y chaleco reflectante.</div>
+      <h3>🚗 Lista mínima para el auto</h3>
+      <ul>
+        <li>Curitas surtidas x20.</li>
+        <li>Gasas estériles 10×10 x6.</li>
+        <li>Vendas elásticas x2 (7.5 y 10 cm).</li>
+        <li>Cinta adhesiva médica.</li>
+        <li>Alcohol isopropílico 70% en formato pequeño.</li>
+        <li>Spray antiséptico.</li>
+        <li>Guantes de nitrilo x4 pares.</li>
+        <li>Mascarilla quirúrgica x2.</li>
+        <li>Tijeras de punta roma.</li>
+        <li>Linterna pequeña con baterías extra.</li>
+        <li>Manta de emergencia (foil dorado/plateado) — para shock y frío.</li>
+        <li>Tabla cervical improvisada (cartón rígido) — para no mover a alguien con posible lesión cervical.</li>
+      </ul>
+      <h3>🌡️ Temperatura extrema en auto</h3>
+      <p>El interior de un auto puede alcanzar 60–70°C en días calurosos. Los medicamentos y materiales médicos se deterioran a estas temperaturas. Guarda el botiquín en el maletero (más fresco) y no dejes medicamentos a la vista.</p>
+    `
+  },
+
+  a17:{
+    emoji:'⏰',cat:'⏰ Botiquín · Caducidades',catClass:'cc-t',bg:'cv-t',
+    title:'Medicamentos caducados: cómo desecharlos correctamente en México',
+    meta:'3 Mar 2026 · Farmacéutica · 3 min',
+    body:`
+      <p>En México se estima que en cada hogar hay en promedio 15 medicamentos vencidos guardados en cajones y botiquines. El desecho incorrecto contamina el agua y el suelo de forma irreversible.</p>
+      <div class="callout co-t">💚 Farmacias Yair cuenta con <strong>puntos de acopio de medicamentos caducados</strong> en sucursales seleccionadas. Solo lleva tus medicamentos vencidos — te los reciben sin costo.</div>
+      <h3>❌ Lo que NO debes hacer</h3>
+      <ul>
+        <li><strong>No tires los medicamentos al drenaje:</strong> las plantas de tratamiento no pueden eliminar muchos compuestos farmacológicos.</li>
+        <li><strong>No los tires a la basura común:</strong> pueden contaminar el suelo y ser accesibles para animales o personas en situación de calle.</li>
+        <li><strong>No los quemes en casa:</strong> la mayoría generan gases tóxicos al quemarse.</li>
+        <li><strong>No los guardes "por si acaso":</strong> los medicamentos caducados pueden perder eficacia o volverse tóxicos.</li>
+      </ul>
+      <h3>✅ Opciones de desecho correcto en México</h3>
+      <ul>
+        <li><strong>Puntos COFEPRIS:</strong> el programa SINGREM (Sistema Nacional de Gestión de Residuos de Envases y Medicamentos) tiene puntos de acopio en farmacias participantes.</li>
+        <li><strong>Farmacias del Ahorro, Benavides, Chedraui y Yair:</strong> muchas tienen módulos de devolución.</li>
+        <li><strong>Centros de Salud IMSS/ISSSTE:</strong> algunos aceptan medicamentos del cuadro básico vencidos.</li>
+      </ul>
+    `
+  }
+
+};
+
+let activeCat = 'all';
+
+function openModal(id) {
+  const a = articles[id];
+  if (!a) return;
+  const hero = document.getElementById('m-hero');
+  hero.className = 'm-hero ' + a.bg;
+  document.getElementById('m-emoji').textContent = a.emoji;
+  const catEl = document.getElementById('m-cat');
+  catEl.textContent = a.cat;
+  catEl.className = 'm-cat-badge ' + a.catClass;
+  document.getElementById('m-title').textContent = a.title;
+  document.getElementById('m-meta').textContent = a.meta;
+  document.getElementById('m-body').innerHTML = a.body;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+function showCat(cat, btn, cls) {
+  activeCat = cat;
+  document.querySelectorAll('.tab-section').forEach(s => {
+    if (cat === 'all' || s.dataset.cat === cat) s.classList.remove('hidden');
+    else s.classList.add('hidden');
+  });
+  document.querySelectorAll('.cat-btn').forEach(b => b.className = 'cat-btn');
+  btn.classList.add('cat-btn', cls);
+  document.querySelector('.cat-search input').value = '';
+  document.querySelectorAll('.blog-card').forEach(c => c.style.display = '');
+}
+
+function filterArticles(q) {
+  q = q.toLowerCase().trim();
+  document.querySelectorAll('.blog-card').forEach(card => {
+    const hay = (card.dataset.tags || '') + card.innerText.toLowerCase();
+    card.style.display = (!q || hay.includes(q)) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
