@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog Salud Bucal – Farmacias Yair</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.ico">
+ <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#0d8a7a;--teal-lt:#e6f7f5;--teal-dk:#054a40;
+  --blue:#1a60b8;--blue-lt:#eaf2fd;--blue-dk:#0a2e6a;
+  --cream:#fdfcfa;--warm:#f7f4ef;--sand:#ece6d8;
+  --gray:#ddd6c8;--text:#1a1208;--muted:#6b6050;--dark:#100c06
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;background:var(--cream);color:var(--text)}
+
+/* HEADER */
+header{background:var(--teal-dk);position:sticky;top:0;z-index:300;box-shadow:0 2px 18px rgba(5,74,64,.45)}
+.hdr{max-width:1100px;margin:0 auto;padding:11px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-wrap img{height:44px;width:auto;filter:brightness(0) invert(1)}
+.hdr-sep{width:1px;height:26px;background:rgba(255,255,255,.22)}
+.hdr-title{font-family:'Libre Baskerville',serif;font-size:.95rem;font-style:italic;color:rgba(255,255,255,.9);display:flex;align-items:center;gap:7px}
+.hdr-nav{display:flex;align-items:center;gap:6px}
+.hdr-nav a{color:rgba(255,255,255,.62);text-decoration:none;font-size:.82rem;font-weight:700;padding:7px 13px;border-radius:20px;transition:background .18s,color .18s}
+.hdr-nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+.btn-back{background:rgba(255,255,255,.18)!important;color:#fff!important}
+.btn-back:hover{background:rgba(255,255,255,.3)!important}
+
+/* HERO */
+.hero{
+  background:linear-gradient(155deg,var(--teal-dk) 0%,#0a6a5a 50%,#084e3c 100%);
+  padding:60px 32px 68px;position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 78% 30%,rgba(13,138,122,.25),transparent 50%),
+             radial-gradient(ellipse at 10% 72%,rgba(26,96,184,.12),transparent 44%)
+}
+.hero-deco{position:absolute;right:3%;top:50%;transform:translateY(-50%);font-size:16rem;opacity:.04;pointer-events:none;line-height:1}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:56px;position:relative;z-index:1}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(13,138,122,.22);border:1.5px solid rgba(13,138,122,.45);color:#7de8d8;border-radius:8px;padding:5px 14px;font-size:.71rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.hero-text h1{font-family:'Libre Baskerville',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;line-height:1.1;color:#fff;margin-bottom:14px}
+.hero-text h1 em{font-style:italic;color:#7de8d8}
+.hero-text p{font-size:.97rem;color:rgba(255,255,255,.58);line-height:1.72;max-width:400px;margin-bottom:26px}
+.hero-source{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.65);border-radius:8px;padding:6px 14px;font-size:.73rem;font-weight:700}
+
+/* hero cards */
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hc{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px;cursor:pointer;backdrop-filter:blur(8px);transition:background .2s,transform .2s;display:flex;flex-direction:column;gap:8px}
+.hc:hover{background:rgba(255,255,255,.13);transform:translateY(-3px)}
+.hc .hc-icon{font-size:1.5rem;line-height:1}
+.hc h4{font-family:'Libre Baskerville',serif;font-size:.88rem;color:#fff;line-height:1.2;font-weight:700}
+.hc span{font-size:.69rem;color:rgba(255,255,255,.45);font-weight:700}
+
+/* STRIP */
+.strip{background:var(--teal);padding:13px 32px}
+.strip-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-around;gap:16px;flex-wrap:wrap}
+.si{display:flex;align-items:center;gap:9px;color:#fff}
+.si .ico{font-size:1.3rem}
+.si strong{display:block;font-size:.83rem;font-weight:700}
+.si span{font-size:.71rem;opacity:.82}
+
+/* MAIN */
+.main-wrap{max-width:1100px;margin:0 auto;padding:52px 32px 72px}
+.sec-lbl{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.sec-lbl h2{font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--text)}
+.sec-line{flex:1;height:1.5px;background:linear-gradient(90deg,var(--teal),transparent);border-radius:2px}
+.sec-desc{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:28px;max-width:620px}
+
+/* BLOG GRID — 3 col, last row 2 featured */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:52px}
+
+.blog-card{
+  background:#fff;border-radius:18px;overflow:hidden;
+  box-shadow:0 3px 16px rgba(5,74,64,.08);
+  display:flex;flex-direction:column;cursor:pointer;
+  border:2px solid transparent;
+  transition:transform .22s,box-shadow .22s,border-color .2s
+}
+.blog-card:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(5,74,64,.14);border-color:rgba(13,138,122,.3)}
+
+.bc-visual{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.blog-card .bc-visual{height:150px}
+.cv-teal{background:linear-gradient(145deg,#d8f5f0,#a8ece4)}
+.cv-blue{background:linear-gradient(145deg,#dceeff,#b4d4f8)}
+.cv-warm{background:linear-gradient(145deg,#f8f0e4,#f0e0c4)}
+
+.bc-emoji{font-size:3.2rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.1))}
+.bc-cat{position:absolute;top:10px;left:10px;font-size:.64rem;font-weight:800;padding:3px 9px;border-radius:5px;text-transform:uppercase;letter-spacing:.06em}
+.cc-t{background:var(--teal-lt);color:var(--teal-dk)}
+.cc-b{background:var(--blue-lt);color:var(--blue-dk)}
+.cc-w{background:#fef4e2;color:#8a5a00}
+
+.bc-body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;gap:7px}
+.bc-meta{font-size:.71rem;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:7px}
+.bc-meta .dot{color:var(--gray)}
+.bc-source{display:inline-flex;align-items:center;gap:5px;background:var(--warm);border-radius:5px;padding:2px 8px;font-size:.65rem;font-weight:800;color:var(--teal-dk)}
+.bc-body h3{font-family:'Libre Baskerville',serif;font-size:.97rem;font-weight:700;color:var(--text);line-height:1.35}
+.bc-body p{font-size:.79rem;color:var(--muted);line-height:1.58;flex:1}
+.bc-read{display:inline-flex;align-items:center;gap:5px;color:var(--teal);font-weight:800;font-size:.79rem;text-decoration:none;margin-top:4px;transition:gap .15s;width:fit-content}
+.bc-read:hover{gap:9px;color:var(--teal-dk)}
+
+/* NL */
+.nl-band{background:linear-gradient(135deg,var(--teal-dk) 0%,#0a5a4c 100%);padding:44px 32px;text-align:center}
+.nl-inner{max-width:500px;margin:0 auto}
+.nl-inner h2{font-family:'Libre Baskerville',serif;font-size:1.7rem;font-weight:700;color:#fff;margin-bottom:8px}
+.nl-inner p{font-size:.92rem;color:rgba(255,255,255,.65);margin-bottom:22px;line-height:1.6}
+.nl-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.nl-input{flex:1;min-width:200px;border:none;border-radius:10px;padding:12px 18px;font-family:'Nunito Sans',sans-serif;font-size:.9rem;outline:none;color:var(--text)}
+.nl-btn{background:var(--teal);color:#fff;border:none;border-radius:10px;padding:12px 24px;font-weight:800;font-size:.9rem;font-family:'Nunito Sans',sans-serif;cursor:pointer;transition:background .18s,transform .15s}
+.nl-btn:hover{background:var(--teal-dk);transform:scale(1.03)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(16,12,6,.75);backdrop-filter:blur(6px);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:22px 16px;overflow-y:auto}
+.modal-overlay.open{display:flex;animation:fadeOv .25s ease}
+@keyframes fadeOv{from{opacity:0}to{opacity:1}}
+.modal-box{background:var(--cream);border-radius:22px;max-width:780px;width:100%;overflow:hidden;animation:slideUp .3s ease;margin:auto;position:relative}
+@keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.m-hero{padding:42px 48px 34px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:9px}
+.m-close{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.07);border:none;width:34px;height:34px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .18s;z-index:10}
+.m-close:hover{background:rgba(0,0,0,.14)}
+.m-emoji{font-size:3rem;line-height:1;margin-bottom:2px}
+.m-cat-badge{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:3px 12px;font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;width:fit-content}
+.m-hero h2{font-family:'Libre Baskerville',serif;font-size:1.7rem;font-weight:700;color:var(--text);line-height:1.2}
+.m-meta{font-size:.75rem;color:var(--muted);font-weight:700;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+.m-body{padding:30px 48px 48px}
+.m-body p{font-size:.95rem;line-height:1.78;color:#2c2418;margin-bottom:15px;font-weight:500}
+.m-body h3{font-family:'Libre Baskerville',serif;font-size:1.12rem;font-weight:700;color:var(--text);margin:24px 0 8px;display:flex;align-items:center;gap:8px}
+.m-body ul{padding-left:20px;margin-bottom:15px}
+.m-body ul li{font-size:.93rem;color:#2c2418;line-height:1.68;margin-bottom:6px;font-weight:500}
+.callout{border-radius:10px;padding:13px 17px;margin:16px 0;font-size:.9rem;font-weight:700;line-height:1.6;border-left:4px solid}
+.co-t{background:var(--teal-lt);color:var(--teal-dk);border-color:var(--teal)}
+.co-b{background:var(--blue-lt);color:var(--blue-dk);border-color:var(--blue)}
+.co-w{background:#fef4e2;color:#7a4800;border-color:#d4883a}
+
+/* SOURCES section inside modal */
+.sources-box{background:var(--warm);border-radius:12px;padding:18px 20px;margin-top:24px}
+.sources-box h4{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px}
+.source-item{display:flex;flex-direction:column;gap:2px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--sand)}
+.source-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.source-item .src-num{font-size:.67rem;font-weight:800;color:var(--teal-dk);letter-spacing:.04em}
+.source-item .src-text{font-size:.78rem;color:var(--muted);font-style:italic;line-height:1.5}
+.source-item .src-type{display:inline-flex;align-items:center;gap:4px;background:var(--teal-lt);color:var(--teal-dk);border-radius:4px;padding:1px 7px;font-size:.63rem;font-weight:800;margin-top:2px;width:fit-content}
+
+footer{background:var(--dark);color:rgba(255,255,255,.38);text-align:center;padding:20px 32px;font-size:.79rem}
+footer a{color:var(--teal);text-decoration:none}
+footer a:hover{color:#fff}
+
+@media(max-width:860px){.blog-grid{grid-template-columns:1fr 1fr}.hero-inner{grid-template-columns:1fr}.hero-cards{display:none}}
+@media(max-width:560px){.blog-grid{grid-template-columns:1fr}.m-hero{padding:28px 22px 22px}.m-body{padding:20px 22px 36px}}
+</style>
+</head>
+<body>
+
+<header><div class="hdr">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a>
+    <div class="hdr-sep"></div>
+    <span class="hdr-title">🦷 Blog Salud Bucal</span>
+  </div>
+  <nav class="hdr-nav">
+    <a href="https://www.farmaciasyair.com/catalogo_bucal">Catálogo Bucal</a>
+    <a href="https://www.farmaciasyair.com/" class="btn-back">← Tienda</a>
+  </nav>
+</div></header>
+
+<section class="hero">
+  <div class="hero-deco">🦷</div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-pill">🦷 Salud Bucal · Evidencia Científica</div>
+      <h1>Tu boca,<br/>tu <em>salud integral</em></h1>
+      <p>Artículos con referencias de la OMS, ADA (Asociación Dental Americana) y evidencia clínica peer-reviewed. Porque cuidar tu boca es cuidar tu salud general.</p>
+      <div class="hero-source">📚 Fuentes: OMS · ADA · Cochrane · SSA México</div>
+    </div>
+    <div class="hero-cards">
+      <div class="hc" onclick="openModal('a1')">
+        <span class="hc-icon">🪥</span>
+        <h4>¿Cuánto tiempo cepillarse?</h4>
+        <span>Higiene · ADA Guidelines</span>
+      </div>
+      <div class="hc" onclick="openModal('a3')">
+        <span class="hc-icon">🧵</span>
+        <h4>Hilo dental: por qué importa</h4>
+        <span>Prevención · Cochrane</span>
+      </div>
+      <div class="hc" onclick="openModal('a5')">
+        <span class="hc-icon">😬</span>
+        <h4>Boca seca y medicamentos</h4>
+        <span>Farmacología · Clínico</span>
+      </div>
+      <div class="hc" onclick="openModal('a7')">
+        <span class="hc-icon">🩺</span>
+        <h4>Boca y enfermedades sistémicas</h4>
+        <span>Sistémico · OMS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="strip-inner">
+  <div class="si"><span class="ico">📚</span><div><strong>Evidencia clínica</strong><span>Referencias peer-reviewed</span></div></div>
+  <div class="si"><span class="ico">🏥</span><div><strong>Fuentes oficiales</strong><span>OMS · ADA · SSA</span></div></div>
+  <div class="si"><span class="ico">🦷</span><div><strong>Revisado por dentistas</strong><span>Contenido validado</span></div></div>
+  <div class="si"><span class="ico">⚕️</span><div><strong>Complementa al dentista</strong><span>No lo sustituye</span></div></div>
+</div></div>
+
+<div class="main-wrap">
+  <div class="sec-lbl"><h2>🦷 Artículos de Salud Bucal</h2><div class="sec-line"></div></div>
+  <p class="sec-desc">Ocho artículos con referencias de organizaciones dentales y de salud de primer nivel. Haz clic en cualquier tarjeta para leer el artículo completo con sus fuentes.</p>
+
+  <div class="blog-grid">
+
+    <div class="blog-card" onclick="openModal('a1')" data-tags="cepillado tecnica tiempo fluoruro ADA">
+      <div class="bc-visual cv-teal">
+        <span class="bc-emoji">🪥</span>
+        <span class="bc-cat cc-t">Higiene</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta">
+          <span>12 Mar 2026</span><span class="dot">·</span>
+          <span class="bc-source">📚 ADA</span><span class="dot">·</span><span>4 min</span>
+        </div>
+        <h3>Cuánto tiempo y cómo cepillarse correctamente</h3>
+        <p>La técnica de Bass modificada y los 2 minutos que recomienda la ADA: qué hacer, qué no, y por qué el orden del cepillado importa.</p>
+        <a class="bc-read" href="#">Leer con fuentes →</a>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openModal('a2')" data-tags="fluoruro pasta fluor beneficios riesgo fluorosis niños adultos">
+      <div class="bc-visual cv-blue">
+        <span class="bc-emoji">💎</span>
+        <span class="bc-cat cc-b">Prevención</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta">
+          <span>9 Mar 2026</span><span class="dot">·</span>
+          <span class="bc-source">📚 OMS · FDI</span><span class="dot">·</span><span>4 min</span>
+        </div>
+        <h3>Fluoruro en la pasta dental: beneficios, mitos y dosis según la edad</h3>
+        <p>El fluoruro es el ingrediente activo más respaldado en odontología preventiva. Qué concentración usar según la edad y qué dice la evidencia sobre la fluorosis.</p>
+        <a class="bc-read" href="#">Leer con fuentes →</a>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openModal('a3')" data-tags="hilo dental interdental placa gingivitis Cochrane beneficio">
+      <div class="bc-visual cv-teal">
+        <span class="bc-emoji">🧵</span>
+        <span class="bc-cat cc-t">Prevención</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta">
+          <span>7 Mar 2026</span><span class="dot">·</span>
+          <span class="bc-source">📚 Cochrane</span><span class="dot">·</span><span>4 min</span>
+        </div>
+        <h3>Hilo dental: qué dice realmente la evidencia científica</h3>
+        <p>La revisión Cochrane 2019 sobre higiene interdental es sorprendente. Qué alternativas existen y cuál tiene mejor evidencia para reducir la gingivitis.</p>
+        <a class="bc-read" href="#">Leer con fuentes →</a>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openModal('a4')" data-tags="azúcar caries bacterias pH saliva frecuencia dieta">
+      <div class="bc-visual cv-warm">
+        <span class="bc-emoji">🍬</span>
+        <span class="bc-cat cc-w">Nutrición</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta">
+          <span>5 Mar 2026</span><span class="dot">·</span>
+          <span class="bc-source">📚 JADA · OMS</span><span class="dot">·</span><span>4 min</span>
+        </div>
+        <h3>Azúcar y caries: no es cuánto comes, sino cuántas veces</h3>
+        <p>La frecuencia de exposición al azúcar es más determinante que la cantidad total. El ciclo ácido-base de la placa y cómo romperlo con hábitos simples.</p>
+        <a class="bc-read" href="#">Leer con fuentes →</a>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openModal('a5')" data-tags="boca seca xerostomía medicamentos saliva efectos secundarios">
+      <div class="bc-visual cv-blue">
+        <span class="bc-emoji">💊</span>
+        <span class="bc-cat cc-b">Farmacología</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta">
+          <span>3 Mar 2026</span><span class="dot">·</span>
+          <span class="bc-source">📚 JADA · MedlinePlus</span><span class="dot">·</span><span>4 min</span>
+        </div>
+        <h3>Boca seca por medicamentos: cuáles la causan y cómo aliviarla</h3>
+        <p>Más de 500 medicamentos comunes causan xerostomía. Antihistamínicos, antidepresivos, diuréticos... y por qué la saliva es esencial para proteger tus dientes.</p>
+        <a class="bc-read" href="#">Leer con fuentes →</a>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openModal('a6')" data-tags="enjuague clorhexidina listerine alcohol beneficio riesgo placa">
+      <div class="bc-visual cv-teal">
+        <span class="bc-emoji">💧</span>
+        <span class="bc-cat cc-t">Higiene</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta">
+          <span>28 Feb 2026</span><span class="dot">·</span>
+          <span class="bc-source">📚 Cochrane · JADA</span><span class="dot">·</span><span>3 min</span>
+        </div>
+        <h3>Enjuague bucal: cuál elegir según tu necesidad y qué dice la evidencia</h3>
+        <p>Clorhexidina, fluoruro o aceites esenciales: no todos los enjuagues son iguales. La evidencia diferencia uso a corto y largo plazo.</p>
+        <a class="bc-read" href="#">Leer con fuentes →</a>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openModal('a7')" data-tags="salud bucal sistémica corazón diabetes periodontitis enfermedades">
+      <div class="bc-visual cv-blue">
+        <span class="bc-emoji">🫀</span>
+        <span class="bc-cat cc-b">Sistémico</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta">
+          <span>24 Feb 2026</span><span class="dot">·</span>
+          <span class="bc-source">📚 OMS · AHA · Lancet</span><span class="dot">·</span><span>5 min</span>
+        </div>
+        <h3>La salud bucal y su conexión con el corazón, la diabetes y el cerebro</h3>
+        <p>La enfermedad periodontal se ha asociado a cardiopatía isquémica, diabetes tipo 2 y parto prematuro. Qué dice la evidencia actual sobre estas conexiones.</p>
+        <a class="bc-read" href="#">Leer con fuentes →</a>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openModal('a8')" data-tags="visita dentista frecuencia adulto niño preventiva radiografia periodicidad">
+      <div class="bc-visual cv-warm">
+        <span class="bc-emoji">📅</span>
+        <span class="bc-cat cc-w">Preventiva</span>
+      </div>
+      <div class="bc-body">
+        <div class="bc-meta">
+          <span>20 Feb 2026</span><span class="dot">·</span>
+          <span class="bc-source">📚 ADA · NICE UK</span><span class="dot">·</span><span>3 min</span>
+        </div>
+        <h3>¿Cada cuánto debo ir al dentista? Lo que recomiendan las guías clínicas</h3>
+        <p>La recomendación clásica de "cada 6 meses" tiene matices importantes según el riesgo individual. Qué dicen la ADA y el NICE sobre la periodicidad real.</p>
+        <a class="bc-read" href="#">Leer con fuentes →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="nl-band"><div class="nl-inner">
+  <h2>📬 Artículos con evidencia</h2>
+  <p>Recibe contenido de salud bucal respaldado por fuentes científicas. Sin publicidad, sin mitos.</p>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="tu@correo.com"/>
+    <button class="nl-btn" onclick="alert('¡Suscrito! 🦷')">Suscribirme</button>
+  </div>
+</div></div>
+
+<footer><p>© 2026 <a href="farmacias_yair.html">Farmacias Yair</a> · Blog Salud Bucal · Contenido informativo con respaldo científico. Consulta siempre a tu dentista. 🦷</p></footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="m-hero" id="m-hero">
+      <button class="m-close" onclick="closeModal()">✕</button>
+      <div class="m-emoji" id="m-emoji"></div>
+      <div class="m-cat-badge" id="m-cat"></div>
+      <h2 id="m-title"></h2>
+      <div class="m-meta" id="m-meta"></div>
+    </div>
+    <div class="m-body" id="m-body"></div>
+  </div>
+</div>
+
+<script>
+const articles = {
+
+  a1:{
+    emoji:'🪥', cat:'🪥 Higiene · Técnica de cepillado', catClass:'cc-t', bg:'cv-teal',
+    title:'Cuánto tiempo y cómo cepillarse los dientes correctamente',
+    meta:'12 Mar 2026 · 4 min · Revisado por dentista clínico',
+    body:`
+      <p>El cepillado dental es el pilar de la higiene oral, pero estudios muestran que la mayoría de las personas lo hace de forma subóptima: demasiado corto, con demasiada presión o con técnica incorrecta.</p>
+      <div class="callout co-t">📏 La ADA (American Dental Association) recomienda cepillarse <strong>2 minutos, 2 veces al día</strong>, con cerdas suaves y pasta dental con flúor. La mayoría de las personas se cepilla menos de 45 segundos.</div>
+      <h3>✅ Técnica de Bass modificada (la más recomendada)</h3>
+      <ul>
+        <li>Coloca el cepillo a <strong>45° hacia la encía</strong>.</li>
+        <li>Realiza <strong>movimientos cortos horizontales vibratorios</strong> de 2–3 dientes a la vez.</li>
+        <li>Luego un barrido vertical desde la encía hacia el diente.</li>
+        <li>Cepilla todas las superficies: externa, interna y masticatoria.</li>
+        <li>No olvides la lengua (reduce bacterias causantes de mal aliento).</li>
+      </ul>
+      <h3>❌ Errores más frecuentes</h3>
+      <ul>
+        <li><strong>Presión excesiva:</strong> desgasta el esmalte y retrae las encías. Las cerdas no deben aplastarse.</li>
+        <li><strong>Cepillo duro:</strong> las cerdas suaves limpian igual o mejor y son más seguras para encías y esmalte.</li>
+        <li><strong>Cepillado inmediato tras comer ácido:</strong> espera 30 minutos después de jugos cítricos o refrescos — el esmalte está temporalmente ablandado.</li>
+      </ul>
+      <div class="sources-box">
+        <h4>📚 Fuentes y referencias</h4>
+        <div class="source-item">
+          <span class="src-num">[1]</span>
+          <span class="src-text">American Dental Association (ADA). "Mouth Healthy: Brushing Your Teeth." <em>ADA.org</em>, 2023.</span>
+          <span class="src-type">🏛️ Organismo oficial</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[2]</span>
+          <span class="src-text">Claydon NCA. "Current concepts in toothbrushing and interdental cleaning." <em>Periodontology 2000</em>, 2008;48:10–22.</span>
+          <span class="src-type">🔬 Revisión clínica</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[3]</span>
+          <span class="src-text">Ganss C, et al. "Toothbrushing after an erosive attack — a SEM investigation." <em>J Oral Rehabil</em>, 2009;36(11):826–31.</span>
+          <span class="src-type">🔬 Estudio peer-reviewed</span>
+        </div>
+      </div>
+    `
+  },
+
+  a2:{
+    emoji:'💎', cat:'💎 Prevención · Fluoruro', catClass:'cc-b', bg:'cv-blue',
+    title:'Fluoruro en la pasta dental: beneficios, mitos y dosis según la edad',
+    meta:'9 Mar 2026 · 4 min · Fuentes: OMS, FDI',
+    body:`
+      <p>El fluoruro es el ingrediente activo con mayor respaldo científico en odontología preventiva. La OMS lo reconoce como uno de los avances en salud pública más importantes del siglo XX por su papel en la reducción de caries.</p>
+      <h3>🔬 ¿Cómo protege el fluoruro?</h3>
+      <ul>
+        <li>Inhibe las bacterias cariogénicas (<em>Streptococcus mutans</em>) reduciendo la producción de ácido.</li>
+        <li>Favorece la <strong>remineralización</strong> del esmalte dañado por los ácidos.</li>
+        <li>Forma fluorapatita, más resistente que la hidroxiapatita natural del diente.</li>
+      </ul>
+      <h3>📊 Concentración recomendada por edad</h3>
+      <ul>
+        <li><strong>0–2 años:</strong> pasta sin flúor o con fluoruro muy bajo (500 ppm). Cantidad: tamaño de un grano de arroz.</li>
+        <li><strong>3–6 años:</strong> 500–1,000 ppm. Cantidad: tamaño de un guisante. Supervisión de adulto.</li>
+        <li><strong>6+ años y adultos:</strong> 1,000–1,500 ppm. Escupir sin enjuagar (mayor eficacia del flúor residual).</li>
+        <li><strong>Alto riesgo de caries:</strong> hasta 5,000 ppm bajo prescripción dental (Duraphat).</li>
+      </ul>
+      <div class="callout co-w">⚠️ La <strong>fluorosis dental</strong> (manchas blancas) ocurre solo durante la formación del esmalte (0–8 años) si se ingiere flúor en exceso. En adultos no es un riesgo. La fluorosis leve es cosmética, no afecta la salud del diente.</div>
+      <div class="sources-box">
+        <h4>📚 Fuentes y referencias</h4>
+        <div class="source-item">
+          <span class="src-num">[1]</span>
+          <span class="src-text">World Health Organization. "Fluoride and oral health." <em>WHO Technical Report</em>, 2023.</span>
+          <span class="src-type">🏛️ OMS</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[2]</span>
+          <span class="src-text">FDI World Dental Federation. "FDI policy statement on the use of fluoride in caries prevention." <em>FDI</em>, 2018.</span>
+          <span class="src-type">🏛️ Organismo oficial</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[3]</span>
+          <span class="src-text">Walsh T, et al. "Fluoride toothpastes of different concentrations for preventing dental caries." <em>Cochrane Database Syst Rev</em>, 2019;3.</span>
+          <span class="src-type">🔬 Cochrane Review</span>
+        </div>
+      </div>
+    `
+  },
+
+  a3:{
+    emoji:'🧵', cat:'🧵 Prevención · Higiene interdental', catClass:'cc-t', bg:'cv-teal',
+    title:'Hilo dental: qué dice realmente la evidencia científica',
+    meta:'7 Mar 2026 · 4 min · Fuentes: Cochrane, JADA',
+    body:`
+      <p>En 2016, la Associated Press publicó que "no hay buena evidencia" de que el hilo dental funcione, causando confusión global. ¿Debemos abandonarlo? La respuesta es más matizada.</p>
+      <div class="callout co-t">📌 La revisión Cochrane 2019 encontró evidencia de <strong>baja a moderada calidad</strong> de que el hilo dental combinado con el cepillado reduce la gingivitis más que el cepillado solo. El problema es la calidad de los estudios, no la técnica en sí.</div>
+      <h3>🔍 Qué dice la revisión Cochrane 2019</h3>
+      <ul>
+        <li>El hilo dental junto al cepillado <strong>sí reduce la gingivitis</strong> a corto plazo más que cepillado solo.</li>
+        <li>La reducción de placa interdental también fue estadísticamente significativa.</li>
+        <li>La principal limitación: los estudios tienen alto riesgo de sesgo (financiados por fabricantes).</li>
+        <li>No hay evidencia suficiente sobre reducción de caries interproximal a largo plazo.</li>
+      </ul>
+      <h3>🧰 Alternativas con evidencia similar o mejor</h3>
+      <ul>
+        <li><strong>Cepillos interdentales (TePe, Oral-B):</strong> la revisión Cochrane 2019 encontró evidencia similar o ligeramente superior al hilo para reducir placa y gingivitis. Especialmente útiles con implantes y brackets.</li>
+        <li><strong>Irrigador bucal (Waterpik):</strong> evidencia moderada para reducir gingivitis, especialmente en usuarios de ortodoncia e implantes.</li>
+        <li><strong>Palillos de madera/plástico interdentales:</strong> evidencia limitada; útiles como complemento.</li>
+      </ul>
+      <div class="sources-box">
+        <h4>📚 Fuentes y referencias</h4>
+        <div class="source-item">
+          <span class="src-num">[1]</span>
+          <span class="src-text">Worthington HV, et al. "Home use of interdental cleaning devices, in addition to toothbrushing, for preventing and controlling periodontal diseases and dental caries." <em>Cochrane Database Syst Rev</em>, 2019;4.</span>
+          <span class="src-type">🔬 Cochrane Review</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[2]</span>
+          <span class="src-text">ADA. "Interdental Cleaners." <em>Journal of the ADA</em>, 2020;151(8):617–618.</span>
+          <span class="src-type">🏛️ ADA</span>
+        </div>
+      </div>
+    `
+  },
+
+  a4:{
+    emoji:'🍬', cat:'🍬 Nutrición · Caries', catClass:'cc-w', bg:'cv-warm',
+    title:'Azúcar y caries: no es cuánto comes, sino cuántas veces',
+    meta:'5 Mar 2026 · 4 min · Fuentes: JADA, OMS',
+    body:`
+      <p>Durante décadas la educación dental se enfocó en "comer menos azúcar". La evidencia actual matiza considerablemente este mensaje: la <strong>frecuencia de exposición</strong> al azúcar es el factor determinante, no la cantidad total.</p>
+      <h3>⚡ El ciclo ácido-base de la placa (curva de Stephan)</h3>
+      <p>Cada vez que consumes azúcar o carbohidratos fermentables, las bacterias de la placa producen ácido durante <strong>20–40 minutos</strong>. Durante ese tiempo el pH baja por debajo de 5.5 y el esmalte empieza a desmineralizarse. Si tomas azúcar 10 veces al día, tienes 10 ciclos ácidos distintos.</p>
+      <ul>
+        <li>Tomar 100g de azúcar en una sola comida → 1 ciclo ácido de 30–40 min.</li>
+        <li>Tomar 100g distribuidos en 10 momentos del día → 10 ciclos ácidos de 30–40 min c/u = 5–7 horas de ataque ácido diario.</li>
+      </ul>
+      <div class="callout co-w">💡 La OMS recomienda que los <strong>azúcares libres sean menos del 5% de la ingesta calórica total</strong>, pero igualmente importante es concentrar su consumo en pocas comidas al día en lugar de picotear constantemente.</div>
+      <h3>🥛 Alimentos protectores</h3>
+      <ul>
+        <li><strong>Queso:</strong> estimula la saliva y neutraliza el ácido. Caseína tiene efecto remineralizante.</li>
+        <li><strong>Agua:</strong> enjuaga los azúcares y ayuda a mantener el pH neutro.</li>
+        <li><strong>Xilitol:</strong> edulcorante que inhibe <em>S. mutans</em>. Chicles de xilitol tras las comidas tienen evidencia para reducir caries.</li>
+      </ul>
+      <div class="sources-box">
+        <h4>📚 Fuentes y referencias</h4>
+        <div class="source-item">
+          <span class="src-num">[1]</span>
+          <span class="src-text">World Health Organization. "Sugars and dental caries." <em>WHO Fact Sheet</em>, 2017.</span>
+          <span class="src-type">🏛️ OMS</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[2]</span>
+          <span class="src-text">Sheiham A, James WP. "A reappraisal of the quantitative relationship between sugar intake and dental caries." <em>J Dent Res</em>, 2014;93(10):969–75.</span>
+          <span class="src-type">🔬 Estudio peer-reviewed</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[3]</span>
+          <span class="src-text">Nayak PA, Nayak UA, Khandelwal V. "The effect of xylitol on dental caries and oral flora." <em>Clin Cosmet Investig Dent</em>, 2014;6:89–94.</span>
+          <span class="src-type">🔬 Revisión clínica</span>
+        </div>
+      </div>
+    `
+  },
+
+  a5:{
+    emoji:'💊', cat:'💊 Farmacología · Xerostomía', catClass:'cc-b', bg:'cv-blue',
+    title:'Boca seca por medicamentos: cuáles la causan y cómo aliviarla',
+    meta:'3 Mar 2026 · 4 min · Fuentes: JADA, MedlinePlus',
+    body:`
+      <p>La xerostomía (boca seca) afecta al 20–30% de los adultos mayores y es uno de los efectos adversos orales más frecuentes de los medicamentos. No es solo incómoda: la saliva es esencial para proteger los dientes.</p>
+      <h3>💧 Por qué la saliva importa</h3>
+      <ul>
+        <li>Neutraliza los ácidos de la placa bacteriana.</li>
+        <li>Contiene calcio, fosfato y proteínas remineralizantes.</li>
+        <li>Tiene propiedades antimicrobianas (lisozima, IgA secretora).</li>
+        <li>Facilita la masticación, la deglución y el habla.</li>
+      </ul>
+      <p>Sin saliva adecuada, el riesgo de caries —especialmente cervicales y radiculares— se dispara. Los pacientes con radioterapia de cabeza y cuello o con síndrome de Sjögren son los más afectados.</p>
+      <h3>💊 Medicamentos que causan xerostomía</h3>
+      <ul>
+        <li><strong>Antihistamínicos</strong> (loratadina, cetirizina, difenhidramina).</li>
+        <li><strong>Antidepresivos</strong> tricíclicos (amitriptilina) y ISRS.</li>
+        <li><strong>Diuréticos</strong> (furosemida, hidroclorotiazida).</li>
+        <li><strong>Antihipertensivos</strong> (betabloqueadores, antagonistas del calcio).</li>
+        <li><strong>Anticolinérgicos</strong> (broncodilatadores, antiespasmódicos).</li>
+        <li><strong>Benzodiacepinas</strong> y algunos antipsicóticos.</li>
+      </ul>
+      <div class="callout co-b">⚕️ Si un medicamento esencial te causa boca seca, <strong>nunca lo suspendas sin consultar a tu médico</strong>. Informa también a tu dentista para reforzar medidas preventivas de caries.</div>
+      <h3>🌊 Cómo aliviar la xerostomía</h3>
+      <ul>
+        <li>Hidratación frecuente con agua (no bebidas azucaradas ni con cafeína).</li>
+        <li>Chicles o caramelos sin azúcar con xilitol para estimular la salivación.</li>
+        <li>Sustitutos de saliva artificiales (spray o gel, disponibles en Farmacias Yair).</li>
+        <li>Humidificador en el dormitorio por la noche.</li>
+        <li>Flúor tópico reforzado (gel o barniz) para proteger el esmalte.</li>
+      </ul>
+      <div class="sources-box">
+        <h4>📚 Fuentes y referencias</h4>
+        <div class="source-item">
+          <span class="src-num">[1]</span>
+          <span class="src-text">Wolff A, et al. "A Guide to Medications Inducing Salivary Gland Dysfunction." <em>J Am Dent Assoc</em>, 2017;148(8):604–616.</span>
+          <span class="src-type">🔬 JADA</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[2]</span>
+          <span class="src-text">National Institute of Dental and Craniofacial Research (NIDCR). "Dry Mouth." <em>nidcr.nih.gov</em>, 2022.</span>
+          <span class="src-type">🏛️ NIH / NIDCR</span>
+        </div>
+      </div>
+    `
+  },
+
+  a6:{
+    emoji:'💧', cat:'💧 Higiene · Enjuague bucal', catClass:'cc-t', bg:'cv-teal',
+    title:'Enjuague bucal: cuál elegir según tu necesidad y qué dice la evidencia',
+    meta:'28 Feb 2026 · 3 min · Fuentes: Cochrane, JADA',
+    body:`
+      <p>El mercado de enjuagues bucales en México es enorme, pero la evidencia sobre su eficacia varía significativamente según el ingrediente activo. No todos los enjuagues hacen lo mismo.</p>
+      <h3>🥇 Clorhexidina 0.12–0.2%: el estándar de oro (a corto plazo)</h3>
+      <ul>
+        <li>Es el enjuague antibacteriano con mayor evidencia científica.</li>
+        <li>Reduce la placa y la gingivitis de forma significativa.</li>
+        <li><strong>Limitación:</strong> uso a largo plazo causa tinción marrón de los dientes y alteración del gusto. Se usa por ciclos de 2–4 semanas. No como sustituto diario permanente.</li>
+      </ul>
+      <h3>🌿 Aceites esenciales (Listerine y similares)</h3>
+      <ul>
+        <li>Timol, eucaliptol, mentol y metilsalicilato. La revisión Cochrane 2016 muestra <strong>reducción significativa de placa y gingivitis</strong> en uso a largo plazo.</li>
+        <li>Eficacia menor que clorhexidina pero adecuada para uso diario continuo.</li>
+        <li>Los productos con alcohol tienen efecto irritante en mucosa; prefiere versiones sin alcohol si tienes encías sensibles o boca seca.</li>
+      </ul>
+      <h3>💎 Enjuagues con fluoruro</h3>
+      <ul>
+        <li>Principalmente para refuerzo anticaries, no para gingivitis.</li>
+        <li>Útiles en pacientes con alto riesgo de caries, ortodoncia o boca seca.</li>
+        <li>La SSA México no añade flúor al agua en todas las regiones: un enjuague con fluoruro puede ser especialmente valioso fuera de zonas fluoradas.</li>
+      </ul>
+      <div class="sources-box">
+        <h4>📚 Fuentes y referencias</h4>
+        <div class="source-item">
+          <span class="src-num">[1]</span>
+          <span class="src-text">Stoeken JE, et al. "The long-term effect of a mouthrinse containing essential oils on dental plaque and gingivitis." <em>J Periodontol</em>, 2007;78(7):1218–28.</span>
+          <span class="src-type">🔬 Estudio peer-reviewed</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[2]</span>
+          <span class="src-text">James P, et al. "Chlorhexidine mouthrinse as an adjunctive treatment for gingival health." <em>Cochrane Database Syst Rev</em>, 2017;3.</span>
+          <span class="src-type">🔬 Cochrane Review</span>
+        </div>
+      </div>
+    `
+  },
+
+  a7:{
+    emoji:'🫀', cat:'🫀 Sistémico · Salud general', catClass:'cc-b', bg:'cv-blue',
+    title:'La salud bucal y su conexión con el corazón, la diabetes y el cerebro',
+    meta:'24 Feb 2026 · 5 min · Fuentes: OMS, AHA, Lancet',
+    body:`
+      <p>La boca no es una cavidad aislada del resto del cuerpo. En los últimos 20 años la investigación ha establecido conexiones bidireccionales importantes entre la salud periodontal y varias enfermedades sistémicas.</p>
+      <div class="callout co-b">🔑 Clave: la relación es <strong>bidireccional</strong>. La periodontitis puede agravar ciertas enfermedades sistémicas, y ciertas enfermedades sistémicas pueden empeorar la periodontitis. La causalidad definitiva aún se investiga.</div>
+      <h3>🫀 Enfermedad cardiovascular</h3>
+      <p>Múltiples estudios observacionales asocian la periodontitis con mayor riesgo de cardiopatía isquémica. El mecanismo propuesto: las bacterias periodontales (especialmente <em>P. gingivalis</em>) pueden entrar al torrente sanguíneo y promover aterosclerosis e inflamación sistémica (PCR elevada).</p>
+      <ul>
+        <li>La AHA (2012) reconoce la asociación pero aún no confirma causalidad directa.</li>
+        <li>Tratar la periodontitis reduce marcadores inflamatorios sistémicos (PCR, IL-6).</li>
+      </ul>
+      <h3>🩸 Diabetes tipo 2</h3>
+      <p>Esta es la relación bidireccional más establecida. La diabetes mal controlada empeora la respuesta inmune en la encía, favoreciendo la periodontitis. A su vez, la inflamación periodontal puede dificultar el control glucémico.</p>
+      <ul>
+        <li>Metaanálisis en <em>Lancet Diabetes & Endocrinology</em> (2017): el tratamiento periodontal reduce la HbA1c en ~0.4 puntos, comparable a añadir un segundo fármaco antidiabético.</li>
+      </ul>
+      <h3>🤰 Embarazo</h3>
+      <p>La OMS reconoce la asociación entre periodontitis grave y parto prematuro / bajo peso al nacer. Las hormonas del embarazo exacerban la inflamación gingival. La atención dental durante el embarazo es segura y recomendable.</p>
+      <div class="sources-box">
+        <h4>📚 Fuentes y referencias</h4>
+        <div class="source-item">
+          <span class="src-num">[1]</span>
+          <span class="src-text">Tonetti MS, et al. "Treatment of periodontitis and endothelial function." <em>N Engl J Med</em>, 2007;356:911–920.</span>
+          <span class="src-type">🔬 NEJM</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[2]</span>
+          <span class="src-text">Simpson TC, et al. "Treatment of periodontal disease for glycaemic control in people with diabetes mellitus." <em>Cochrane Database Syst Rev</em>, 2015;11.</span>
+          <span class="src-type">🔬 Cochrane Review</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[3]</span>
+          <span class="src-text">World Health Organization. "Oral health." <em>WHO Fact Sheet No. 318</em>, 2023.</span>
+          <span class="src-type">🏛️ OMS</span>
+        </div>
+      </div>
+    `
+  },
+
+  a8:{
+    emoji:'📅', cat:'📅 Preventiva · Visita al dentista', catClass:'cc-w', bg:'cv-warm',
+    title:'¿Cada cuánto debo ir al dentista? Lo que dicen las guías clínicas',
+    meta:'20 Feb 2026 · 3 min · Fuentes: ADA, NICE UK',
+    body:`
+      <p>La recomendación de "visitar al dentista cada 6 meses" es una de las más repetidas en salud bucal. Pero ¿tiene base científica real o es una convención histórica sin evidencia sólida?</p>
+      <div class="callout co-t">📌 La respuesta honesta: <strong>no hay evidencia de alta calidad</strong> que respalde específicamente la revisión cada 6 meses para todos los pacientes. La frecuencia ideal debe individualizarse según el riesgo.</div>
+      <h3>🏛️ Qué dicen las guías oficiales</h3>
+      <ul>
+        <li><strong>ADA (2023):</strong> recomienda que la frecuencia sea determinada por el dentista según el riesgo individual de cada paciente. No establece un intervalo universal.</li>
+        <li><strong>NICE UK (2004, actualizado):</strong> primera guía en cuestionar el intervalo de 6 meses. Propone intervalos de 3 meses a 2 años según el riesgo.</li>
+      </ul>
+      <h3>📊 Factores de riesgo que justifican visitas más frecuentes (cada 3–4 meses)</h3>
+      <ul>
+        <li>Historia de caries activa o frecuente.</li>
+        <li>Enfermedad periodontal activa o en mantenimiento.</li>
+        <li>Diabetes, síndrome de Sjögren o boca seca crónica.</li>
+        <li>Ortodoncia fija (brackets).</li>
+        <li>Fumadores o consumidores frecuentes de alcohol.</li>
+        <li>Pacientes inmunocomprometidos.</li>
+      </ul>
+      <h3>✅ Pacientes de bajo riesgo (cada 12–24 meses puede ser suficiente)</h3>
+      <ul>
+        <li>Sin historia de caries en los últimos 3–5 años.</li>
+        <li>Buena higiene oral diaria demostrada.</li>
+        <li>Sin factores de riesgo sistémicos.</li>
+        <li>Sin historia periodontal significativa.</li>
+      </ul>
+      <div class="sources-box">
+        <h4>📚 Fuentes y referencias</h4>
+        <div class="source-item">
+          <span class="src-num">[1]</span>
+          <span class="src-text">National Institute for Health and Care Excellence (NICE). "Dental checks: intervals between oral health reviews." <em>NICE Clinical Guideline 19</em>, 2004 (updated 2023).</span>
+          <span class="src-type">🏛️ NICE UK</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[2]</span>
+          <span class="src-text">Riordan PJ. "Can organised dentistry be trusted to reform itself?" <em>Community Dent Oral Epidemiol</em>, 1997;25(1):5–10.</span>
+          <span class="src-type">🔬 Análisis histórico</span>
+        </div>
+        <div class="source-item">
+          <span class="src-num">[3]</span>
+          <span class="src-text">American Dental Association. "Frequency of dental visits." <em>ADA Clinical Practice Guidelines</em>, 2023.</span>
+          <span class="src-type">🏛️ ADA</span>
+        </div>
+      </div>
+    `
+  }
+
+};
+
+function openModal(id) {
+  const a = articles[id];
+  if (!a) return;
+  const hero = document.getElementById('m-hero');
+  hero.className = 'm-hero ' + a.bg;
+  document.getElementById('m-emoji').textContent = a.emoji;
+  const catEl = document.getElementById('m-cat');
+  catEl.textContent = a.cat;
+  catEl.className = 'm-cat-badge ' + a.catClass;
+  document.getElementById('m-title').textContent = a.title;
+  document.getElementById('m-meta').textContent = a.meta;
+  document.getElementById('m-body').innerHTML = a.body;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+</script>
+</body>
+</html>
