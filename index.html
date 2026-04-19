@@ -695,50 +695,210 @@
 <body>
 
 <!-- HEADER -->
-<header>
-  <div class="header-main">
-    <!-- Logo -->
-    <a class="logo" href="#"><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Mi Sitio Web</title>
-</head>
-<body style="margin: 0; padding: 0;">
-    <header style="margin: 0; padding: 0; background-color: transparent; border: none;">
-        <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
-             style="height: 60px; display: block;">
-    </header>
-</body>
-</html>
-      <div class="logo-text">
-        <span class="brand">Farmacias<span> Yair</span></span>
-        <span class="tagline">Tu salud, nuestra prioridad</span>
-      </div>
-    </a>
+<header class="header">
 
-    <!-- Partners -->
-    <!-- Search -->
-    <div class="search-wrap">
-      <input type="text" placeholder="¿Qué estás buscando?"/>
-      <button class="search-btn" aria-label="Buscar">
-        <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
-      </button>
+    <!-- Logo + texto -->
+    <div class="logo-container">
+        <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" class="logo-img">
+        
+        <div class="logo-text">
+            <span class="brand">Farmacias <span>Yair</span></span>
+            <span class="tagline">Tu salud, nuestra prioridad</span>
+        </div>
     </div>
-  </div>
 
-  <nav class="main-nav">
-    <a class="nav-item categories" href="#"><span class="nav-icon">☰</span> Categorías</a>
-    <a class="nav-item" href="https://www.farmaciasyair.com/catalogo_bebes"><span class="nav-icon">👶</span> Bebés</a>
-    <a class="nav-item" href="https://www.farmaciasyair.com/catalogo_bellesa"><span class="nav-icon">💆</span> Dermo</a>
-    <a class="nav-item" href="https://www.farmaciasyair.com/catalogo_medicamentos"><span class="nav-icon">💊</span> Genéricos</a>
-    <a class="nav-item" href="https://www.farmaciasyair.com/catalogo_natural"><span class="nav-icon">🌿</span> Natural</a>
-    <a class="nav-item" href="https://www.farmaciasyair.com/catalogo_auxilos"><span class="nav-icon">🧰</span> Primeros auxilios </a>
-    <a class="nav-item" href="https://www.farmaciasyair.com/catalogo_bucal"><span class="nav-icon">🦷</span> Cuidado Oral</a>
-  </nav>
+    <!-- Menú -->
+    <nav class="nav">
+        <a href="#">☰ Categorías</a>
+        <a href="#">👶 Bebés</a>
+        <a href="#">💆 Dermo</a>
+        <a href="#">💊 Genéricos</a>
+        <a href="#">🌿 Natural</a>
+        <a href="#">🏋️ Nutrición</a>
+        <a href="#">🦷 Cuidado Oral</a>
+    </nav>
+
 </header>
 
-<!-- MAIN CONTENT -->
+<style>
+:root {
+    --blue-dark: #003087;
+    --blue-mid: #0057b8;
+    --blue-light: #1a73e8;
+    --green: #4caf50;
+    --green-dark: #388e3c;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--blue-dark);
+    padding: 12px 30px;
+    border-bottom: 3px solid var(--green);
+}
+
+/* LOGO */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 55px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    color: var(--blue-light);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.brand span {
+    color: #ffffff;
+}
+
+.tagline {
+    font-size: 12px;
+    color: #cfd8dc;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* BOTONES */
+.nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--blue-light);
+    background: transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* HOVER */
+.nav a:hover {
+    background: var(--green);
+    color: #ffffff;
+    border-color: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    transform: translateY(-2px);
+}
+
+/* BOTÓN DESTACADO (Categorías) */
+.nav a:first-child {
+    background: var(--blue-mid);
+    border-color: var(--blue-light);
+}
+
+/* HOVER especial */
+.nav a:first-child:hover {
+    background: var(--green-dark);
+}
+</style>
+<section class="hero-seo">
+  <h1>Farmacia en La Ventosa, Istmo de Tehuantepec</h1>
+  <p>
+    En <strong>Farmacias Yair en La Ventosa</strong> encontrarás medicamentos, vitaminas,
+    suplementos alimenticios y productos de salud de alta calidad. Somos tu
+    <strong>farmacia confiable en La Ventosa, Oaxaca</strong>, brindando atención cercana
+    y productos esenciales para tu bienestar en el Istmo de Tehuantepec.
+  </p>
+</section>
+
+<section class="seo-block">
+  <h2>Medicamentos y vitaminas en La Ventosa, Oaxaca</h2>
+  
+  <p>
+    Somos una farmacia en La Ventosa especializada en ofrecer <strong>medicamentos genéricos,
+    vitaminas, suplementos nutricionales y productos naturistas</strong> a precios accesibles.
+    Atendemos a toda la comunidad del Istmo de Tehuantepec con compromiso y calidad.
+  </p>
+
+  <p>
+    Si buscas <strong>dónde comprar medicamentos en La Ventosa</strong> o una farmacia con
+    atención personalizada en Oaxaca, en Farmacias Yair encontrarás todo lo necesario
+    para el cuidado de tu salud y la de tu familia.
+  </p>
+
+  <p>
+    Nuestra farmacia en La Ventosa ofrece soluciones en salud, nutrición y bienestar,
+    con productos confiables y asesoría para elegir las mejores vitaminas y tratamientos.
+  </p>
+</section>
+
+<style>
+:root {
+  --blue-light: #1a73e8;
+  --blue-soft: #e3f2fd;
+  --green: #4caf50;
+  --green-soft: #e8f5e9;
+}
+
+/* HERO SEO */
+.hero-seo {
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(to right, var(--blue-soft), var(--green-soft));
+  border-bottom: 2px solid var(--blue-light);
+}
+
+.hero-seo h1 {
+  color: #003087;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.hero-seo p {
+  max-width: 800px;
+  margin: auto;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* BLOQUE SEO */
+.seo-block {
+  padding: 40px 20px;
+  text-align: center;
+  background: #ffffff;
+}
+
+.seo-block h2 {
+  color: var(--blue-light);
+  margin-bottom: 20px;
+}
+
+.seo-block p {
+  max-width: 850px;
+  margin: 10px auto;
+  line-height: 1.8;
+  color: #444;
+  font-size: 15px;
+}
+
+/* EFECTO VISUAL SUAVE */
+.seo-block p strong {
+  color: var(--green);
+}
+</style>
+
 <div class="main-content">
 
   <!-- Hero banners -->
