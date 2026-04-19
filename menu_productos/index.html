@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Catálogos de Productos – Farmacias Yair</title>
+<meta name="description" content="Explora todos los catálogos de productos de Farmacias Yair: medicamentos genéricos y de patente, productos naturales, bebés, dermocosméticos, nutrición deportiva, primeros auxilios, salud bucal y adulto mayor."/>
+<meta name="keywords" content="catálogo medicamentos farmacia, productos naturales farmacia, suplementos deportivos farmacia, dermocosméticos farmacia, productos bebés farmacia, primeros auxilios botiquín, salud bucal cuidado dental, vitaminas adulto mayor"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.ico">
+ 
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#1e5c38;--green-lt:#e6f4ec;--green-dk:#0d3320;
+  --herb:#3aaa6f;
+  --gold:#c8821a;--gold-lt:#fef4e2;--gold-dk:#7a4e00;
+  --red:#c8202a;--red-lt:#fdeaea;--red-dk:#7a0a10;
+  --purple:#7820c8;--purple-lt:#f4eeff;--purple-dk:#3a0a7a;
+  --orange:#c85a1a;--orange-lt:#fef0e6;--orange-dk:#7a2a00;
+  --teal:#0d8a7a;--teal-lt:#e6f7f5;--teal-dk:#054a40;
+  --navy:#1e3a5a;--navy-lt:#e8f0fa;--navy-dk:#0a1e38;
+  --sky:#1a78c0;--sky-lt:#e8f3fc;
+  --cream:#fdfaf5;--warm:#f8f3ec;--sand:#ede5d4;
+  --gray:#ddd4c0;--text:#f5f4f7;--muted:#7a6a52;--dark:#0e0a05
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text)}
+
+/* HEADER */
+header{background:var(--green-dk);position:sticky;top:0;z-index:300;box-shadow:0 2px 20px rgba(13,51,32,.45)}
+.hdr{max-width:1240px;margin:0 auto;padding:12px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo-wrap{display:flex;align-items:center;gap:13px;text-decoration:none}
+.logo-wrap img{height:46px;width:auto;filter:brightness(0) invert(1)}
+.hdr-sep{width:1px;height:28px;background:rgba(255,255,255,.2)}
+.hdr-label{font-family:'Lora',serif;font-size:.95rem;font-style:italic;color:var(--herb)}
+.hdr-nav{display:flex;align-items:center;gap:6px}
+.hdr-nav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.84rem;font-weight:700;padding:7px 14px;border-radius:20px;transition:background .18s,color .18s}
+.hdr-nav a:hover{background:rgba(255,255,255,.1);color:#fff}
+.btn-hl{background:var(--herb)!important;color:var(--green-dk)!important;font-weight:800!important}
+.btn-hl:hover{background:var(--green)!important;color:#fff!important}
+.btn-sec{border:1.5px solid rgba(255,255,255,.25)!important;color:rgba(255,255,255,.8)!important}
+
+/* HERO */
+.hero{
+  background:linear-gradient(155deg,var(--green-dk) 0%,#1a4a28 50%,#0e3820 100%);
+  padding:62px 36px 70px;position:relative;overflow:hidden;text-align:center
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 80% 25%,rgba(58,170,111,.15),transparent 50%),
+    radial-gradient(ellipse at 12% 72%,rgba(200,130,26,.10),transparent 44%)
+}
+.hero-deco{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:20rem;opacity:.04;pointer-events:none;user-select:none}
+.hero-inner{max-width:740px;margin:0 auto;position:relative;z-index:1}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(58,170,111,.18);border:1.5px solid rgba(58,170,111,.4);color:var(--herb);border-radius:8px;padding:6px 17px;font-size:.73rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:17px}
+.hero h1{font-family:'Lora',serif;font-size:clamp(2.2rem,4.2vw,3.3rem);font-weight:700;line-height:1.12;color:#fff;margin-bottom:12px}
+.hero h1 em{font-style:italic;color:var(--herb)}
+.hero p{font-size:1rem;color:rgba(255,255,255,.58);line-height:1.7;margin-bottom:26px;max-width:560px;margin-inline:auto}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
+.hchip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.65);border-radius:20px;padding:4px 14px;font-size:.73rem;font-weight:700;text-decoration:none;transition:background .18s,color .18s}
+.hchip:hover{background:rgba(255,255,255,.16);color:#fff}
+.hero-count{display:inline-flex;gap:0;border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
+.hc{padding:13px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
+.hc:last-child{border-right:none}
+.hc strong{display:block;font-family:'Lora',serif;font-size:1.85rem;color:var(--herb);font-weight:700;line-height:1}
+.hc span{font-size:.69rem;color:rgba(255,255,255,.38);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px;display:block}
+
+/* SECTION */
+.section{max-width:1240px;margin:0 auto;padding:52px 36px 0}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-head h2{font-family:'Lora',serif;font-size:1.5rem;font-weight:700;color:var(--text)}
+.sec-line{flex:1;height:1.5px;border-radius:2px}
+.sl-green{background:linear-gradient(90deg,var(--green),transparent)}
+.sl-navy{background:linear-gradient(90deg,var(--navy),transparent)}
+.sec-desc{font-size:.87rem;color:var(--muted);line-height:1.65;margin-bottom:26px;font-weight:600}
+
+/* CATALOG GRID – 4 col desktop */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:56px}
+
+/* CARD */
+.card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:0 3px 16px rgba(0,0,0,.08);
+  display:flex;flex-direction:column;
+  text-decoration:none;color:inherit;
+  border:2px solid transparent;
+  transition:transform .22s,box-shadow .22s,border-color .22s
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(0,0,0,.12)}
+
+/* color variants */
+.cv-red    .card-vis{background:linear-gradient(145deg,#fdeaea,#f8c0c0)} .cv-red:hover{border-color:rgba(200,32,42,.3)}
+.cv-green  .card-vis{background:linear-gradient(145deg,#e6f5ee,#b8e8d0)} .cv-green:hover{border-color:rgba(30,92,56,.3)}
+.cv-orange .card-vis{background:linear-gradient(145deg,#fef0e6,#fcd8b8)} .cv-orange:hover{border-color:rgba(200,90,26,.3)}
+.cv-purple .card-vis{background:linear-gradient(145deg,#f4eeff,#ddd0f8)} .cv-purple:hover{border-color:rgba(120,32,200,.3)}
+.cv-navy   .card-vis{background:linear-gradient(145deg,#e8f0fa,#c8d8f4)} .cv-navy:hover{border-color:rgba(30,58,90,.3)}
+.cv-teal   .card-vis{background:linear-gradient(145deg,#e4f8f4,#b0ece4)} .cv-teal:hover{border-color:rgba(13,138,122,.3)}
+.cv-gold   .card-vis{background:linear-gradient(145deg,#fef4e2,#faddb8)} .cv-gold:hover{border-color:rgba(200,130,26,.3)}
+.cv-sky    .card-vis{background:linear-gradient(145deg,#e8f3fc,#b8d8f4)} .cv-sky:hover{border-color:rgba(26,120,192,.3)}
+
+.card-vis{height:136px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.card-emoji{font-size:3.8rem;filter:drop-shadow(0 3px 8px rgba(0,0,0,.1));line-height:1}
+.card-badge{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.85);backdrop-filter:blur(4px);font-size:.62rem;font-weight:800;padding:3px 9px;border-radius:20px}
+.cb-cat{color:var(--green-dk)}
+.card-tag-pill{position:absolute;top:10px;left:10px;font-size:.63rem;font-weight:800;padding:3px 10px;border-radius:5px;text-transform:uppercase;letter-spacing:.06em}
+.tp-red   {background:var(--red-lt);color:var(--red-dk)}
+.tp-green {background:var(--green-lt);color:var(--green-dk)}
+.tp-orange{background:var(--orange-lt);color:var(--orange-dk)}
+.tp-purple{background:var(--purple-lt);color:var(--purple-dk)}
+.tp-navy  {background:var(--navy-lt);color:var(--navy-dk)}
+.tp-teal  {background:var(--teal-lt);color:var(--teal-dk)}
+.tp-gold  {background:var(--gold-lt);color:var(--gold-dk)}
+.tp-sky   {background:var(--sky-lt);color:var(--sky)}
+
+.card-body{padding:16px 18px 0;flex:1;display:flex;flex-direction:column;gap:7px}
+.card-body h3{font-family:'Lora',serif;font-size:1.02rem;font-weight:700;color:var(--text);line-height:1.3}
+.card-body p{font-size:.8rem;color:var(--muted);line-height:1.55;flex:1}
+.kw-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:2px}
+.kw{font-size:.63rem;font-weight:700;background:var(--warm);border:1px solid var(--sand);color:var(--muted);border-radius:4px;padding:2px 8px}
+
+.card-cta{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 18px 14px;margin-top:12px;
+  font-size:.8rem;font-weight:800;color:var(--green);
+  border-top:1px solid var(--warm);
+  transition:color .15s,background .15s
+}
+.card:hover .card-cta{background:var(--green-lt);color:var(--green-dk)}
+.card-cta .arr{transition:transform .18s}
+.card:hover .card-cta .arr{transform:translateX(4px)}
+
+/* BOTTOM SEO BAND */
+.seo-band{background:var(--warm);border-top:2px solid var(--sand);padding:36px 36px}
+.seo-inner{max-width:1240px;margin:0 auto}
+.seo-inner h2{font-family:'Lora',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:10px}
+.seo-inner p{font-size:.85rem;color:var(--muted);line-height:1.78;max-width:900px}
+.seo-inner p strong{color:var(--green-dk)}
+
+/* FOOTER */
+footer{background:var(--dark);padding:24px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer p{font-size:.8rem;color:rgba(255,255,255,.35)}
+footer a{color:var(--herb);text-decoration:none;font-size:.8rem;font-weight:700}
+footer a:hover{color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.cat-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:2rem}}
+@media(max-width:440px){.cat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header><div class="hdr">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a>
+    <div class="hdr-sep"></div>
+    <span class="hdr-title">Catalogo productos</span>
+  </div>
+  <nav class="hdr-nav">
+    <a href="https://www.farmaciasyair.com/menu_blogs">Ver blogs</a>
+    <a href="https://www.farmaciasyair.com/" class="btn-back">← Tienda</a>
+  </nav>
+</div></header>
+
+<section class="hero">
+  <div class="hero-deco">🗂️</div>
+  <div class="hero-inner">
+    <div class="hero-pill">🗂️ Catálogos · Farmacias Yair</div>
+    <h1>Todos nuestros<br/><em>catálogos</em> de productos</h1>
+    <p>Encuentra medicamentos, suplementos, productos naturales, dermocosméticos, nutrición deportiva y mucho más. Todos disponibles en sucursal.</p>
+    <div class="hero-chips">
+      <a href="medicamentos.html"       class="hchip">Medicamentos Genéricos</a>
+      <a href="naturales.html"          class="hchip">Productos Naturales</a>
+      <a href="bebes.html"              class="hchip">Bebés y Maternidad</a>
+      <a href="catalogo_dermocosmeticos.html" class="hchip">Dermocosméticos</a>
+      <a href="nutricion.html"          class="hchip">Nutrición Deportiva</a>
+      <a href="primeros_auxilios.html"  class="hchip">Primeros Auxilios</a>
+      <a href="bucal.html"              class="hchip">Salud Bucal</a>
+      <a href="adulto_mayor.html"       class="hchip">Adulto Mayor</a>
+    </div>
+    <div class="hero-count">
+      <div class="hc"><strong>8</strong><span>Catálogos</span></div>
+      <div class="hc"><strong>200+</strong><span>Productos</span></div>
+      <div class="hc"><strong>5</strong><span>Categorías</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDICAMENTOS & SALUD -->
+<div class="section" id="medicamentos">
+  <div class="sec-head"><h2>💊 Medicamentos y Salud</h2><div class="sec-line sl-green"></div></div>
+  <p class="sec-desc">Medicamentos genéricos intercambiables, de patente, primeros auxilios y diagnóstico en casa. Todo lo que necesitas para el cuidado de tu salud y la de tu familia.</p>
+  <div class="cat-grid">
+
+    <a href="medicamentos.html" class="card cv-red">
+      <div class="card-vis">
+        <span class="card-emoji">💊</span>
+        <span class="card-badge cb-cat">Catálogo</span>
+        <span class="card-tag-pill tp-red">Medicamentos</span>
+      </div>
+      <div class="card-body">
+        <h3>Medicamentos Genéricos y de Patente</h3>
+        <p>Analgésicos, antibióticos, antidiabéticos, cardiovasculares y más. Genéricos intercambiables al mejor precio.</p>
+        <div class="kw-row">
+          <span class="kw">genéricos</span><span class="kw">antibióticos</span>
+          <span class="kw">analgésicos</span><span class="kw">presión arterial</span>
+          <span class="kw">diabetes</span>
+        </div>
+      </div>
+      <div class="card-cta">Ver catálogo <span class="arr">→</span></div>
+    </a>
+
+    <a href="primeros_auxilios.html" class="card cv-orange">
+      <div class="card-vis">
+        <span class="card-emoji">🩹</span>
+        <span class="card-badge cb-cat">Catálogo</span>
+        <span class="card-tag-pill tp-orange">Primeros Auxilios</span>
+      </div>
+      <div class="card-body">
+        <h3>Primeros Auxilios y Diagnóstico</h3>
+        <p>Gasas, vendas, antisépticos, termómetros, tensiómetros, oxímetros y botiquines completos para el hogar y el auto.</p>
+        <div class="kw-row">
+          <span class="kw">botiquín</span><span class="kw">tensiómetro</span>
+          <span class="kw">antisépticos</span><span class="kw">oxímetro</span>
+          <span class="kw">glucómetro</span>
+        </div>
+      </div>
+      <div class="card-cta">Ver catálogo <span class="arr">→</span></div>
+    </a>
+
+    <a href="adulto_mayor.html" class="card cv-navy">
+      <div class="card-vis">
+        <span class="card-emoji">💛</span>
+        <span class="card-badge cb-cat">Catálogo</span>
+        <span class="card-tag-pill tp-navy">Adulto Mayor</span>
+      </div>
+      <div class="card-body">
+        <h3>Salud del Adulto Mayor</h3>
+        <p>Vitaminas 50+, calcio con D3, glucosamina, tensiómetros digitales, bastones ergonómicos y pastilleros para tratamientos complejos.</p>
+        <div class="kw-row">
+          <span class="kw">vitaminas 50+</span><span class="kw">calcio</span>
+          <span class="kw">osteoporosis</span><span class="kw">bastón</span>
+          <span class="kw">pastillero</span>
+        </div>
+      </div>
+      <div class="card-cta">Ver catálogo <span class="arr">→</span></div>
+    </a>
+
+    <a href="bucal.html" class="card cv-teal">
+      <div class="card-vis">
+        <span class="card-emoji">🦷</span>
+        <span class="card-badge cb-cat">Catálogo</span>
+        <span class="card-tag-pill tp-teal">Salud Bucal</span>
+      </div>
+      <div class="card-body">
+        <h3>Higiene y Salud Bucal</h3>
+        <p>Pastas dentales fluoradas, cepillos eléctricos, enjuagues antisépticos, blanqueadores, irrigadores y productos para ortodoncia e implantes.</p>
+        <div class="kw-row">
+          <span class="kw">pasta dental</span><span class="kw">cepillo eléctrico</span>
+          <span class="kw">blanqueador</span><span class="kw">enjuague</span>
+          <span class="kw">ortodoncia</span>
+        </div>
+      </div>
+      <div class="card-cta">Ver catálogo <span class="arr">→</span></div>
+    </a>
+
+  </div>
+</div>
+
+<!-- BIENESTAR & BELLEZA -->
+<div class="section" id="bienestar">
+  <div class="sec-head"><h2>🌿 Bienestar, Belleza y Nutrición</h2><div class="sec-line sl-green"></div></div>
+  <p class="sec-desc">Productos naturales, suplementos deportivos, cuidado de la piel y todo para el bienestar diario de toda la familia, desde bebés hasta adultos mayores.</p>
+  <div class="cat-grid">
+
+    <a href="naturales.html" class="card cv-green">
+      <div class="card-vis">
+        <span class="card-emoji">🌿</span>
+        <span class="card-badge cb-cat">Catálogo</span>
+        <span class="card-tag-pill tp-green">Naturales</span>
+      </div>
+      <div class="card-body">
+        <h3>Productos Naturales y Orgánicos</h3>
+        <p>Suplementos, plantas medicinales, aceites esenciales, homeopatía y cosméticos naturales. Evidencia científica y origen 100% natural.</p>
+        <div class="kw-row">
+          <span class="kw">suplementos</span><span class="kw">omega 3</span>
+          <span class="kw">cúrcuma</span><span class="kw">aceites esenciales</span>
+          <span class="kw">homeopatía</span>
+        </div>
+      </div>
+      <div class="card-cta">Ver catálogo <span class="arr">→</span></div>
+    </a>
+
+    <a href="nutricion.html" class="card cv-red">
+      <div class="card-vis">
+        <span class="card-emoji">💪</span>
+        <span class="card-badge cb-cat">Catálogo</span>
+        <span class="card-tag-pill tp-red">Nutrición</span>
+      </div>
+      <div class="card-body">
+        <h3>Nutrición Deportiva y Proteínas</h3>
+        <p>Proteínas Whey, creatina, pre-entrenos, BCAA, vitaminas deportivas, barras proteicas y suplementos para rendimiento y control de peso.</p>
+        <div class="kw-row">
+          <span class="kw">whey protein</span><span class="kw">creatina</span>
+          <span class="kw">pre-entreno</span><span class="kw">BCAA</span>
+          <span class="kw">control de peso</span>
+        </div>
+      </div>
+      <div class="card-cta">Ver catálogo <span class="arr">→</span></div>
+    </a>
+
+    <a href="catalogo_dermocosmeticos.html" class="card cv-purple">
+      <div class="card-vis">
+        <span class="card-emoji">✨</span>
+        <span class="card-badge cb-cat">Catálogo</span>
+        <span class="card-tag-pill tp-purple">Dermocosméticos</span>
+      </div>
+      <div class="card-body">
+        <h3>Dermocosméticos y Cuidado de Piel</h3>
+        <p>Cremas, serums, protectores solares, cuidado capilar, limpiadores y tratamientos con activos clínicamente comprobados.</p>
+        <div class="kw-row">
+          <span class="kw">antiedad</span><span class="kw">serum vitamina C</span>
+          <span class="kw">protector solar</span><span class="kw">retinol</span>
+          <span class="kw">acné</span>
+        </div>
+      </div>
+      <div class="card-cta">Ver catálogo <span class="arr">→</span></div>
+    </a>
+
+    <a href="bebes.html" class="card cv-gold">
+      <div class="card-vis">
+        <span class="card-emoji">👶</span>
+        <span class="card-badge cb-cat">Catálogo</span>
+        <span class="card-tag-pill tp-gold">Bebés</span>
+      </div>
+      <div class="card-body">
+        <h3>Productos para Bebés y Maternidad</h3>
+        <p>Fórmulas infantiles, papillas, higiene, cuidado de piel, salud pediátrica y maternidad. Todo para el cuidado del bebé de 0 a 3 años.</p>
+        <div class="kw-row">
+          <span class="kw">fórmulas</span><span class="kw">papillas</span>
+          <span class="kw">pañales</span><span class="kw">cuidado piel bebé</span>
+          <span class="kw">maternidad</span>
+        </div>
+      </div>
+      <div class="card-cta">Ver catálogo <span class="arr">→</span></div>
+    </a>
+
+  </div>
+</div>
+
+<!-- SEO BAND -->
+<div class="seo-band">
+  <div class="seo-inner">
+    <h2>Lo que encontrarás en nuestros catálogos</h2>
+    <p>
+      <strong>Medicamentos genéricos</strong> intercambiables y de patente ·
+      <strong>Antibióticos y analgésicos</strong> ·
+      <strong>Medicamentos para diabetes, presión y colesterol</strong> ·
+      <strong>Vitaminas y suplementos naturales</strong> ·
+      <strong>Proteína Whey y nutrición deportiva</strong> ·
+      <strong>Creatina y pre-entrenos</strong> ·
+      <strong>Dermocosméticos con retinol, vitamina C y ácido hialurónico</strong> ·
+      <strong>Protectores solares</strong> · <strong>Cuidado del bebé y fórmulas infantiles</strong> ·
+      <strong>Calcio, vitamina D3 y glucosamina</strong> para adultos mayores ·
+      <strong>Botiquines y equipo de primeros auxilios</strong> ·
+      <strong>Tensiómetros, oxímetros y termómetros digitales</strong> ·
+      <strong>Pasta dental con flúor y cepillos eléctricos</strong> ·
+      <strong>Aceites esenciales y homeopatía</strong> ·
+      <strong>Omega 3, cúrcuma y probióticos</strong>
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Farmacias Yair · Catálogos de Productos · Disponibles en sucursal</p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="menu_blogs.html">📝 Ver Blogs de Salud</a>
+    <a href="farmacias_yair.html">🏪 Ir a la Tienda</a>
+  </div>
+</footer>
+
+</body>
+</html>
