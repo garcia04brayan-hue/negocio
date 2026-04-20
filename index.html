@@ -694,13 +694,184 @@
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="header">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Farmacias Yair - Header Responsive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --blue-dark: #003087;
+            --blue-mid: #0057b8;
+            --blue-light: #1a73e8;
+            --green: #4caf50;
+            --green-dark: #388e3c;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--blue-dark);
+            padding: 12px 30px;
+            border-bottom: 3px solid var(--green);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* LOGO */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 55px;
+            transition: height 0.2s ease;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand {
+            color: var(--blue-light);
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .brand span {
+            color: #ffffff;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #cfd8dc;
+        }
+
+        /* NAV */
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* BOTONES */
+        .nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--blue-light);
+            background: transparent;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        /* HOVER */
+        .nav a:hover {
+            background: var(--green);
+            color: #ffffff;
+            border-color: var(--green);
+            box-shadow: 0 0 10px var(--green);
+            transform: translateY(-2px);
+        }
+
+        /* BOTÓN DESTACADO (Categorías) */
+        .nav a:first-child {
+            background: var(--blue-mid);
+            border-color: var(--blue-light);
+        }
+
+        .nav a:first-child:hover {
+            background: var(--green-dark);
+        }
+
+        /* ========== RESPONSIVE: TABLETS Y MÓVILES ========== */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 12px 20px;
+                text-align: center;
+            }
+
+            .logo-container {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .logo-img {
+                height: 45px; /* Logo más pequeño en móvil */
+            }
+
+            .brand {
+                font-size: 18px;
+            }
+
+            .tagline {
+                font-size: 10px;
+            }
+
+            .nav {
+                justify-content: center;
+                width: 100%;
+                gap: 8px;
+            }
+
+            .nav a {
+                font-size: 13px;
+                padding: 8px 12px;
+                white-space: nowrap;
+            }
+        }
+
+        /* Ajustes para móviles muy pequeños (menos de 480px) */
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px 12px;
+                gap: 12px;
+            }
+
+            .logo-img {
+                height: 38px;
+            }
+
+            .brand {
+                font-size: 16px;
+            }
+
+            .tagline {
+                font-size: 9px;
+            }
+
+            .nav a {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
     <!-- Logo + texto -->
     <div class="logo-container">
-        <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" class="logo-img">
-        
+        <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" class="logo-img" alt="Logo Farmacias Yair">
         <div class="logo-text">
             <span class="brand">Farmacias <span>Yair</span></span>
             <span class="tagline">Tu salud, nuestra prioridad</span>
@@ -709,109 +880,18 @@
 
     <!-- Menú -->
     <nav class="nav">
-        <a href="https://www.farmaciasyair.com/menu_productos">☰ Categorías</a>
-        <a href="https://www.farmaciasyair.com/catalogo_bebes">👶 Bebés</a>
-        <a href="https://www.farmaciasyair.com/catalogo_bellesa">💆 Maquillaje</a>
-        <a href="https://www.farmaciasyair.com/catalogo_medicamentos">💊 Genéricos</a>
-        <a href="https://www.farmaciasyair.com/catalogo_natural">🌿 Natural</a>
-        <a href="https://www.farmaciasyair.com/catalogo_auxilio">🧰 primeros auxilios</a>
-        <a href="https://www.farmaciasyair.com/catalogo_bucal">🦷 Cuidado Oral</a>
+        <a href="#">☰ Categorías</a>
+        <a href="#">👶 Bebés</a>
+        <a href="#">💆 Dermo</a>
+        <a href="#">💊 Genéricos</a>
+        <a href="#">🌿 Natural</a>
+        <a href="#">🏋️ Nutrición</a>
+        <a href="#">🦷 Cuidado Oral</a>
     </nav>
-
 </header>
 
-<style>
-:root {
-    --blue-dark: #003087;
-    --blue-mid: #0057b8;
-    --blue-light: #1a73e8;
-    --green: #4caf50;
-    --green-dark: #388e3c;
-}
-
-/* HEADER */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--blue-dark);
-    padding: 12px 30px;
-    border-bottom: 3px solid var(--green);
-}
-
-/* LOGO */
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-img {
-    height: 55px;
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.brand {
-    color: var(--blue-light);
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.brand span {
-    color: #ffffff;
-}
-
-.tagline {
-    font-size: 12px;
-    color: #cfd8dc;
-}
-
-/* NAV */
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-/* BOTONES */
-.nav a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 14px;
-    padding: 8px 14px;
-    border-radius: 10px;
-    border: 1px solid var(--blue-light);
-    background: transparent;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-/* HOVER */
-.nav a:hover {
-    background: var(--green);
-    color: #ffffff;
-    border-color: var(--green);
-    box-shadow: 0 0 10px var(--green);
-    transform: translateY(-2px);
-}
-
-/* BOTÓN DESTACADO (Categorías) */
-.nav a:first-child {
-    background: var(--blue-mid);
-    border-color: var(--blue-light);
-}
-
-/* HOVER especial */
-.nav a:first-child:hover {
-    background: var(--green-dark);
-}
-</style>
+</body>
+</html>
 <section class="hero-seo">
   <h1>Una Farmacia pequeña pero confiable</h1>
   <p>
