@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blogs de Salud – Farmacias Yair</title>
+<meta name="description" content="Lee nuestros blogs de salud: primeros auxilios, bebés, remedios naturales, salud bucal, medicamentos y más. Artículos con fuentes científicas verificadas y consejos prácticos para tu salud."/>
+<meta name="keywords" content="blog salud primeros auxilios, blog remedios naturales farmacia, blog bebés maternidad, blog salud bucal dental, blog medicamentos genéricos, artículos salud familia, consejos salud preventiva"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,600&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.ico">
+ <style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1e3a5a;--navy-lt:#e8f0fa;--navy-dk:#0a1e38;
+  --herb:#3aaa6f;
+  --red:#c8202a;--red-lt:#fdeaea;--red-dk:#7a0a10;
+  --green:#1e5c38;--green-lt:#e6f4ec;--green-dk:#0d3320;
+  --orange:#c85a1a;--orange-lt:#fef0e6;--orange-dk:#7a2a00;
+  --teal:#0d8a7a;--teal-lt:#e6f7f5;--teal-dk:#054a40;
+  --purple:#7820c8;--purple-lt:#f4eeff;--purple-dk:#3a0a7a;
+  --gold:#c8821a;--gold-lt:#fef4e2;--gold-dk:#7a4e00;
+  --amber:#b87820;--amber-lt:#fff3e0;--amber-dk:#6a3e00;
+  --cream:#fdfaf5;--warm:#f8f3ec;--sand:#ede5d4;
+  --gray:#ddd4c0;--text:#1c1208;--muted:#7a6a52;--dark:#0e0a05
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text)}
+
+/* HEADER */
+header{background:var(--navy-dk);position:sticky;top:0;z-index:300;box-shadow:0 2px 20px rgba(10,30,56,.5)}
+.hdr{max-width:1240px;margin:0 auto;padding:12px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo-wrap{display:flex;align-items:center;gap:13px;text-decoration:none}
+.logo-wrap img{height:46px;width:auto;filter:brightness(0) invert(1)}
+.hdr-sep{width:1px;height:28px;background:rgba(255,255,255,.2)}
+.hdr-label{font-family:'Lora',serif;font-size:.95rem;font-style:italic;color:#7db8f8}
+.hdr-nav{display:flex;align-items:center;gap:6px}
+.hdr-nav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.84rem;font-weight:700;padding:7px 14px;border-radius:20px;transition:background .18s,color .18s}
+.hdr-nav a:hover{background:rgba(255,255,255,.1);color:#fff}
+.btn-cat{background:var(--herb)!important;color:var(--navy-dk)!important;font-weight:800!important}
+.btn-cat:hover{background:var(--green)!important;color:#fff!important}
+.btn-sec{border:1.5px solid rgba(255,255,255,.25)!important;color:rgba(255,255,255,.8)!important}
+
+/* HERO */
+.hero{
+  background:linear-gradient(155deg,var(--navy-dk) 0%,#162c48 50%,#0e1e38 100%);
+  padding:62px 36px 70px;position:relative;overflow:hidden;text-align:center
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 80% 25%,rgba(30,92,184,.2),transparent 50%),
+    radial-gradient(ellipse at 12% 72%,rgba(13,138,122,.12),transparent 44%)
+}
+.hero-deco{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:20rem;opacity:.04;pointer-events:none;user-select:none}
+.hero-inner{max-width:740px;margin:0 auto;position:relative;z-index:1}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(30,92,184,.2);border:1.5px solid rgba(100,160,255,.35);color:#7db8f8;border-radius:8px;padding:6px 17px;font-size:.73rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:17px}
+.hero h1{font-family:'Lora',serif;font-size:clamp(2.2rem,4.2vw,3.3rem);font-weight:700;line-height:1.12;color:#fff;margin-bottom:12px}
+.hero h1 em{font-style:italic;color:#7db8f8}
+.hero p{font-size:1rem;color:rgba(255,255,255,.58);line-height:1.7;margin-bottom:26px;max-width:560px;margin-inline:auto}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
+.hchip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.65);border-radius:20px;padding:4px 14px;font-size:.73rem;font-weight:700;text-decoration:none;transition:background .18s,color .18s}
+.hchip:hover{background:rgba(255,255,255,.16);color:#fff}
+.hero-count{display:inline-flex;gap:0;border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
+.hc{padding:13px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
+.hc:last-child{border-right:none}
+.hc strong{display:block;font-family:'Lora',serif;font-size:1.85rem;color:#7db8f8;font-weight:700;line-height:1}
+.hc span{font-size:.69rem;color:rgba(255,255,255,.38);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-top:3px;display:block}
+
+/* SECTION */
+.section{max-width:1240px;margin:0 auto;padding:52px 36px 0}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-head h2{font-family:'Lora',serif;font-size:1.5rem;font-weight:700;color:var(--text)}
+.sec-line{flex:1;height:1.5px;border-radius:2px}
+.sl-navy{background:linear-gradient(90deg,var(--navy),transparent)}
+.sec-desc{font-size:.87rem;color:var(--muted);line-height:1.65;margin-bottom:26px;font-weight:600}
+
+/* FEATURED ROW – first blog big */
+.blog-featured{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:18px;margin-bottom:48px}
+
+/* STANDARD GRID */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:56px}
+
+/* CARD BASE */
+.bcard{
+  background:#fff;border-radius:20px;overflow:hidden;
+  box-shadow:0 3px 16px rgba(0,0,0,.08);
+  display:flex;flex-direction:column;
+  text-decoration:none;color:inherit;
+  border:2px solid transparent;
+  transition:transform .22s,box-shadow .22s,border-color .22s
+}
+.bcard:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(0,0,0,.12)}
+
+/* COLOR VARIANTS */
+.bv-red   .bcard-vis{background:linear-gradient(145deg,#fdeaea,#f8c0c0)} .bv-red:hover{border-color:rgba(200,32,42,.3)}
+.bv-green .bcard-vis{background:linear-gradient(145deg,#e6f5ee,#b8e8d0)} .bv-green:hover{border-color:rgba(30,92,56,.3)}
+.bv-orange.bcard-vis{background:linear-gradient(145deg,#fef0e6,#fcd8b8)} .bv-orange:hover{border-color:rgba(200,90,26,.3)}
+.bv-teal  .bcard-vis{background:linear-gradient(145deg,#e4f8f4,#b0ece4)} .bv-teal:hover{border-color:rgba(13,138,122,.3)}
+.bv-purple.bcard-vis{background:linear-gradient(145deg,#f4eeff,#ddd0f8)} .bv-purple:hover{border-color:rgba(120,32,200,.3)}
+.bv-navy  .bcard-vis{background:linear-gradient(145deg,#e8f0fa,#c8d8f4)} .bv-navy:hover{border-color:rgba(30,58,90,.3)}
+.bv-amber .bcard-vis{background:linear-gradient(145deg,#fff3e0,#fad898)} .bv-amber:hover{border-color:rgba(184,120,32,.3)}
+
+.bcard-vis{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.blog-featured .bcard:first-child .bcard-vis{height:220px}
+.blog-featured .bcard:not(:first-child) .bcard-vis{height:148px}
+.blog-grid .bcard-vis{height:148px}
+
+.bcard-emoji{font-size:3.8rem;filter:drop-shadow(0 3px 8px rgba(0,0,0,.1));line-height:1}
+.blog-featured .bcard:first-child .bcard-emoji{font-size:5.5rem}
+
+.bcard-badge{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.88);backdrop-filter:blur(4px);font-size:.62rem;font-weight:800;padding:3px 9px;border-radius:20px;color:var(--navy-dk)}
+.bcard-cat{position:absolute;top:10px;left:10px;font-size:.63rem;font-weight:800;padding:3px 10px;border-radius:5px;text-transform:uppercase;letter-spacing:.06em}
+.bc-red   {background:var(--red-lt);color:var(--red-dk)}
+.bc-green {background:var(--green-lt);color:var(--green-dk)}
+.bc-orange{background:var(--orange-lt);color:var(--orange-dk)}
+.bc-teal  {background:var(--teal-lt);color:var(--teal-dk)}
+.bc-purple{background:var(--purple-lt);color:var(--purple-dk)}
+.bc-navy  {background:var(--navy-lt);color:var(--navy-dk)}
+.bc-amber {background:var(--amber-lt);color:var(--amber-dk)}
+
+.bcard-body{padding:16px 18px 0;flex:1;display:flex;flex-direction:column;gap:7px}
+.bcard-meta{font-size:.71rem;color:var(--muted);font-weight:700;display:flex;align-items:center;gap:7px}
+.bcard-meta .dot{color:var(--gray)}
+.bcard-body h3{font-family:'Lora',serif;font-weight:700;color:var(--text);line-height:1.32}
+.blog-featured .bcard:first-child h3{font-size:1.22rem}
+.blog-featured .bcard:not(:first-child) h3{font-size:.97rem}
+.blog-grid .bcard h3{font-size:.97rem}
+.bcard-body p{font-size:.8rem;color:var(--muted);line-height:1.55;flex:1}
+.kw-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:2px}
+.kw{font-size:.63rem;font-weight:700;background:var(--warm);border:1px solid var(--sand);color:var(--muted);border-radius:4px;padding:2px 8px}
+
+.bcard-cta{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 18px 14px;margin-top:12px;
+  font-size:.8rem;font-weight:800;color:var(--navy);
+  border-top:1px solid var(--warm);
+  transition:color .15s,background .15s
+}
+.bcard:hover .bcard-cta{background:var(--navy-lt);color:var(--navy-dk)}
+.bcard-cta .arr{transition:transform .18s}
+.bcard:hover .bcard-cta .arr{transform:translateX(4px)}
+
+/* SEO BAND */
+.seo-band{background:var(--warm);border-top:2px solid var(--sand);padding:36px 36px}
+.seo-inner{max-width:1240px;margin:0 auto}
+.seo-inner h2{font-family:'Lora',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:10px}
+.seo-inner p{font-size:.85rem;color:var(--muted);line-height:1.78;max-width:900px}
+.seo-inner p strong{color:var(--navy-dk)}
+
+/* FOOTER */
+footer{background:var(--dark);padding:24px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer p{font-size:.8rem;color:rgba(255,255,255,.35)}
+footer a{color:#7db8f8;text-decoration:none;font-size:.8rem;font-weight:700}
+footer a:hover{color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:960px){.blog-featured{grid-template-columns:1fr 1fr}.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.blog-featured{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header><div class="hdr">
+  <div style="display:flex;align-items:center;gap:14px;">
+    <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" 
+             style="height: 60px; display: block;">   
+    </a>
+    <div class="hdr-sep"></div>
+    <span class="hdr-label">Blogs de Salud</span>
+  </div>
+  <nav class="hdr-nav">
+    <a href="menu_catalogos.html" class="btn-sec">🗂️ Ver Catálogos</a>
+    <a href="farmacias_yair.html" class="btn-cat">🏪 Tienda</a>
+  </nav>
+</div></header>
+
+<section class="hero">
+  <div class="hero-deco">📝</div>
+  <div class="hero-inner">
+    <div class="hero-pill">📝 Blogs de Salud · Farmacias Yair</div>
+    <h1>Artículos de <em>salud</em><br/>con fuentes verificadas</h1>
+    <p>Guías prácticas, consejos preventivos y artículos redactados con respaldo científico. Aprende a cuidar tu salud y la de tu familia con información confiable.</p>
+    <div class="hero-chips">
+      <a href="blog_primeros_auxilios.html" class="hchip">Primeros Auxilios</a>
+      <a href="blog_bebes.html"             class="hchip">Bebés y Maternidad</a>
+      <a href="blog_naturales.html"         class="hchip">Remedios Naturales</a>
+      <a href="blog_bucal.html"             class="hchip">Salud Bucal</a>
+      <a href="blog_medicamentos.html"      class="hchip">Medicamentos</a>
+      <a href="blog_primavera.html"         class="hchip">Temporada y Preventivo</a>
+    </div>
+    <div class="hero-count">
+      <div class="hc"><strong>6</strong><span>Blogs</span></div>
+      <div class="hc"><strong>80+</strong><span>Artículos</span></div>
+      <div class="hc"><strong>✓</strong><span>Verificados</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOGS DESTACADOS -->
+<div class="section" id="destacados">
+  <div class="sec-head"><h2>⭐ Blogs Destacados</h2><div class="sec-line sl-navy"></div></div>
+  <p class="sec-desc">Nuestros blogs con más artículos y contenido más completo. Guías paso a paso, fuentes médicas y consejos prácticos para situaciones reales.</p>
+
+  <div class="blog-featured">
+
+    <!-- PRIMEROS AUXILIOS – FEATURED -->
+    <a href="https://www.farmaciasyair.com/blog_auxilio" class="bcard bv-red">
+      <div class="bcard-vis">
+        <span class="bcard-emoji">✚</span>
+        <span class="bcard-badge">Blog · 18 guías</span>
+        <span class="bcard-cat bc-red">Emergencias</span>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-meta"><span>17 guías paso a paso</span><span class="dot">·</span><span>Revisado por médicos</span></div>
+        <h3>Blog de Primeros Auxilios: guías que salvan vidas</h3>
+        <p>RCP, maniobra de Heimlich, quemaduras, hemorragias, esguinces, convulsiones febriles y botiquín completo. Contenido médico verificado para emergencias reales.</p>
+        <div class="kw-row">
+          <span class="kw">RCP</span><span class="kw">Heimlich</span>
+          <span class="kw">quemaduras</span><span class="kw">esguinces</span>
+          <span class="kw">convulsiones</span><span class="kw">botiquín</span>
+        </div>
+      </div>
+      <div class="bcard-cta">Leer guías de primeros auxilios <span class="arr">→</span></div>
+    </a>
+
+    <!-- BEBÉS -->
+    <a href="https://www.farmaciasyair.com/blog_bebes" class="bcard bv-orange">
+      <div class="bcard-vis">
+        <span class="bcard-emoji">👶</span>
+        <span class="bcard-badge">Blog · 18 artículos</span>
+        <span class="bcard-cat bc-orange">Bebés</span>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-meta"><span>Pediatras y especialistas</span></div>
+        <h3>Blog de Bebés y Maternidad</h3>
+        <p>Lactancia, sólidos, sueño, vacunas, desarrollo y bienestar emocional. Todo lo que necesitas saber en el primer año.</p>
+        <div class="kw-row">
+          <span class="kw">lactancia</span><span class="kw">vacunas</span>
+          <span class="kw">sueño bebé</span><span class="kw">sólidos</span>
+        </div>
+      </div>
+      <div class="bcard-cta">Leer blog bebés <span class="arr">→</span></div>
+    </a>
+
+    <!-- NATURALES -->
+    <a href="https://www.farmaciasyair.com/blog_natural" class="bcard bv-green">
+      <div class="bcard-vis">
+        <span class="bcard-emoji">🌿</span>
+        <span class="bcard-badge">Blog · 14 artículos</span>
+        <span class="bcard-cat bc-green">Naturales</span>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-meta"><span>Evidencia científica</span></div>
+        <h3>Blog de Remedios Naturales</h3>
+        <p>Plantas medicinales, homeopatía, aceites esenciales y suplementos disponibles en farmacia con respaldo clínico real.</p>
+        <div class="kw-row">
+          <span class="kw">plantas medicinales</span>
+          <span class="kw">ajo</span><span class="kw">própolis</span>
+          <span class="kw">homeopatía</span>
+        </div>
+      </div>
+      <div class="bcard-cta">Leer blog naturales <span class="arr">→</span></div>
+    </a>
+
+  </div>
+</div>
+
+<!-- TODOS LOS BLOGS -->
+<div class="section" id="todos">
+  <div class="sec-head"><h2>📝 Todos los Blogs</h2><div class="sec-line sl-navy"></div></div>
+  <p class="sec-desc">Explora todos nuestros blogs temáticos. Cada uno tiene artículos completos con consejos prácticos y fuentes verificadas.</p>
+
+  <div class="blog-grid">
+
+    <!-- BUCAL -->
+    <a href="https://www.farmaciasyair.com/blog_bucal" class="bcard bv-teal">
+      <div class="bcard-vis">
+        <span class="bcard-emoji">🦷</span>
+        <span class="bcard-badge">Blog · 8 artículos</span>
+        <span class="bcard-cat bc-teal">Salud Bucal</span>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-meta"><span>Fuentes: OMS · ADA · Cochrane</span></div>
+        <h3>Blog de Salud Bucal con Fuentes Científicas</h3>
+        <p>Cepillado, flúor, hilo dental, enjuagues, azúcar y caries, boca seca y la conexión entre la boca y la salud general. Referencias verificadas en cada artículo.</p>
+        <div class="kw-row">
+          <span class="kw">cepillado</span><span class="kw">fluoruro</span>
+          <span class="kw">gingivitis</span><span class="kw">periodontitis</span>
+        </div>
+      </div>
+      <div class="bcard-cta">Leer blog bucal <span class="arr">→</span></div>
+    </a>
+
+    <!-- MEDICAMENTOS -->
+    <a href="https://www.farmaciasyair.com/blog_medicamento" class="bcard bv-navy">
+      <div class="bcard-vis">
+        <span class="bcard-emoji">💉</span>
+        <span class="bcard-badge">Blog · Medicamentos</span>
+        <span class="bcard-cat bc-navy">Medicamentos</span>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-meta"><span>Farmacología práctica</span></div>
+        <h3>Blog de Medicamentos</h3>
+        <p>Para qué sirven los medicamentos más comunes, cómo tomarlos correctamente, efectos secundarios y diferencias entre genéricos y de patente.</p>
+        <div class="kw-row">
+          <span class="kw">paracetamol</span><span class="kw">ibuprofeno</span>
+          <span class="kw">genérico</span><span class="kw">efectos secundarios</span>
+        </div>
+      </div>
+      <div class="bcard-cta">Leer blog medicamentos <span class="arr">→</span></div>
+    </a>
+
+    <!-- PRIMAVERA / TEMPORADA -->
+    <a href="https://www.farmaciasyair.com/blog_temporal" class="bcard bv-amber">
+      <div class="bcard-vis">
+        <span class="bcard-emoji">🌻</span>
+        <span class="bcard-badge">Blog · Temporada</span>
+        <span class="bcard-cat bc-amber">Preventivo</span>
+      </div>
+      <div class="bcard-body">
+        <div class="bcard-meta"><span>Salud preventiva de temporada</span></div>
+        <h3>Blog de Salud Preventiva y Temporada</h3>
+        <p>Protección solar, prevención de mosquitos, hidratación en el calor y cuidados preventivos para cada época del año.</p>
+        <div class="kw-row">
+          <span class="kw">protector solar</span><span class="kw">mosquitos</span>
+          <span class="kw">hidratación</span><span class="kw">golpe de calor</span>
+        </div>
+      </div>
+      <div class="bcard-cta">Leer blog preventivo <span class="arr">→</span></div>
+    </a>
+
+  </div>
+</div>
+
+<!-- TOPICS QUICK SEARCH -->
+<div class="section" style="padding-bottom:52px;">
+  <div class="sec-head"><h2>🔍 Temas más buscados</h2><div class="sec-line sl-navy"></div></div>
+  <p class="sec-desc">Encuentra rápidamente el artículo que necesitas por tema.</p>
+  <div style="display:flex;gap:9px;flex-wrap:wrap;">
+    <a href="#" class="hchip" style="border-color:rgba(200,32,42,.3);color:var(--red-dk);">RCP adultos y bebés</a>
+    <a href="#" class="hchip" style="border-color:rgba(200,32,42,.3);color:var(--red-dk);">Maniobra de Heimlich</a>
+    <a href="#" class="hchip" style="border-color:rgba(200,32,42,.3);color:var(--red-dk);">Cómo curar una herida</a>
+    <a href="#" class="hchip" style="border-color:rgba(200,32,42,.3);color:var(--red-dk);">Botiquín completo</a>
+    <a href="#" class="hchip" style="border-color:rgba(200,90,26,.3);color:var(--orange-dk);">Cuándo dar sólidos</a>
+    <a href="#" class="hchip" style="border-color:rgba(200,90,26,.3);color:var(--orange-dk);">Rutina de sueño</a>
+    <a href="#" class="hchip" style="border-color:rgba(200,90,26,.3);color:var(--orange-dk);">Esquema de vacunas</a>
+    <a href="#" class="hchip" style="border-color:rgba(200,90,26,.3);color:var(--orange-dk);">Cólicos del bebé</a>
+    <a href="#" class="hchip" style="border-color:rgba(30,92,56,.3);color:var(--green-dk);">Ajo y antibiótico natural</a>
+    <a href="#" class="hchip" style="border-color:rgba(30,92,56,.3);color:var(--green-dk);">Própolis en farmacia</a>
+    <a href="#" class="hchip" style="border-color:rgba(30,92,56,.3);color:var(--green-dk);">Equinácea y defensas</a>
+    <a href="#" class="hchip" style="border-color:rgba(13,138,122,.3);color:var(--teal-dk);">Cómo cepillarse bien</a>
+    <a href="#" class="hchip" style="border-color:rgba(13,138,122,.3);color:var(--teal-dk);">Fluoruro en pasta dental</a>
+    <a href="#" class="hchip" style="border-color:rgba(13,138,122,.3);color:var(--teal-dk);">Azúcar y caries</a>
+    <a href="#" class="hchip" style="border-color:rgba(30,58,90,.3);color:var(--navy-dk);">Genérico vs patente</a>
+    <a href="#" class="hchip" style="border-color:rgba(30,58,90,.3);color:var(--navy-dk);">Paracetamol vs ibuprofeno</a>
+  </div>
+</div>
+
+<!-- SEO BAND -->
+<div class="seo-band">
+  <div class="seo-inner">
+    <h2>Temas que cubrimos en nuestros blogs</h2>
+    <p>
+      <strong>Cómo realizar RCP</strong> en adultos, niños y bebés ·
+      <strong>Maniobra de Heimlich</strong> paso a paso ·
+      <strong>Primeros auxilios para quemaduras</strong> y heridas ·
+      <strong>Cuándo y cómo introducir sólidos</strong> en bebés ·
+      <strong>Sueño seguro</strong> y rutinas para recién nacidos ·
+      <strong>Esquema de vacunación</strong> en el primer año ·
+      <strong>Cólicos del bebé</strong> y cómo aliviarlos ·
+      <strong>Plantas medicinales</strong> en farmacia con evidencia científica ·
+      <strong>Homeopatía en México</strong> y productos más vendidos ·
+      <strong>Aromaterapia con aceites esenciales</strong> ·
+      <strong>Técnica de cepillado dental</strong> correcta ·
+      <strong>Fluoruro en pasta dental</strong> por edades ·
+      <strong>Boca seca por medicamentos</strong> ·
+      <strong>Diferencias entre genérico y patente</strong> ·
+      <strong>Paracetamol vs. ibuprofeno</strong> ·
+      <strong>Protección solar</strong> y prevención de golpe de calor
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Farmacias Yair · Blogs de Salud · Contenido informativo con respaldo científico</p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="menu_catalogos.html">🗂️ Ver Catálogos de Productos</a>
+    <a href="farmacias_yair.html">🏪 Ir a la Tienda</a>
+  </div>
+</footer>
+
+</body>
+</html>
