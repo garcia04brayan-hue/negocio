@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Farmacias Yair</title>
+  <meta name="description" content="Farmacia online en M&eacute;xico con medicamentos, vitaminas, productos dermatol&oacute;gicos, cuidado personal y art&iacute;culos para toda la familia. Compra en Farmacias Yair." />
+  <link rel="canonical" href="https://farmaciasyair.com/" />
+  <meta property="og:title" content="Farmacias Yair - Farmacia online en M&eacute;xico" />
+  <meta property="og:description" content="Compra medicamentos online, vitaminas, productos dermatol&oacute;gicos y cuidado personal con env&iacute;o r&aacute;pido en M&eacute;xico." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://farmaciasyair.com/" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;
   900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.ico">
@@ -33,7 +39,7 @@
       min-height: 100vh;
     }
 
-    /* ── TOP BAR ── */
+    /* -- TOP BAR -- */
     .top-bar {
       background: var(--blue-dark);
       color: var(--white);
@@ -48,7 +54,7 @@
     .top-bar a { color: #a8c8ff; text-decoration: none; }
     .top-bar a:hover { color: var(--white); }
 
-    /* ── HEADER ── */
+    /* -- HEADER -- */
     header {
       background: var(--blue-dark);
       padding: 14px 32px 0;
@@ -216,7 +222,7 @@
       font-weight: 900;
     }
 
-    /* ── NAV BAR ── */
+    /* -- NAV BAR -- */
     nav.main-nav {
       background: linear-gradient(90deg, var(--green-dark) 0%, var(--green) 100%);
       display: flex;
@@ -252,7 +258,7 @@
     }
     .nav-item .nav-icon { font-size: 1.3rem; }
 
-    /* ── PROMO STRIP ── */
+    /* -- PROMO STRIP -- */
     .promo-strip {
       background: var(--white);
       display: flex;
@@ -336,7 +342,7 @@
       transition: background 0.2s, color 0.2s, transform 0.15s;
     }
 
-    /* ── MAIN CONTENT ── */
+    /* -- MAIN CONTENT -- */
     .main-content {
       padding: 28px 32px;
       display: grid;
@@ -347,13 +353,13 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 17px;
     }
     .hero-banner {
-      border-radius: 18px;
+      border-radius: 17px;
       overflow: hidden;
       position: relative;
-      min-height: 240px;
+      min-height: 220px;
       display: flex;
       align-items: flex-end;
       padding: 28px;
@@ -444,7 +450,7 @@
     .discount-badge .pct { font-size: 1.55rem; }
     .discount-badge .desc { font-size: 0.6rem; letter-spacing: 0.05em; }
 
-    /* ── SECTION TITLE ── */
+    /* -- SECTION TITLE -- */
     .section-header {
       display: flex;
       align-items: center;
@@ -480,7 +486,7 @@
     }
     .see-all:hover { color: var(--green-dark); }
 
-    /* ── PRODUCT CARDS ── */
+    /* -- PRODUCT CARDS -- */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -569,10 +575,13 @@
       margin-top: 10px;
       transition: opacity 0.2s, transform 0.15s;
       width: 100%;
+      display: block;
+      text-align: center;
+      text-decoration: none;
     }
     .btn-add:hover { opacity: 0.88; transform: scale(1.03); }
 
-    /* ── CATEGORIES ── */
+    /* -- CATEGORIES -- */
     .cats-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -607,7 +616,7 @@
       color: var(--text-dark);
     }
 
-    /* ── FOOTER ── */
+    /* -- FOOTER -- */
     footer {
       background: var(--blue-dark);
       color: rgba(255,255,255,0.7);
@@ -682,6 +691,184 @@
       50% { transform: translateY(-8px); }
     }
 
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--blue-dark);
+      padding: 12px 30px;
+      border-bottom: 3px solid var(--green);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      height: 55px;
+      transition: height 0.2s ease;
+    }
+
+    .header .brand {
+      color: var(--blue-light);
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .header .brand span {
+      color: var(--white);
+    }
+
+    .header .tagline {
+      font-size: 12px;
+      color: #cfd8dc;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--blue-light);
+      background: transparent;
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .nav a:hover {
+      background: var(--green);
+      color: var(--white);
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .nav a:first-child {
+      background: var(--blue-mid);
+      border-color: var(--blue-light);
+    }
+
+    .nav a:first-child:hover {
+      background: var(--green-dark);
+    }
+
+    .hero-seo {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+      align-items: center;
+      gap: 32px;
+      padding: 52px 32px;
+      background: linear-gradient(to right, #e3f2fd, #e8f5e9);
+      border-bottom: 2px solid var(--blue-light);
+    }
+
+    .hero-seo .hero-content {
+      max-width: 720px;
+    }
+
+    .hero-seo h1 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--blue-dark);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .hero-seo p {
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      max-width: 660px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 22px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--blue-light);
+      color: var(--white);
+      box-shadow: 0 8px 22px rgba(26, 115, 232, 0.25);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--blue-dark);
+      border: 2px solid var(--blue-light);
+    }
+
+    .btn-primary:hover,
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      width: min(100%, 440px);
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+      background: var(--white);
+    }
+
+    .seo-block {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px 30px;
+  background: white;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.seo-block h1 {
+  font-size: 2rem;
+  color: #0d47a1;
+  margin-bottom: 10px;
+}
+
+.seo-block p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
     /* responsive */
     @media (max-width: 900px) {
       .products-grid { grid-template-columns: repeat(3,1fr); }
@@ -689,166 +876,26 @@
       .hero-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .partners { display: none; }
+      .hero-seo { grid-template-columns: 1fr; padding: 40px 22px; }
+      .hero-image { order: -1; }
+      .header { flex-direction: column; padding: 12px 20px; text-align: center; }
+      .logo-container { justify-content: center; width: 100%; }
+      .logo-img { height: 45px; }
+      .header .brand { font-size: 18px; }
+      .header .tagline { font-size: 10px; }
+      .nav { justify-content: center; width: 100%; gap: 8px; }
+      .nav a { font-size: 13px; padding: 8px 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .header { padding: 10px 12px; gap: 12px; }
+      .logo-img { height: 38px; }
+      .header .brand { font-size: 16px; }
+      .header .tagline { font-size: 9px; }
+      .nav a { font-size: 12px; padding: 6px 10px; }
+      .hero-buttons a { width: 100%; }
     }
   </style>
-</head>
-<body>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Farmacias Yair - Header Responsive</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --blue-dark: #003087;
-            --blue-mid: #0057b8;
-            --blue-light: #1a73e8;
-            --green: #4caf50;
-            --green-dark: #388e3c;
-        }
-
-        /* HEADER */
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--blue-dark);
-            padding: 12px 30px;
-            border-bottom: 3px solid var(--green);
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        /* LOGO */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-img {
-            height: 55px;
-            transition: height 0.2s ease;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand {
-            color: var(--blue-light);
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .brand span {
-            color: #ffffff;
-        }
-
-        .tagline {
-            font-size: 12px;
-            color: #cfd8dc;
-        }
-
-        /* NAV */
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        /* BOTONES */
-        .nav a {
-            text-decoration: none;
-            color: #ffffff;
-            font-size: 14px;
-            padding: 8px 14px;
-            border-radius: 10px;
-            border: 1px solid var(--blue-light);
-            background: transparent;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-        }
-
-        /* HOVER */
-        .nav a:hover {
-            background: var(--green);
-            color: #ffffff;
-            border-color: var(--green);
-            box-shadow: 0 0 10px var(--green);
-            transform: translateY(-2px);
-        }
-        /* BOTÓN DESTACADO (Categorías) */
-        .nav a:first-child {
-            background: var(--blue-mid);
-            border-color: var(--blue-light);
-        }
-        .nav a:first-child:hover {
-            background: var(--green-dark);
-        }
-        /* ========== RESPONSIVE: TABLETS Y MÓVILES ========== */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                padding: 12px 20px;
-                text-align: center;
-            }
-            .logo-container {
-                justify-content: center;
-                width: 100%;
-            }
-            .logo-img {
-                height: 45px; /* Logo más pequeño en móvil */
-            }
-            .brand {
-                font-size: 18px;
-            }
-            .tagline {
-                font-size: 10px;
-            }
-            .nav {
-                justify-content: center;
-                width: 100%;
-                gap: 8px;
-            }
-            .nav a {
-                font-size: 13px;
-                padding: 8px 12px;
-                white-space: nowrap;
-            }        }
-        /* Ajustes para móviles muy pequeños (menos de 480px) */
-        @media (max-width: 480px) {
-            .header {
-                padding: 10px 12px;
-                gap: 12px;
-            }
-            .logo-img {
-                height: 38px;
-            }
-            .brand {
-                font-size: 16px;
-            }
-            .tagline {
-                font-size: 9px;
-            }
-            .nav a {
-                font-size: 12px;
-                padding: 6px 10px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -861,95 +908,74 @@
             <span class="tagline">Tu salud, nuestra prioridad</span>
         </div>
     </div>
-    <!-- Menú -->
+
+    <!-- Menu -->
     <nav class="nav">
-        <a href="https://www.farmaciasyair.com/menu_productos">☰ Categorías</a>
-        <a href="https://www.farmaciasyair.com/catalogo_bebes">👶 Bebés</a>
-        <a href="https://www.farmaciasyair.com/catalogo_bellesa">💆 Maquillaje</a>
-        <a href="https://www.farmaciasyair.com/catalogo_medicamentos">💊 Genéricos</a>
-        <a href="https://www.farmaciasyair.com/catalogo_natural">🌿 Natural</a>
-        <a href="https://www.farmaciasyair.com/catalogo_auxilos">🧰 Primeros auxilios</a>
-        <a href="https://www.farmaciasyair.com/catalogo_bucal">🦷 Cuidado Oral</a>
+        <a href="#categorias">Categorias</a>
+        <a href="catalogo_bebe.html">Bebes</a>
+        <a href="catalogo_bellesa.html">Dermo</a>
+        <a href="#medicamentos">Genericos</a>
+        <a href="catalogo_natural.html">Natural</a>
+        <a href="catalogo_nutricion.html">Nutricion</a>
+        <a href="blog_bucal.html">Cuidado Oral</a>
     </nav>
 </header>
 
-</body>
-</html>
+<main>
 <section class="hero-seo">
-  <h1>Farmacia en La Ventosa, Oaxaca | Farmacias Yair</h1>
-<p> En <strong>Farmacias Yair en La Ventosa, Oaxaca</strong> ofrecemos medicamentos, vitaminas 
-y suplementos alimenticios de alta calidad para toda la familia. Nuestra farmacia se encuentra 
-en una ubicación estratégica, cerca de la <strong>Carretera Panamericana</strong> y accesos 
-principales del Istmo de Tehuantepec, lo que facilita el acceso a nuestros clientes.
-</p>
+
+    <!-- CONTENIDO IZQUIERDO -->
+    <div class="hero-content">
+
+        <!-- TITULO PRINCIPAL SEO -->
+        <!-- IMPORTANTE:
+        Solo debe existir UN H1 en toda la pagina -->
+        <h1>
+            Farmacia Online en M&eacute;xico con Medicamentos,
+            Vitaminas y Cuidado Personal
+        </h1>
+
+        <!-- TEXTO SEO -->
+        <p>
+            Compra medicamentos online, vitaminas, productos dermatol&oacute;gicos,
+            cuidado personal y art&iacute;culos para toda la familia.
+            En Farmacias Yair encuentras medicamentos gen&eacute;ricos,
+            productos farmac&eacute;uticos y env&iacute;o r&aacute;pido en M&eacute;xico.
+        </p>
+
+        <!-- BOTONES -->
+        <div class="hero-buttons">
+            <a href="#medicamentos" class="btn-primary">Ver Medicamentos</a>
+            <a href="#categorias" class="btn-secondary">Explorar Categor&iacute;as</a>
+        </div>
+    </div>
+
+    <!-- IMAGEN HERO -->
+    <div class="hero-image">
+        <img src="img/hero-farmacia.png" alt="Farmacia online en M&eacute;xico">
+    </div>
+
 </section>
 
 <section class="seo-block">
-  <h2>Medicamentos y articulos de buena calidad </h2>
-  
- <p>Si buscas <strong>comprar medicamentos en La Ventosa</strong> o encontrar una 
-<strong>farmacia entre las carreteras transismica o la internacinal</strong>, somos tu mejor opción. 
-Atendemos a personas que transitan por la región y a la comunidad local con productos 
-confiables y atención personalizada.
-</p>
-
+  <h2>Medicamentos y vitaminas en La Ventosa, Oaxaca</h2>
   <p>
-    Nuestra farmacia ofrece soluciones en salud, nutrición y bienestar,
-    con productos confiables y asesoría para elegir las mejores vitaminas y tratamientos.
+    Somos una farmacia en La Ventosa especializada en ofrecer <strong>medicamentos gen&eacute;ricos,
+    vitaminas, suplementos nutricionales y productos naturistas</strong> a precios accesibles.
+    Atendemos a toda la comunidad del Istmo de Tehuantepec con compromiso y calidad.
+  </p>
+  <p>
+    Si buscas <strong>d&oacute;nde comprar medicamentos en La Ventosa</strong> o una farmacia con
+    atenci&oacute;n personalizada en Oaxaca, en Farmacias Yair encontrar&aacute;s todo lo necesario
+    para el cuidado de tu salud y la de tu familia.
+  </p>
+  <p>
+    Nuestra farmacia en La Ventosa ofrece soluciones en salud, nutrici&oacute;n y bienestar,
+    con productos confiables y asesor&iacute;a para elegir las mejores vitaminas y tratamientos.
   </p>
 </section>
 
-<style>
-:root {
-  --blue-light: #1a73e8;
-  --blue-soft: #e3f2fd;
-  --green: #4caf50;
-  --green-soft: #e8f5e9;
-}
-
-/* HERO SEO */
-.hero-seo {
-  padding: 40px 20px;
-  text-align: center;
-  background: linear-gradient(to right, var(--blue-soft), var(--green-soft));
-  border-bottom: 2px solid var(--blue-light);
-}
-.hero-seo h1 {
-  color: #003087;
-  font-size: 30px;
-  margin-bottom: 15px;
-}
-.hero-seo p {
-  max-width: 800px;
-  margin: auto;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #333;
-}
-
-/* BLOQUE SEO */
-.seo-block {
-  padding: 40px 20px;
-  text-align: center;
-  background: #ffffff;
-}
-
-.seo-block h2 {
-  color: var(--blue-light);
-  margin-bottom: 20px;
-}
-
-.seo-block p {
-  max-width: 850px;
-  margin: 10px auto;
-  line-height: 1.8;
-  color: #444;
-  font-size: 15px;
-}
-/* EFECTO VISUAL SUAVE */
-.seo-block p strong {
-  color: var(--green);
-}
+<!-- MAIN CONTENT -->
 </style>
 <div class="main-content">
   <!-- Hero banners -->
