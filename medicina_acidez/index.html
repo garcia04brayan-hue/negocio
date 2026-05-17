@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Medicamentos para gastritis y acidez en Farmacias Yair. Encuentra antiácidos, inhibidores, protectores gástricos y más con envío rápido en México.">
+<title>Medicamentos para Gastritis y Acidez | Farmacias Yair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #2e7d32;
+    --green-light: #4caf50;
+    --green-pale: #e8f5e9;
+    --green-mid: #a5d6a7;
+    --blue: #1565c0;
+    --blue-pale: #e3f2fd;
+    --red: #c62828;
+    --red-pale: #ffebee;
+    --orange: #e65100;
+    --orange-pale: #fff3e0;
+    --purple: #6a1b9a;
+    --purple-pale: #f3e5f5;
+    --teal: #00695c;
+    --teal-pale: #e0f2f1;
+    --text-dark: #1a1a2e;
+    --text-mid: #4a4a6a;
+    --text-light: #7a7a9a;
+    --border: #e0e0e0;
+    --white: #ffffff;
+    --bg-light: #f7f9f7;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --shadow-hover: 0 6px 24px rgba(0,0,0,0.14);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-dark);
+    background: var(--bg-light);
+    line-height: 1.6;
+  }
+
+  /* ───── HEADER ───── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 64px;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: var(--green);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .logo-icon svg { width: 22px; height: 22px; fill: white; }
+
+  .logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--green);
+    line-height: 1.2;
+  }
+
+  .logo-sub {
+    font-size: 0.65rem;
+    color: var(--text-light);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  nav { display: flex; align-items: center; gap: 0.2rem; }
+
+  nav a {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  nav a:hover { background: var(--green-pale); color: var(--green); }
+  nav a.active { background: var(--green-pale); color: var(--green); }
+
+  .cart-btn {
+    background: var(--green);
+    color: white !important;
+    padding: 0.4rem 1rem !important;
+    border-radius: 20px !important;
+  }
+
+  .cart-btn:hover { background: var(--green-light) !important; color: white !important; }
+
+  /* ───── BREADCRUMB ───── */
+  .breadcrumb {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.8rem;
+    color: var(--text-light);
+  }
+
+  .breadcrumb a { color: var(--green); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { margin: 0 0.4rem; }
+
+  /* ───── HERO ───── */
+  .hero {
+    background: linear-gradient(135deg, #4a0e0e 0%, #7b2828 45%, #b55c2c 100%);
+    color: white;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3Ccircle cx='40' cy='40' r='15'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+  }
+
+  .hero-text { flex: 1; }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    opacity: 0.88;
+    margin-bottom: 1.6rem;
+    max-width: 480px;
+  }
+
+  .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: white;
+    color: #7b2828;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.65rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.3); }
+
+  .btn-outline-white {
+    background: transparent;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.65rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.6);
+    cursor: pointer;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+
+  .hero-visual {
+    flex-shrink: 0;
+    width: 220px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-visual svg { width: 190px; height: 190px; opacity: 0.92; }
+
+  /* ───── STATS BAR ───── */
+  .stats-bar {
+    background: white;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    gap: 0;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-mid);
+  }
+
+  .stat-icon {
+    width: 28px; height: 28px;
+    background: #fff3e0;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  .stat strong { color: var(--text-dark); font-weight: 700; }
+
+  /* ───── MAIN LAYOUT ───── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* ───── SIDEBAR ───── */
+  .sidebar { display: flex; flex-direction: column; gap: 1rem; }
+
+  .side-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem;
+    box-shadow: var(--shadow);
+  }
+
+  .side-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #fff3e0;
+  }
+
+  .filter-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    font-size: 0.83rem;
+    color: var(--text-mid);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s;
+  }
+
+  .filter-item:hover { color: #b55c2c; }
+
+  .filter-item input[type="checkbox"] {
+    accent-color: #b55c2c;
+    width: 14px; height: 14px;
+  }
+
+  .filter-count {
+    margin-left: auto;
+    background: #fff3e0;
+    color: #e65100;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 10px;
+  }
+
+  .price-range {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .price-range input {
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    color: var(--text-dark);
+  }
+
+  .apply-btn {
+    width: 100%;
+    margin-top: 0.75rem;
+    background: #7b2828;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.45rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+
+  .apply-btn:hover { background: #b55c2c; }
+
+  .tip-card {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: var(--radius);
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: #6d4c00;
+    line-height: 1.5;
+  }
+
+  .tip-card strong { display: block; margin-bottom: 0.4rem; font-size: 0.85rem; }
+
+  .warning-card {
+    background: var(--red-pale);
+    border: 1px solid #ffcdd2;
+    border-radius: var(--radius);
+    padding: 1rem;
+    font-size: 0.79rem;
+    color: #7f0000;
+    line-height: 1.55;
+  }
+
+  .warning-card strong { display: block; margin-bottom: 0.4rem; font-size: 0.84rem; }
+
+  /* ───── CONTENT ───── */
+  .content { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  .section-title span { color: #7b2828; }
+
+  .sort-select {
+    font-family: inherit;
+    font-size: 0.82rem;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-mid);
+    background: white;
+    cursor: pointer;
+  }
+
+  /* ───── CHIPS ───── */
+  .chips { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+  .chip {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    color: var(--text-mid);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .chip:hover, .chip.active {
+    background: #7b2828;
+    color: white;
+    border-color: #7b2828;
+  }
+
+  /* ───── PRODUCT GRID ───── */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 1.1rem;
+  }
+
+  .product-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.22s, box-shadow 0.22s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 10px; left: 10px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    z-index: 1;
+  }
+
+  .badge-green  { background: var(--green-pale);   color: var(--green); }
+  .badge-orange { background: var(--orange-pale);  color: var(--orange); }
+  .badge-red    { background: var(--red-pale);     color: var(--red); }
+  .badge-blue   { background: var(--blue-pale);    color: var(--blue); }
+  .badge-purple { background: var(--purple-pale);  color: var(--purple); }
+  .badge-teal   { background: var(--teal-pale);    color: var(--teal); }
+
+  .product-img {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-light);
+    padding: 1rem;
+  }
+
+  .product-img svg { width: 80px; height: 80px; }
+
+  .product-info {
+    padding: 0.9rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-brand {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  .product-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+    flex: 1;
+  }
+
+  .product-desc {
+    font-size: 0.73rem;
+    color: var(--text-light);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .product-price {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #7b2828;
+  }
+
+  .product-price-old {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+    display: block;
+    line-height: 1;
+  }
+
+  .add-btn {
+    background: #7b2828;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+
+  .add-btn:hover { background: #b55c2c; transform: scale(1.05); }
+
+  /* ───── INFO SECTION ───── */
+  .info-section {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+
+  .info-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .info-section h2 span { color: #7b2828; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .info-box {
+    background: var(--bg-light);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    border-left: 3px solid #b55c2c;
+  }
+
+  .info-box h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-dark); }
+  .info-box p  { font-size: 0.78rem; color: var(--text-mid); line-height: 1.5; }
+
+  .symptom-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+
+  .symptom-tag {
+    background: #fff3e0;
+    color: #e65100;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+  }
+
+  /* ───── TABLA COMPARATIVA ───── */
+  .compare-section {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+  }
+
+  .compare-section h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+  }
+
+  .compare-section h2 span { color: #7b2828; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+
+  thead th {
+    background: #7b2828;
+    color: white;
+    font-weight: 700;
+    padding: 0.65rem 0.9rem;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+  }
+
+  thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+  thead th:last-child  { border-radius: 0 var(--radius-sm) 0 0; }
+
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  tbody tr:hover { background: #fff8f5; }
+  tbody td { padding: 0.6rem 0.9rem; color: var(--text-mid); vertical-align: middle; }
+  tbody td:first-child { font-weight: 700; color: var(--text-dark); }
+
+  .dot-yes { color: #2e7d32; font-size: 1rem; }
+  .dot-no  { color: #aaa;    font-size: 1rem; }
+
+  /* ───── BLOG CARDS ───── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .blog-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+
+  .blog-img {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.4rem;
+  }
+
+  .blog-body { padding: 0.9rem; flex: 1; display: flex; flex-direction: column; }
+
+  .blog-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #7b2828;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  .blog-card h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+    flex: 1;
+  }
+
+  .blog-meta { font-size: 0.72rem; color: var(--text-light); margin-top: auto; }
+
+  /* ───── FOOTER ───── */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.7);
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .footer-brand { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .footer-logo-icon {
+    width: 32px; height: 32px;
+    background: var(--green-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .footer-logo-icon svg { width: 18px; height: 18px; fill: white; }
+
+  .footer-tagline { font-size: 0.78rem; line-height: 1.5; max-width: 220px; }
+
+  footer h5 {
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+
+  footer ul li a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.2s;
+  }
+
+  footer ul li a:hover { color: var(--green-mid); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 1.5rem auto 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.75rem;
+    text-align: center;
+  }
+
+  /* ───── RESPONSIVE ───── */
+  @media (max-width: 768px) {
+    .main { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    nav a:not(.cart-btn) { display: none; }
+    .hero-visual { display: none; }
+    .hero h1 { font-size: 1.5rem; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .products { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="https://www.farmaciasyair.com" class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div>
+        <div class="logo-text">Farmacias Yair</div>
+        <div class="logo-sub">Tu salud, nuestra prioridad</div>
+      </div>
+    </a>
+    <nav>
+      <a href="https://www.farmaciasyair.com/menu_productos">Categorías</a>
+      <a href="https://www.farmaciasyair.com/catalogo_bebes">Bebés</a>
+      <a href="https://www.farmaciasyair.com/catalogo_bellesa">Dermo</a>
+      <a href="https://www.farmaciasyair.com/catalogo_medicamnetos" class="active">Genéricos</a>
+      <a href="https://www.farmaciasyair.com/catalogo_natural">Natural</a>
+      <a href="#" class="cart-btn">🛒 Carrito</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="https://www.farmaciasyair.com">Inicio</a>
+  <span>›</span>
+  <a href="https://www.farmaciasyair.com/menu_productos">Medicamentos</a>
+  <span>›</span>
+  <strong style="color: var(--text-dark);">Gastritis y Acidez</strong>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">🔥 Cuidado digestivo</div>
+      <h1>Medicamentos para<br>Gastritis y Acidez</h1>
+      <p>Antiácidos, inhibidores de la bomba de protones, protectores gástricos y más. Alivia el ardor y el malestar estomacal con los mejores precios en México.</p>
+      <div class="hero-actions">
+        <a href="#productos" class="btn-primary">Ver Productos</a>
+        <a href="https://www.farmaciasyair.com/blog_medicamento" class="btn-outline-white">Consejos de salud</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- Ilustración estómago + pastillas -->
+      <svg viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Estómago simplificado -->
+        <path d="M70 55 C50 55 38 72 38 92 C38 120 52 148 80 150 C100 151 118 140 126 122 C134 104 130 82 118 68 C108 56 88 55 70 55Z" fill="white" fill-opacity="0.15"/>
+        <path d="M70 55 C50 55 38 72 38 92 C38 120 52 148 80 150 C100 151 118 140 126 122 C134 104 130 82 118 68 C108 56 88 55 70 55Z" stroke="white" stroke-opacity="0.4" stroke-width="2.5" fill="none"/>
+        <!-- llama / ardor -->
+        <path d="M72 90 C72 80 80 74 80 74 C78 82 84 80 84 72 C88 80 90 78 88 90 C90 86 94 86 94 90 C94 100 86 108 80 108 C74 108 68 102 68 94 C70 96 72 94 72 90Z" fill="white" fill-opacity="0.35"/>
+        <!-- Pastilla cápsula arriba derecha -->
+        <rect x="128" y="30" width="46" height="20" rx="10" fill="white" fill-opacity="0.2" transform="rotate(-20 128 30)"/>
+        <rect x="128" y="30" width="23" height="20" rx="10" fill="white" fill-opacity="0.15" transform="rotate(-20 128 30)"/>
+        <!-- Pastilla redonda abajo derecha -->
+        <circle cx="152" cy="130" r="14" fill="white" fill-opacity="0.18"/>
+        <circle cx="152" cy="130" r="14" stroke="white" stroke-opacity="0.35" stroke-width="2" fill="none"/>
+        <text x="152" y="134" text-anchor="middle" font-size="9" fill="white" fill-opacity="0.7" font-family="sans-serif" font-weight="bold">Mg</text>
+        <!-- Burbujas -->
+        <circle cx="35"  cy="48"  r="5" fill="white" fill-opacity="0.2"/>
+        <circle cx="155" cy="60"  r="4" fill="white" fill-opacity="0.25"/>
+        <circle cx="28"  cy="135" r="3" fill="white" fill-opacity="0.2"/>
+        <circle cx="140" cy="165" r="4" fill="white" fill-opacity="0.18"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-icon">🚚</div>
+      <span><strong>Envío rápido</strong> en todo México</span>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">💊</div>
+      <span><strong>+40 productos</strong> disponibles</span>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">✅</div>
+      <span><strong>Cofepris</strong> certificado</span>
+    </div>
+    <div class="stat">
+      <div class="stat-icon">💬</div>
+      <span><strong>Asesoría</strong> farmacéutica</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="main">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="side-card">
+      <h3>Categoría</h3>
+      <label class="filter-item"><input type="checkbox" checked> Antiácidos <span class="filter-count">12</span></label>
+      <label class="filter-item"><input type="checkbox" checked> Inhibidores (IBP) <span class="filter-count">10</span></label>
+      <label class="filter-item"><input type="checkbox"> Protectores gástricos <span class="filter-count">8</span></label>
+      <label class="filter-item"><input type="checkbox"> Antiespasmódicos <span class="filter-count">6</span></label>
+      <label class="filter-item"><input type="checkbox"> Probióticos <span class="filter-count">7</span></label>
+      <label class="filter-item"><input type="checkbox"> Genéricos <span class="filter-count">18</span></label>
+      <label class="filter-item"><input type="checkbox"> Naturales <span class="filter-count">5</span></label>
+    </div>
+
+    <div class="side-card">
+      <h3>Precio (MXN)</h3>
+      <div class="price-range">
+        <input type="number" placeholder="Min" value="20">
+        <input type="number" placeholder="Max" value="600">
+      </div>
+      <button class="apply-btn">Aplicar filtro</button>
+    </div>
+
+    <div class="side-card">
+      <h3>Presentación</h3>
+      <label class="filter-item"><input type="checkbox" checked> Tabletas / Cápsulas</label>
+      <label class="filter-item"><input type="checkbox" checked> Suspensión / Jarabe</label>
+      <label class="filter-item"><input type="checkbox"> Sobres</label>
+      <label class="filter-item"><input type="checkbox"> Masticables</label>
+      <label class="filter-item"><input type="checkbox"> Efervescentes</label>
+    </div>
+
+    <div class="tip-card">
+      <strong>💡 Consejo farmacéutico</strong>
+      Los inhibidores de la bomba de protones como el Omeprazol son más efectivos tomándolos 30 min antes del desayuno. Consulta a tu médico si los síntomas persisten más de 2 semanas.
+    </div>
+
+    <div class="warning-card">
+      <strong>⚠️ Aviso importante</strong>
+      No automedicarse por más de 14 días. El dolor estomacal persistente puede requerir diagnóstico médico.
+    </div>
+
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="content" id="productos">
+
+    <!-- CHIPS -->
+    <div class="chips">
+      <a href="#" class="chip active">Todos</a>
+      <a href="#" class="chip">Acidez leve</a>
+      <a href="#" class="chip">Gastritis</a>
+      <a href="#" class="chip">Úlcera</a>
+      <a href="#" class="chip">Reflujo</a>
+      <a href="#" class="chip">Inflamación</a>
+      <a href="#" class="chip">Náuseas</a>
+      <a href="#" class="chip">Genéricos</a>
+    </div>
+
+    <!-- PRODUCTS HEADER -->
+    <div class="section-header">
+      <div class="section-title">Productos <span>destacados</span> (42)</div>
+      <select class="sort-select">
+        <option>Más relevantes</option>
+        <option>Precio: menor a mayor</option>
+        <option>Precio: mayor a menor</option>
+        <option>Más vendidos</option>
+        <option>Novedades</option>
+      </select>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="products">
+
+      <!-- 1 Omeprazol genérico -->
+      <div class="product-card">
+        <span class="product-badge badge-green">Más vendido</span>
+        <div class="product-img" style="background:#e8f5e9;">
+          <svg viewBox="0 0 80 80"><rect x="22" y="20" width="36" height="46" rx="8" fill="#4caf50"/><rect x="29" y="13" width="22" height="11" rx="4" fill="#388e3c"/><text x="40" y="45" text-anchor="middle" font-size="7" fill="white" font-weight="bold">Omeprazol</text><text x="40" y="55" text-anchor="middle" font-size="5.5" fill="white" opacity="0.9">20mg</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Genérico Yair</div>
+          <div class="product-name">Omeprazol 20mg c/30 cáps</div>
+          <div class="product-desc">Inhibidor de la bomba de protones. Gastritis y reflujo.</div>
+          <div class="product-footer">
+            <span class="product-price">$58.00</span>
+            <button class="add-btn">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 Pepto-Bismol -->
+      <div class="product-card">
+        <span class="product-badge badge-orange">Oferta</span>
+        <div class="product-img" style="background:#fce4ec;">
+          <svg viewBox="0 0 80 80"><rect x="20" y="18" width="40" height="50" rx="8" fill="#e91e8c"/><rect x="27" y="11" width="26" height="12" rx="4" fill="#c2185b"/><text x="40" y="44" text-anchor="middle" font-size="6" fill="white" font-weight="bold">PEPTO</text><text x="40" y="54" text-anchor="middle" font-size="5.5" fill="white" opacity="0.9">BISMOL</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Procter &amp; Gamble</div>
+          <div class="product-name">Pepto-Bismol Suspensión 240ml</div>
+          <div class="product-desc">Alivio rápido de acidez, náuseas e indigestión.</div>
+          <div class="product-footer">
+            <div>
+              <span class="product-price-old">$145.00</span>
+              <span class="product-price">$118.00</span>
+            </div>
+            <button class="add-btn">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Ranitidina genérico -->
+      <div class="product-card">
+        <span class="product-badge badge-green">Genérico</span>
+        <div class="product-img" style="background:#e3f2fd;">
+          <svg viewBox="0 0 80 80"><ellipse cx="40" cy="40" rx="26" ry="15" fill="#1e88e5" transform="rotate(-30 40 40)"/><rect x="30" y="33" width="20" height="14" rx="7" fill="#90caf9" transform="rotate(-30 40 40)"/><line x1="30" y1="40" x2="50" y2="40" stroke="white" stroke-width="2.5" transform="rotate(-30 40 40)"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Genérico Yair</div>
+          <div class="product-name">Ranitidina 150mg c/20 tabs</div>
+          <div class="product-desc">Reduce la producción de ácido. Úlcera y reflujo.</div>
+          <div class="product-footer">
+            <span class="product-price">$45.00</span>
+            <button class="add-btn">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Gaviscon -->
+      <div class="product-card">
+        <div class="product-img" style="background:#e0f2f1;">
+          <svg viewBox="0 0 80 80"><rect x="20" y="20" width="40" height="46" rx="8" fill="#009688"/><rect x="27" y="13" width="26" height="12" rx="4" fill="#00796b"/><text x="40" y="44" text-anchor="middle" font-size="7.5" fill="white" font-weight="bold">Gaviscon</text><text x="40" y="54" text-anchor="middle" font-size="5" fill="white" opacity="0.85">Antiácido</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Reckitt</div>
+          <div class="product-name">Gaviscon Suspensión Menta 300ml</div>
+          <div class="product-desc">Barrera protectora contra el reflujo ácido. Acción rápida.</div>
+          <div class="product-footer">
+            <div>
+              <span class="product-price-old">$189.00</span>
+              <span class="product-price">$162.00</span>
+            </div>
+            <button class="add-btn">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 Sucralfato -->
+      <div class="product-card">
+        <span class="product-badge badge-purple">Protector</span>
+        <div class="product-img" style="background:#f3e5f5;">
+          <svg viewBox="0 0 80 80"><rect x="24" y="22" width="32" height="42" rx="7" fill="#9c27b0"/><rect x="31" y="15" width="18" height="11" rx="4" fill="#6a1b9a"/><text x="40" y="45" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">Sucralfato</text><text x="40" y="55" text-anchor="middle" font-size="5.5" fill="white" opacity="0.9">1g</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Genérico Yair</div>
+          <div class="product-name">Sucralfato 1g Sobres c/20</div>
+          <div class="product-desc">Protector de mucosa gástrica. Ideal para úlcera péptica.</div>
+          <div class="product-footer">
+            <span class="product-price">$82.00</span>
+            <button class="add-btn">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 Pantoprazol -->
+      <div class="product-card">
+        <span class="product-badge badge-blue">IBP</span>
+        <div class="product-img" style="background:#e3f2fd;">
+          <svg viewBox="0 0 80 80"><rect x="22" y="20" width="36" height="46" rx="8" fill="#42a5f5"/><rect x="29" y="13" width="22" height="11" rx="4" fill="#1565c0"/><text x="40" y="45" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">Pantoprazol</text><text x="40" y="55" text-anchor="middle" font-size="5.5" fill="white" opacity="0.9">40mg</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Genérico Yair</div>
+          <div class="product-name">Pantoprazol 40mg c/14 tabs</div>
+          <div class="product-desc">IBP de alta potencia. Gastritis erosiva y ERGE.</div>
+          <div class="product-footer">
+            <span class="product-price">$74.00</span>
+            <button class="add-btn">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 Alka-Seltzer -->
+      <div class="product-card">
+        <span class="product-badge badge-orange">Popular</span>
+        <div class="product-img" style="background:#fff3e0;">
+          <svg viewBox="0 0 80 80"><circle cx="40" cy="42" r="24" fill="#ff9800"/><circle cx="40" cy="42" r="24" stroke="white" stroke-width="2" stroke-opacity="0.5" fill="none"/><text x="40" y="38" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">ALKA</text><text x="40" y="48" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">SELTZER</text><text x="40" y="58" text-anchor="middle" font-size="5" fill="white" opacity="0.85">Efervescente</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Bayer</div>
+          <div class="product-name">Alka-Seltzer Original c/12 tabs</div>
+          <div class="product-desc">Alivio rápido de acidez e indigestión. Efervescente.</div>
+          <div class="product-footer">
+            <div>
+              <span class="product-price-old">$79.00</span>
+              <span class="product-price">$62.00</span>
+            </div>
+            <button class="add-btn">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 Probiótico -->
+      <div class="product-card">
+        <span class="product-badge badge-teal">Probiótico</span>
+        <div class="product-img" style="background:#e0f2f1;">
+          <svg viewBox="0 0 80 80"><rect x="22" y="20" width="36" height="46" rx="8" fill="#26a69a"/><rect x="29" y="13" width="22" height="11" rx="4" fill="#00695c"/><text x="40" y="44" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">Lacteol</text><text x="40" y="54" text-anchor="middle" font-size="5.5" fill="white" opacity="0.9">Fort</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Sanofi</div>
+          <div class="product-name">Lacteol Fort Cápsulas c/10</div>
+          <div class="product-desc">Restaura la flora intestinal. Apoyo en gastritis y colitis.</div>
+          <div class="product-footer">
+            <span class="product-price">$135.00</span>
+            <button class="add-btn">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end products -->
+
+    <!-- TABLA COMPARATIVA -->
+    <div class="compare-section">
+      <h2>Guía rápida: <span>¿Cuál medicamento necesito?</span></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Medicamento</th>
+            <th>Acidez leve</th>
+            <th>Gastritis</th>
+            <th>Reflujo</th>
+            <th>Úlcera</th>
+            <th>Velocidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Antiácidos (Alka-Seltzer, Pepto)</td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-no">–</span></td>
+            <td><span class="dot-no">–</span></td>
+            <td><span class="dot-no">–</span></td>
+            <td>Inmediata</td>
+          </tr>
+          <tr>
+            <td>Omeprazol / Pantoprazol (IBP)</td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-yes">✔</span></td>
+            <td>1–3 días</td>
+          </tr>
+          <tr>
+            <td>Ranitidina (Anti-H2)</td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-no">–</span></td>
+            <td>1–2 horas</td>
+          </tr>
+          <tr>
+            <td>Gaviscon (barrera)</td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-no">–</span></td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-no">–</span></td>
+            <td>Inmediata</td>
+          </tr>
+          <tr>
+            <td>Sucralfato (protector)</td>
+            <td><span class="dot-no">–</span></td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-no">–</span></td>
+            <td><span class="dot-yes">✔</span></td>
+            <td>Días</td>
+          </tr>
+          <tr>
+            <td>Probióticos (Lacteol)</td>
+            <td><span class="dot-no">–</span></td>
+            <td><span class="dot-yes">✔</span></td>
+            <td><span class="dot-no">–</span></td>
+            <td><span class="dot-no">–</span></td>
+            <td>Semanas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- INFO SECTION -->
+    <div class="info-section">
+      <h2>¿Qué síntomas trata cada <span>tipo de medicamento</span>?</h2>
+      <p style="font-size:0.87rem; color:var(--text-mid);">La gastritis y la acidez pueden manifestarse de diferentes formas. Identifica tus síntomas para elegir el tratamiento correcto.</p>
+
+      <div class="symptom-list">
+        <span class="symptom-tag">🔥 Ardor estomacal</span>
+        <span class="symptom-tag">🤢 Náuseas</span>
+        <span class="symptom-tag">😣 Dolor epigástrico</span>
+        <span class="symptom-tag">💨 Gases / Distensión</span>
+        <span class="symptom-tag">🍽️ Pesadez al comer</span>
+        <span class="symptom-tag">↗️ Reflujo / Agruras</span>
+        <span class="symptom-tag">🤮 Vómito ácido</span>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <h4>⚡ Antiácidos</h4>
+          <p>Neutralizan el ácido ya presente en el estómago. Son los de acción más rápida. Ideales para episodios ocasionales de acidez después de comer.</p>
+        </div>
+        <div class="info-box">
+          <h4>🔬 Inhibidores IBP</h4>
+          <p>Reducen la producción de ácido desde la raíz. Son los más efectivos para gastritis crónica, úlcera y reflujo. Se toman en ayunas 30 min antes de comer.</p>
+        </div>
+        <div class="info-box">
+          <h4>🛡️ Protectores gástricos</h4>
+          <p>Recubren y protegen la mucosa del estómago. El sucralfato forma una capa protectora sobre las úlceras para facilitar su cicatrización.</p>
+        </div>
+        <div class="info-box">
+          <h4>🌿 Probióticos</h4>
+          <p>Restauran el equilibrio de la flora intestinal, muy útiles en gastritis por H. pylori o tras tratamientos con antibióticos. Complemento ideal.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOG SECTION -->
+    <div class="section-header">
+      <div class="section-title">Artículos <span>relacionados</span></div>
+      <a href="https://www.farmaciasyair.com/blog_medicamento" style="font-size:0.82rem; color:#7b2828; font-weight:700; text-decoration:none;">Ver todos →</a>
+    </div>
+
+    <div class="blog-grid">
+      <a href="https://www.farmaciasyair.com/blog_medicamento" class="blog-card">
+        <div class="blog-img" style="background:#fff3e0;">🔥</div>
+        <div class="blog-body">
+          <div class="blog-tag">Gastritis</div>
+          <h4>Qué alimentos evitar si tienes gastritis o acidez estomacal</h4>
+          <div class="blog-meta">Por Farmacias Yair · 5 min de lectura</div>
+        </div>
+      </a>
+      <a href="https://www.farmaciasyair.com/blog_medicamento" class="blog-card">
+        <div class="blog-img" style="background:#e8f5e9;">🌿</div>
+        <div class="blog-body">
+          <div class="blog-tag">Remedios naturales</div>
+          <h4>5 remedios naturales para calmar el ardor de estómago</h4>
+          <div class="blog-meta">Por Farmacias Yair · 4 min de lectura</div>
+        </div>
+      </a>
+      <a href="https://www.farmaciasyair.com/blog_medicamento" class="blog-card">
+        <div class="blog-img" style="background:#e3f2fd;">💊</div>
+        <div class="blog-body">
+          <div class="blog-tag">Medicamentos</div>
+          <h4>Omeprazol vs Pantoprazol: ¿cuál es mejor para mi caso?</h4>
+          <div class="blog-meta">Por Farmacias Yair · 6 min de lectura</div>
+        </div>
+      </a>
+    </div>
+
+  </div><!-- end content -->
+</div><!-- end main -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        Farmacias Yair
+      </div>
+      <div class="footer-tagline">Salud, bienestar y los mejores precios garantizados para toda la familia.</div>
+      <div style="font-size:0.78rem; margin-top:0.5rem;">
+        📞 800-YAIR-800<br>
+        ✉️ contacto@farmaciasyair.com<br>
+        📍 La Ventosa, Oaxaca
+      </div>
+    </div>
+    <div>
+      <h5>Ayuda</h5>
+      <ul>
+        <li><a href="#">Centro de ayuda</a></li>
+        <li><a href="#">Devoluciones</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+        <li><a href="#">Chat en línea</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Categorías</h5>
+      <ul>
+        <li><a href="https://www.farmaciasyair.com/catalogo_medicamnetos">Genéricos</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_bebes">Bebés</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_bellesa">Dermocosméticos</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_natural">Natural</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_auxilos">Primeros auxilios</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Blogs</h5>
+      <ul>
+        <li><a href="https://www.farmaciasyair.com/blog_medicamento">Medicamentos</a></li>
+        <li><a href="https://www.farmaciasyair.com/blog_bellesa">Belleza</a></li>
+        <li><a href="https://www.farmaciasyair.com/blog_bebe">Bebés</a></li>
+        <li><a href="https://www.farmaciasyair.com/blog_natural">Natural</a></li>
+        <li><a href="https://www.farmaciasyair.com/blog_auxilio">Primeros auxilios</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Farmacias Yair · Todos los derechos reservados
+  </div>
+</footer>
+
+</body>
+</html>
