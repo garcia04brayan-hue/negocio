@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cat&aacute;logo de Verano - Farmacias Yair</title>
+  <meta name="description" content="Productos de verano en Farmacias Yair: protectores solares, sueros orales, repelentes, aloe vera y consejos para prevenir golpe de calor."/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.ico"/>
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --sun:#f4a52b;
+      --sun-lt:#fff3cb;
+      --sun-dk:#b66b10;
+      --leaf:#43a867;
+      --leaf-lt:#e7f7ee;
+      --sky:#3aaed8;
+      --sky-lt:#e6f7fc;
+      --coral:#d86545;
+      --coral-lt:#fff0e9;
+      --white:#ffffff;
+      --cream:#fffbf4;
+      --sand:#f5ead6;
+      --gray:#e8ded0;
+      --text:#251b12;
+      --muted:#7a6a5b;
+      --navy:#17110c;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--text); }
+
+    header {
+      background:var(--white);
+      border-bottom:1px solid var(--gray);
+      position:sticky; top:0; z-index:300;
+      box-shadow:0 2px 18px rgba(37,27,18,0.07);
+    }
+    .hdr {
+      max-width:1200px; margin:0 auto; padding:11px 36px;
+      display:flex; align-items:center; justify-content:space-between; gap:20px;
+    }
+    .logo-link { display:flex; align-items:center; text-decoration:none; }
+    .logo-link img { height:54px; width:auto; display:block; }
+    .hdr-left { display:flex; align-items:center; gap:14px; }
+    .hdr-sep { width:1px; height:30px; background:var(--gray); }
+    .hdr-title {
+      font-size:0.72rem; font-weight:800; letter-spacing:0.13em;
+      text-transform:uppercase; color:var(--sun-dk);
+    }
+    .hdr-nav { display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    .hdr-nav a {
+      color:var(--muted); text-decoration:none; font-size:0.84rem; font-weight:700;
+      padding:7px 14px; border-radius:20px; transition:background .18s,color .18s;
+    }
+    .hdr-nav a:hover { background:var(--sand); color:var(--text); }
+    .btn-back { background:var(--sun)!important; color:var(--text)!important; }
+    .btn-back:hover { background:#e5941f!important; }
+
+    .hero {
+      background:linear-gradient(150deg,#fff8e6 0%,#eaf8f1 48%,#e6f7fc 100%);
+      padding:68px 36px 74px; position:relative; overflow:hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 82% 18%,rgba(244,165,43,.18),transparent 42%),
+        radial-gradient(circle at 12% 80%,rgba(67,168,103,.13),transparent 38%);
+    }
+    .hero-inner {
+      max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr;
+      align-items:center; gap:58px; position:relative; z-index:1;
+    }
+    .hero-pill {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--sun-lt); border:1.5px solid rgba(244,165,43,.4);
+      color:var(--sun-dk); border-radius:30px; padding:6px 18px;
+      font-size:0.74rem; font-weight:800; letter-spacing:0.1em;
+      text-transform:uppercase; margin-bottom:18px;
+    }
+    .hero-text h1 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.6rem,4.7vw,3.9rem);
+      font-weight:700; line-height:1.08; margin-bottom:16px;
+    }
+    .hero-text h1 em { color:var(--sun-dk); font-style:italic; }
+    .hero-text p {
+      max-width:470px; color:var(--muted); line-height:1.72;
+      font-size:1rem; margin-bottom:28px;
+    }
+    .hero-cta {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--leaf); color:var(--white); text-decoration:none;
+      padding:12px 26px; border-radius:30px; font-weight:800;
+      box-shadow:0 8px 22px rgba(67,168,103,.28);
+      transition:transform .18s, box-shadow .18s;
+    }
+    .hero-cta:hover { transform:translateY(-3px); box-shadow:0 13px 30px rgba(67,168,103,.34); }
+
+    .hero-mosaic {
+      display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+    }
+    .mosaic-card {
+      background:rgba(255,255,255,.82); border-radius:18px; padding:20px;
+      box-shadow:0 8px 30px rgba(37,27,18,.08);
+      border:1px solid rgba(255,255,255,.9);
+      min-height:150px;
+    }
+    .mosaic-card strong {
+      display:block; font-family:'Cormorant Garamond',serif;
+      font-size:1.25rem; color:var(--text); margin-bottom:6px;
+    }
+    .mosaic-card span { display:block; color:var(--muted); font-size:.86rem; line-height:1.5; }
+    .mosaic-icon { font-size:2.2rem; margin-bottom:12px; }
+
+    .strip { background:linear-gradient(90deg,var(--sun) 0%,var(--leaf) 100%); padding:17px 36px; }
+    .strip-inner {
+      max-width:1200px; margin:0 auto; display:flex; align-items:center;
+      justify-content:space-around; gap:18px; flex-wrap:wrap;
+    }
+    .si { display:flex; align-items:center; gap:11px; color:var(--white); }
+    .si .ico { font-size:1.4rem; }
+    .si strong { display:block; font-size:.86rem; font-weight:800; }
+    .si span { font-size:.74rem; opacity:.85; }
+
+    .main-wrap { max-width:1200px; margin:0 auto; padding:52px 36px 80px; }
+    .sec-lbl { display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+    .sec-lbl h2 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.7rem; font-weight:700; color:var(--text);
+    }
+    .sec-line { flex:1; height:1.5px; border-radius:2px; background:linear-gradient(90deg,var(--sun),transparent); }
+    .sec-desc {
+      max-width:680px; color:var(--muted); line-height:1.65;
+      font-size:.88rem; margin-bottom:28px;
+    }
+
+    .prod-grid {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:18px; margin-bottom:46px;
+    }
+    .prod-card {
+      background:var(--white); border-radius:20px; overflow:hidden;
+      box-shadow:0 3px 16px rgba(37,27,18,.07);
+      display:flex; flex-direction:column;
+      border:2px solid transparent;
+      transition:transform .22s, box-shadow .22s, border-color .22s;
+    }
+    .prod-card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 14px 40px rgba(37,27,18,.13);
+      border-color:rgba(244,165,43,.35);
+    }
+    .prod-img {
+      height:188px; position:relative; overflow:hidden;
+      display:flex; align-items:center; justify-content:center;
+      font-size:3rem;
+    }
+    .bg-sun { background:linear-gradient(145deg,#fff3cb,#ffd980); }
+    .bg-sky { background:linear-gradient(145deg,#e6f7fc,#bfeafa); }
+    .bg-leaf { background:linear-gradient(145deg,#e7f7ee,#c9efd9); }
+    .bg-coral { background:linear-gradient(145deg,#fff0e9,#f7cdbf); }
+    .bg-mint { background:linear-gradient(145deg,#e8fff6,#bff0dd); }
+    .bg-lilac { background:linear-gradient(145deg,#f4ecff,#dcc6f7); }
+    .cat-badge {
+      position:absolute; top:11px; left:11px;
+      background:rgba(255,255,255,.86); color:var(--sun-dk);
+      font-size:.65rem; font-weight:900; padding:3px 10px;
+      border-radius:20px; text-transform:uppercase; letter-spacing:.06em;
+    }
+    .skin-badge {
+      position:absolute; top:11px; right:11px;
+      background:rgba(255,255,255,.86); color:var(--text);
+      font-size:.63rem; font-weight:800; padding:3px 9px; border-radius:20px;
+    }
+    .prod-body { padding:15px 17px 20px; flex:1; display:flex; flex-direction:column; gap:6px; }
+    .prod-brand { font-size:.67rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+    .prod-name { font-size:.96rem; font-weight:800; color:var(--text); line-height:1.34; }
+    .prod-desc { font-size:.79rem; color:var(--muted); line-height:1.55; flex:1; }
+    .prod-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:2px; }
+    .prod-tag {
+      font-size:.65rem; font-weight:800; padding:3px 10px;
+      border-radius:20px; background:var(--sun-lt); color:var(--sun-dk);
+    }
+    .prod-div { height:1px; background:var(--sand); margin:4px 0; }
+    .prod-avail {
+      font-size:.72rem; color:var(--muted); font-weight:700;
+      display:flex; align-items:center; gap:6px;
+    }
+    .prod-avail::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:var(--leaf); display:inline-block;
+    }
+
+    .alert-band {
+      background:linear-gradient(120deg,var(--navy) 0%,#3a2205 100%);
+      color:var(--white); border-radius:18px; padding:32px 34px;
+      display:grid; grid-template-columns:1.4fr .6fr; gap:22px;
+      align-items:center; margin-bottom:52px;
+      box-shadow:0 10px 34px rgba(37,27,18,.16);
+    }
+    .alert-band h2 {
+      font-family:'Cormorant Garamond',serif; font-size:2rem;
+      line-height:1.15; margin-bottom:8px;
+    }
+    .alert-band h2 span { color:var(--sun); }
+    .alert-band p { color:rgba(255,255,255,.72); line-height:1.65; font-size:.92rem; max-width:680px; }
+    .alert-list { list-style:none; display:grid; gap:9px; }
+    .alert-list li {
+      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+      border-radius:12px; padding:10px 13px; font-size:.82rem; font-weight:700;
+    }
+
+    .tips-grid {
+      display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+    }
+    .tip-card {
+      background:var(--white); border:1.5px solid var(--gray);
+      border-radius:18px; padding:22px 20px;
+      box-shadow:0 3px 16px rgba(37,27,18,.05);
+      transition:transform .2s, border-color .2s;
+    }
+    .tip-card:hover { transform:translateY(-4px); border-color:rgba(244,165,43,.45); }
+    .tip-icon { font-size:1.9rem; margin-bottom:12px; }
+    .tip-card h3 {
+      font-family:'Cormorant Garamond',serif; font-size:1.12rem;
+      margin-bottom:6px; color:var(--text);
+    }
+    .tip-card p { font-size:.82rem; color:var(--muted); line-height:1.6; }
+
+    footer {
+      background:var(--navy); color:rgba(255,255,255,.48);
+      text-align:center; padding:24px 36px; font-size:.81rem;
+    }
+    footer a { color:var(--sun); text-decoration:none; }
+    footer a:hover { color:var(--white); }
+
+    @media(max-width:1024px) {
+      .prod-grid { grid-template-columns:repeat(3,1fr); }
+      .tips-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media(max-width:768px) {
+      .hdr { flex-direction:column; align-items:flex-start; padding:12px 24px; }
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-mosaic { grid-template-columns:1fr 1fr; }
+      .prod-grid { grid-template-columns:repeat(2,1fr); }
+      .alert-band { grid-template-columns:1fr; }
+    }
+    @media(max-width:520px) {
+      .hero, .main-wrap { padding-left:22px; padding-right:22px; }
+      .hero-mosaic, .prod-grid, .tips-grid { grid-template-columns:1fr; }
+      .sec-lbl { align-items:flex-start; }
+      .sec-lbl h2 { white-space:normal; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="hdr-left">
+      <a class="logo-link" href="Farmacia.html">
+        <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png" alt="Farmacias Yair"/>
+      </a>
+      <div class="hdr-sep"></div>
+      <span class="hdr-title">Cat&aacute;logo de Verano</span>
+    </div>
+    <nav class="hdr-nav" aria-label="Navegaci&oacute;n principal">
+      <a href="menu_catalogos.html">Cat&aacute;logos</a>
+      <a href="blog_temporal.html">Blog temporada</a>
+      <a href="catalogo_bellesa.html">Protecci&oacute;n solar</a>
+      <a href="Farmacia.html" class="btn-back">Volver a la tienda</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-pill">Verano 2026 &middot; Salud preventiva</div>
+      <h1>Cuida a tu familia<br/>durante el <em>calor</em></h1>
+      <p>Encuentra protectores solares, sueros orales, repelentes y productos de cuidado personal para prevenir deshidrataci&oacute;n, picaduras y molestias comunes de temporada.</p>
+      <a href="#productos" class="hero-cta">Ver productos</a>
+    </div>
+    <div class="hero-mosaic" aria-label="Beneficios de temporada">
+      <div class="mosaic-card">
+        <div class="mosaic-icon">&#9728;</div>
+        <strong>Protecci&oacute;n solar</strong>
+        <span>FPS alto para rostro y cuerpo, con opciones ligeras para uso diario.</span>
+      </div>
+      <div class="mosaic-card">
+        <div class="mosaic-icon">&#128167;</div>
+        <strong>Hidrataci&oacute;n</strong>
+        <span>Sueros y electrolitos para recuperar sales perdidas por el sudor.</span>
+      </div>
+      <div class="mosaic-card">
+        <div class="mosaic-icon">&#127807;</div>
+        <strong>Cuidado de piel</strong>
+        <span>Aloe vera y productos calmantes para piel expuesta al sol.</span>
+      </div>
+      <div class="mosaic-card">
+        <div class="mosaic-icon">&#128737;</div>
+        <strong>Prevenci&oacute;n</strong>
+        <span>Repelentes y consejos pr&aacute;cticos para reducir riesgos de temporada.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-inner">
+    <div class="si"><span class="ico">&#9728;</span><div><strong>FPS 50+</strong><span>Uso diario y exterior</span></div></div>
+    <div class="si"><span class="ico">&#128167;</span><div><strong>Electrolitos</strong><span>Apoyo contra deshidrataci&oacute;n</span></div></div>
+    <div class="si"><span class="ico">&#128737;</span><div><strong>Repelentes</strong><span>Prevenci&oacute;n de picaduras</span></div></div>
+    <div class="si"><span class="ico">&#127807;</span><div><strong>Piel calmada</strong><span>Aloe y cuidado corporal</span></div></div>
+  </div>
+</div>
+
+<main class="main-wrap">
+  <section id="productos">
+    <div class="sec-lbl"><h2>Productos de temporada</h2><div class="sec-line"></div></div>
+    <p class="sec-desc">Selecci&oacute;n recomendada para d&iacute;as de calor, vacaciones, trabajo al aire libre y cuidado familiar durante la temporada de verano.</p>
+
+    <div class="prod-grid">
+      <article class="prod-card">
+        <div class="prod-img bg-sun">
+          <span class="cat-badge">Solar</span>
+          <span class="skin-badge">FPS 50+</span>
+          &#129524;
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Cuidado solar</div>
+          <div class="prod-name">Protector Solar Facial y Corporal FPS 50+</div>
+          <div class="prod-desc">Protecci&oacute;n UVA/UVB para uso diario. Ideal para actividades al aire libre, piel expuesta y rutinas familiares.</div>
+          <div class="prod-tags"><span class="prod-tag">UVA/UVB</span><span class="prod-tag">Diario</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="prod-img bg-sky">
+          <span class="cat-badge">Hidrataci&oacute;n</span>
+          <span class="skin-badge">Electrolitos</span>
+          &#128167;
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Rehidrataci&oacute;n</div>
+          <div class="prod-name">Sales de Rehidrataci&oacute;n Oral</div>
+          <div class="prod-desc">Ayudan a reponer agua y sales minerales perdidas por sudoraci&oacute;n, diarrea o exposici&oacute;n prolongada al calor.</div>
+          <div class="prod-tags"><span class="prod-tag">Sueros</span><span class="prod-tag">Familia</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="prod-img bg-coral">
+          <span class="cat-badge">Repelente</span>
+          <span class="skin-badge">Exterior</span>
+          &#128737;
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Prevenci&oacute;n</div>
+          <div class="prod-name">Repelente de Insectos</div>
+          <div class="prod-desc">Apoyo para reducir picaduras de mosquitos en paseos, patios, viajes y zonas con mayor humedad durante verano.</div>
+          <div class="prod-tags"><span class="prod-tag">Mosquitos</span><span class="prod-tag">Viaje</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="prod-img bg-leaf">
+          <span class="cat-badge">Piel</span>
+          <span class="skin-badge">Calmante</span>
+          &#127807;
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Cuidado corporal</div>
+          <div class="prod-name">Gel de Aloe Vera</div>
+          <div class="prod-desc">Refresca e hidrata la piel despu&eacute;s de la exposici&oacute;n solar. &Uacute;til para resequedad y sensaci&oacute;n de ardor leve.</div>
+          <div class="prod-tags"><span class="prod-tag">Aloe</span><span class="prod-tag">Post-sol</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="prod-img bg-mint">
+          <span class="cat-badge">Botiqu&iacute;n</span>
+          <span class="skin-badge">Picaduras</span>
+          &#129657;
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Primeros auxilios</div>
+          <div class="prod-name">Crema para Molestias por Picaduras</div>
+          <div class="prod-desc">Producto de apoyo para comez&oacute;n e irritaci&oacute;n leve por picaduras. Consulta al farmac&eacute;utico si hay alergia o inflamaci&oacute;n intensa.</div>
+          <div class="prod-tags"><span class="prod-tag">Comez&oacute;n</span><span class="prod-tag">Irritaci&oacute;n</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </article>
+
+      <article class="prod-card">
+        <div class="prod-img bg-lilac">
+          <span class="cat-badge">Familia</span>
+          <span class="skin-badge">Viaje</span>
+          &#128138;
+        </div>
+        <div class="prod-body">
+          <div class="prod-brand">Prevenci&oacute;n familiar</div>
+          <div class="prod-name">Kit B&aacute;sico para Salidas de Verano</div>
+          <div class="prod-desc">Incluye opciones para hidrataci&oacute;n, protecci&oacute;n solar, cuidado de piel y primeros auxilios b&aacute;sicos para llevar en mochila.</div>
+          <div class="prod-tags"><span class="prod-tag">Viaje</span><span class="prod-tag">Familia</span></div>
+          <div class="prod-div"></div><div class="prod-avail">Disponible en sucursal</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="alert-band" aria-label="S&iacute;ntomas de alerta por calor">
+    <div>
+      <h2>Se&ntilde;ales de <span>golpe de calor</span></h2>
+      <p>Busca atenci&oacute;n m&eacute;dica si hay confusi&oacute;n, desmayo, piel muy caliente, v&oacute;mito persistente o temperatura corporal elevada. Mientras llega ayuda, lleva a la persona a un lugar fresco y ofrece agua solo si est&aacute; consciente.</p>
+    </div>
+    <ul class="alert-list">
+      <li>Mareo o debilidad intensa</li>
+      <li>Dolor de cabeza fuerte</li>
+      <li>Piel roja, caliente o muy seca</li>
+      <li>Confusi&oacute;n o desmayo</li>
+    </ul>
+  </section>
+
+  <section id="consejos">
+    <div class="sec-lbl"><h2>Consejos de verano</h2><div class="sec-line"></div></div>
+    <p class="sec-desc">Peque&ntilde;as acciones que ayudan a prevenir deshidrataci&oacute;n, quemaduras solares, intoxicaciones y picaduras durante los d&iacute;as m&aacute;s calurosos.</p>
+
+    <div class="tips-grid">
+      <article class="tip-card">
+        <div class="tip-icon">&#9728;</div>
+        <h3>Evita el sol fuerte</h3>
+        <p>Reduce la exposici&oacute;n directa entre 11:00 y 16:00. Usa sombra, sombrero, ropa ligera y protector solar.</p>
+      </article>
+      <article class="tip-card">
+        <div class="tip-icon">&#128167;</div>
+        <h3>Hidr&aacute;tate con frecuencia</h3>
+        <p>No esperes a tener sed. En ni&ntilde;os, adultos mayores y personas que trabajan al aire libre, vigila signos de deshidrataci&oacute;n.</p>
+      </article>
+      <article class="tip-card">
+        <div class="tip-icon">&#128737;</div>
+        <h3>Prev&eacute;n picaduras</h3>
+        <p>Aplica repelente seg&uacute;n indicaci&oacute;n, elimina agua estancada y usa mosquiteros si hay alta presencia de mosquitos.</p>
+      </article>
+      <article class="tip-card">
+        <div class="tip-icon">&#129367;</div>
+        <h3>Cuida los alimentos</h3>
+        <p>El calor acelera la descomposici&oacute;n. Mant&eacute;n alimentos refrigerados y evita consumir productos con mal olor o mala conservaci&oacute;n.</p>
+      </article>
+      <article class="tip-card">
+        <div class="tip-icon">&#128118;</div>
+        <h3>Protege a los vulnerables</h3>
+        <p>Beb&eacute;s, adultos mayores y personas con enfermedades cr&oacute;nicas necesitan m&aacute;s vigilancia durante olas de calor.</p>
+      </article>
+      <article class="tip-card">
+        <div class="tip-icon">&#129524;</div>
+        <h3>Reaplica protector</h3>
+        <p>Reaplica cada 2 horas si est&aacute;s al aire libre, y despu&eacute;s de sudar, nadar o secarte con toalla.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 <a href="Farmacia.html">Farmacias Yair</a> &middot; Cat&aacute;logo de Verano &middot; Disponibilidad sujeta a existencias en sucursal</p>
+</footer>
+</body>
+</html>
