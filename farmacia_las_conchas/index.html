@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Farmacias Yair Sucursal Las Conchas – Medicamentos genéricos, vitaminas y productos de salud en Las Conchas, San Miguel Chimalapa, Oaxaca.">
+<title>Farmacias Yair – Sucursal Las Conchas | San Miguel Chimalapa, Oax.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:       #2e7d32;
+    --green-light: #4caf50;
+    --green-pale:  #e8f5e9;
+    --green-mid:   #a5d6a7;
+    --amber:       #f57f17;
+    --amber-pale:  #fff8e1;
+    --amber-light: #ffca28;
+    --text-dark:   #1a1a2e;
+    --text-mid:    #4a4a6a;
+    --text-light:  #7a7a9a;
+    --border:      #e0e0e0;
+    --white:       #ffffff;
+    --bg-light:    #f7f9f7;
+    --shadow:      0 2px 12px rgba(0,0,0,0.08);
+    --shadow-hover:0 6px 24px rgba(0,0,0,0.14);
+    --radius:      12px;
+    --radius-sm:   8px;
+  }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-dark);
+    background: var(--bg-light);
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  }
+  .header-inner {
+    max-width: 1000px; margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 1rem;
+    height: 64px;
+  }
+  .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: var(--green); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-icon svg { width: 22px; height: 22px; fill: white; }
+  .logo-text { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--green); line-height: 1.2; }
+  .logo-sub  { font-size: 0.62rem; color: var(--text-light); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .sucursal-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--amber-pale);
+    border: 1.5px solid var(--amber-light);
+    color: var(--amber);
+    font-size: 0.72rem; font-weight: 700;
+    padding: 0.25rem 0.75rem; border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  nav { display: flex; align-items: center; gap: 0.2rem; }
+  nav a {
+    font-size: 0.8rem; font-weight: 600; color: var(--text-mid);
+    text-decoration: none; padding: 0.4rem 0.7rem;
+    border-radius: var(--radius-sm); transition: background 0.2s, color 0.2s;
+  }
+  nav a:hover { background: var(--green-pale); color: var(--green); }
+  .nav-main {
+    background: var(--green); color: white !important;
+    padding: 0.4rem 1rem !important; border-radius: 20px !important;
+  }
+  .nav-main:hover { background: var(--green-light) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 55%, #52b788 100%);
+    color: white; overflow: hidden; position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='1'/%3E%3C/svg%3E");
+  }
+  .hero-inner {
+    max-width: 1000px; margin: 0 auto;
+    padding: 3.5rem 1.5rem;
+    display: flex; align-items: center; gap: 2.5rem;
+    position: relative;
+  }
+  .hero-text { flex: 1; }
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white; font-size: 0.75rem; font-weight: 700;
+    padding: 0.3rem 0.9rem; border-radius: 20px;
+    margin-bottom: 1rem; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .hero h1 { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 700; line-height: 1.25; margin-bottom: 0.5rem; }
+  .hero-location { font-size: 0.88rem; opacity: 0.82; margin-bottom: 0.9rem; display: flex; align-items: center; gap: 5px; }
+  .hero p { font-size: 0.97rem; opacity: 0.88; margin-bottom: 1.6rem; max-width: 460px; }
+  .hero-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+
+  .btn-white {
+    background: white; color: #2d6a4f;
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem;
+    padding: 0.6rem 1.4rem; border-radius: 25px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s; display: inline-block;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+
+  .btn-ghost {
+    background: transparent; color: white;
+    font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 0.88rem;
+    padding: 0.6rem 1.4rem; border-radius: 25px;
+    text-decoration: none; border: 2px solid rgba(255,255,255,0.5);
+    transition: background 0.2s; display: inline-block;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.15); }
+
+  /* Ilustración hero */
+  .hero-visual {
+    flex-shrink: 0; width: 200px; height: 190px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-visual svg { width: 185px; height: 185px; opacity: 0.93; }
+
+  /* ── AVISO SUCURSAL ── */
+  .branch-notice {
+    background: var(--amber-pale);
+    border-bottom: 2px solid var(--amber-light);
+  }
+  .branch-notice-inner {
+    max-width: 1000px; margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.82rem; color: #5f3600; flex-wrap: wrap;
+  }
+  .branch-notice strong { color: var(--amber); }
+  .branch-notice a { color: var(--green); font-weight: 700; text-decoration: none; }
+  .branch-notice a:hover { text-decoration: underline; }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 1000px; margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex; flex-direction: column; gap: 2rem;
+  }
+
+  /* ── INFO CARDS ROW ── */
+  .info-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .info-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.1rem;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .info-card-icon { font-size: 1.5rem; }
+  .info-card h4 { font-family: 'Poppins', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-dark); }
+  .info-card p  { font-size: 0.8rem; color: var(--text-mid); }
+  .info-card a  { font-size: 0.8rem; color: var(--green); font-weight: 700; text-decoration: none; }
+  .info-card a:hover { text-decoration: underline; }
+  .open-badge {
+    display: inline-block;
+    background: var(--green-pale); color: var(--green);
+    font-size: 0.72rem; font-weight: 700;
+    padding: 2px 8px; border-radius: 10px; width: fit-content;
+  }
+
+  /* ── SECCIÓN CATÁLOGO ── */
+  .section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 0.75rem;
+  }
+  .section-title { font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-dark); }
+  .section-title span { color: var(--green); }
+  .section-sub { font-size: 0.82rem; color: var(--text-light); }
+  .see-all { font-size: 0.82rem; color: var(--green); font-weight: 700; text-decoration: none; }
+  .see-all:hover { text-decoration: underline; }
+
+  /* ── CATEGORÍAS ── */
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.9rem;
+  }
+  .cat-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  }
+  .cat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--green-mid); }
+  .cat-icon { font-size: 2rem; line-height: 1; }
+  .cat-name { font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 600; color: var(--text-dark); line-height: 1.3; }
+  .cat-count { font-size: 0.7rem; color: var(--text-light); }
+
+  /* ── PRODUCTOS DESTACADOS ── */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 1rem;
+  }
+  .product-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow); position: relative;
+    transition: transform 0.22s, box-shadow 0.22s;
+    display: flex; flex-direction: column;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .product-badge {
+    position: absolute; top: 9px; left: 9px;
+    font-size: 0.67rem; font-weight: 700; padding: 2px 7px;
+    border-radius: 10px; text-transform: uppercase; letter-spacing: 0.04em; z-index: 1;
+  }
+  .badge-green  { background: var(--green-pale);  color: var(--green); }
+  .badge-amber  { background: var(--amber-pale);   color: var(--amber); }
+  .badge-blue   { background: #e3f2fd; color: #1565c0; }
+  .badge-purple { background: #f3e5f5; color: #6a1b9a; }
+
+  .product-img {
+    height: 120px; display: flex; align-items: center; justify-content: center;
+    background: var(--bg-light); padding: 1rem;
+  }
+  .product-img svg { width: 72px; height: 72px; }
+  .product-info { padding: 0.85rem; flex: 1; display: flex; flex-direction: column; }
+  .product-brand { font-size: 0.68rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; }
+  .product-name  { font-size: 0.83rem; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 0.3rem; flex: 1; }
+  .product-desc  { font-size: 0.72rem; color: var(--text-light); margin-bottom: 0.5rem; line-height: 1.4; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 0.55rem; border-top: 1px solid var(--border); }
+  .product-price { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; color: var(--green); }
+  .product-price-old { font-size: 0.7rem; color: var(--text-light); text-decoration: line-through; display: block; line-height: 1; }
+  .add-btn {
+    background: var(--green); color: white; border: none;
+    border-radius: 20px; padding: 0.32rem 0.75rem;
+    font-size: 0.76rem; font-weight: 700; cursor: pointer;
+    font-family: inherit; transition: background 0.2s, transform 0.15s; white-space: nowrap;
+  }
+  .add-btn:hover { background: var(--green-light); transform: scale(1.05); }
+
+  /* ── MAPA EMBED ── */
+  .map-section {
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .map-header { padding: 1.2rem 1.4rem 0.8rem; border-bottom: 1px solid var(--border); }
+  .map-header h2 { font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); }
+  .map-header h2 span { color: var(--green); }
+  .map-header p { font-size: 0.82rem; color: var(--text-mid); margin-top: 0.25rem; }
+  .map-body { display: grid; grid-template-columns: 1fr 280px; }
+  .map-iframe { border: none; width: 100%; height: 320px; display: block; }
+  .map-details {
+    padding: 1.2rem; border-left: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .map-detail { display: flex; gap: 0.75rem; }
+  .map-detail-icon {
+    width: 32px; height: 32px; flex-shrink: 0;
+    background: var(--green-pale); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+  }
+  .map-detail-text h5 { font-size: 0.78rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2px; }
+  .map-detail-text p  { font-size: 0.77rem; color: var(--text-mid); line-height: 1.5; }
+  .map-detail-text a  { font-size: 0.77rem; color: var(--green); font-weight: 700; text-decoration: none; }
+  .map-detail-text a:hover { text-decoration: underline; }
+
+  .schedule-row { display: flex; justify-content: space-between; font-size: 0.77rem; }
+  .schedule-row span:last-child { font-weight: 700; color: var(--text-dark); }
+  .schedule-row.today span:last-child { color: var(--green); }
+  .schedule-row.closed span:last-child { color: #c62828; }
+
+  .directions-btn {
+    width: 100%; margin-top: auto;
+    background: var(--green); color: white;
+    border: none; border-radius: 20px; padding: 0.6rem;
+    font-size: 0.82rem; font-weight: 700; cursor: pointer;
+    font-family: inherit; transition: background 0.2s; text-decoration: none;
+    display: block; text-align: center;
+  }
+  .directions-btn:hover { background: var(--green-light); }
+
+  /* ── SERVICIOS ── */
+  .services {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;
+  }
+  .service-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.2rem; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .service-card .s-icon { font-size: 1.6rem; }
+  .service-card h4 { font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--text-dark); }
+  .service-card p  { font-size: 0.78rem; color: var(--text-mid); line-height: 1.5; }
+
+  /* ── BANNER SEDE PRINCIPAL ── */
+  .main-branch-banner {
+    background: linear-gradient(120deg, #1b5e20, #2e7d32);
+    border-radius: var(--radius); color: white;
+    padding: 2rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1.5rem; flex-wrap: wrap;
+    box-shadow: var(--shadow-hover);
+  }
+  .main-branch-banner h3 { font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .main-branch-banner p  { font-size: 0.84rem; opacity: 0.88; max-width: 420px; }
+  .banner-link {
+    flex-shrink: 0; background: white; color: var(--green);
+    font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.88rem;
+    padding: 0.65rem 1.5rem; border-radius: 25px; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap;
+    display: inline-block;
+  }
+  .banner-link:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.25); }
+
+  /* ── TESTIMONIOS ── */
+  .testimonios {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;
+  }
+  .testimonio {
+    background: white; border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.1rem;
+    box-shadow: var(--shadow); position: relative;
+  }
+  .testimonio::before {
+    content: '"'; position: absolute; top: 8px; right: 14px;
+    font-size: 3rem; color: var(--green-pale); font-family: Georgia, serif; line-height: 1;
+  }
+  .stars { color: #fbc02d; font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .testimonio p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; margin-bottom: 0.6rem; }
+  .testimonio-name { font-size: 0.78rem; font-weight: 700; color: var(--text-dark); }
+  .testimonio-loc  { font-size: 0.72rem; color: var(--text-light); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--text-dark); color: rgba(255,255,255,0.7); padding: 2rem 1.5rem; margin-top: 1rem; }
+  .footer-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-logo { display: flex; align-items: center; gap: 8px; color: white; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; }
+  .footer-logo-icon { width: 30px; height: 30px; background: var(--green-light); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+  .footer-logo-icon svg { width: 17px; height: 17px; fill: white; }
+  .footer-tagline { font-size: 0.78rem; line-height: 1.5; max-width: 240px; }
+  .footer-sucursal-tag {
+    display: inline-block; background: rgba(255,202,40,0.2);
+    border: 1px solid rgba(255,202,40,0.4); color: var(--amber-light);
+    font-size: 0.72rem; font-weight: 700; padding: 2px 10px;
+    border-radius: 10px; width: fit-content;
+  }
+  footer h5 { color: white; font-size: 0.8rem; font-weight: 700; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  footer ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+  footer ul li a:hover { color: var(--green-mid); }
+  .footer-bottom { max-width: 1000px; margin: 1.5rem auto 0; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; text-align: center; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-visual { display: none; }
+    .hero h1 { font-size: 1.55rem; }
+    nav a:not(.nav-main) { display: none; }
+    .sucursal-badge { display: none; }
+    .map-body { grid-template-columns: 1fr; }
+    .map-details { border-left: none; border-top: 1px solid var(--border); }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr; }
+    .products { grid-template-columns: repeat(2, 1fr); }
+    .categories { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-inner">
+    <a href="https://www.farmaciasyair.com" class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div>
+        <div class="logo-text">Farmacias Yair</div>
+        <div class="logo-sub">Tu salud, nuestra prioridad</div>
+      </div>
+    </a>
+
+    <div class="sucursal-badge">📍 Sucursal Las Conchas</div>
+
+    <nav>
+      <a href="https://www.farmaciasyair.com/menu_productos">Categorías</a>
+      <a href="https://www.farmaciasyair.com/catalogo_medicamnetos">Genéricos</a>
+      <a href="https://www.farmaciasyair.com/catalogo_natural">Natural</a>
+      <a href="https://www.farmaciasyair.com" class="nav-main">🏠 Sede principal</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── AVISO SUCURSAL ── -->
+<div class="branch-notice">
+  <div class="branch-notice-inner">
+    <span>📢</span>
+    <span>Esta es la página de la <strong>Sucursal Las Conchas</strong>. Para el catálogo completo visita la
+      <a href="https://www.farmaciasyair.com">sede principal en La Ventosa →</a>
+    </span>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-pill">📍 Sucursal Las Conchas</div>
+      <h1>Farmacias Yair<br>Las Conchas</h1>
+      <div class="hero-location">📍 Las Conchas, San Miguel Chimalapa, Oaxaca</div>
+      <p>Tu farmacia de confianza en la comunidad. Medicamentos genéricos, vitaminas y productos de salud a precios accesibles, cerca de ti.</p>
+      <div class="hero-actions">
+        <a href="#productos" class="btn-white">Ver productos</a>
+        <a href="#ubicacion" class="btn-ghost">📍 Cómo llegar</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 185 185" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Edificio farmacia pequeña -->
+        <rect x="42" y="80" width="100" height="80" rx="4" fill="white" fill-opacity="0.18"/>
+        <rect x="42" y="80" width="100" height="80" rx="4" stroke="white" stroke-opacity="0.35" stroke-width="2" fill="none"/>
+        <!-- Techo / frente -->
+        <path d="M35 82 L92 48 L150 82Z" fill="white" fill-opacity="0.22"/>
+        <path d="M35 82 L92 48 L150 82Z" stroke="white" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+        <!-- Cruz farmacia -->
+        <rect x="80" y="95" width="25" height="8" rx="4" fill="white" fill-opacity="0.55"/>
+        <rect x="88" y="87" width="8" height="24" rx="4" fill="white" fill-opacity="0.55"/>
+        <!-- Puerta -->
+        <rect x="77" y="128" width="30" height="32" rx="4" fill="white" fill-opacity="0.15"/>
+        <rect x="77" y="128" width="30" height="32" rx="4" stroke="white" stroke-opacity="0.3" stroke-width="1.5" fill="none"/>
+        <!-- Ventana izq -->
+        <rect x="50" y="95" width="20" height="18" rx="3" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.3" stroke-width="1.2"/>
+        <!-- Ventana der -->
+        <rect x="115" y="95" width="20" height="18" rx="3" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.3" stroke-width="1.2"/>
+        <!-- Árbol izquierdo -->
+        <circle cx="28" cy="120" r="16" fill="white" fill-opacity="0.12"/>
+        <rect x="25" y="132" width="6" height="14" rx="2" fill="white" fill-opacity="0.18"/>
+        <!-- Árbol derecho -->
+        <circle cx="158" cy="124" r="13" fill="white" fill-opacity="0.12"/>
+        <rect x="155" y="134" width="5" height="12" rx="2" fill="white" fill-opacity="0.18"/>
+        <!-- Suelo -->
+        <rect x="30" y="158" width="125" height="6" rx="3" fill="white" fill-opacity="0.12"/>
+        <!-- Estrellas / brillos -->
+        <circle cx="160" cy="38" r="5" fill="white" fill-opacity="0.3"/>
+        <circle cx="25"  cy="55" r="3" fill="white" fill-opacity="0.25"/>
+        <circle cx="170" cy="80" r="3" fill="white" fill-opacity="0.2"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── MAIN ── -->
+<div class="main">
+
+  <!-- INFO RÁPIDA -->
+  <div class="info-row">
+    <div class="info-card">
+      <div class="info-card-icon">🕐</div>
+      <h4>Horario hoy</h4>
+      <span class="open-badge">✔ Abierto</span>
+      <p>Lun–Sáb 8:00 am – 8:00 pm<br>Dom 9:00 am – 2:00 pm</p>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">📍</div>
+      <h4>Dirección</h4>
+      <p>Las Conchas, San Miguel Chimalapa<br>C.P. 70156 · Oaxaca, México</p>
+      <a href="#ubicacion">Ver en mapa →</a>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">📞</div>
+      <h4>Contacto</h4>
+      <p>Whatsapp o llamada directa</p>
+      <a href="tel:+529711234567">+52 971 123 4567</a>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">🚚</div>
+      <h4>Pedidos</h4>
+      <p>Pedidos por WhatsApp con entrega en la comunidad. Preguntar disponibilidad.</p>
+    </div>
+  </div>
+
+  <!-- CATEGORÍAS -->
+  <div>
+    <div class="section-header" style="margin-bottom:1rem;">
+      <div>
+        <div class="section-title">Lo que encontrarás <span>aquí</span></div>
+        <div class="section-sub">Productos disponibles en sucursal Las Conchas</div>
+      </div>
+      <a href="https://www.farmaciasyair.com/menu_productos" class="see-all">Catálogo completo →</a>
+    </div>
+    <div class="categories">
+      <a href="https://www.farmaciasyair.com/catalogo_medicamnetos" class="cat-card">
+        <div class="cat-icon">💊</div>
+        <div class="cat-name">Medicamentos Genéricos</div>
+        <div class="cat-count">+80 productos</div>
+      </a>
+      <a href="https://www.farmaciasyair.com/catalogo_natural" class="cat-card">
+        <div class="cat-icon">🌿</div>
+        <div class="cat-name">Naturistas</div>
+        <div class="cat-count">+30 productos</div>
+      </a>
+      <a href="https://www.farmaciasyair.com/catalogo_bebes" class="cat-card">
+        <div class="cat-icon">👶</div>
+        <div class="cat-name">Bebés y Niños</div>
+        <div class="cat-count">+25 productos</div>
+      </a>
+      <a href="https://www.farmaciasyair.com/catalogo_bellesa" class="cat-card">
+        <div class="cat-icon">🧴</div>
+        <div class="cat-name">Cuidado Personal</div>
+        <div class="cat-count">+20 productos</div>
+      </a>
+      <a href="https://www.farmaciasyair.com/catalogo_auxilos" class="cat-card">
+        <div class="cat-icon">🩺</div>
+        <div class="cat-name">Primeros Auxilios</div>
+        <div class="cat-count">+15 productos</div>
+      </a>
+      <a href="https://www.farmaciasyair.com/catalogo_bucal" class="cat-card">
+        <div class="cat-icon">🦷</div>
+        <div class="cat-name">Cuidado Bucal</div>
+        <div class="cat-count">+10 productos</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- PRODUCTOS DESTACADOS -->
+  <div id="productos">
+    <div class="section-header" style="margin-bottom:1rem;">
+      <div>
+        <div class="section-title">Productos <span>más pedidos</span></div>
+        <div class="section-sub">Lo más solicitado en Las Conchas</div>
+      </div>
+    </div>
+    <div class="products">
+
+      <!-- 1 -->
+      <div class="product-card">
+        <span class="product-badge badge-green">Genérico</span>
+        <div class="product-img" style="background:#e8f5e9;">
+          <svg viewBox="0 0 72 72"><rect x="18" y="16" width="36" height="46" rx="8" fill="#4caf50"/><rect x="26" y="9"  width="20" height="11" rx="4" fill="#388e3c"/><text x="36" y="42" text-anchor="middle" font-size="7" fill="white" font-weight="bold">Omeprazol</text><text x="36" y="52" text-anchor="middle" font-size="5.5" fill="white" opacity="0.9">20mg</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Genérico Yair</div>
+          <div class="product-name">Omeprazol 20mg c/30 cáps</div>
+          <div class="product-desc">Gastritis y reflujo.</div>
+          <div class="product-footer">
+            <span class="product-price">$58.00</span>
+            <button class="add-btn">+ Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="product-card">
+        <span class="product-badge badge-amber">Popular</span>
+        <div class="product-img" style="background:#fff8e1;">
+          <svg viewBox="0 0 72 72"><rect x="14" y="16" width="44" height="44" rx="7" fill="#ff9800"/><text x="36" y="35" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">ASPIRI-</text><text x="36" y="44" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">NA 500</text><text x="36" y="52" text-anchor="middle" font-size="5" fill="white" opacity="0.85">c/20 tabs</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Bayer</div>
+          <div class="product-name">Aspirina 500mg c/20 tabs</div>
+          <div class="product-desc">Analgésico y antipirético.</div>
+          <div class="product-footer">
+            <span class="product-price">$42.00</span>
+            <button class="add-btn">+ Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="product-card">
+        <span class="product-badge badge-green">Genérico</span>
+        <div class="product-img" style="background:#e8f5e9;">
+          <svg viewBox="0 0 72 72"><rect x="20" y="16" width="32" height="44" rx="8" fill="#66bb6a"/><rect x="27" y="9"  width="18" height="11" rx="4" fill="#43a047"/><text x="36" y="42" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">Ambroxol</text><text x="36" y="52" text-anchor="middle" font-size="5" fill="white" opacity="0.9">30mg/5ml</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Genérico Yair</div>
+          <div class="product-name">Ambroxol Jarabe 120ml</div>
+          <div class="product-desc">Tos con flema. Adultos y niños.</div>
+          <div class="product-footer">
+            <span class="product-price">$48.00</span>
+            <button class="add-btn">+ Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="product-card">
+        <div class="product-img" style="background:#e3f2fd;">
+          <svg viewBox="0 0 72 72"><ellipse cx="36" cy="36" rx="22" ry="13" fill="#1e88e5" transform="rotate(-30 36 36)"/><rect x="26" y="30" width="20" height="12" rx="6" fill="#90caf9" transform="rotate(-30 36 36)"/><line x1="26" y1="36" x2="46" y2="36" stroke="white" stroke-width="2.5" transform="rotate(-30 36 36)"/></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Genérico Yair</div>
+          <div class="product-name">Loratadina 10mg c/30 tabs</div>
+          <div class="product-desc">Antihistamínico. Alergias y rinitis.</div>
+          <div class="product-footer">
+            <span class="product-price">$39.00</span>
+            <button class="add-btn">+ Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="product-card">
+        <span class="product-badge badge-amber">Oferta</span>
+        <div class="product-img" style="background:#fff8e1;">
+          <svg viewBox="0 0 72 72"><rect x="16" y="14" width="40" height="50" rx="8" fill="#ffa726"/><rect x="23" y="7" width="26" height="12" rx="4" fill="#f57c00"/><text x="36" y="38" text-anchor="middle" font-size="6" fill="white" font-weight="bold">Vit. C</text><text x="36" y="47" text-anchor="middle" font-size="5" fill="white">1000mg</text><text x="36" y="55" text-anchor="middle" font-size="5" fill="white" opacity="0.9">Efer. c/10</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Benavides</div>
+          <div class="product-name">Vitamina C 1000mg Efervescente c/10</div>
+          <div class="product-desc">Refuerza el sistema inmune.</div>
+          <div class="product-footer">
+            <div>
+              <span class="product-price-old">$85.00</span>
+              <span class="product-price">$75.00</span>
+            </div>
+            <button class="add-btn">+ Pedir</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="product-card">
+        <span class="product-badge badge-purple">Infantil</span>
+        <div class="product-img" style="background:#f3e5f5;">
+          <svg viewBox="0 0 72 72"><rect x="18" y="14" width="36" height="50" rx="8" fill="#9c27b0"/><rect x="25" y="7" width="22" height="11" rx="4" fill="#6a1b9a"/><text x="36" y="40" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">Jarabe</text><text x="36" y="50" text-anchor="middle" font-size="5.5" fill="white" opacity="0.9">Niños</text></svg>
+        </div>
+        <div class="product-info">
+          <div class="product-brand">Pediakid</div>
+          <div class="product-name">Jarabe Pediátrico Tos 150ml</div>
+          <div class="product-desc">Sin alcohol. Bebés y niños.</div>
+          <div class="product-footer">
+            <span class="product-price">$98.00</span>
+            <button class="add-btn">+ Pedir</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- UBICACIÓN Y MAPA -->
+  <div class="map-section" id="ubicacion">
+    <div class="map-header">
+      <h2>¿Dónde estamos? <span>Encuéntranos</span></h2>
+      <p>Las Conchas, San Miguel Chimalapa, Oaxaca · C.P. 70156</p>
+    </div>
+    <div class="map-body">
+      <iframe
+        class="map-iframe"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3878.0!2d-94.71638879999999!3d16.6619444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85eecc8029b130971%3A0xca76b4ecb3b4ae!2sLas%20Conchas%2C%20Oax.%2C%20Mexico!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa Las Conchas San Miguel Chimalapa"
+      ></iframe>
+      <div class="map-details">
+        <div class="map-detail">
+          <div class="map-detail-icon">📍</div>
+          <div class="map-detail-text">
+            <h5>Dirección</h5>
+            <p>Las Conchas<br>San Miguel Chimalapa<br>Oaxaca, C.P. 70156</p>
+          </div>
+        </div>
+        <div class="map-detail">
+          <div class="map-detail-icon">🕐</div>
+          <div class="map-detail-text">
+            <h5>Horario de atención</h5>
+            <div class="schedule-row today"><span>Lun – Vie</span><span>8:00 – 20:00</span></div>
+            <div class="schedule-row today"><span>Sábado</span><span>8:00 – 20:00</span></div>
+            <div class="schedule-row"><span>Domingo</span><span>9:00 – 14:00</span></div>
+          </div>
+        </div>
+        <div class="map-detail">
+          <div class="map-detail-icon">📞</div>
+          <div class="map-detail-text">
+            <h5>Teléfono / WhatsApp</h5>
+            <a href="tel:+529711234567">+52 971 123 4567</a>
+          </div>
+        </div>
+        <div class="map-detail">
+          <div class="map-detail-icon">🚗</div>
+          <div class="map-detail-text">
+            <h5>Cómo llegar</h5>
+            <p>Desde San Miguel Chimalapa aprox. 15 min por la carretera principal hacia Las Conchas.</p>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=16.6619444,-94.71638879999999" target="_blank" class="directions-btn">
+          🗺️ Abrir en Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICIOS -->
+  <div>
+    <div class="section-header" style="margin-bottom:1rem;">
+      <div class="section-title">Nuestros <span>servicios</span></div>
+    </div>
+    <div class="services">
+      <div class="service-card">
+        <div class="s-icon">💊</div>
+        <h4>Medicamentos genéricos</h4>
+        <p>Amplio surtido de genéricos intercambiables a los mejores precios del mercado.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">🩺</div>
+        <h4>Asesoría farmacéutica</h4>
+        <p>Nuestro personal te orienta sobre el uso correcto de medicamentos y dosis.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">📦</div>
+        <h4>Pedidos por WhatsApp</h4>
+        <p>Haz tu pedido por mensaje y lo preparamos para que pases a recogerlo sin esperar.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">🌿</div>
+        <h4>Productos naturistas</h4>
+        <p>Plantas medicinales, suplementos y productos naturales para el cuidado integral.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANNER SEDE PRINCIPAL -->
+  <div class="main-branch-banner">
+    <div>
+      <h3>🏠 ¿Buscas más productos?</h3>
+      <p>Esta sucursal tiene un catálogo seleccionado. Para la tienda completa con todos los productos, ofertas del día y envíos a México, visita nuestra sede principal en La Ventosa.</p>
+    </div>
+    <a href="https://www.farmaciasyair.com" class="banner-link">Ir a la tienda principal →</a>
+  </div>
+
+  <!-- TESTIMONIOS -->
+  <div>
+    <div class="section-header" style="margin-bottom:1rem;">
+      <div class="section-title">Lo que dice la <span>comunidad</span></div>
+    </div>
+    <div class="testimonios">
+      <div class="testimonio">
+        <div class="stars">★★★★★</div>
+        <p>Muy buena farmacia, siempre tienen lo que necesito. El personal es muy amable y te explican bien los medicamentos.</p>
+        <div class="testimonio-name">María G.</div>
+        <div class="testimonio-loc">Las Conchas, Oaxaca</div>
+      </div>
+      <div class="testimonio">
+        <div class="stars">★★★★★</div>
+        <p>Me alegra que haya una farmacia cerca, antes tenía que ir hasta San Miguel o más lejos. Los precios son muy accesibles.</p>
+        <div class="testimonio-name">Roberto T.</div>
+        <div class="testimonio-loc">San Miguel Chimalapa</div>
+      </div>
+      <div class="testimonio">
+        <div class="stars">★★★★☆</div>
+        <p>Tienen buenos medicamentos genéricos. El servicio por WhatsApp es muy práctico para cuando no puedo salir de casa.</p>
+        <div class="testimonio-name">Claudia M.</div>
+        <div class="testimonio-loc">Las Conchas, Oaxaca</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main -->
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        Farmacias Yair
+      </div>
+      <div class="footer-sucursal-tag">📍 Sucursal Las Conchas</div>
+      <div class="footer-tagline">Salud y bienestar para la comunidad de Las Conchas y San Miguel Chimalapa.</div>
+      <div style="font-size:0.78rem; margin-top:0.4rem; line-height:1.7;">
+        📞 +52 971 123 4567<br>
+        📍 Las Conchas, S.M. Chimalapa, Oax.<br>
+        🕐 Lun–Sáb 8:00–20:00 · Dom 9:00–14:00
+      </div>
+    </div>
+    <div>
+      <h5>Categorías</h5>
+      <ul>
+        <li><a href="https://www.farmaciasyair.com/catalogo_medicamnetos">Genéricos</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_bebes">Bebés</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_bellesa">Dermocosméticos</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_natural">Natural</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_auxilos">Primeros auxilios</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_bucal">Cuidado bucal</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Links útiles</h5>
+      <ul>
+        <li><a href="https://www.farmaciasyair.com">Sede principal</a></li>
+        <li><a href="https://www.farmaciasyair.com/menu_blogs">Blogs de salud</a></li>
+        <li><a href="https://www.farmaciasyair.com/blog_medicamento">Medicamentos</a></li>
+        <li><a href="https://www.farmaciasyair.com/blog_natural">Naturales</a></li>
+        <li><a href="#">Centro de ayuda</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Farmacias Yair · Sucursal Las Conchas, San Miguel Chimalapa · Todos los derechos reservados
+  </div>
+</footer>
+
+</body>
+</html>
