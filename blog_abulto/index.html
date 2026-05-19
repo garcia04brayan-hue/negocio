@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consejos para Personas Mayores | Farmacias Yair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.ico">
+<style>
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f8fafc;
+    color: #1e293b;
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    background: #0f172a;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, .22);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    align-items: center;
+    display: flex;
+    gap: 18px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 14px 24px;
+}
+
+.brand {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-links a {
+    border-radius: 8px;
+    color: rgba(255, 255, 255, .78);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 12px;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, .12);
+    color: #fff;
+}
+
+.blog-post {
+    width: 100%;
+}
+
+.blog-hero {
+    background:
+        linear-gradient(135deg, rgba(15, 118, 110, .90), rgba(15, 23, 42, .92)),
+        url("img/adulto-mayor-salud.jpg") center / cover;
+    min-height: 420px;
+    overflow: hidden;
+    position: relative;
+}
+
+.blog-hero img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.blog-overlay {
+    align-items: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 980px;
+    min-height: 420px;
+    padding: 24px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.blog-overlay h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.12;
+    margin-bottom: 15px;
+}
+
+.blog-overlay p {
+    font-size: clamp(16px, 2vw, 19px);
+    line-height: 1.7;
+    max-width: 740px;
+}
+
+.blog-container {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    margin: auto;
+    max-width: 1300px;
+    padding: 60px 24px;
+    width: 100%;
+}
+
+.blog-content,
+.sidebar-card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+}
+
+.blog-content {
+    padding: 40px;
+}
+
+.blog-content h2 {
+    color: #0f766e;
+    font-size: clamp(24px, 3vw, 30px);
+    line-height: 1.25;
+    margin-top: 40px;
+}
+
+.blog-content p {
+    font-size: 17px;
+    line-height: 1.9;
+    margin: 20px 0;
+}
+
+.blog-content img {
+    background: linear-gradient(135deg, #ccfbf1, #e0f2fe);
+    border-radius: 16px;
+    display: block;
+    margin: 20px 0;
+    max-height: 380px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.blog-intro {
+    font-size: 19px;
+}
+
+.blog-content ul {
+    padding-left: 20px;
+}
+
+.blog-content li {
+    line-height: 1.7;
+    margin: 10px 0;
+}
+
+.blog-tip {
+    background: #dcfce7;
+    border-left: 6px solid #16a34a;
+    border-radius: 12px;
+    margin: 25px 0;
+    padding: 20px;
+}
+
+.blog-highlight {
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    border-radius: 18px;
+    color: white;
+    margin-top: 40px;
+    padding: 35px;
+}
+
+.blog-highlight p {
+    margin-bottom: 0;
+}
+
+.blog-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sidebar-card {
+    padding: 30px;
+}
+
+.sidebar-card h3 {
+    color: #0f766e;
+    margin-bottom: 20px;
+}
+
+.sidebar-card ul {
+    list-style: none;
+}
+
+.sidebar-card li {
+    margin: 15px 0;
+}
+
+.sidebar-card a {
+    color: #334155;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.sidebar-card a:hover {
+    color: #0f766e;
+}
+
+.contact-card {
+    background: #0f172a;
+    color: white;
+}
+
+.contact-card h3 {
+    color: white;
+}
+
+.contact-card p {
+    color: rgba(255, 255, 255, .78);
+    line-height: 1.7;
+}
+
+.btn-contact {
+    background: #14b8a6;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-weight: 700;
+    margin-top: 15px;
+    padding: 12px 25px;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.btn-contact:hover {
+    background: #0f766e;
+}
+
+footer {
+    background: #0f172a;
+    color: rgba(255, 255, 255, .75);
+    font-size: 14px;
+    padding: 22px;
+    text-align: center;
+}
+
+footer a {
+    color: #5eead4;
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .header-inner,
+    .nav-links {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .blog-container {
+        grid-template-columns: 1fr;
+        padding: 40px 18px;
+    }
+
+    .blog-content {
+        padding: 25px;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+    <div class="header-inner">
+        <a class="brand" href="Farmacia.html">Farmacias Yair</a>
+        <nav class="nav-links" aria-label="Navegacion principal">
+            <a href="menu_blogs.html">Blogs</a>
+            <a href="catalogo_mayor.html">Catalogo adulto mayor</a>
+            <a href="Farmacia.html">Inicio</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="blog-post">
+        <div class="blog-hero">
+            <img src="img/adulto-mayor-salud.jpg" alt="Consejos de salud para personas mayores">
+            <div class="blog-overlay">
+                <h1>Consejos para Personas Mayores: como mantener una vida saludable y activa</h1>
+                <p>Cuida tu salud fisica y emocional con habitos sencillos para una mejor calidad de vida.</p>
+            </div>
+        </div>
+
+        <div class="blog-container">
+            <article class="blog-content">
+                <p class="blog-intro">
+                    Con el paso de los anos, mantener una buena salud se vuelve mas importante que nunca.
+                    Una alimentacion adecuada, actividad fisica y revisiones medicas periodicas pueden ayudar
+                    a mejorar la calidad de vida de las personas mayores. En Farmacias Yair nos preocupamos
+                    por tu bienestar y te compartimos algunos consejos esenciales.
+                </p>
+
+                <h2>1. Mantener una alimentacion balanceada</h2>
+                <img src="img/alimentacion-saludable.jpg" alt="Alimentacion saludable para adultos mayores">
+
+                <p>
+                    Consumir frutas, verduras, proteinas y suficiente agua ayuda a fortalecer el organismo
+                    y prevenir enfermedades. Tambien es importante reducir el consumo de azucar, sal y grasas saturadas.
+                </p>
+
+                <ul>
+                    <li>Consumir alimentos ricos en calcio y vitamina D.</li>
+                    <li>Evitar comidas ultraprocesadas.</li>
+                    <li>Mantener horarios regulares de alimentacion.</li>
+                    <li>Tomar suficiente agua durante el dia.</li>
+                </ul>
+
+                <h2>2. Realizar actividad fisica</h2>
+                <img src="img/actividad-fisica-mayores.jpg" alt="Actividad fisica para adultos mayores">
+
+                <p>
+                    El ejercicio ayuda a mejorar la movilidad, fortalecer musculos y mantener el corazon saludable.
+                    Caminar diariamente, realizar estiramientos o ejercicios suaves puede marcar una gran diferencia.
+                </p>
+
+                <div class="blog-tip">
+                    <strong>Tip:</strong> Realizar al menos 30 minutos de actividad fisica ligera diariamente.
+                </div>
+
+                <h2>3. Controlar la presion y el azucar</h2>
+                <img src="img/control-presion.jpg" alt="Control de presion arterial">
+
+                <p>
+                    Revisar constantemente la presion arterial y los niveles de glucosa permite detectar
+                    problemas de salud a tiempo. Es importante seguir las indicaciones medicas y tomar los medicamentos correctamente.
+                </p>
+
+                <h2>4. Dormir bien</h2>
+                <img src="img/dormir-bien.jpg" alt="Buen descanso para adultos mayores">
+
+                <p>
+                    Dormir entre 7 y 8 horas ayuda a mejorar el estado de animo, la memoria y la energia.
+                    Mantener horarios regulares de sueno es fundamental.
+                </p>
+
+                <h2>5. Mantenerse activo socialmente</h2>
+                <img src="img/socializar-adultos.jpg" alt="Adultos mayores socializando">
+
+                <p>
+                    Compartir tiempo con familiares y amigos ayuda a evitar la soledad y mejorar la salud emocional.
+                    Participar en actividades recreativas tambien fortalece la mente.
+                </p>
+
+                <div class="blog-highlight">
+                    <h3>En Farmacias Yair cuidamos de ti</h3>
+                    <p>
+                        Encuentra medicamentos, vitaminas y productos para el cuidado integral de los adultos mayores.
+                        Nuestro compromiso es brindar salud y bienestar para toda la familia.
+                    </p>
+                </div>
+            </article>
+
+            <aside class="blog-sidebar">
+                <div class="sidebar-card">
+                    <h3>Temas relacionados</h3>
+                    <ul>
+                        <li><a href="catalogo_mayor.html">Vitaminas para adultos mayores</a></li>
+                        <li><a href="blog_natural.html">Consejos para cuidar tu salud</a></li>
+                        <li><a href="blog_bucal.html">Salud bucal y bienestar general</a></li>
+                        <li><a href="menu_blogs.html">Mas articulos de salud</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card contact-card">
+                    <h3>Necesitas ayuda?</h3>
+                    <p>Contactanos para encontrar los mejores productos para tu salud.</p>
+                    <a href="Farmacia.html#contacto" class="btn-contact">Contactar</a>
+                </div>
+            </aside>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 <a href="Farmacia.html">Farmacias Yair</a> | Blog Adulto Mayor</p>
+</footer>
+</body>
+</html>
