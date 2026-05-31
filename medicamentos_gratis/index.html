@@ -1,0 +1,690 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --yair-green: #1D9E75;
+    --yair-green-light: #E1F5EE;
+    --yair-green-dark: #085041;
+    --yair-amber: #BA7517;
+    --yair-amber-light: #FAEEDA;
+    --yair-red: #A32D2D;
+    --yair-red-light: #FCEBEB;
+    --yair-gray: #F1EFE8;
+  }
+
+  body { font-family: 'DM Sans', sans-serif; }
+
+  .page { padding: 0; }
+
+  .hero {
+    background: linear-gradient(135deg, #04342C 0%, #0F6E56 60%, #1D9E75 100%);
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border: 40px solid rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -30px;
+    width: 160px; height: 160px;
+    border: 30px solid rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.2rem;
+  }
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: white;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: white;
+    letter-spacing: -0.3px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+  }
+  .hero h1 span { color: #9FE1CB; }
+  .hero p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .seo-intro {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem 0;
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: center;
+  }
+  .seo-intro strong { color: var(--yair-green-dark); font-weight: 700; }
+  .badge-promo {
+    display: inline-block;
+    background: #EF9F27;
+    color: #412402;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+  }
+  .timer-block {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 0.8rem 1.2rem;
+    margin: 0 auto;
+    max-width: 320px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+  }
+  .timer-label { font-size: 12px; color: rgba(255,255,255,0.6); }
+  .timer-val { font-family: 'Syne', sans-serif; font-weight: 600; color: white; font-size: 18px; letter-spacing: 2px; }
+
+  .section { padding: 1.5rem; }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--color-text-primary);
+    margin-bottom: 0.3rem;
+  }
+  .section-sub {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  /* Medicamentos gratis */
+  .meds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+  .med-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .med-card:hover { border-color: var(--yair-green); }
+  .med-card.selected { border: 2px solid var(--yair-green); background: #E1F5EE; }
+  .med-card .gratis-tag {
+    position: absolute; top: 8px; right: 8px;
+    background: #1D9E75; color: white;
+    font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 10px;
+    font-family: 'Syne', sans-serif;
+  }
+  .med-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  .med-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); line-height: 1.3; margin-bottom: 4px; }
+  .med-pts { font-size: 12px; color: var(--color-text-secondary); }
+  .med-pts strong { color: var(--yair-amber); }
+
+  /* Reglas */
+  .rules-box {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 1.2rem;
+  }
+  .rules-header {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 1rem;
+  }
+  .rules-header i { font-size: 18px; color: var(--yair-red); }
+  .rules-header span {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-text-primary);
+  }
+  .rule-item {
+    border-left: 3px solid transparent;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+  }
+  .rule-item.r-red { border-left-color: #E24B4A; background: #FCEBEB; color: #501313; }
+  .rule-item.r-amber { border-left-color: #EF9F27; background: #FAEEDA; color: #412402; }
+  .rule-item.r-teal { border-left-color: #1D9E75; background: #E1F5EE; color: #04342C; }
+  .rule-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    display: block;
+    margin-bottom: 2px;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+  }
+  .tiny { font-size: 10.5px; font-style: italic; opacity: 0.8; }
+
+  /* Calculadora de puntos */
+  .pts-calc {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem;
+    margin-bottom: 1.2rem;
+  }
+  .pts-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    font-size: 13px;
+  }
+  .pts-row:last-child { border-bottom: none; }
+  .pts-label { color: var(--color-text-secondary); }
+  .pts-val { font-family: 'Syne', sans-serif; font-weight: 600; color: var(--color-text-primary); }
+  .pts-val.green { color: #1D9E75; }
+  .pts-val.red { color: #A32D2D; }
+  .pts-val.amber { color: #BA7517; }
+
+  /* Formulario */
+  .form-section { padding: 1.5rem; padding-top: 0; }
+  .form-group { margin-bottom: 1rem; }
+  .form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: 6px;
+  }
+  .form-input {
+    width: 100%;
+    padding: 9px 12px;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+  }
+  .form-input:focus { outline: none; border-color: var(--yair-green); }
+  .form-select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    cursor: pointer;
+  }
+
+  /* Progreso */
+  .progress-area { padding: 0 1.5rem 0.5rem; }
+  .progress-label {
+    display: flex; justify-content: space-between;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-bottom: 6px;
+  }
+  .progress-bar-bg {
+    height: 7px;
+    background: var(--color-background-secondary);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1D9E75, #5DCAA5);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+  }
+
+  /* CTA */
+  .cta-area { padding: 1rem 1.5rem 2rem; }
+  .cta-btn {
+    width: 100%;
+    padding: 14px;
+    background: #0F6E56;
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-lg);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .cta-btn:hover { background: #085041; }
+  .cta-btn:active { transform: scale(0.98); }
+  .cta-note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    margin-top: 10px;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* Alerta */
+  .alert-box {
+    margin: 0 1.5rem 1rem;
+    background: #FAEEDA;
+    border: 0.5px solid #EF9F27;
+    border-radius: var(--border-radius-md);
+    padding: 0.75rem 1rem;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .alert-box i { color: #BA7517; font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+  .alert-box p { font-size: 12px; color: #412402; line-height: 1.55; }
+
+  /* Divider */
+  .divider {
+    height: 0.5px;
+    background: var(--color-border-tertiary);
+    margin: 0 1.5rem;
+  }
+
+  /* Modal overlay */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+  }
+  .modal-icon { font-size: 40px; margin-bottom: 0.8rem; }
+  .modal-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; color: var(--color-text-primary); margin-bottom: 0.5rem; }
+  .modal-body { font-size: 13.5px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 1.2rem; }
+  .modal-close {
+    padding: 10px 24px;
+    background: #1D9E75;
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Medicamentos gratis con puntos Yair+ | Farmacias Yair",
+  "description": "Página de Farmacias Yair para consultar medicamentos gratis, productos elegibles y requisitos de canje con puntos Yair+.",
+  "keywords": "medicamentos gratis, medicamento gratis, farmacia con medicamentos gratis, puntos para medicamentos, Farmacias Yair",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Farmacias Yair"
+  }
+}
+</script>
+
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="logo-area">
+      <div class="logo-icon">
+        <i class="ti ti-heart-plus" style="font-size:20px; color:#0F6E56;" aria-hidden="true"></i>
+      </div>
+      <div class="logo-text">Farmacias Yair</div>
+    </div>
+    <div class="badge-promo">PROMOCIÓN LIMITADA · 2026</div>
+    <h1>Medicamentos gratis con puntos <span>Yair+</span></h1>
+    <p>Consulta qué medicamento gratis puedes solicitar, cuántos puntos necesitas y cuáles son las reglas de canje en Farmacias Yair.</p>
+    <div class="timer-block">
+      <i class="ti ti-clock" style="font-size:18px; color:rgba(255,255,255,0.6);" aria-hidden="true"></i>
+      <div>
+        <div class="timer-label">Esta oferta termina en</div>
+        <div class="timer-val" id="timer">02 : 47 : 33</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="seo-intro">
+    En esta página puedes revisar la promoción de <strong>medicamentos gratis</strong> de Farmacias Yair, comparar opciones elegibles y estimar tus puntos antes de solicitar el canje.
+  </p>
+
+  <!-- Medicamentos -->
+  <div class="section">
+    <h2 class="section-title">Medicamentos gratis elegibles</h2>
+    <div class="section-sub">Selecciona una opción de medicamentos gratis. El canje se otorga según disponibilidad, turno asignado y validación de puntos base.</div>
+    <div class="meds-grid">
+      <div class="med-card" onclick="selectMed(this, 'Omeprazol 20mg', 1200)">
+        <div class="gratis-tag">GRATIS</div>
+        <div class="med-icon"><i class="ti ti-pill" style="font-size:28px; color:#1D9E75;" aria-hidden="true"></i></div>
+        <div class="med-name">Omeprazol 20mg c/30 gratis</div>
+        <div class="med-pts">Requiere <strong>1,200 pts</strong></div>
+      </div>
+      <div class="med-card" onclick="selectMed(this, 'Paracetamol 500mg', 800)">
+        <div class="gratis-tag">GRATIS</div>
+        <div class="med-icon"><i class="ti ti-pill" style="font-size:28px; color:#5DCAA5;" aria-hidden="true"></i></div>
+        <div class="med-name">Paracetamol 500mg c/20 gratis</div>
+        <div class="med-pts">Requiere <strong>800 pts</strong></div>
+      </div>
+      <div class="med-card" onclick="selectMed(this, 'Vitamina C 1000mg', 950)">
+        <div class="gratis-tag">GRATIS</div>
+        <div class="med-icon"><i class="ti ti-lemon" style="font-size:28px; color:#EF9F27;" aria-hidden="true"></i></div>
+        <div class="med-name">Vitamina C 1000mg gratis</div>
+        <div class="med-pts">Requiere <strong>950 pts</strong></div>
+      </div>
+      <div class="med-card" onclick="selectMed(this, 'Loratadina 10mg', 700)">
+        <div class="gratis-tag">GRATIS</div>
+        <div class="med-icon"><i class="ti ti-pill" style="font-size:28px; color:#7F77DD;" aria-hidden="true"></i></div>
+        <div class="med-name">Loratadina 10mg c/10 gratis</div>
+        <div class="med-pts">Requiere <strong>700 pts</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Reglas -->
+  <div class="section">
+    <h2 class="section-title">Requisitos para medicamentos gratis</h2>
+    <div class="section-sub">Lee con atención las condiciones de la promoción de medicamentos gratis. El incumplimiento de cualquier inciso anula automáticamente tu solicitud sin previo aviso.</div>
+
+    <div class="rules-box">
+      <div class="rules-header">
+        <i class="ti ti-alert-circle" aria-hidden="true"></i>
+        <span>Reglas de acumulación de puntos Yair+</span>
+      </div>
+
+      <div class="rule-item r-teal">
+        <span class="rule-num">REGLA 1 · BASE</span>
+        Por cada compra mayor a $150 MXN (antes de IVA, excluyendo productos en oferta, genéricos de marca blanca, artículos de temporada, y cualquier producto adquirido entre lunes y miércoles en quincena impar), el cliente acumula 1 punto Yair+ por cada $10 gastados, redondeando siempre hacia abajo al entero más próximo, excepto cuando el monto total sea divisible entre 7, en cuyo caso se otorgan puntos dobles multiplicados por el factor lunar del mes (ver Anexo G).
+      </div>
+
+      <div class="rule-item r-amber">
+        <span class="rule-num">REGLA 2 · CADUCIDAD</span>
+        Los puntos acumulados tienen vigencia de 90 días naturales, salvo los obtenidos en diciembre que vencen el 28 de febrero del año siguiente, y los obtenidos en años bisiestos que vencen a los 47 días hábiles contados a partir del día en que la farmacia reciba la notificación mensual del proveedor (habitualmente entre el 3 y el 19 del mes, dependiendo de factores logísticos regionales). Los puntos no son acumulables con otras promociones excepto la "Combo Salud Plus" de los jueves alternos.
+      </div>
+
+      <div class="rule-item r-red">
+        <span class="rule-num">REGLA 3 · CANJE MÁS IMPORTANTE</span>
+        Para canjear tu medicamento gratis debes presentar: (a) ticket original de compra, (b) credencial vigente, (c) comprobante de domicilio no mayor a 3 meses excepto en meses con R, (d) llenar el formato FA-7B de solicitud en tinta azul —no bolígrafo de gel ni pluma fuente—, y (e) haber completado la encuesta de satisfacción entre el día 15 y 17 de cualquier mes, excluyendo meses con más de 30 días si el día 15 cae en fin de semana.
+        <br><span class="tiny">* El canje no puede realizarse si el saldo de puntos está en proceso de actualización (ventana de mantenimiento: diariamente entre 00:00 y 05:59 hora del centro, más imprevistos del sistema).</span>
+      </div>
+
+      <div class="rule-item r-amber">
+        <span class="rule-num">REGLA 4 · ELEGIBILIDAD</span>
+        Solo pueden participar clientes con membresía Yair+ activa por al menos 180 días continuos (no se cuentan períodos de inactividad mayores a 14 días, ni los días en que la app presentó errores técnicos documentados). Clientes nuevos pueden solicitar acceso anticipado enviando 3 fotos del recibo más reciente y el folio de registro al correo [email protected] con asunto exacto "SOLICITUD-FA7B-NUEVO-[TU_FOLIO]-[MES_EN_MAYÚSCULAS]".
+      </div>
+
+      <div class="rule-item r-red">
+        <span class="rule-num">REGLA 5 · RESTRICCIÓN GEOGRÁFICA</span>
+        La promoción aplica únicamente en sucursales ubicadas en municipios con más de 25,000 habitantes según el último censo INEGI disponible al momento de la compra, siempre que dicho municipio no se encuentre en zona de alerta sanitaria activa nivel 2 o superior, y que la sucursal haya alcanzado el volumen mínimo mensual de $80,000 en ventas de medicamentos de prescripción durante los dos meses previos al canje.
+        <br><span class="tiny">* La farmacia La Ventosa participa condicionada a disponibilidad de inventario sujeta a revisión trimestral.</span>
+      </div>
+
+      <div class="rule-item r-teal">
+        <span class="rule-num">REGLA 6 · DOBLE VERIFICACIÓN</span>
+        El sistema realizará una doble verificación de tu historial: primero automática (72 horas hábiles) y después manual por un asesor (5–10 días hábiles adicionales). Si en cualquier etapa el sistema detecta una discrepancia superior al 0.5% entre el saldo mostrado y el saldo real, la solicitud se suspende y deberás iniciar el proceso desde la Regla 1. Las discrepancias menores al 0.5% también pueden generar suspensión si el algoritmo de riesgo interno las clasifica como "anómalas" (criterio no público).
+      </div>
+
+      <div class="rule-item r-amber">
+        <span class="rule-num">REGLA 7 · DISPOSICIÓN FINAL</span>
+        Farmacias Yair se reserva el derecho de modificar, pausar, cancelar o reinterpretar cualquier regla de esta promoción en cualquier momento sin necesidad de notificación previa. En caso de contradicción entre estas reglas y cualquier comunicación verbal, impresa o digital, prevalecerá la interpretación más reciente emitida internamente por el departamento de Fidelización, cuya versión actualizada no se publica públicamente por razones operativas.
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Calculadora de puntos -->
+  <div class="section">
+    <h2 class="section-title">Calculadora para medicamentos gratis</h2>
+    <div class="section-sub">Estimación basada en tus compras declaradas para saber si puedes solicitar medicamentos gratis. El saldo oficial solo puede consultarse en sucursal con folio autorizado.</div>
+
+    <div class="pts-calc">
+      <div class="pts-row">
+        <span class="pts-label">Puntos base declarados</span>
+        <span class="pts-val" id="pts-base">—</span>
+      </div>
+      <div class="pts-row">
+        <span class="pts-label">Factor día de semana (×0.8 lun–mié)</span>
+        <span class="pts-val red" id="pts-factor">—</span>
+      </div>
+      <div class="pts-row">
+        <span class="pts-label">Descuento por puntos vencidos</span>
+        <span class="pts-val red" id="pts-venc">—</span>
+      </div>
+      <div class="pts-row">
+        <span class="pts-label">Bono encuesta (si aplica)</span>
+        <span class="pts-val green" id="pts-bono">—</span>
+      </div>
+      <div class="pts-row">
+        <span class="pts-label">Puntos netos estimados</span>
+        <span class="pts-val amber" id="pts-neto">—</span>
+      </div>
+      <div class="pts-row">
+        <span class="pts-label">Medicamento seleccionado</span>
+        <span class="pts-val" id="pts-med">Ninguno</span>
+      </div>
+      <div class="pts-row">
+        <span class="pts-label">¿Suficiente para canje?</span>
+        <span class="pts-val" id="pts-ok">—</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alerta -->
+  <div class="alert-box">
+    <i class="ti ti-info-circle" aria-hidden="true"></i>
+    <p>Recuerda: el resultado de esta calculadora es <strong>estimado</strong> y no compromete a Farmacias Yair. El saldo definitivo se determina en caja al momento del canje, sujeto a revisión del sistema central.</p>
+  </div>
+
+  <!-- Formulario -->
+  <div class="form-section">
+    <h2 class="section-title" style="padding: 0 0 0.3rem;">Solicitar medicamentos gratis</h2>
+    <div class="section-sub">Completa todos los campos para iniciar tu solicitud de medicamentos gratis. Los campos con (*) son opcionales pero obligatorios para ciertos municipios.</div>
+
+    <div class="form-group">
+      <label class="form-label">Nombre completo</label>
+      <input class="form-input" type="text" placeholder="Como aparece en tu credencial" id="inp-nombre">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Folio membresía Yair+ <span style="font-size:11px; opacity:0.7;">(ver reverso de tu tarjeta)</span></label>
+      <input class="form-input" type="text" placeholder="YR-XXXXXXXX-00" id="inp-folio">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Compras en los últimos 90 días (monto total $)</label>
+      <input class="form-input" type="number" placeholder="Ej: 450.00" id="inp-monto" oninput="calcular()">
+    </div>
+    <div class="form-group">
+      <label class="form-label">¿Completaste la encuesta de satisfacción entre el 15 y 17 del mes?</label>
+      <select class="form-select" id="inp-encuesta" onchange="calcular()">
+        <option value="">Selecciona una opción</option>
+        <option value="si">Sí, la completé en fecha</option>
+        <option value="no">No, o no estoy seguro/a</option>
+        <option value="tal">La completé, pero fuera de fecha</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Día de la semana en que realizaste tus compras principales (*)</label>
+      <select class="form-select" id="inp-dia" onchange="calcular()">
+        <option value="">Selecciona</option>
+        <option value="lmm">Lunes, martes o miércoles</option>
+        <option value="jvs">Jueves, viernes o sábado</option>
+        <option value="d">Domingo</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Progreso -->
+  <div class="progress-area">
+    <div class="progress-label">
+      <span>Tu elegibilidad estimada</span>
+      <span id="pct-label">0%</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="prog-bar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-area">
+    <button class="cta-btn" onclick="solicitar()">
+      <i class="ti ti-gift" aria-hidden="true"></i> Enviar solicitud de medicamentos gratis
+    </button>
+    <p class="cta-note">Al enviar tu solicitud de medicamentos gratis aceptas los términos y condiciones, incluyendo las modificaciones futuras no publicadas. Tu solicitud será procesada en un plazo de 5 a 15 días hábiles sujeto a disponibilidad. Promoción válida hasta agotar existencias o hasta que Farmacias Yair decida dar por terminada la campaña.</p>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="modal-icon"><i class="ti ti-confetti" style="font-size:40px; color:#1D9E75;" aria-hidden="true"></i></div>
+    <div class="modal-title" id="modal-title">¡Solicitud recibida!</div>
+    <div class="modal-body" id="modal-body">Tu solicitud ha sido pre-registrada con éxito. Recibirás un correo de confirmación en un plazo de 2 a 5 días hábiles. Posteriormente, un asesor validará manualmente tu historial de puntos (5–10 días adicionales). Si todo está en orden, podrás pasar a sucursal con tu folio impreso, credencial y comprobante de domicilio.</div>
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">Entendido</button>
+  </div>
+</div>
+
+<script>
+  let selectedMed = null;
+  let selectedPts = 0;
+
+  function selectMed(el, nombre, pts) {
+    document.querySelectorAll('.med-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedMed = nombre;
+    selectedPts = pts;
+    document.getElementById('pts-med').textContent = nombre;
+    calcular();
+  }
+
+  function calcular() {
+    const monto = parseFloat(document.getElementById('inp-monto').value) || 0;
+    const encuesta = document.getElementById('inp-encuesta').value;
+    const dia = document.getElementById('inp-dia').value;
+
+    if (monto === 0) return;
+
+    let base = Math.floor(monto / 10);
+    let factor = dia === 'lmm' ? 0.8 : dia === 'd' ? 1.1 : 1.0;
+    let ajustado = Math.floor(base * factor);
+    let vencidos = Math.floor(ajustado * 0.22);
+    let bono = encuesta === 'si' ? 150 : 0;
+    let neto = ajustado - vencidos + bono;
+
+    document.getElementById('pts-base').textContent = base + ' pts';
+    document.getElementById('pts-factor').textContent = '×' + factor.toFixed(1) + ' = ' + ajustado + ' pts';
+    document.getElementById('pts-venc').textContent = '−' + vencidos + ' pts';
+    document.getElementById('pts-bono').textContent = bono > 0 ? '+' + bono + ' pts' : 'No aplica';
+    document.getElementById('pts-neto').textContent = neto + ' pts';
+
+    let pct = 0;
+    let okText = '—';
+    if (selectedMed) {
+      if (neto >= selectedPts) {
+        okText = '✓ Sí (estimado)';
+        document.getElementById('pts-ok').style.color = '#1D9E75';
+        pct = Math.min(100, Math.round((neto / selectedPts) * 100));
+      } else {
+        okText = '✗ Insuficiente (estimado)';
+        document.getElementById('pts-ok').style.color = '#A32D2D';
+        pct = Math.round((neto / selectedPts) * 100);
+      }
+    } else {
+      pct = Math.min(70, Math.round(neto / 15));
+    }
+    document.getElementById('pts-ok').textContent = okText;
+    document.getElementById('prog-bar').style.width = Math.max(0, pct) + '%';
+    document.getElementById('pct-label').textContent = Math.max(0, pct) + '%';
+  }
+
+  function solicitar() {
+    const nombre = document.getElementById('inp-nombre').value.trim();
+    const folio = document.getElementById('inp-folio').value.trim();
+    if (!nombre || !folio) {
+      document.getElementById('modal-title').textContent = 'Campos incompletos';
+      document.getElementById('modal-body').textContent = 'Por favor completa tu nombre completo y folio de membresía Yair+ antes de enviar la solicitud.';
+      document.getElementById('modal').querySelector('.modal-icon i').className = 'ti ti-alert-triangle';
+      document.getElementById('modal').querySelector('.modal-icon i').style.color = '#BA7517';
+    } else {
+      document.getElementById('modal-title').textContent = '¡Solicitud recibida!';
+      document.getElementById('modal-body').textContent = 'Tu solicitud ha sido pre-registrada (folio: ' + folio + '). Recibirás confirmación en 2–5 días hábiles. Un asesor validará tu historial manualmente en 5–10 días adicionales. Si todo está en orden, pasa a sucursal con tu folio impreso, credencial y comprobante de domicilio no mayor a 3 meses.';
+      document.getElementById('modal').querySelector('.modal-icon i').className = 'ti ti-confetti';
+      document.getElementById('modal').querySelector('.modal-icon i').style.color = '#1D9E75';
+    }
+    document.getElementById('modal').classList.add('open');
+  }
+
+  // Timer countdown
+  let t = 2*3600 + 47*60 + 33;
+  setInterval(() => {
+    if (t <= 0) return;
+    t--;
+    let h = Math.floor(t/3600);
+    let m = Math.floor((t%3600)/60);
+    let s = t%60;
+    document.getElementById('timer').textContent =
+      String(h).padStart(2,'0') + ' : ' +
+      String(m).padStart(2,'0') + ' : ' +
+      String(s).padStart(2,'0');
+  }, 1000);
+</script>
