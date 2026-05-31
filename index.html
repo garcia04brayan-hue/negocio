@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Farmacias Yair</title>
-  <meta name="description" content="Farmacia online en M&eacute;xico con medicamentos, vitaminas, productos dermatol&oacute;gicos, cuidado personal y art&iacute;culos para toda la familia. Compra en Farmacias Yair." />
+  <title>Medicamentos en La Ventosa | Farmacias Yair</title>
+  <meta name="description" content="Compra medicamentos en La Ventosa, Oaxaca en Farmacias Yair. Encuentra medicamentos gen&eacute;ricos, vitaminas, cuidado personal y productos de salud con atenci&oacute;n cercana." />
+  <meta name="keywords" content="medicamentos en La Ventosa, farmacia en La Ventosa, comprar medicamentos La Ventosa Oaxaca, medicamentos gen&eacute;ricos La Ventosa, Farmacias Yair" />
   <link rel="canonical" href="https://farmaciasyair.com/" />
-  <meta property="og:title" content="Farmacias Yair - Farmacia online en M&eacute;xico" />
-  <meta property="og:description" content="Compra medicamentos online, vitaminas, productos dermatol&oacute;gicos y cuidado personal con env&iacute;o r&aacute;pido en M&eacute;xico." />
+  <meta property="og:title" content="Medicamentos en La Ventosa, Oaxaca | Farmacias Yair" />
+  <meta property="og:description" content="Farmacia en La Ventosa con medicamentos gen&eacute;ricos, vitaminas, cuidado personal y productos de salud para toda la familia." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://farmaciasyair.com/" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/farmacia_img.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Medicamentos en La Ventosa | Farmacias Yair" />
+  <meta name="twitter:description" content="Compra medicamentos, vitaminas y productos de salud en La Ventosa, Oaxaca con Farmacias Yair." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/farmacia_img.png" />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;
   900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.ico">
@@ -370,6 +376,11 @@
     .hero-banner:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,0.18); }
     .hero-banner.skin {
       background: linear-gradient(135deg, #7b4fa2 0%, #e91e63 60%, #ff8c00 100%);
+    }
+    .hero-banner.verano {
+      background:
+        radial-gradient(circle at 88% 16%, rgba(255,255,255,0.22), transparent 28%),
+        linear-gradient(135deg, #f4a52b 0%, #43a867 58%, #3aaed8 100%);
     }
     .hero-banner.promo {
       background: linear-gradient(135deg, #00695c 0%, #00bcd4 60%, #1a237e 100%);
@@ -835,7 +846,10 @@
 
     .hero-image {
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      gap: 16px;
     }
 
     .hero-image img {
@@ -845,6 +859,27 @@
       border-radius: 14px;
       box-shadow: 0 16px 40px rgba(0,0,0,0.14);
       background: var(--white);
+    }
+
+    .image-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 20px;
+      border-radius: 24px;
+      background: var(--green-dark);
+      color: var(--white);
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(56, 142, 60, 0.24);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .image-cta:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.14);
     }
 
     .seo-block {
@@ -896,6 +931,27 @@
       .hero-buttons a { width: 100%; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Pharmacy",
+    "name": "Farmacias Yair",
+    "url": "https://farmaciasyair.com/",
+    "image": "https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/farmacia_img.png",
+    "logo": "https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/logo.png",
+    "description": "Farmacia en La Ventosa, Oaxaca con medicamentos genéricos, vitaminas, productos de cuidado personal y artículos de salud.",
+    "areaServed": {
+      "@type": "Place",
+      "name": "La Ventosa, Oaxaca, México"
+    },
+    "knowsAbout": [
+      "medicamentos en La Ventosa",
+      "medicamentos genéricos",
+      "vitaminas",
+      "cuidado personal"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -911,13 +967,13 @@
 
     <!-- Menu -->
     <nav class="nav">
-        <a href="https://www.farmaciasyair.com/menu_productos">Categorias</a>
-        <a href="https://www.farmaciasyair.com/catalogo_bebes">Bebes</a>
-        <a href="https://www.farmaciasyair.com/catalogo_bellesa">Dermo</a>
-        <a href="https://www.farmaciasyair.com/catalogo_medicamentos">Genericos</a>
-        <a href="https://www.farmaciasyair.com/catalogo_natural">Natural</a>
-        <a href="https://www.farmaciasyair.com/catalogo_auxilos">Primeros auxilios</a>
-        <a href="https://www.farmaciasyair.com/catalogo_bucal">Cuidado Oral</a>
+        <a href="#categorias">Categorias</a>
+        <a href="catalogo_bebe.html">Bebes</a>
+        <a href="catalogo_bellesa.html">Dermo</a>
+        <a href="#medicamentos">Genericos</a>
+        <a href="catalogo_natural.html">Natural</a>
+        <a href="catalogo_nutricion.html">Nutricion</a>
+        <a href="blog_bucal.html">Cuidado Oral</a>
     </nav>
 </header>
 
@@ -926,29 +982,34 @@
 
     <!-- CONTENIDO IZQUIERDO -->
     <div class="hero-content">
+
+        <!-- TITULO PRINCIPAL SEO -->
+        <!-- IMPORTANTE:
+        Solo debe existir UN H1 en toda la pagina -->
         <h1>
-            Farmacia Online en M&eacute;xico con Medicamentos,
-            Vitaminas y Cuidado Personal
+            Medicamentos en La Ventosa, Oaxaca
+            con Farmacias Yair
         </h1>
 
         <!-- TEXTO SEO -->
         <p>
-            Compra medicamentos online, vitaminas, productos dermatol&oacute;gicos,
+            Compra medicamentos en La Ventosa, vitaminas, productos dermatol&oacute;gicos,
             cuidado personal y art&iacute;culos para toda la familia.
             En Farmacias Yair encuentras medicamentos gen&eacute;ricos,
-            productos farmac&eacute;uticos y env&iacute;o r&aacute;pido en M&eacute;xico.
+            productos farmac&eacute;uticos y atenci&oacute;n cercana en Oaxaca.
         </p>
 
         <!-- BOTONES -->
         <div class="hero-buttons">
-            <a href="https://www.farmaciasyair.com/menu_productos" class="btn-primary">Ver Medicamentos</a>
-            <a href="https://www.farmaciasyair.com/farmacia_las_conchas" class="btn-secondary">Descubre nuestras sucursales</a>
+            <a href="#medicamentos" class="btn-primary">Ver medicamentos en La Ventosa</a>
+            <a href="#categorias" class="btn-secondary">Explorar Categor&iacute;as</a>
         </div>
     </div>
 
     <!-- IMAGEN HERO -->
     <div class="hero-image">
-        <img src="img/hero-farmacia.png" alt="Farmacia online en M&eacute;xico">
+        <img src="https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/farmacia_img.png" alt="Farmacias Yair con medicamentos en La Ventosa, Oaxaca">
+        <a href="https://www.farmaciasyair.com/medicamentos_gratis" class="image-cta">Comprar medicamentos en La Ventosa</a>
     </div>
 
 </section>
@@ -956,7 +1017,7 @@
 <section class="seo-block">
   <h2>Medicamentos y vitaminas en La Ventosa, Oaxaca</h2>
   <p>
-    Somos una farmacia en La Ventosa especializada en ofrecer <strong>medicamentos gen&eacute;ricos,
+    Somos una farmacia en La Ventosa especializada en ofrecer <strong>medicamentos en La Ventosa, medicamentos gen&eacute;ricos,
     vitaminas, suplementos nutricionales y productos naturistas</strong> a precios accesibles.
     Atendemos a toda la comunidad del Istmo de Tehuantepec con compromiso y calidad.
   </p>
@@ -967,8 +1028,9 @@
   </p>
   <p>
     Nuestra farmacia en La Ventosa ofrece soluciones en salud, nutrici&oacute;n y bienestar,
-    con productos confiables y asesor&iacute;a para elegir las mejores vitaminas y tratamientos.
+    con productos confiables y asesor&iacute;a para elegir los mejores medicamentos, vitaminas y tratamientos.
   </p>
+  <a href="#medicamentos" class="btn-primary">Ver productos y medicamentos en La Ventosa</a>
 </section>
 
 <!-- MAIN CONTENT -->
@@ -976,7 +1038,7 @@
 <div class="main-content">
   <!-- Hero banners -->
   <div class="hero-grid">
-  <a href="https://www.farmaciasyair.com/seccion_verano" class="hero-banner verano" style="text-decoration: none; color: inherit; display: block;">
+  <a href="seccion_verano.html" class="hero-banner verano" style="text-decoration: none; color: inherit; display: block;">
     <div class="hero-deco">&#9728;</div>
     <div class="hero-content">
       <span class="hero-tag">Verano y salud preventiva</span>
@@ -997,7 +1059,7 @@
 </div>
 
   <!-- Categories -->
-  <div>
+  <div id="medicamentos">
   <div class="section-header">
     <h3>Explorar nuestros blogs</h3>
     <a class="see-all" href="https://www.farmaciasyair.com/menu_blogs">Ver todos los blogs →</a>
