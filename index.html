@@ -974,6 +974,7 @@
         <a href="https://www.farmaciasyair.com/catalogo_netural">Natural</a>
         <a href="https://www.farmaciasyair.com/catalogo_nutricion">Nutricion</a>
         <a href="https://www.farmaciasyair.com/catalogo_bucal">Cuidado Oral</a>
+        <a href="carrito.html">Carrito</a>
     </nav>
 </header>
 
@@ -1110,7 +1111,7 @@
     <div class="container">
     <div class="section-header">
         <h3>Productos del día</h3>
-        <a class="see-all" href="#">Ver todos →</a>
+        <a class="see-all" href="carrito.html">Ver todos →</a>
     </div>
     
     <!-- Grid responsivo: se ordena SOLO en columnas según espacio disponible -->
@@ -1229,3 +1230,32 @@
     <span>© 2026 Farmacias Yair · Todos los derechos reservados</span>
   </div>
 </footer>
+<script>
+  document.querySelectorAll('.btn-add').forEach((button) => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.product-card');
+      const product = {
+        brand: card.querySelector('.brand-label')?.textContent.trim() || 'Farmacias Yair',
+        name: card.querySelector('.product-name')?.textContent.trim() || 'Producto seleccionado',
+        price: card.querySelector('.price-now')?.textContent.trim() || '',
+        source: 'Productos del dia',
+        page: 'Farmacia.html',
+        qty: 1
+      };
+
+      const currentCart = JSON.parse(localStorage.getItem('farmaciasYairCart') || '[]');
+      const existing = currentCart.find((item) => item.name === product.name && item.brand === product.brand);
+
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        currentCart.push(product);
+      }
+
+      localStorage.setItem('farmaciasYairCart', JSON.stringify(currentCart));
+      window.location.href = 'carrito.html';
+    });
+  });
+</script>
+</body>
+</html>
