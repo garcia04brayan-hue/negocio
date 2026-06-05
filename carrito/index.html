@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de compras | Farmacias Yair</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue-dark: #003087;
+      --blue-mid: #0057b8;
+      --blue-light: #e8f1ff;
+      --green: #00a651;
+      --green-dark: #007a3d;
+      --gold: #ffc400;
+      --white: #ffffff;
+      --gray: #e5eaf3;
+      --gray-light: #f5f7fb;
+      --text: #18304f;
+      --muted: #6d7c90;
+      --shadow: 0 12px 32px rgba(0, 48, 135, 0.12);
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--gray-light);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      background: var(--blue-dark);
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 3px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .brand span { color: var(--gold); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.88rem;
+      padding: 8px 13px;
+      border-radius: 20px;
+      transition: background 0.18s, color 0.18s;
+    }
+
+    nav a:hover, nav a.active {
+      background: rgba(255,255,255,0.13);
+      color: var(--white);
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(0,48,135,0.94), rgba(0,166,81,0.9)),
+        url("https://raw.githubusercontent.com/garcia04brayan-hue/negocio/main/farmacia_img.png");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 54px 24px 72px;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 28px;
+      align-items: end;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 660px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1rem;
+    }
+
+    .summary-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 16px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .summary-row strong {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.35rem;
+      color: var(--gold);
+    }
+
+    main {
+      max-width: 1180px;
+      margin: -42px auto 60px;
+      padding: 0 24px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--gray);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--gray);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .panel-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .panel-title span { color: var(--green); }
+
+    .cart-list {
+      display: grid;
+      gap: 12px;
+      padding: 18px 20px 20px;
+    }
+
+    .cart-empty {
+      color: var(--muted);
+      font-weight: 700;
+      padding: 10px 0;
+    }
+
+    .cart-item, .product-card {
+      border: 1px solid var(--gray);
+      border-radius: 12px;
+      background: var(--white);
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      padding: 14px;
+      align-items: center;
+    }
+
+    .item-brand, .product-brand {
+      color: var(--blue-mid);
+      font-weight: 900;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .item-name, .product-name {
+      font-weight: 900;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    .item-meta, .product-meta {
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border: none;
+      border-radius: 50%;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      font-size: 1.05rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .remove-btn {
+      border: none;
+      background: #fff1f1;
+      color: #b42318;
+      border-radius: 18px;
+      padding: 8px 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .toolbar {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--gray);
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 12px;
+    }
+
+    input, select {
+      width: 100%;
+      border: 2px solid var(--gray);
+      border-radius: 12px;
+      padding: 11px 13px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+    }
+
+    input:focus, select:focus { border-color: var(--green); }
+
+    .products-grid {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .product-card {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 190px;
+    }
+
+    .product-desc {
+      color: var(--muted);
+      font-size: 0.83rem;
+      flex: 1;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid var(--gray);
+      padding-top: 12px;
+    }
+
+    .price {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--green-dark);
+      font-weight: 900;
+    }
+
+    .add-product {
+      border: none;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--green), var(--blue-mid));
+      color: var(--white);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      padding: 9px 13px;
+      cursor: pointer;
+    }
+
+    .clear-btn {
+      border: none;
+      border-radius: 20px;
+      background: var(--blue-dark);
+      color: var(--white);
+      font-weight: 900;
+      padding: 9px 14px;
+      cursor: pointer;
+    }
+
+    .status {
+      padding: 0 20px 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .toolbar { grid-template-columns: 1fr; }
+      .cart-item { grid-template-columns: 1fr; }
+      main { padding: 0 14px; }
+      .hero { padding-inline: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="Farmacia.html" class="brand">Farmacias <span>Yair</span></a>
+      <nav>
+        <a href="Farmacia.html">Tienda</a>
+        <a href="menu_catalogos.html">Catalogos</a>
+        <a href="menu_blogs.html">Blogs</a>
+        <a href="carrito.html" class="active">Carrito</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>Carrito de compras</h1>
+        <p>Revisa tu pedido y explora los medicamentos y productos disponibles en las paginas del sitio.</p>
+      </div>
+      <div class="summary-card">
+        <div class="summary-row"><span>Productos en pedido</span><strong id="cartCount">0</strong></div>
+        <div class="summary-row"><span>Total estimado</span><strong id="cartTotal">$0.00</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Tu <span>pedido</span></div>
+          <div class="item-meta">Los productos agregados desde Farmacia.html aparecen aqui.</div>
+        </div>
+        <button class="clear-btn" id="clearCart">Vaciar carrito</button>
+      </div>
+      <div class="cart-list" id="cartList"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Productos <span>disponibles</span></div>
+          <div class="item-meta" id="inventoryCount">Cargando inventario...</div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="searchInput" placeholder="Buscar medicamento, marca o categoria">
+        <select id="sourceFilter">
+          <option value="">Todas las paginas</option>
+        </select>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+      <div class="status" id="inventoryStatus"></div>
+    </section>
+  </main>
+
+  <script>
+    const sourcePages = [
+      { file: 'Farmacia.html', label: 'Productos del dia' },
+      { file: 'farmacia_las_conchas.html', label: 'Sucursal Las Conchas' },
+      { file: 'catalogo_bebe.html', label: 'Bebes' },
+      { file: 'catalogo_bellesa.html', label: 'Belleza' },
+      { file: 'catalogo_natural.html', label: 'Natural' },
+      { file: 'catalogo_nutricion.html', label: 'Nutricion' },
+      { file: 'catalogo_auxilo.html', label: 'Primeros auxilios' },
+      { file: 'catalogo_mayor.html', label: 'Adulto mayor' },
+      { file: 'medicina_acidez.html', label: 'Medicina acidez' },
+      { file: 'medicina_gripa.html', label: 'Medicina gripa' },
+      { file: 'medicamentos_gratis.html', label: 'Medicamentos gratis' },
+      { file: 'medicamentos_los_limones.html', label: 'Los Limones' }
+    ];
+
+    const fallbackProducts = [
+      { brand: 'Bayer', name: 'Aspirina 500mg c/20 tabs', price: '42.00', source: 'Productos del dia', page: 'Farmacia.html' },
+      { brand: 'Neutrogena', name: 'Crema Hidratante SPF 50+', price: '189.00', source: 'Productos del dia', page: 'Farmacia.html' },
+      { brand: 'Generico Yair', name: 'Omeprazol 20mg c/30 caps', price: '58.00', source: 'Productos del dia', page: 'Farmacia.html' },
+      { brand: 'Benavides', name: 'Vitamina C 1000mg efervescente', price: '75.00', source: 'Productos del dia', page: 'Farmacia.html' },
+      { brand: 'L Oreal Paris', name: 'Serum Retinol Pure 30ml', price: '299.00', source: 'Productos del dia', page: 'Farmacia.html' },
+      { brand: 'Cetaphil', name: 'Locion Hidratante 250ml', price: '179.00', source: 'Productos del dia', page: 'Farmacia.html' },
+      { brand: 'Bioderma', name: 'Agua Micelar Sensibio 500ml', price: '259.00', source: 'Productos del dia', page: 'Farmacia.html' }
+    ];
+
+    const cartKey = 'farmaciasYairCart';
+    const cartList = document.getElementById('cartList');
+    const cartCount = document.getElementById('cartCount');
+    const cartTotal = document.getElementById('cartTotal');
+    const productsGrid = document.getElementById('productsGrid');
+    const sourceFilter = document.getElementById('sourceFilter');
+    const searchInput = document.getElementById('searchInput');
+    const inventoryCount = document.getElementById('inventoryCount');
+    const inventoryStatus = document.getElementById('inventoryStatus');
+    let inventory = [];
+
+    function money(value) {
+      const number = Number(String(value || '').replace(/[^0-9.]/g, ''));
+      return number ? `$${number.toFixed(2)}` : 'Consultar precio';
+    }
+
+    function readCart() {
+      return JSON.parse(localStorage.getItem(cartKey) || '[]');
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem(cartKey, JSON.stringify(cart));
+      renderCart();
+    }
+
+    function addToCart(product) {
+      const cart = readCart();
+      const existing = cart.find((item) => item.name === product.name && item.brand === product.brand);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+      saveCart(cart);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderCart() {
+      const cart = readCart();
+      const totalItems = cart.reduce((sum, item) => sum + Number(item.qty || 1), 0);
+      const total = cart.reduce((sum, item) => sum + (Number(String(item.price || '').replace(/[^0-9.]/g, '')) || 0) * Number(item.qty || 1), 0);
+
+      cartCount.textContent = totalItems;
+      cartTotal.textContent = `$${total.toFixed(2)}`;
+
+      if (!cart.length) {
+        cartList.innerHTML = '<div class="cart-empty">Tu carrito esta vacio. Agrega un producto desde la lista disponible.</div>';
+        return;
+      }
+
+      cartList.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+          <div>
+            <div class="item-brand">${item.brand}</div>
+            <div class="item-name">${item.name}</div>
+            <div class="item-meta">${item.source || 'Catalogo'} - ${money(item.price)} - Cantidad: ${item.qty || 1}</div>
+          </div>
+          <div class="qty-controls">
+            <button class="icon-btn" data-action="minus" data-index="${index}">-</button>
+            <strong>${item.qty || 1}</strong>
+            <button class="icon-btn" data-action="plus" data-index="${index}">+</button>
+            <button class="remove-btn" data-action="remove" data-index="${index}">Quitar</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    cartList.addEventListener('click', (event) => {
+      const button = event.target.closest('button[data-action]');
+      if (!button) return;
+
+      const cart = readCart();
+      const index = Number(button.dataset.index);
+      const action = button.dataset.action;
+
+      if (action === 'plus') cart[index].qty += 1;
+      if (action === 'minus') cart[index].qty = Math.max(1, cart[index].qty - 1);
+      if (action === 'remove') cart.splice(index, 1);
+
+      saveCart(cart);
+    });
+
+    document.getElementById('clearCart').addEventListener('click', () => saveCart([]));
+
+    function productFromCard(card, page) {
+      const name = card.querySelector('.product-name, .prod-name')?.textContent.trim();
+      if (!name) return null;
+
+      return {
+        brand: card.querySelector('.brand-label, .product-brand, .prod-brand')?.textContent.trim() || 'Farmacias Yair',
+        name,
+        price: card.querySelector('.price-now, .product-price')?.textContent.replace('$', '').trim() || '',
+        desc: card.querySelector('.product-desc, .prod-desc')?.textContent.trim() || '',
+        source: page.label,
+        page: page.file
+      };
+    }
+
+    async function loadInventory() {
+      const parser = new DOMParser();
+      const loaded = [];
+      const failed = [];
+
+      await Promise.all(sourcePages.map(async (page) => {
+        try {
+          const response = await fetch(page.file);
+          if (!response.ok) throw new Error('No disponible');
+          const html = await response.text();
+          const doc = parser.parseFromString(html, 'text/html');
+          doc.querySelectorAll('.product-card, .prod-card').forEach((card) => {
+            const product = productFromCard(card, page);
+            if (product) loaded.push(product);
+          });
+        } catch (error) {
+          failed.push(page.file);
+        }
+      }));
+
+      const byKey = new Map();
+      [...loaded, ...fallbackProducts].forEach((product) => {
+        const key = `${product.brand}|${product.name}`.toLowerCase();
+        if (!byKey.has(key)) byKey.set(key, product);
+      });
+
+      inventory = [...byKey.values()].sort((a, b) => a.name.localeCompare(b.name, 'es'));
+      buildSourceFilter();
+      renderInventory();
+
+      inventoryStatus.textContent = failed.length
+        ? `Se cargo el inventario disponible. Algunas paginas no pudieron leerse desde este entorno: ${failed.join(', ')}.`
+        : 'Inventario cargado desde todas las paginas disponibles.';
+    }
+
+    function buildSourceFilter() {
+      const sources = [...new Set(inventory.map((product) => product.source))].sort();
+      sourceFilter.innerHTML = '<option value="">Todas las paginas</option>' + sources.map((source) => `<option value="${source}">${source}</option>`).join('');
+    }
+
+    function renderInventory() {
+      const query = searchInput.value.trim().toLowerCase();
+      const source = sourceFilter.value;
+      const filtered = inventory.filter((product) => {
+        const haystack = `${product.brand} ${product.name} ${product.desc} ${product.source}`.toLowerCase();
+        return (!query || haystack.includes(query)) && (!source || product.source === source);
+      });
+
+      inventoryCount.textContent = `${filtered.length} productos encontrados`;
+      productsGrid.innerHTML = filtered.map((product, index) => `
+        <article class="product-card">
+          <div>
+            <div class="product-brand">${product.brand}</div>
+            <div class="product-name">${product.name}</div>
+            <div class="product-meta">${product.source} - ${product.page}</div>
+          </div>
+          <p class="product-desc">${product.desc || 'Disponible en catalogo. Consulta disponibilidad en sucursal.'}</p>
+          <div class="product-footer">
+            <span class="price">${money(product.price)}</span>
+            <button class="add-product" data-index="${index}">Agregar</button>
+          </div>
+        </article>
+      `).join('');
+
+      productsGrid.querySelectorAll('.add-product').forEach((button) => {
+        button.addEventListener('click', () => addToCart(filtered[Number(button.dataset.index)]));
+      });
+    }
+
+    searchInput.addEventListener('input', renderInventory);
+    sourceFilter.addEventListener('change', renderInventory);
+
+    renderCart();
+    loadInventory();
+  </script>
+</body>
+</html>
