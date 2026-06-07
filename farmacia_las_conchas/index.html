@@ -73,6 +73,14 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "¿Tienen medicamentos para la gripa, tos y fiebre en Las Conchas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Farmacias Yair Las Conchas cuenta con medicamentos para gripa (antigripales, paracetamol, ibuprofeno, descongestionantes), para tos (ambroxol, dextrometorfano, jarabes infantiles), y para fiebre. También hay medicamentos para diarrea, alergias, gastritis y primeros auxilios. Consulta disponibilidad por WhatsApp."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "¿Dónde comprar medicamentos en Las Conchas, Oaxaca?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -532,6 +540,107 @@
     .products { grid-template-columns: repeat(2, 1fr); }
     .categories { grid-template-columns: repeat(3, 1fr); }
   }
+
+  /* ── SECCIÓN ENFERMEDADES COMUNES ── */
+  .illness-section {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .illness-header {
+    padding: 1.4rem 1.4rem 0;
+  }
+  .illness-tabs {
+    display: flex; gap: 0.4rem; flex-wrap: wrap;
+    padding: 1rem 1.4rem 0;
+    border-bottom: 2px solid var(--border);
+  }
+  .illness-tab {
+    display: flex; align-items: center; gap: 6px;
+    padding: 0.5rem 1rem; border-radius: 20px 20px 0 0;
+    font-size: 0.82rem; font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer; border: none; background: var(--bg-light);
+    color: var(--text-mid); border: 1px solid var(--border);
+    border-bottom: none; transition: background 0.2s, color 0.2s;
+    position: relative; bottom: -2px;
+  }
+  .illness-tab:hover { background: var(--green-pale); color: var(--green); }
+  .illness-tab.active {
+    background: white; color: var(--green);
+    border-color: var(--border); border-bottom-color: white;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.04);
+  }
+  .illness-tab .tab-emoji { font-size: 1rem; }
+
+  .illness-panels { padding: 1.4rem; }
+  .illness-panel { display: none; }
+  .illness-panel.active { display: block; }
+
+  .illness-intro {
+    display: flex; align-items: flex-start; gap: 1rem;
+    background: var(--green-pale); border-radius: var(--radius-sm);
+    padding: 1rem 1.1rem; margin-bottom: 1.2rem;
+  }
+  .illness-intro-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; }
+  .illness-intro h3 { font-family: 'Poppins', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--green); margin-bottom: 0.2rem; }
+  .illness-intro p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.55; }
+
+  .illness-buttons {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .quick-buttons {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+  }
+  .quick-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green); color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem; font-weight: 700;
+    padding: 0.7rem 1.3rem; border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .quick-btn:hover {
+    background: var(--green-light);
+    box-shadow: 0 5px 16px rgba(46,125,50,0.35);
+    transform: translateY(-2px);
+  }
+  .quick-btn-outline {
+    background: transparent;
+    border: 2px solid var(--green);
+    color: var(--green);
+  }
+  .quick-btn-outline:hover { background: var(--green); color: white; }
+  @media (max-width: 480px) {
+    .quick-buttons { gap: 0.5rem; }
+    .quick-btn { font-size: 0.82rem; padding: 0.6rem 1rem; }
+  }
+  .illness-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green-pale);
+    border: 1.5px solid var(--green-mid);
+    color: var(--green);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem; font-weight: 700;
+    padding: 0.65rem 1.2rem; border-radius: 25px;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .illness-btn:hover {
+    background: var(--green); color: white;
+    box-shadow: 0 4px 14px rgba(46,125,50,0.3);
+    transform: translateY(-2px);
+  }
+  @media (max-width: 480px) {
+    .illness-buttons { gap: 0.5rem; }
+    .illness-btn { font-size: 0.82rem; padding: 0.55rem 1rem; }
+  }
 </style>
 </head>
 <body>
@@ -552,10 +661,10 @@
     <div class="sucursal-badge">📍 Sucursal Las Conchas</div>
 
     <nav>
-      <a href="https://www.farmaciasyair.com/menu_producto">Categorías</a>
-      <a href="https://www.farmaciasyair.com/catalogo_medicamentos">Genéricos</a>
-      <a href="https://www.farmaciasyair.com/catalogo_nautral">Natural</a>
-      <a href="https://www.farmaciasyair.com/" class="nav-main">🏠 Sede principal</a>
+      <a href="menu_catalogos.html">Categorías</a>
+      <a href="#enfermedades">Enfermedades</a>
+      <a href="catalogo_natural.html">Natural</a>
+      <a href="Farmacia.html" class="nav-main">🏠 Sede principal</a>
     </nav>
   </div>
 </header>
@@ -577,9 +686,9 @@
       <div class="hero-pill">📍 Sucursal Las Conchas · San Miguel Chimalapa</div>
       <h1>Medicamentos en Las Conchas, Chimalapa y San Miguel</h1>
       <div class="hero-location">📍 Las Conchas, San Miguel Chimalapa, Oaxaca · C.P. 70156</div>
-      <p>Farmacia Yair: la opción más cercana para comprar medicamentos en Las Conchas, medicamentos en Chimalapa y medicamentos en San Miguel. Genéricos, vitaminas y más a precios accesibles.</p>
+      <p>Farmacia Yair: la opción más cercana para comprar medicamentos en Las Conchas, Chimalapa y San Miguel. Medicamentos para gripa, tos, fiebre, estómago y alergias a precios accesibles.</p>
       <div class="hero-actions">
-        <a href="#productos" class="https://www.farmaciasyair.com/farmacia_las_conchas/farmacia_local_entrega_">Ver productos</a>
+        <a href="#enfermedades" class="btn-white">💊 Por enfermedad</a>
         <a href="#ubicacion" class="btn-ghost">📍 Cómo llegar</a>
       </div>
     </div>
@@ -655,35 +764,40 @@
         <div class="section-title">Lo que encontrarás <span>aquí</span></div>
         <div class="section-sub">Medicamentos en Las Conchas, San Miguel Chimalapa y Chimalapa</div>
       </div>
-      <a href="menu_catalogos.html" class="see-all">Catálogo completo →</a>
+      <a href="https://www.farmaciasyair.com/menu_catalogos" class="see-all">Catálogo completo →</a>
     </div>
     <div class="categories">
-      <a href="Farmacia.html#medicamentos" class="cat-card">
+      <a href="https://www.farmaciasyair.com/medicina_gripa" class="cat-card">
+        <div class="cat-icon">🤧</div>
+        <div class="cat-name">Gripa, Tos y Fiebre</div>
+        <div class="cat-count">+20 medicamentos</div>
+      </a>
+      <a href="https://www.farmaciasyair.com/catalogo_medicamentos" class="cat-card">
         <div class="cat-icon">💊</div>
         <div class="cat-name">Medicamentos Genéricos</div>
         <div class="cat-count">+80 productos</div>
       </a>
-      <a href="catalogo_natural.html" class="cat-card">
+      <a href="https://www.farmaciasyair.com/catalogo_natural" class="cat-card">
         <div class="cat-icon">🌿</div>
         <div class="cat-name">Naturistas</div>
         <div class="cat-count">+30 productos</div>
       </a>
-      <a href="catalogo_bebe.html" class="cat-card">
+      <a href="https://www.farmaciasyair.com/catalogo_bebes" class="cat-card">
         <div class="cat-icon">👶</div>
         <div class="cat-name">Bebés y Niños</div>
         <div class="cat-count">+25 productos</div>
       </a>
-      <a href="catalogo_bellesa.html" class="cat-card">
+      <a href="https://www.farmaciasyair.com/catalogo_bellesa" class="cat-card">
         <div class="cat-icon">🧴</div>
         <div class="cat-name">Cuidado Personal</div>
         <div class="cat-count">+20 productos</div>
       </a>
-      <a href="catalogo_auxilo.html" class="cat-card">
+      <a href="https://www.farmaciasyair.com/catalogo_auxilo" class="cat-card">
         <div class="cat-icon">🩺</div>
         <div class="cat-name">Primeros Auxilios</div>
         <div class="cat-count">+15 productos</div>
       </a>
-      <a href="blog_bucal.html" class="cat-card">
+      <a href="https://www.farmaciasyair.com/blog_bucal" class="cat-card">
         <div class="cat-icon">🦷</div>
         <div class="cat-name">Cuidado Bucal</div>
         <div class="cat-count">+10 productos</div>
@@ -691,122 +805,9 @@
     </div>
   </div>
 
-  <!-- PRODUCTOS DESTACADOS -->
-  <div id="productos">
-    <div class="section-header" style="margin-bottom:1rem;">
-      <div>
-        <div class="section-title">Productos <span>más pedidos</span></div>
-        <div class="section-sub">Los medicamentos más solicitados en Las Conchas, Chimalapa y San Miguel</div>
-      </div>
-    </div>
-    <div class="products">
 
-      <!-- 1 -->
-      <div class="product-card">
-        <span class="product-badge badge-green">Genérico</span>
-        <div class="product-img" style="background:#e8f5e9;">
-          <svg viewBox="0 0 72 72"><rect x="18" y="16" width="36" height="46" rx="8" fill="#4caf50"/><rect x="26" y="9"  width="20" height="11" rx="4" fill="#388e3c"/><text x="36" y="42" text-anchor="middle" font-size="7" fill="white" font-weight="bold">Omeprazol</text><text x="36" y="52" text-anchor="middle" font-size="5.5" fill="white" opacity="0.9">20mg</text></svg>
-        </div>
-        <div class="product-info">
-          <div class="product-brand">Genérico Yair</div>
-          <div class="product-name">Omeprazol 20mg c/30 cáps</div>
-          <div class="product-desc">Gastritis y reflujo.</div>
-          <div class="product-footer">
-            <span class="product-price">$58.00</span>
-            <button class="add-btn">+ Pedir</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="product-card">
-        <span class="product-badge badge-amber">Popular</span>
-        <div class="product-img" style="background:#fff8e1;">
-          <svg viewBox="0 0 72 72"><rect x="14" y="16" width="44" height="44" rx="7" fill="#ff9800"/><text x="36" y="35" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">ASPIRI-</text><text x="36" y="44" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">NA 500</text><text x="36" y="52" text-anchor="middle" font-size="5" fill="white" opacity="0.85">c/20 tabs</text></svg>
-        </div>
-        <div class="product-info">
-          <div class="product-brand">Bayer</div>
-          <div class="product-name">Aspirina 500mg c/20 tabs</div>
-          <div class="product-desc">Analgésico y antipirético.</div>
-          <div class="product-footer">
-            <span class="product-price">$42.00</span>
-            <button class="add-btn">+ Pedir</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="product-card">
-        <span class="product-badge badge-green">Genérico</span>
-        <div class="product-img" style="background:#e8f5e9;">
-          <svg viewBox="0 0 72 72"><rect x="20" y="16" width="32" height="44" rx="8" fill="#66bb6a"/><rect x="27" y="9"  width="18" height="11" rx="4" fill="#43a047"/><text x="36" y="42" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">Ambroxol</text><text x="36" y="52" text-anchor="middle" font-size="5" fill="white" opacity="0.9">30mg/5ml</text></svg>
-        </div>
-        <div class="product-info">
-          <div class="product-brand">Genérico Yair</div>
-          <div class="product-name">Ambroxol Jarabe 120ml</div>
-          <div class="product-desc">Tos con flema. Adultos y niños.</div>
-          <div class="product-footer">
-            <span class="product-price">$48.00</span>
-            <button class="add-btn">+ Pedir</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="product-card">
-        <div class="product-img" style="background:#e3f2fd;">
-          <svg viewBox="0 0 72 72"><ellipse cx="36" cy="36" rx="22" ry="13" fill="#1e88e5" transform="rotate(-30 36 36)"/><rect x="26" y="30" width="20" height="12" rx="6" fill="#90caf9" transform="rotate(-30 36 36)"/><line x1="26" y1="36" x2="46" y2="36" stroke="white" stroke-width="2.5" transform="rotate(-30 36 36)"/></svg>
-        </div>
-        <div class="product-info">
-          <div class="product-brand">Genérico Yair</div>
-          <div class="product-name">Loratadina 10mg c/30 tabs</div>
-          <div class="product-desc">Antihistamínico. Alergias y rinitis.</div>
-          <div class="product-footer">
-            <span class="product-price">$39.00</span>
-            <button class="add-btn">+ Pedir</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="product-card">
-        <span class="product-badge badge-amber">Oferta</span>
-        <div class="product-img" style="background:#fff8e1;">
-          <svg viewBox="0 0 72 72"><rect x="16" y="14" width="40" height="50" rx="8" fill="#ffa726"/><rect x="23" y="7" width="26" height="12" rx="4" fill="#f57c00"/><text x="36" y="38" text-anchor="middle" font-size="6" fill="white" font-weight="bold">Vit. C</text><text x="36" y="47" text-anchor="middle" font-size="5" fill="white">1000mg</text><text x="36" y="55" text-anchor="middle" font-size="5" fill="white" opacity="0.9">Efer. c/10</text></svg>
-        </div>
-        <div class="product-info">
-          <div class="product-brand">Benavides</div>
-          <div class="product-name">Vitamina C 1000mg Efervescente c/10</div>
-          <div class="product-desc">Refuerza el sistema inmune.</div>
-          <div class="product-footer">
-            <div>
-              <span class="product-price-old">$85.00</span>
-              <span class="product-price">$75.00</span>
-            </div>
-            <button class="add-btn">+ Pedir</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="product-card">
-        <span class="product-badge badge-purple">Infantil</span>
-        <div class="product-img" style="background:#f3e5f5;">
-          <svg viewBox="0 0 72 72"><rect x="18" y="14" width="36" height="50" rx="8" fill="#9c27b0"/><rect x="25" y="7" width="22" height="11" rx="4" fill="#6a1b9a"/><text x="36" y="40" text-anchor="middle" font-size="6.5" fill="white" font-weight="bold">Jarabe</text><text x="36" y="50" text-anchor="middle" font-size="5.5" fill="white" opacity="0.9">Niños</text></svg>
-        </div>
-        <div class="product-info">
-          <div class="product-brand">Pediakid</div>
-          <div class="product-name">Jarabe Pediátrico Tos 150ml</div>
-          <div class="product-desc">Sin alcohol. Bebés y niños.</div>
-          <div class="product-footer">
-            <span class="product-price">$98.00</span>
-            <button class="add-btn">+ Pedir</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
+    </div><!-- end illness-panels -->
+  </div><!-- end illness-section -->
 
   <!-- UBICACIÓN Y MAPA -->
   <div class="map-section" id="ubicacion">
@@ -896,7 +897,7 @@
       <h3>🏠 ¿Buscas más productos?</h3>
       <p>Esta sucursal tiene un catálogo seleccionado. Para la tienda completa con todos los productos, ofertas del día y envíos a México, visita nuestra sede principal en La Ventosa.</p>
     </div>
-    <a href="Farmacia.html" class="banner-link">Ir a la tienda principal →</a>
+    <a href="https://www.farmaciasyair.com/" class="banner-link">Ir a la tienda principal →</a>
   </div>
 
   <!-- TESTIMONIOS -->
@@ -931,6 +932,14 @@
     <div class="section-title">Preguntas frecuentes sobre <span>medicamentos en Las Conchas y Chimalapa</span></div>
     <p class="faq-intro">Respuestas para quienes buscan medicamentos en Las Conchas, medicamentos en Chimalapa o medicamentos en San Miguel Chimalapa. Farmacias Yair está aquí para ti.</p>
     <div class="faq-grid">
+      <div class="faq-card">
+        <h4>¿Tienen medicamentos para la gripa y tos?</h4>
+        <p>Sí. Contamos con antigripales, jarabes para tos (ambroxol, dextrometorfano), paracetamol, ibuprofeno y descongestionantes. También hay presentaciones infantiles. Consulta la sección "Medicamentos por enfermedad" en esta misma página.</p>
+      </div>
+      <div class="faq-card">
+        <h4>¿Qué medicamento me recomiendan para la diarrea?</h4>
+        <p>Para diarrea aguda, lo más importante es la rehidratación oral (sales de rehidratación). También contamos con loperamida, buscapina para cólicos y metronidazol para infecciones intestinales (este último con receta). Te asesoramos en la farmacia.</p>
+      </div>
       <div class="faq-card">
         <h4>¿Dónde comprar medicamentos en Las Conchas?</h4>
         <p>Farmacias Yair Sucursal Las Conchas se ubica en Las Conchas, San Miguel Chimalapa, Oaxaca, C.P. 70156. Es la farmacia más cercana de la comunidad con amplio surtido de genéricos. Puedes abrir la ubicación desde el mapa de esta página.</p>
@@ -993,22 +1002,21 @@
     <div>
       <h5>Categorías</h5>
       <ul>
-        <li><a href="Farmacia.html#medicamentos">Genéricos</a></li>
-        <li><a href="catalogo_bebe.html">Bebés</a></li>
-        <li><a href="catalogo_bellesa.html">Dermocosméticos</a></li>
-        <li><a href="catalogo_natural.html">Natural</a></li>
-        <li><a href="catalogo_auxilo.html">Primeros auxilios</a></li>
-        <li><a href="blog_bucal.html">Cuidado bucal</a></li>
+        <li><a href="https://www.farmaciasyair.com/">Genéricos</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_bebe">Bebés</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_bellesa">Dermocosméticos</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_natural">Natural</a></li>
+        <li><a href="https://www.farmaciasyair.com/catalogo_auxilo">Primeros auxilios</a></li>
+        <li><a href="https://www.farmaciasyair.com/blog_bucal">Cuidado bucal</a></li>
       </ul>
     </div>
     <div>
       <h5>Links útiles</h5>
       <ul>
-        <li><a href="Farmacia.html">Sede principal</a></li>
-        <li><a href="menu_blogs.html">Blogs de salud</a></li>
-        <li><a href="menu_catalogos.html">Catálogos</a></li>
-        <li><a href="blog_natural.html">Naturales</a></li>
-        <li><a href="#preguntas-frecuentes">Preguntas frecuentes</a></li>
+        <li><a href="https://www.farmaciasyair.com/">Sede principal</a></li>
+        <li><a href="https://www.farmaciasyair.com//menu_blogs">Blogs de salud</a></li>
+        <li><a href="https://www.farmaciasyair.com/menu_catalogos">Catálogos</a></li>
+        <li><a href="https://www.farmaciasyair.com/blog_natural">Naturales</a></li>
       </ul>
     </div>
   </div>
@@ -1017,5 +1025,15 @@
   </div>
 </footer>
 
+<script>
+function showIllness(id) {
+  // Hide all panels
+  document.querySelectorAll('.illness-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.illness-tab').forEach(t => t.classList.remove('active'));
+  // Show selected
+  document.getElementById('panel-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
 </body>
 </html>
